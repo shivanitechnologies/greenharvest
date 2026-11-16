@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Organic Shopping Cart | GreenHarvest</title>
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+  <meta name="description" content="Review your selected fresh organic produce, calculate shipping, apply promotional discount coupons, and proceed to secure checkout.">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            forest: '#315C3B',
+            gold: '#D6A85F',
+            cream: { DEFAULT: '#FBF9F5', surface: '#F4EFEA', card: '#FFFFFF' },
+            charcoal: { DEFAULT: '#121614', surface: '#1A211D', card: '#222B25', border: '#2F3B33' }
+          },
+          fontFamily: {
+            heading: ['Poppins', 'sans-serif'],
+            body: ['Inter', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-[#FBF9F5] dark:bg-[#121614] text-[#1A3320] dark:text-[#F3F4F6] font-body transition-colors duration-300">
+
+  <!-- ANNOUNCEMENT BAR -->
+  <div class="announcement-bar bg-[#315C3B] text-white text-xs py-2 px-4 text-center font-medium relative z-50">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      <div class="hidden md:flex items-center gap-2">
+        <span class="inline-block w-2 h-2 rounded-full bg-[#D6A85F]"></span>
+        <span>Secure Organic Checkout</span>
+      </div>
+      <div class="mx-auto md:mx-0">
+        <span>ðŸŒ¿ Free Next-Day Delivery on orders over $35 • Code: <strong class="text-[#D6A85F]">ORGANIC10</strong> for 10% Off</span>
+      </div>
+      <div class="hidden md:flex items-center gap-4">
+        <a href="products.html" class="hover:text-[#D6A85F]">Continue Shopping</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <header class="sticky top-0 z-40 bg-white/95 dark:bg-[#121614]/95 border-b border-gray-100 dark:border-gray-800 transition-all duration-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20 gap-4">
+
+        <button id="mobile-menu-open-btn" class="lg:hidden p-2 text-gray-700 dark:text-gray-200" aria-label="Open Menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+        </button>
+
+        <a href="index.html" class="flex items-center gap-3 flex-shrink-0">
+          <div class="w-10 h-10 rounded-xl bg-[#315C3B] flex items-center justify-center text-white shadow-sm">
+            <svg class="w-6 h-6 text-[#D6A85F]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
+          </div>
+          <div class="flex flex-col">
+            <span class="font-heading font-bold text-xl tracking-tight text-[#315C3B] dark:text-white leading-none">GreenHarvest</span>
+            <span class="text-[10px] font-medium text-[#D6A85F] tracking-widest uppercase mt-0.5 hidden sm:block">Fresh • Organic • Healthy</span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation with Hover Dropdown for Home -->
+        <nav class="hidden lg:flex items-center space-x-6 xl:space-x-8 text-sm font-medium">
+          <!-- Home Hover Dropdown -->
+          <div class="relative group py-2">
+            <button class="flex items-center gap-1.5 text-gray-700 dark:text-gray-200 hover:text-[#315C3B] dark:hover:text-[#D6A85F] font-medium transition-colors focus:outline-none">
+              <span>Home</span>
+              <svg class="w-4 h-4 text-gray-400 group-hover:text-[#315C3B] dark:group-hover:text-[#D6A85F] transition-transform duration-200 group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </button>
+            <div class="absolute top-full left-0 pt-2 w-72 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 transform translate-y-1 group-hover:translate-y-0">
+              <div class="bg-white dark:bg-[#1A211D] rounded-2xl shadow-xl border border-gray-100 dark:border-gray-800 p-2.5 space-y-1">
+                <a href="index.html" class="flex items-start gap-3 p-3 rounded-xl hover:bg-emerald-50/70 dark:hover:bg-gray-800/80 transition-colors group/item">
+                  <div class="w-8 h-8 rounded-lg bg-emerald-100 dark:bg-emerald-950/60 text-[#315C3B] dark:text-[#8FD69E] flex items-center justify-center font-bold text-xs flex-shrink-0 group-hover/item:scale-105 transition-transform">
+                    01
+                  </div>
+                  <div>
+                    <div class="text-xs font-bold text-gray-900 dark:text-white flex items-center gap-2">
+                      Home 1
+                      <span class="text-[9px] font-semibold px-1.5 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-900/40 text-emerald-800 dark:text-emerald-300">Classic</span>
+                    </div>
+                    <div class="text-[11px] text-gray-500 dark:text-gray-400 mt-0.5">Classic Organic Store & Daily Harvest</div>
+                  </div>
+                </a>
+                <a href="home-2.html" class="flex items-start gap-3 p-3 rounded-xl hover:bg-amber-50/70 dark:hover:bg-gray-800/80 transition-colors group/item">
+                  <div class="w-8 h-8 rounded-lg bg-amber-100 dark:bg-amber-950/60 text-[#D6A85F] flex items-center justify-center font-bold text-xs flex-shrink-0 group-hover/item:scale-105 transition-transform">
+                    02
+                  </div>
+                  <div>
+                    <div class="text-xs font-bold text-gray-900 dark:text-white flex items-center gap-2">
+                      Home 2
+                      <span class="text-[9px] font-semibold px-1.5 py-0.5 rounded-full bg-amber-100 dark:bg-amber-900/40 text-amber-800 dark:text-amber-300">Editorial</span>
+                    </div>
+                    <div class="text-[11px] text-gray-500 dark:text-gray-400 mt-0.5">Premium Experience & Farm Story</div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <a href="about.html" class="text-gray-700 dark:text-gray-200 hover:text-[#315C3B] dark:hover:text-[#D6A85F] transition-colors">About</a>
+          <a href="products.html" class="text-gray-700 dark:text-gray-200 hover:text-[#315C3B] dark:hover:text-[#D6A85F] transition-colors">Products</a>
+          <a href="why-organic.html" class="text-gray-700 dark:text-gray-200 hover:text-[#315C3B] dark:hover:text-[#D6A85F] transition-colors">Why Organic</a>
+          <a href="delivery-info.html" class="text-gray-700 dark:text-gray-200 hover:text-[#315C3B] dark:hover:text-[#D6A85F] transition-colors">Delivery Info</a>
+          <a href="contact.html" class="text-gray-700 dark:text-gray-200 hover:text-[#315C3B] dark:hover:text-[#D6A85F] transition-colors">Contact</a>
+        </nav>
+
+        <div class="flex items-center gap-2 sm:gap-3">
+          <a href="wishlist.html" class="relative p-2 text-gray-600 dark:text-gray-300 hover:text-[#315C3B] rounded-lg">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+            <span class="wishlist-count-badge hidden absolute top-0.5 right-0.5 w-4 h-4 bg-red-500 text-white text-[10px] font-bold rounded-full flex items-center justify-center">0</span>
+          </a>
+          <a href="cart.html" class="relative p-2 text-[#315C3B] dark:text-[#D6A85F] rounded-lg">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg>
+            <span class="cart-count-badge hidden absolute top-0.5 right-0.5 w-4 h-4 bg-[#315C3B] text-white text-[10px] font-bold rounded-full flex items-center justify-center">0</span>
+          </a>
+          <button type="button" onclick="toggleTheme()" class="theme-toggle-btn p-2 text-gray-600 dark:text-gray-300 hover:text-[#315C3B] rounded-lg" aria-label="Toggle Theme">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+          </button>
+          <button type="button" onclick="toggleRTL()" class="rtl-toggle-btn px-2 py-1 text-gray-600 dark:text-gray-300 border border-gray-200 dark:border-gray-700 rounded-lg text-xs font-semibold">
+            <span>RTL</span>
+          </button>
+          <div id="header-auth-container"></div>
+          <div class="hidden sm:flex items-center">
+            <a href="products.html" class="btn-primary !min-h-[42px] !py-2 !px-5 text-xs font-semibold">Shop Store</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- MOBILE NAVIGATION DRAWER -->
+  <div id="mobile-menu-backdrop" class="fixed inset-0 bg-black/50 z-50 hidden transition-opacity"></div>
+  <aside id="mobile-menu-drawer" class="fixed top-0 left-0 w-80 max-w-[85vw] h-full bg-white dark:bg-[#121614] z-50 -translate-x-full transition-transform duration-300 shadow-2xl flex flex-col p-6">
+    <div class="flex items-center justify-between pb-4 border-b border-gray-100 dark:border-gray-800">
+      <div class="flex items-center gap-2">
+        <div class="w-8 h-8 rounded-lg bg-[#315C3B] flex items-center justify-center text-[#D6A85F]">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/></svg>
+        </div>
+        <span class="font-heading font-bold text-lg text-[#315C3B] dark:text-white">GreenHarvest</span>
+      </div>
+      <button id="mobile-menu-close-btn" class="p-1 text-gray-500 hover:text-red-500"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></button>
+    </div>
+    <nav class="flex flex-col space-y-3 py-6 text-base font-medium">
+      <div class="border-b border-gray-100 dark:border-gray-800 pb-3">
+        <span class="text-[10px] font-bold text-[#D6A85F] uppercase tracking-wider block mb-2">Home Layouts</span>
+        <div class="pl-2 space-y-2">
+          <a href="index.html" class="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300 hover:text-[#315C3B]">
+            <span class="w-1.5 h-1.5 rounded-full bg-gray-300 dark:bg-gray-700"></span>
+            <span>Home 1 (Classic Store)</span>
+          </a>
+          <a href="home-2.html" class="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300 hover:text-[#315C3B]">
+            <span class="w-1.5 h-1.5 rounded-full bg-gray-300 dark:bg-gray-700"></span>
+            <span>Home 2 (Premium Editorial)</span>
+          </a>
+        </div>
+      </div>
+      <a href="about.html" class="text-gray-700 dark:text-gray-300 hover:text-[#315C3B]">About Us</a>
+      <a href="products.html" class="text-gray-700 dark:text-gray-300 hover:text-[#315C3B]">Products</a>
+      <a href="why-organic.html" class="text-gray-700 dark:text-gray-300 hover:text-[#315C3B]">Why Organic</a>
+      <a href="delivery-info.html" class="text-gray-700 dark:text-gray-300 hover:text-[#315C3B]">Delivery Info</a>
+      <a href="contact.html" class="text-gray-700 dark:text-gray-300 hover:text-[#315C3B]">Contact</a>
+    </nav>
+    <div class="mt-auto pt-6 border-t border-gray-100 dark:border-gray-800 space-y-3">
+      <a href="products.html" class="btn-primary w-full text-center">Shop Now</a>
+    </div>
+  </aside>
+
+  <!-- CART CONTAINER -->
+  <section class="py-12 md:py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="mb-8">
+        <h1 class="font-heading font-bold text-3xl sm:text-4xl text-gray-900 dark:text-white">
+          Your Organic Shopping Cart
+        </h1>
+        <p class="text-xs sm:text-sm text-gray-500 dark:text-gray-400 mt-1">
+          Review your items, apply promo codes, and enjoy fresh delivery.
+        </p>
+      </div>
+
+      <!-- EMPTY CART VIEW -->
+      <div id="cart-empty-view" class="hidden text-center py-20 bg-white dark:bg-[#222B25] rounded-3xl border border-gray-100 dark:border-gray-800 p-8 space-y-4">
+        <div class="w-20 h-20 rounded-full bg-[#F4EFEA] dark:bg-gray-800 text-[#315C3B] dark:text-[#D6A85F] mx-auto flex items-center justify-center">
+          <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg>
+        </div>
+        <h2 class="font-heading font-bold text-2xl text-gray-900 dark:text-white">Your Cart is Currently Empty</h2>
+        <p class="text-xs sm:text-sm text-gray-500 max-w-sm mx-auto">
+          You haven't added any certified organic harvest or pantry essentials yet.
+        </p>
+        <div class="pt-2">
+          <a href="products.html" class="btn-primary text-xs">Explore Fresh Produce</a>
+        </div>
+      </div>
+
+      <!-- FILLED CART VIEW -->
+      <div id="cart-filled-view" class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        
+        <!-- Cart Items List (8 cols) -->
+        <div class="lg:col-span-8 space-y-4">
+          
+          <div class="flex items-center justify-between text-xs text-gray-400 pb-2 border-b border-gray-200/80 dark:border-gray-800">
+            <span>Product Details & Unit</span>
+            <span class="hidden sm:inline">Quantity & Price</span>
+          </div>
+
+          <!-- Items Rows Container -->
+          <div id="cart-items-container" class="space-y-3">
+            <!-- Injected by cart.js -->
+          </div>
+
+          <div class="flex items-center justify-between pt-4">
+            <a href="products.html" class="inline-flex items-center text-xs font-semibold text-[#315C3B] dark:text-[#D6A85F] hover:underline">
+              ←  Add More Items From Store
+            </a>
+            <button onclick="localStorage.removeItem('greenharvest_cart'); renderCartPage(); updateCartBadges(); showToast('Cart cleared');" class="text-xs text-red-500 hover:underline">
+              Clear Shopping Cart
+            </button>
+          </div>
+        </div>
+
+        <!-- Order Summary & Checkout Card (4 cols) -->
+        <div class="lg:col-span-4 space-y-6">
+          <div class="bg-white dark:bg-[#222B25] p-6 rounded-3xl border border-gray-100 dark:border-gray-800 shadow-sm space-y-5">
+            <h3 class="font-heading font-bold text-lg text-gray-900 dark:text-white pb-3 border-b border-gray-100 dark:border-gray-800">
+              Order Summary
+            </h3>
+
+            <!-- Price Breakdown -->
+            <div class="space-y-3 text-xs sm:text-sm">
+              <div class="flex justify-between text-gray-600 dark:text-gray-300">
+                <span>Subtotal</span>
+                <span id="cart-subtotal" class="font-bold text-gray-900 dark:text-white">$0.00</span>
+              </div>
+
+              <div id="cart-discount-row" class="hidden flex justify-between text-emerald-600 dark:text-emerald-400 font-medium">
+                <span>Promo Discount</span>
+                <span id="cart-discount-val">-$0.00</span>
+              </div>
+
+              <div class="flex justify-between text-gray-600 dark:text-gray-300">
+                <span>Estimated Doorstep Delivery</span>
+                <span id="cart-delivery" class="font-bold text-gray-900 dark:text-white">$3.99</span>
+              </div>
+
+              <div class="flex justify-between text-gray-600 dark:text-gray-300">
+                <span>Estimated Tax (5%)</span>
+                <span id="cart-tax" class="font-bold text-gray-900 dark:text-white">$0.00</span>
+              </div>
+
+              <div class="pt-3 border-t border-gray-100 dark:border-gray-800 flex justify-between text-base font-bold text-[#315C3B] dark:text-[#D6A85F] font-heading">
+                <span>Total Amount</span>
+                <span id="cart-total" class="text-xl">$0.00</span>
+              </div>
+            </div>
+
+            <!-- Coupon Code Entry -->
+            <div class="pt-2 border-t border-gray-100 dark:border-gray-800 space-y-2">
+              <label for="cart-coupon-input" class="text-xs font-semibold text-gray-700 dark:text-gray-300 block">
+                Have a Promo Voucher?
+              </label>
+              <div class="flex items-center gap-2">
+                <input 
+                  id="cart-coupon-input" 
+                  type="text" 
+                  placeholder="e.g. ORGANIC10 or HARVEST20" 
+                  class="px-3 py-2 rounded-xl border border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-[#1A211D] text-xs flex-grow uppercase focus:outline-none focus:border-[#315C3B]"
+                >
+                <button 
+                  type="button" 
+                  onclick="applyCouponCode(document.getElementById('cart-coupon-input').value)" 
+                  class="btn-secondary !min-h-[36px] !py-1 !px-3 text-xs font-bold"
+                >
+                  Apply
+                </button>
+              </div>
+              <div id="active-coupon-badge" class="hidden pt-1"></div>
+            </div>
+
+            <!-- Proceed to Checkout Button -->
+            <div class="pt-2">
+              <a href="checkout.html" class="btn-primary w-full text-center text-sm font-semibold !min-h-[48px]">
+                <span>Proceed to Checkout</span>
+                <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+              </a>
+            </div>
+
+            <!-- Trust Features in Cart -->
+            <div class="pt-4 border-t border-gray-100 dark:border-gray-800 space-y-2 text-[11px] text-gray-400">
+              <div class="flex items-center gap-2">
+                <span class="text-emerald-500 font-bold">✓</span>
+                <span>Chilled thermal boxes ensure peak farm freshness</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="text-emerald-500 font-bold">✓</span>
+                <span>100% money back guarantee if bruised in transit</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-[#121614] text-gray-300 border-t border-[#2F3B33] pt-14 pb-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 pb-10 border-b border-gray-800 text-xs">
+        <div class="space-y-3">
+          <div class="font-heading font-bold text-lg text-white">GreenHarvest</div>
+          <p class="text-gray-400">Pokusa for Health brand initiative. Delivering verified 100% certified organic foods.</p>
+        </div>
+        <div>
+          <h4 class="font-heading font-semibold text-white mb-3">Shop Curations</h4>
+          <ul class="space-y-1.5 text-gray-400">
+            <li><a href="products.html?category=Fresh+Fruits" class="hover:text-white">Fresh Fruits</a></li>
+            <li><a href="products.html?category=Vegetables" class="hover:text-white">Vegetables</a></li>
+            <li><a href="products.html?category=Natural+Oils" class="hover:text-white">Cold-Pressed Oils</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-heading font-semibold text-white mb-3">Integrity</h4>
+          <ul class="space-y-1.5 text-gray-400">
+            <li><a href="about.html" class="hover:text-white">Our Story</a></li>
+            <li><a href="why-organic.html" class="hover:text-white">Why Organic</a></li>
+            <li><a href="delivery-info.html" class="hover:text-white">Delivery Policy</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-heading font-semibold text-white mb-3">Customer Support</h4>
+          <p class="text-gray-400">742 Evergreen Orchard Way, Green Valley, CA</p>
+          <p class="text-white mt-1">+1 (800) 473-3642</p>
+        </div>
+      </div>
+      <div class="pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-500">
+        <p>© 2026 GreenHarvest (Pokusa for Health). All rights reserved.</p>
+        <div class="flex gap-4 mt-2 sm:mt-0">
+          <a href="index.html">Home</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div id="toast-container"></div>
+
+  <!-- Scripts -->
+  <script src="assets/js/products.js"></script>
+  <script src="assets/js/cart.js"></script>
+  <script src="assets/js/wishlist.js"></script>
+  <script src="assets/js/auth.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

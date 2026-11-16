@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Organic Products & Farm Harvest | GreenHarvest</title>
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+  <meta name="description"
+    content="Shop fresh organic vegetables, fruits, cold pressed cooking oils, heirloom pulses, grains, and raw forest honey directly from certified regenerative farms.">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            forest: '#315C3B',
+            gold: '#D6A85F',
+            cream: { DEFAULT: '#FBF9F5', surface: '#F4EFEA', card: '#FFFFFF' },
+            charcoal: { DEFAULT: '#121614', surface: '#1A211D', card: '#222B25', border: '#2F3B33' }
+          },
+          fontFamily: {
+            heading: ['Poppins', 'sans-serif'],
+            body: ['Inter', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body
+  class="bg-[#FBF9F5] dark:bg-[#121614] text-[#1A3320] dark:text-[#F3F4F6] font-body transition-colors duration-300">
+
+  <!-- ANNOUNCEMENT BAR -->
+  <div class="announcement-bar bg-[#315C3B] text-white text-xs py-2 px-4 text-center font-medium relative z-50">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      <div class="hidden md:flex items-center gap-2">
+        <span class="inline-block w-2 h-2 rounded-full bg-[#D6A85F]"></span>
+        <span>100% Certified Organic & Non-GMO Guarantee</span>
+      </div>
+      <div class="mx-auto md:mx-0">
+        <span>ðŸŒ¿ Free Delivery on grocery orders over $35 • Use Code <strong
+            class="text-[#D6A85F]">ORGANIC10</strong></span>
+      </div>
+      <div class="hidden md:flex items-center gap-4">
+        <a href="delivery-info.html" class="hover:text-[#D6A85F]">Delivery PIN Checker</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <header
+    class="sticky top-0 z-40 bg-white/95 dark:bg-[#121614]/95 border-b border-gray-100 dark:border-gray-800 transition-all duration-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20 gap-4">
+
+        <button id="mobile-menu-open-btn" class="lg:hidden p-2 text-gray-700 dark:text-gray-200" aria-label="Open Menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+
+        <a href="index.html" class="flex items-center gap-3 flex-shrink-0">
+          <div class="w-10 h-10 rounded-xl bg-[#315C3B] flex items-center justify-center text-white shadow-sm">
+            <svg class="w-6 h-6 text-[#D6A85F]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z" />
+              <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12" />
+            </svg>
+          </div>
+          <div class="flex flex-col">
+            <span
+              class="font-heading font-bold text-xl tracking-tight text-[#315C3B] dark:text-white leading-none">GreenHarvest</span>
+            <span class="text-[10px] font-medium text-[#D6A85F] tracking-widest uppercase mt-0.5 hidden sm:block">Fresh
+              • Organic • Healthy</span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation with Hover Dropdown for Home -->
+        <nav class="hidden lg:flex items-center space-x-6 xl:space-x-8 text-sm font-medium">
+          <!-- Home Hover Dropdown -->
+          <div class="relative group py-2">
+            <button
+              class="flex items-center gap-1.5 text-gray-700 dark:text-gray-200 hover:text-[#315C3B] dark:hover:text-[#D6A85F] font-semibold transition-colors focus:outline-none">
+              <span>Home</span>
+              <svg
+                class="w-4 h-4 text-gray-400 group-hover:text-[#315C3B] dark:group-hover:text-[#D6A85F] transition-transform duration-200 group-hover:rotate-180"
+                fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div
+              class="absolute top-full left-0 pt-2 w-72 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 transform translate-y-1 group-hover:translate-y-0">
+              <div
+                class="bg-white dark:bg-[#1A211D] rounded-2xl shadow-xl border border-gray-100 dark:border-gray-800 p-2.5 space-y-1">
+                <a href="index.html"
+                  class="flex items-start gap-3 p-3 rounded-xl hover:bg-emerald-50/70 dark:hover:bg-gray-800/80 transition-colors group/item">
+                  <div
+                    class="w-8 h-8 rounded-lg bg-emerald-100 dark:bg-emerald-950/60 text-[#315C3B] dark:text-[#8FD69E] flex items-center justify-center font-bold text-xs flex-shrink-0 group-hover/item:scale-105 transition-transform">
+                    01
+                  </div>
+                  <div>
+                    <div class="text-xs font-bold text-gray-900 dark:text-white flex items-center gap-2">
+                      Home 1
+                      <span
+                        class="text-[9px] font-semibold px-1.5 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-900/40 text-emerald-800 dark:text-emerald-300">Classic</span>
+                    </div>
+                    <div class="text-[11px] text-gray-500 dark:text-gray-400 mt-0.5">Classic Organic Store & Daily
+                      Harvest</div>
+                  </div>
+                </a>
+                <a href="home-2.html"
+                  class="flex items-start gap-3 p-3 rounded-xl hover:bg-amber-50/70 dark:hover:bg-gray-800/80 transition-colors group/item">
+                  <div
+                    class="w-8 h-8 rounded-lg bg-amber-100 dark:bg-amber-950/60 text-[#D6A85F] flex items-center justify-center font-bold text-xs flex-shrink-0 group-hover/item:scale-105 transition-transform">
+                    02
+                  </div>
+                  <div>
+                    <div class="text-xs font-bold text-gray-900 dark:text-white flex items-center gap-2">
+                      Home 2
+                      <span
+                        class="text-[9px] font-semibold px-1.5 py-0.5 rounded-full bg-amber-100 dark:bg-amber-900/40 text-amber-800 dark:text-amber-300">Editorial</span>
+                    </div>
+                    <div class="text-[11px] text-gray-500 dark:text-gray-400 mt-0.5">Premium Experience & Farm Story
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <a href="about.html"
+            class="text-gray-700 dark:text-gray-200 hover:text-[#315C3B] dark:hover:text-[#D6A85F] transition-colors">About</a>
+          <a href="products.html" class="text-[#315C3B] dark:text-[#D6A85F] font-semibold">Products</a>
+          <a href="why-organic.html"
+            class="text-gray-700 dark:text-gray-200 hover:text-[#315C3B] dark:hover:text-[#D6A85F] transition-colors">Why
+            Organic</a>
+          <a href="delivery-info.html"
+            class="text-gray-700 dark:text-gray-200 hover:text-[#315C3B] dark:hover:text-[#D6A85F] transition-colors">Delivery
+            Info</a>
+          <a href="contact.html"
+            class="text-gray-700 dark:text-gray-200 hover:text-[#315C3B] dark:hover:text-[#D6A85F] transition-colors">Contact</a>
+        </nav>
+
+        <div class="flex items-center gap-2 sm:gap-3">
+          <a href="wishlist.html" class="relative p-2 text-gray-600 dark:text-gray-300 hover:text-[#315C3B] rounded-lg">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z">
+              </path>
+            </svg>
+            <span
+              class="wishlist-count-badge hidden absolute top-0.5 right-0.5 w-4 h-4 bg-red-500 text-white text-[10px] font-bold rounded-full flex items-center justify-center">0</span>
+          </a>
+          <a href="cart.html" class="relative p-2 text-gray-600 dark:text-gray-300 hover:text-[#315C3B] rounded-lg">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
+            </svg>
+            <span
+              class="cart-count-badge hidden absolute top-0.5 right-0.5 w-4 h-4 bg-[#315C3B] text-white text-[10px] font-bold rounded-full flex items-center justify-center">0</span>
+          </a>
+          <button type="button" onclick="toggleTheme()"
+            class="theme-toggle-btn p-2 text-gray-600 dark:text-gray-300 hover:text-[#315C3B] rounded-lg">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+            </svg>
+          </button>
+          <button type="button" onclick="toggleRTL()"
+            class="rtl-toggle-btn px-2 py-1 text-gray-600 dark:text-gray-300 border border-gray-200 dark:border-gray-700 rounded-lg text-xs font-semibold">
+            <span>RTL</span>
+          </button>
+          <div id="header-auth-container"></div>
+          <div class="hidden sm:flex items-center">
+            <a href="products.html" class="btn-primary !min-h-[42px] !py-2 !px-5 text-xs font-semibold">Shop Now</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- MOBILE NAVIGATION DRAWER & SEARCH MODAL -->
+  <div id="mobile-menu-backdrop" class="fixed inset-0 bg-black/50 z-50 hidden transition-opacity"></div>
+  <aside id="mobile-menu-drawer"
+    class="fixed top-0 left-0 w-80 max-w-[85vw] h-full bg-white dark:bg-[#121614] z-50 -translate-x-full transition-transform duration-300 shadow-2xl flex flex-col p-6">
+    <div class="flex items-center justify-between pb-4 border-b border-gray-100 dark:border-gray-800">
+      <div class="flex items-center gap-2">
+        <div class="w-8 h-8 rounded-lg bg-[#315C3B] flex items-center justify-center text-[#D6A85F]">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z" />
+          </svg>
+        </div>
+        <span class="font-heading font-bold text-lg text-[#315C3B] dark:text-white">GreenHarvest</span>
+      </div>
+      <button id="mobile-menu-close-btn" class="p-1 text-gray-500 hover:text-red-500"><svg class="w-6 h-6" fill="none"
+          stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        </svg></button>
+    </div>
+    <nav class="flex flex-col space-y-3 py-6 text-base font-medium">
+      <div class="border-b border-gray-100 dark:border-gray-800 pb-3">
+        <span class="text-[10px] font-bold text-[#D6A85F] uppercase tracking-wider block mb-2">Home Layouts</span>
+        <div class="pl-2 space-y-2">
+          <a href="index.html"
+            class="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300 hover:text-[#315C3B]">
+            <span class="w-1.5 h-1.5 rounded-full bg-gray-300 dark:bg-gray-700"></span>
+            <span>Home 1 (Classic Store)</span>
+          </a>
+          <a href="home-2.html"
+            class="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300 hover:text-[#315C3B]">
+            <span class="w-1.5 h-1.5 rounded-full bg-gray-300 dark:bg-gray-700"></span>
+            <span>Home 2 (Premium Editorial)</span>
+          </a>
+        </div>
+      </div>
+      <a href="about.html" class="text-gray-700 dark:text-gray-300">About</a>
+      <a href="products.html" class="text-[#315C3B] font-semibold">Products</a>
+      <a href="why-organic.html" class="text-gray-700 dark:text-gray-300">Why Organic</a>
+      <a href="delivery-info.html" class="text-gray-700 dark:text-gray-300">Delivery Info</a>
+      <a href="contact.html" class="text-gray-700 dark:text-gray-300">Contact</a>
+    </nav>
+    <div class="mt-auto pt-6 border-t border-gray-100 dark:border-gray-800 space-y-3">
+      <a href="products.html" class="btn-primary w-full text-center">Shop Now</a>
+    </div>
+  </aside>
+
+  <!-- SEARCH MODAL -->
+  <div id="search-modal"
+    class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden items-start justify-center pt-20 px-4">
+    <div
+      class="bg-white dark:bg-[#1A211D] w-full max-w-2xl rounded-2xl shadow-2xl border border-gray-100 dark:border-gray-800 overflow-hidden">
+      <div class="p-4 border-b border-gray-100 dark:border-gray-800 flex items-center gap-3">
+        <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+        </svg>
+        <input id="header-search-input" type="text" placeholder="Search organic grocery..."
+          class="w-full bg-transparent border-0 text-base text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none">
+        <button id="search-modal-close-btn"
+          class="text-xs text-gray-400 px-2 py-1 bg-gray-100 dark:bg-gray-800 rounded">ESC</button>
+      </div>
+      <div id="search-results-dropdown" class="max-h-96 overflow-y-auto p-2"></div>
+    </div>
+  </div>
+
+  <!-- SHOP HERO BANNER -->
+  <section class="py-10 bg-[#F4EFEA] dark:bg-[#1A211D] border-b border-gray-200/80 dark:border-gray-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+        <div>
+          <nav class="flex text-xs text-gray-500 dark:text-gray-400 mb-2 gap-2">
+            <a href="index.html" class="hover:underline">Home</a>
+            <span>/</span>
+            <span class="text-[#315C3B] dark:text-[#D6A85F] font-semibold">Organic Harvest Shop</span>
+          </nav>
+          <h1 class="font-heading font-bold text-3xl sm:text-4xl text-gray-900 dark:text-white">
+            All Organic Food & Produce
+          </h1>
+          <p class="text-xs sm:text-sm text-gray-600 dark:text-gray-300 mt-1">
+            Hand-picked morning harvests, wood-pressed oils, and certified clean living essentials.
+          </p>
+        </div>
+
+        <!-- Quick Search Bar -->
+        <div class="w-full md:w-80 relative">
+          <input id="page-search-input" type="text" placeholder="Search by product name..."
+            class="w-full pl-10 pr-4 py-2.5 rounded-xl border border-gray-300 dark:border-gray-700 bg-white dark:bg-[#222B25] text-sm text-gray-900 dark:text-white focus:outline-none focus:border-[#315C3B]">
+          <svg class="w-4 h-4 text-gray-400 absolute left-3.5 top-3.5" fill="none" stroke="currentColor"
+            viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAIN SHOPPING CONTENT AREA -->
+  <section class="py-8 sm:py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <!-- Mobile Quick Category Scrollbar & Filter Toggle (lg:hidden) -->
+      <div class="lg:hidden mb-6">
+        <div class="flex items-center gap-2 overflow-x-auto no-scrollbar py-1">
+          <button type="button" onclick="filterCategory('All')" data-mobile-cat="All"
+            class="mobile-cat-pill flex-shrink-0 px-3.5 py-1.5 rounded-full text-xs font-bold bg-[#315C3B] text-white shadow-sm">
+            All Items (24)
+          </button>
+          <button type="button" onclick="filterCategory('Fresh Fruits')" data-mobile-cat="Fresh Fruits"
+            class="mobile-cat-pill flex-shrink-0 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300">
+            Fresh Fruits
+          </button>
+          <button type="button" onclick="filterCategory('Vegetables')" data-mobile-cat="Vegetables"
+            class="mobile-cat-pill flex-shrink-0 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300">
+            Vegetables
+          </button>
+          <button type="button" onclick="filterCategory('Grains & Pulses')" data-mobile-cat="Grains & Pulses"
+            class="mobile-cat-pill flex-shrink-0 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300">
+            Grains & Pulses
+          </button>
+          <button type="button" onclick="filterCategory('Natural Oils')" data-mobile-cat="Natural Oils"
+            class="mobile-cat-pill flex-shrink-0 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300">
+            Natural Oils
+          </button>
+          <button type="button" onclick="filterCategory('Healthy Snacks')" data-mobile-cat="Healthy Snacks"
+            class="mobile-cat-pill flex-shrink-0 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300">
+            Healthy Snacks
+          </button>
+          <button type="button" onclick="filterCategory('Natural Foods')" data-mobile-cat="Natural Foods"
+            class="mobile-cat-pill flex-shrink-0 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300">
+            Honey & Spices
+          </button>
+        </div>
+
+        <!-- Mobile Filter Toggle Button -->
+        <button type="button" onclick="toggleMobileFilterDrawer()"
+          class="w-full mt-3 flex items-center justify-between p-3 rounded-xl bg-white dark:bg-[#222B25] border border-gray-200 dark:border-gray-700 text-xs font-bold text-gray-800 dark:text-white shadow-sm">
+          <span class="flex items-center gap-2">
+            <svg class="w-4 h-4 text-[#315C3B] dark:text-[#D6A85F]" fill="none" stroke="currentColor"
+              viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
+            </svg>
+            <span>Filters & Price Range</span>
+          </span>
+          <span id="mobile-filter-chevron" class="text-xs text-[#315C3B] dark:text-[#D6A85F]">Show Filters ↓</span>
+        </button>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+
+        <!-- SIDEBAR FILTERS (Sticky on Desktop, Collapsible on Mobile) -->
+        <aside id="products-sidebar"
+          class="hidden lg:block lg:col-span-3 desktop-sticky-sidebar space-y-6 bg-white dark:bg-[#222B25] p-6 rounded-2xl border border-gray-100 dark:border-gray-800">
+          <div class="flex items-center justify-between pb-3 border-b border-gray-100 dark:border-gray-800">
+            <h3 class="font-heading font-bold text-base text-gray-900 dark:text-white">Filters</h3>
+            <button onclick="resetFilters()"
+              class="text-xs text-[#315C3B] dark:text-[#D6A85F] hover:underline font-medium">Reset All</button>
+          </div>
+
+          <!-- Categories List -->
+          <div>
+            <h4 class="font-heading font-semibold text-xs text-gray-500 uppercase tracking-wider mb-3">Categories</h4>
+            <div id="category-filter-list" class="space-y-1.5 text-sm">
+              <button onclick="filterCategory('All')" data-cat="All"
+                class="category-btn w-full text-left px-3 py-2 rounded-lg font-medium text-xs flex items-center justify-between transition-colors bg-[#315C3B]/10 text-[#315C3B] dark:text-[#8FD69E]">
+                <span>All Categories</span>
+                <span class="text-[11px] text-gray-400" id="count-all">24</span>
+              </button>
+              <button onclick="filterCategory('Fresh Fruits')" data-cat="Fresh Fruits"
+                class="category-btn w-full text-left px-3 py-2 rounded-lg font-medium text-xs flex items-center justify-between transition-colors hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-300">
+                <span>Fresh Fruits</span>
+                <span class="text-[11px] text-gray-400">4</span>
+              </button>
+              <button onclick="filterCategory('Vegetables')" data-cat="Vegetables"
+                class="category-btn w-full text-left px-3 py-2 rounded-lg font-medium text-xs flex items-center justify-between transition-colors hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-300">
+                <span>Vegetables</span>
+                <span class="text-[11px] text-gray-400">4</span>
+              </button>
+              <button onclick="filterCategory('Grains & Pulses')" data-cat="Grains & Pulses"
+                class="category-btn w-full text-left px-3 py-2 rounded-lg font-medium text-xs flex items-center justify-between transition-colors hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-300">
+                <span>Grains & Pulses</span>
+                <span class="text-[11px] text-gray-400">3</span>
+              </button>
+              <button onclick="filterCategory('Natural Oils')" data-cat="Natural Oils"
+                class="category-btn w-full text-left px-3 py-2 rounded-lg font-medium text-xs flex items-center justify-between transition-colors hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-300">
+                <span>Natural Oils</span>
+                <span class="text-[11px] text-gray-400">3</span>
+              </button>
+              <button onclick="filterCategory('Healthy Snacks')" data-cat="Healthy Snacks"
+                class="category-btn w-full text-left px-3 py-2 rounded-lg font-medium text-xs flex items-center justify-between transition-colors hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-300">
+                <span>Healthy Snacks</span>
+                <span class="text-[11px] text-gray-400">3</span>
+              </button>
+              <button onclick="filterCategory('Natural Foods')" data-cat="Natural Foods"
+                class="category-btn w-full text-left px-3 py-2 rounded-lg font-medium text-xs flex items-center justify-between transition-colors hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-300">
+                <span>Natural Foods</span>
+                <span class="text-[11px] text-gray-400">3</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Price Range Filter -->
+          <div class="pt-4 border-t border-gray-100 dark:border-gray-800">
+            <div class="flex items-center justify-between mb-2">
+              <h4 class="font-heading font-semibold text-xs text-gray-500 uppercase tracking-wider">Price Range</h4>
+              <span id="price-range-val" class="text-xs font-bold text-[#315C3B] dark:text-[#D6A85F]">$20.00</span>
+            </div>
+            <input id="price-range-slider" type="range" min="2" max="20" step="0.5" value="20"
+              class="w-full accent-[#315C3B]">
+            <div class="flex items-center justify-between text-[11px] text-gray-400 mt-1">
+              <span>$2.00</span>
+              <span>$20.00</span>
+            </div>
+          </div>
+
+          <!-- In-Stock Only Switch -->
+          <div class="pt-4 border-t border-gray-100 dark:border-gray-800 flex items-center justify-between">
+            <span class="text-xs font-medium text-gray-700 dark:text-gray-300">In-Stock Only</span>
+            <label class="relative inline-flex items-center cursor-pointer">
+              <input id="in-stock-checkbox" type="checkbox" checked class="sr-only peer">
+              <div
+                class="w-9 h-5 bg-gray-200 peer-focus:outline-none rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-[#315C3B]">
+              </div>
+            </label>
+          </div>
+
+          <!-- Guarantee Badge -->
+          <div class="p-4 rounded-xl bg-[#F4EFEA] dark:bg-[#1A211D] text-center space-y-1">
+            <span class="text-xs font-bold text-[#315C3B] dark:text-[#D6A85F]">🌱 100% Soil Guarantee</span>
+            <p class="text-[11px] text-gray-500 dark:text-gray-400">If any produce is not crisp upon delivery, we
+              replace it instantly.</p>
+          </div>
+        </aside>
+
+        <!-- MAIN PRODUCTS GRID & CONTROLS -->
+        <main class="lg:col-span-9 space-y-6">
+
+          <!-- Top Sort & Results Bar -->
+          <div
+            class="flex flex-col sm:flex-row sm:items-center justify-between bg-white dark:bg-[#222B25] p-4 rounded-2xl border border-gray-100 dark:border-gray-800 gap-4">
+            <div class="text-xs text-gray-500 dark:text-gray-400">
+              Showing <span id="products-count-num" class="font-bold text-gray-900 dark:text-white">0</span> organic
+              harvest products
+            </div>
+
+            <!-- Sort By Dropdown -->
+            <div class="flex items-center gap-2">
+              <label for="products-sort-select" class="text-xs text-gray-500 flex-shrink-0">Sort by:</label>
+              <select id="products-sort-select"
+                class="text-xs font-medium py-1.5 px-3 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-[#1A211D] text-gray-800 dark:text-gray-200 focus:outline-none">
+                <option value="featured">Featured / Best Sellers</option>
+                <option value="price-low">Price: Low to High</option>
+                <option value="price-high">Price: High to Low</option>
+                <option value="rating">Customer Rating (Highest)</option>
+                <option value="newest">Seasonal Newest</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Products Grid -->
+          <div id="products-catalog-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Hydrated by JavaScript below -->
+          </div>
+
+          <!-- Empty State (Hidden by default) -->
+          <div id="products-empty-state"
+            class="hidden text-center py-16 bg-white dark:bg-[#222B25] rounded-2xl border border-gray-100 dark:border-gray-800 p-8 space-y-4">
+            <div
+              class="w-16 h-16 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-400 mx-auto flex items-center justify-center">
+              <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+            </div>
+            <h3 class="font-heading font-bold text-lg text-gray-900 dark:text-white">No Matching Organic Products</h3>
+            <p class="text-xs text-gray-500 max-w-sm mx-auto">Try adjusting your filters or price limit to see our other
+              farm harvest items.</p>
+            <button onclick="resetFilters()" class="btn-primary !min-h-[38px] !py-2 text-xs">Reset All Filters</button>
+          </div>
+
+          <!-- Pagination / Load More -->
+          <div id="pagination-wrapper" class="flex items-center justify-center gap-2 pt-8">
+            <button
+              class="px-3.5 py-2 rounded-lg border border-gray-200 dark:border-gray-700 text-xs font-semibold hover:bg-gray-100 dark:hover:bg-gray-800">1</button>
+            <button
+              class="px-3.5 py-2 rounded-lg border border-gray-200 dark:border-gray-700 text-xs font-semibold hover:bg-gray-100 dark:hover:bg-gray-800">2</button>
+            <button
+              class="px-3.5 py-2 rounded-lg border border-gray-200 dark:border-gray-700 text-xs font-semibold hover:bg-gray-100 dark:hover:bg-gray-800">Next
+              →</button>
+          </div>
+
+        </main>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-[#121614] text-gray-300 border-t border-[#2F3B33] pt-14 pb-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 pb-10 border-b border-gray-800 text-xs">
+        <div class="space-y-3">
+          <div class="font-heading font-bold text-lg text-white">GreenHarvest</div>
+          <p class="text-gray-400">Pokusa for Health brand initiative. Delivering verified 100% certified organic foods.
+          </p>
+        </div>
+        <div>
+          <h4 class="font-heading font-semibold text-white mb-3">Shop Curations</h4>
+          <ul class="space-y-1.5 text-gray-400">
+            <li><a href="products.html?category=Fresh+Fruits" class="hover:text-white">Fresh Fruits</a></li>
+            <li><a href="products.html?category=Vegetables" class="hover:text-white">Vegetables</a></li>
+            <li><a href="products.html?category=Natural+Oils" class="hover:text-white">Cold-Pressed Oils</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-heading font-semibold text-white mb-3">Integrity</h4>
+          <ul class="space-y-1.5 text-gray-400">
+            <li><a href="about.html" class="hover:text-white">Our Story</a></li>
+            <li><a href="why-organic.html" class="hover:text-white">Why Organic</a></li>
+            <li><a href="delivery-info.html" class="hover:text-white">Delivery Policy</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-heading font-semibold text-white mb-3">Customer Support</h4>
+          <p class="text-gray-400">742 Evergreen Orchard Way, Green Valley, CA</p>
+          <p class="text-white mt-1">+1 (800) 473-3642</p>
+          <p class="text-white">care@greenharvest.org</p>
+        </div>
+      </div>
+      <div class="pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-500">
+        <p>© 2026 GreenHarvest (Pokusa for Health). All rights reserved.</p>
+        <div class="flex gap-4 mt-2 sm:mt-0">
+          <a href="index.html">Home</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div id="toast-container"></div>
+
+  <!-- Scripts -->
+  <script src="assets/js/products.js"></script>
+  <script src="assets/js/cart.js"></script>
+  <script src="assets/js/wishlist.js"></script>
+  <script src="assets/js/auth.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script>
+    // State
+    let currentCategory = "All";
+    let maxPrice = 20;
+    let inStockOnly = true;
+    let currentSort = "featured";
+    let searchQuery = "";
+
+    function renderCatalog() {
+      const grid = document.getElementById("products-catalog-grid");
+      const emptyState = document.getElementById("products-empty-state");
+      const countEl = document.getElementById("products-count-num");
+      if (!grid) return;
+
+      const all = getStoredProducts();
+
+      // Filter by category
+      let filtered = all.filter(p => {
+        if (currentCategory !== "All" && p.category.toLowerCase() !== currentCategory.toLowerCase()) {
+          return false;
+        }
+        if (p.price > maxPrice) {
+          return false;
+        }
+        if (inStockOnly && !p.inStock) {
+          return false;
+        }
+        if (searchQuery) {
+          const matchName = p.name.toLowerCase().includes(searchQuery);
+          const matchCat = p.category.toLowerCase().includes(searchQuery);
+          const matchDesc = p.description.toLowerCase().includes(searchQuery);
+          if (!matchName && !matchCat && !matchDesc) return false;
+        }
+        return true;
+      });
+
+      // Sort
+      if (currentSort === "price-low") {
+        filtered.sort((a, b) => a.price - b.price);
+      } else if (currentSort === "price-high") {
+        filtered.sort((a, b) => b.price - a.price);
+      } else if (currentSort === "rating") {
+        filtered.sort((a, b) => b.rating - a.rating);
+      } else if (currentSort === "newest") {
+        filtered.sort((a, b) => (b.isFreshPick ? 1 : 0) - (a.isFreshPick ? 1 : 0));
+      } else {
+        // default featured / best sellers
+        filtered.sort((a, b) => (b.isBestseller ? 1 : 0) - (a.isBestseller ? 1 : 0));
+      }
+
+      if (countEl) countEl.textContent = filtered.length;
+
+      if (filtered.length === 0) {
+        grid.innerHTML = "";
+        if (emptyState) emptyState.classList.remove("hidden");
+      } else {
+        if (emptyState) emptyState.classList.add("hidden");
+        grid.innerHTML = filtered.map(p => createProductCardHTML(p)).join("");
+      }
+    }
+
+    function filterCategory(cat) {
+      currentCategory = cat;
+      const btns = document.querySelectorAll(".category-btn");
+      btns.forEach(btn => {
+        if (btn.getAttribute("data-cat").toLowerCase() === cat.toLowerCase()) {
+          btn.className = "category-btn w-full text-left px-3 py-2 rounded-lg font-medium text-xs flex items-center justify-between transition-colors bg-[#315C3B]/10 text-[#315C3B] dark:text-[#8FD69E]";
+        } else {
+          btn.className = "category-btn w-full text-left px-3 py-2 rounded-lg font-medium text-xs flex items-center justify-between transition-colors hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-300";
+        }
+      });
+
+      // Synchronize mobile category pills
+      const mobilePills = document.querySelectorAll(".mobile-cat-pill");
+      mobilePills.forEach(pill => {
+        if (pill.getAttribute("data-mobile-cat").toLowerCase() === cat.toLowerCase()) {
+          pill.className = "mobile-cat-pill flex-shrink-0 px-3.5 py-1.5 rounded-full text-xs font-bold bg-[#315C3B] text-white shadow-sm";
+        } else {
+          pill.className = "mobile-cat-pill flex-shrink-0 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300";
+        }
+      });
+
+      renderCatalog();
+    }
+
+    function toggleMobileFilterDrawer() {
+      const sidebar = document.getElementById("products-sidebar");
+      const chevron = document.getElementById("mobile-filter-chevron");
+      if (!sidebar) return;
+      if (sidebar.classList.contains("hidden")) {
+        sidebar.classList.remove("hidden");
+        if (chevron) chevron.textContent = "Hide Filters ↑";
+      } else {
+        sidebar.classList.add("hidden");
+        if (chevron) chevron.textContent = "Show Filters ↓";
+      }
+    }
+
+    function resetFilters() {
+      currentCategory = "All";
+      maxPrice = 20;
+      inStockOnly = false;
+      searchQuery = "";
+      currentSort = "featured";
+
+      const slider = document.getElementById("price-range-slider");
+      if (slider) slider.value = 20;
+      const priceVal = document.getElementById("price-range-val");
+      if (priceVal) priceVal.textContent = "$20.00";
+
+      const stockCheck = document.getElementById("in-stock-checkbox");
+      if (stockCheck) stockCheck.checked = false;
+
+      const searchInput = document.getElementById("page-search-input");
+      if (searchInput) searchInput.value = "";
+
+      const sortSelect = document.getElementById("products-sort-select");
+      if (sortSelect) sortSelect.value = "featured";
+
+      filterCategory("All");
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      // Check URL parameters for category or search
+      const params = new URLSearchParams(window.location.search);
+      const catParam = params.get("category");
+      const qParam = params.get("q");
+
+      if (catParam) {
+        currentCategory = catParam;
+        const btns = document.querySelectorAll(".category-btn");
+        btns.forEach(btn => {
+          if (btn.getAttribute("data-cat").toLowerCase() === catParam.toLowerCase()) {
+            btn.className = "category-btn w-full text-left px-3 py-2 rounded-lg font-medium text-xs flex items-center justify-between transition-colors bg-[#315C3B]/10 text-[#315C3B] dark:text-[#8FD69E]";
+          } else {
+            btn.className = "category-btn w-full text-left px-3 py-2 rounded-lg font-medium text-xs flex items-center justify-between transition-colors hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-300";
+          }
+        });
+      }
+
+      if (qParam) {
+        searchQuery = qParam.toLowerCase();
+        const searchInput = document.getElementById("page-search-input");
+        if (searchInput) searchInput.value = qParam;
+      }
+
+      // Slider listener
+      const slider = document.getElementById("price-range-slider");
+      const priceVal = document.getElementById("price-range-val");
+      if (slider && priceVal) {
+        slider.addEventListener("input", (e) => {
+          maxPrice = parseFloat(e.target.value);
+          priceVal.textContent = `$${maxPrice.toFixed(2)}`;
+          renderCatalog();
+        });
+      }
+
+      // In stock checkbox
+      const stockCheck = document.getElementById("in-stock-checkbox");
+      if (stockCheck) {
+        stockCheck.addEventListener("change", (e) => {
+          inStockOnly = e.target.checked;
+          renderCatalog();
+        });
+      }
+
+      // Sort select
+      const sortSelect = document.getElementById("products-sort-select");
+      if (sortSelect) {
+        sortSelect.addEventListener("change", (e) => {
+          currentSort = e.target.value;
+          renderCatalog();
+        });
+      }
+
+      // Search input
+      const searchInput = document.getElementById("page-search-input");
+      if (searchInput) {
+        searchInput.addEventListener("input", (e) => {
+          searchQuery = e.target.value.trim().toLowerCase();
+          renderCatalog();
+        });
+      }
+
+      renderCatalog();
+    });
+  </script>
+</body>
+
+</html>

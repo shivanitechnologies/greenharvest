@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page Not Found (404) | GreenHarvest - Pokusa for Health</title>
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            forest: '#315C3B',
+            gold: '#D6A85F',
+            cream: { DEFAULT: '#FBF9F5', surface: '#F4EFEA', card: '#FFFFFF' },
+            charcoal: { DEFAULT: '#121614', surface: '#1A211D', card: '#222B25', border: '#2F3B33' }
+          },
+          fontFamily: {
+            heading: ['Poppins', 'sans-serif'],
+            body: ['Inter', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+<body class="bg-[#FBF9F5] dark:bg-[#121614] text-[#1A3320] dark:text-[#F3F4F6] font-body min-h-screen flex items-center justify-center p-4 text-center">
+
+  <div class="max-w-md w-full space-y-6">
+    <div class="w-24 h-24 rounded-3xl bg-[#315C3B] text-[#D6A85F] mx-auto flex items-center justify-center shadow-xl">
+      <svg class="w-12 h-12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
+    </div>
+
+    <div class="space-y-2">
+      <span class="text-xs font-bold text-[#D6A85F] uppercase tracking-widest">404 Error</span>
+      <h1 class="font-heading font-bold text-4xl sm:text-5xl text-gray-900 dark:text-white">Fresh Crop Not Found</h1>
+      <p class="text-xs sm:text-sm text-gray-500 max-w-sm mx-auto">
+        The farm page or harvest item you are looking for has been relocated or is currently out of season.
+      </p>
+    </div>
+
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
+      <a href="index.html" class="btn-primary text-xs w-full sm:w-auto">Return Home</a>
+      <a href="products.html" class="btn-secondary text-xs w-full sm:w-auto">Explore All Produce</a>
+    </div>
+  </div>
+
+</body>
+</html>

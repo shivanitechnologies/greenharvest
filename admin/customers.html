@@ -1,0 +1,220 @@
+﻿<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Customer Management | GreenHarvest Admin</title>
+  <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            forest: '#315C3B',
+            gold: '#D6A85F',
+            cream: { DEFAULT: '#FBF9F5', surface: '#F4EFEA', card: '#FFFFFF' },
+            charcoal: { DEFAULT: '#121614', surface: '#1A211D', card: '#222B25', border: '#2F3B33' }
+          },
+          fontFamily: {
+            heading: ['Poppins', 'sans-serif'],
+            body: ['Inter', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/responsive.css">
+</head>
+<body class="bg-gray-50 dark:bg-[#121614] text-[#1A3320] dark:text-[#F3F4F6] font-body flex min-h-screen">
+
+  <!-- ADMIN SIDEBAR -->
+  <aside class="w-64 bg-white dark:bg-[#1A211D] border-r border-gray-200 dark:border-gray-800 flex flex-col flex-shrink-0 min-h-screen sticky top-0 h-screen z-30">
+    <div class="p-6 border-b border-gray-100 dark:border-gray-800 flex items-center gap-3">
+      <div class="w-9 h-9 rounded-xl bg-[#315C3B] flex items-center justify-center text-white shadow-sm">
+        <svg class="w-5 h-5 text-[#D6A85F]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
+      </div>
+      <div>
+        <span class="font-heading font-bold text-base text-gray-900 dark:text-white block leading-tight">GreenHarvest</span>
+        <span class="text-[10px] font-semibold text-[#D6A85F] uppercase tracking-wider">Admin Portal</span>
+      </div>
+    </div>
+
+    <nav class="flex-grow p-4 space-y-1 text-xs font-semibold overflow-y-auto">
+      <a href="dashboard.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path></svg>
+        <span>Overview</span>
+      </a>
+
+      <a href="products.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg>
+        <span>Products</span>
+      </a>
+
+      <a href="categories.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"></path></svg>
+        <span>Categories</span>
+      </a>
+
+      <a href="orders.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path></svg>
+        <span>Orders</span>
+      </a>
+
+      <a href="customers.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl bg-[#315C3B] text-white">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+        <span>Customers</span>
+      </a>
+
+      <a href="inventory.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path></svg>
+        <span>Inventory</span>
+      </a>
+
+      <a href="messages.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path></svg>
+        <span>Messages</span>
+      </a>
+
+      <a href="delivery-management.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h1m8-1a1 1 0 01-1 1H9m4-1V8a1 1 0 011-1h2.586a1 1 0 01.707.293l3.414 3.414a1 1 0 01.293.707V16a1 1 0 01-1 1h-1m-6-1a1 1 0 001 1h1M5 17a2 2 0 104 0m-4 0a2 2 0 114 0m6 0a2 2 0 104 0m-4 0a2 2 0 114 0"></path></svg>
+        <span>Delivery Zones</span>
+      </a>
+
+      <a href="reports.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+        <span>Reports</span>
+      </a>
+
+      <a href="settings.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+        <span>Settings</span>
+      </a>
+    </nav>
+
+    <div class="p-4 border-t border-gray-100 dark:border-gray-800 space-y-2">
+      <a href="../index.html" class="flex items-center gap-2 text-xs text-gray-500 hover:text-[#315C3B] dark:hover:text-white px-2 py-1.5">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+        <span>View Public Store</span>
+      </a>
+      <button onclick="logoutUser()" class="w-full flex items-center gap-2 text-xs text-red-500 hover:bg-red-50 dark:hover:bg-red-950/30 px-2 py-2 rounded-lg font-semibold transition-colors">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path></svg>
+        <span>Sign Out</span>
+      </button>
+    </div>
+  </aside>
+
+  <!-- CONTENT -->
+  <div class="flex-grow flex flex-col min-w-0">
+    <header class="bg-white dark:bg-[#1A211D] border-b border-gray-200 dark:border-gray-800 h-16 flex items-center justify-between px-6 sticky top-0 z-20">
+      <h1 class="font-heading font-bold text-lg text-gray-900 dark:text-white">Customer Directory & Subscribers</h1>
+      <span class="text-xs text-gray-400">Total registered members: 1,842</span>
+    </header>
+
+    <main class="p-6 sm:p-8 space-y-6 flex-grow">
+      
+      <div class="card-clean overflow-hidden">
+        <div class="p-4 border-b border-gray-100 dark:border-gray-800">
+          <input type="text" placeholder="Search customer by name or email..." class="w-full sm:w-80 px-3.5 py-2 rounded-xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-[#1A211D] text-xs">
+        </div>
+
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-xs">
+            <thead class="bg-gray-50 dark:bg-[#1A211D] text-gray-500 uppercase text-[10px] tracking-wider border-b border-gray-100 dark:border-gray-800">
+              <tr>
+                <th class="py-3 px-4">Customer</th>
+                <th class="py-3 px-4">Contact</th>
+                <th class="py-3 px-4">Location</th>
+                <th class="py-3 px-4">Total Orders</th>
+                <th class="py-3 px-4">Total Spent</th>
+                <th class="py-3 px-4">Member Tier</th>
+                <th class="py-3 px-4 text-right">Actions</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100 dark:border-gray-800 text-gray-700 dark:text-gray-300">
+              <tr class="hover:bg-gray-50/50 dark:hover:bg-gray-800/50">
+                <td class="py-3 px-4 flex items-center gap-3">
+                  <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=100&q=80" alt="Customer" class="w-8 h-8 rounded-full object-cover">
+                  <div>
+                    <span class="font-bold text-gray-900 dark:text-white block">Clara Oswald</span>
+                    <span class="text-[10px] text-gray-400">Joined Jan 2026</span>
+                  </div>
+                </td>
+                <td class="py-3 px-4">
+                  <div>clara.o@example.com</div>
+                  <div class="text-[11px] text-gray-400">+1 555-0192</div>
+                </td>
+                <td class="py-3 px-4">New York, NY (10001)</td>
+                <td class="py-3 px-4 font-bold">14 Orders</td>
+                <td class="py-3 px-4 font-bold text-[#315C3B] dark:text-[#D6A85F]">$418.50</td>
+                <td class="py-3 px-4">
+                  <span class="badge-gold text-[10px]">Harvest Club</span>
+                </td>
+                <td class="py-3 px-4 text-right">
+                  <button class="text-xs text-[#315C3B] dark:text-[#D6A85F] hover:underline font-medium">History</button>
+                </td>
+              </tr>
+
+              <tr class="hover:bg-gray-50/50 dark:hover:bg-gray-800/50">
+                <td class="py-3 px-4 flex items-center gap-3">
+                  <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=100&q=80" alt="Customer" class="w-8 h-8 rounded-full object-cover">
+                  <div>
+                    <span class="font-bold text-gray-900 dark:text-white block">David Miller</span>
+                    <span class="text-[10px] text-gray-400">Joined Feb 2026</span>
+                  </div>
+                </td>
+                <td class="py-3 px-4">
+                  <div>david.m@example.com</div>
+                  <div class="text-[11px] text-gray-400">+1 555-0144</div>
+                </td>
+                <td class="py-3 px-4">San Francisco, CA (94103)</td>
+                <td class="py-3 px-4 font-bold">8 Orders</td>
+                <td class="py-3 px-4 font-bold text-[#315C3B] dark:text-[#D6A85F]">$245.90</td>
+                <td class="py-3 px-4">
+                  <span class="badge-green text-[10px]">Basic Member</span>
+                </td>
+                <td class="py-3 px-4 text-right">
+                  <button class="text-xs text-[#315C3B] dark:text-[#D6A85F] hover:underline font-medium">History</button>
+                </td>
+              </tr>
+
+              <tr class="hover:bg-gray-50/50 dark:hover:bg-gray-800/50">
+                <td class="py-3 px-4 flex items-center gap-3">
+                  <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=100&q=80" alt="Customer" class="w-8 h-8 rounded-full object-cover">
+                  <div>
+                    <span class="font-bold text-gray-900 dark:text-white block">Sophia Zhang</span>
+                    <span class="text-[10px] text-gray-400">Joined Mar 2026</span>
+                  </div>
+                </td>
+                <td class="py-3 px-4">
+                  <div>sophia.z@example.com</div>
+                  <div class="text-[11px] text-gray-400">+1 555-0187</div>
+                </td>
+                <td class="py-3 px-4">Beverly Hills, CA (90210)</td>
+                <td class="py-3 px-4 font-bold">22 Orders</td>
+                <td class="py-3 px-4 font-bold text-[#315C3B] dark:text-[#D6A85F]">$890.20</td>
+                <td class="py-3 px-4">
+                  <span class="badge-gold text-[10px]">Patron VIP</span>
+                </td>
+                <td class="py-3 px-4 text-right">
+                  <button class="text-xs text-[#315C3B] dark:text-[#D6A85F] hover:underline font-medium">History</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <div id="toast-container"></div>
+  <script src="../assets/js/auth.js"></script>
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>

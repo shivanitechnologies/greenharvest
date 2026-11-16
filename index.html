@@ -1,0 +1,1597 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GreenHarvest | Organic Grocery & Natural Foods Store - Pokusa for Health</title>
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+  <meta name="description" content="Shop premium certified organic vegetables, farm-fresh fruits, unrefined cold-pressed oils, artisanal grains, and raw honey delivered direct from sustainable farms.">
+  <meta name="keywords" content="organic grocery, farm fresh vegetables, organic fruits, cold pressed oil, raw honey, healthy food store">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="GreenHarvest | Fresh From Nature Organic Grocery">
+  <meta property="og:description" content="100% Certified Organic produce and pantry staples delivered straight to your doorstep.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=1200&q=80">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            forest: '#315C3B',
+            gold: '#D6A85F',
+            cream: {
+              DEFAULT: '#FBF9F5',
+              surface: '#F4EFEA',
+              card: '#FFFFFF'
+            },
+            charcoal: {
+              DEFAULT: '#121614',
+              surface: '#1A211D',
+              card: '#222B25',
+              border: '#2F3B33'
+            }
+          },
+          fontFamily: {
+            heading: ['Poppins', 'sans-serif'],
+            body: ['Inter', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts & Lucide Icons -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Schema.org Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "GroceryStore",
+    "name": "GreenHarvest Organic Store",
+    "image": "https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=1200&q=80",
+    "priceRange": "$$",
+    "description": "Premium certified organic food and farm-fresh harvest.",
+    "telephone": "+1-800-473-3642",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "742 Evergreen Orchard Way",
+      "addressLocality": "Green Valley",
+      "addressRegion": "CA",
+      "postalCode": "94103",
+      "addressCountry": "US"
+    }
+  }
+  </script>
+</head>
+<body class="bg-[#FBF9F5] dark:bg-[#121614] text-[#1A3320] dark:text-[#F3F4F6] font-body transition-colors duration-300">
+
+  <!-- 1. ANNOUNCEMENT BAR -->
+  <div class="announcement-bar bg-[#315C3B] text-white text-xs py-2 px-4 text-center font-medium relative z-50">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      <div class="hidden md:flex items-center gap-2">
+        <span class="inline-block w-2 h-2 rounded-full bg-[#D6A85F] animate-pulse"></span>
+        <span>Daily Farm Harvest Just Arrived</span>
+      </div>
+      <div class="mx-auto md:mx-0 flex items-center gap-2 text-center">
+        <span>ðŸŒ¿ Free Next-Day Delivery on orders over $35 • Use Code <strong class="text-[#D6A85F] tracking-wider">ORGANIC10</strong> for 10% Off</span>
+      </div>
+      <div class="hidden md:flex items-center gap-4">
+        <a href="delivery-info.html" class="hover:text-[#D6A85F] transition-colors">Delivery PIN Check</a>
+        <span>|</span>
+        <a href="contact.html" class="hover:text-[#D6A85F] transition-colors">Help Support</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. PUBLIC HEADER -->
+  <header class="sticky top-0 z-40 bg-white/95 dark:bg-[#121614]/95 border-b border-gray-100 dark:border-gray-800 transition-all duration-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20 gap-4">
+
+        <!-- Mobile Menu Trigger -->
+        <button id="mobile-menu-open-btn" class="lg:hidden p-2 text-gray-700 dark:text-gray-200 hover:text-[#315C3B]" aria-label="Open Navigation Menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+        </button>
+
+        <!-- Brand Logo Lockup -->
+        <a href="index.html" class="flex items-center gap-3 flex-shrink-0 group">
+          <div class="w-10 h-10 rounded-xl bg-[#315C3B] flex items-center justify-center text-white shadow-sm">
+            <!-- Leaf & growing harvest symbol -->
+            <svg class="w-6 h-6 text-[#D6A85F]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/>
+              <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/>
+            </svg>
+          </div>
+          <div class="flex flex-col">
+            <span class="font-heading font-bold text-xl tracking-tight text-[#315C3B] dark:text-white leading-none">
+              GreenHarvest
+            </span>
+            <span class="text-[10px] font-medium text-[#D6A85F] tracking-widest uppercase mt-0.5 hidden sm:block">
+              Fresh • Organic • Healthy
+            </span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation: Home · Home 2 · About · Products · Why Organic · Delivery Info · Contact -->
+        <!-- Desktop Navigation with Hover Dropdown for Home -->
+        <nav class="hidden lg:flex items-center space-x-6 xl:space-x-8 text-sm font-medium">
+          <!-- Home Hover Dropdown -->
+          <div class="relative group py-2">
+            <button class="flex items-center gap-1.5 text-[#315C3B] dark:text-[#D6A85F] font-semibold transition-colors focus:outline-none">
+              <span>Home</span>
+              <svg class="w-4 h-4 text-gray-400 group-hover:text-[#315C3B] dark:group-hover:text-[#D6A85F] transition-transform duration-200 group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </button>
+            <!-- Dropdown Menu on hover -->
+            <div class="absolute top-full left-0 pt-2 w-72 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 transform translate-y-1 group-hover:translate-y-0">
+              <div class="bg-white dark:bg-[#1A211D] rounded-2xl shadow-xl border border-gray-100 dark:border-gray-800 p-2.5 space-y-1">
+                <a href="index.html" class="flex items-start gap-3 p-3 rounded-xl hover:bg-emerald-50/70 dark:hover:bg-gray-800/80 transition-colors group/item">
+                  <div class="w-8 h-8 rounded-lg bg-emerald-100 dark:bg-emerald-950/60 text-[#315C3B] dark:text-[#8FD69E] flex items-center justify-center font-bold text-xs flex-shrink-0 group-hover/item:scale-105 transition-transform">
+                    01
+                  </div>
+                  <div>
+                    <div class="text-xs font-bold text-gray-900 dark:text-white flex items-center gap-2">
+                      Home 1
+                      <span class="text-[9px] font-semibold px-1.5 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-900/40 text-emerald-800 dark:text-emerald-300">Classic</span>
+                    </div>
+                    <div class="text-[11px] text-gray-500 dark:text-gray-400 mt-0.5">Classic Organic Store & Daily Harvest</div>
+                  </div>
+                </a>
+                <a href="home-2.html" class="flex items-start gap-3 p-3 rounded-xl hover:bg-amber-50/70 dark:hover:bg-gray-800/80 transition-colors group/item">
+                  <div class="w-8 h-8 rounded-lg bg-amber-100 dark:bg-amber-950/60 text-[#D6A85F] flex items-center justify-center font-bold text-xs flex-shrink-0 group-hover/item:scale-105 transition-transform">
+                    02
+                  </div>
+                  <div>
+                    <div class="text-xs font-bold text-gray-900 dark:text-white flex items-center gap-2">
+                      Home 2
+                      <span class="text-[9px] font-semibold px-1.5 py-0.5 rounded-full bg-amber-100 dark:bg-amber-900/40 text-amber-800 dark:text-amber-300">Editorial</span>
+                    </div>
+                    <div class="text-[11px] text-gray-500 dark:text-gray-400 mt-0.5">Premium Experience & Farm Story</div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <a href="about.html" class="text-gray-700 dark:text-gray-200 hover:text-[#315C3B] dark:hover:text-[#D6A85F] transition-colors">About</a>
+          <a href="products.html" class="text-gray-700 dark:text-gray-200 hover:text-[#315C3B] dark:hover:text-[#D6A85F] transition-colors">Products</a>
+          <a href="why-organic.html" class="text-gray-700 dark:text-gray-200 hover:text-[#315C3B] dark:hover:text-[#D6A85F] transition-colors">Why Organic</a>
+          <a href="delivery-info.html" class="text-gray-700 dark:text-gray-200 hover:text-[#315C3B] dark:hover:text-[#D6A85F] transition-colors">Delivery Info</a>
+          <a href="contact.html" class="text-gray-700 dark:text-gray-200 hover:text-[#315C3B] dark:hover:text-[#D6A85F] transition-colors">Contact</a>
+        </nav>
+
+        <!-- Header Actions: Wishlist, Cart, Theme, RTL, Primary CTA -->
+        <div class="flex items-center gap-2 sm:gap-3">
+          <!-- Wishlist Indicator -->
+          <a href="wishlist.html" class="relative p-2 text-gray-600 dark:text-gray-300 hover:text-[#315C3B] dark:hover:text-[#D6A85F] transition-colors rounded-lg" aria-label="View Wishlist">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+            <span class="wishlist-count-badge hidden absolute top-0.5 right-0.5 w-4 h-4 bg-red-500 text-white text-[10px] font-bold rounded-full flex items-center justify-center">0</span>
+          </a>
+
+          <!-- Cart Indicator -->
+          <a href="cart.html" class="relative p-2 text-gray-600 dark:text-gray-300 hover:text-[#315C3B] dark:hover:text-[#D6A85F] transition-colors rounded-lg" aria-label="View Shopping Cart">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg>
+            <span class="cart-count-badge hidden absolute top-0.5 right-0.5 w-4 h-4 bg-[#315C3B] text-white text-[10px] font-bold rounded-full flex items-center justify-center">0</span>
+          </a>
+
+          <!-- Theme Toggle (Dark/Light) -->
+          <button type="button" onclick="toggleTheme()" class="theme-toggle-btn p-2 text-gray-600 dark:text-gray-300 hover:text-[#315C3B] rounded-lg transition-colors" aria-label="Toggle Theme">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+          </button>
+
+          <!-- RTL Toggle -->
+          <button type="button" onclick="toggleRTL()" class="rtl-toggle-btn px-2 py-1 text-gray-600 dark:text-gray-300 border border-gray-200 dark:border-gray-700 hover:border-[#315C3B] rounded-lg text-xs font-semibold" aria-label="Toggle RTL Direction">
+            <span>RTL</span>
+          </button>
+
+          <!-- Dynamic Auth Avatar (Empty when logged out) -->
+          <div id="header-auth-container"></div>
+
+          <!-- Primary CTA: Shop Now -->
+          <div class="hidden sm:flex items-center">
+            <a href="products.html" class="btn-primary !min-h-[42px] !py-2 !px-5 text-xs font-semibold shadow-sm">
+              Shop Now
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- MOBILE NAVIGATION DRAWER -->
+  <div id="mobile-menu-backdrop" class="fixed inset-0 bg-black/50 z-50 hidden transition-opacity"></div>
+  <aside id="mobile-menu-drawer" class="fixed top-0 left-0 w-80 max-w-[85vw] h-full bg-white dark:bg-[#121614] z-50 -translate-x-full transition-transform duration-300 shadow-2xl flex flex-col p-6">
+    <div class="flex items-center justify-between pb-4 border-b border-gray-100 dark:border-gray-800">
+      <div class="flex items-center gap-2">
+        <div class="w-8 h-8 rounded-lg bg-[#315C3B] flex items-center justify-center text-[#D6A85F]">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/></svg>
+        </div>
+        <span class="font-heading font-bold text-lg text-[#315C3B] dark:text-white">GreenHarvest</span>
+      </div>
+      <button id="mobile-menu-close-btn" class="p-1 text-gray-500 hover:text-red-500">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+      </button>
+    </div>
+
+    <nav class="flex flex-col space-y-3 py-6 text-base font-medium">
+      <div class="border-b border-gray-100 dark:border-gray-800 pb-3">
+        <span class="text-[10px] font-bold text-[#D6A85F] uppercase tracking-wider block mb-2">Home Layouts</span>
+        <div class="pl-2 space-y-2">
+          <a href="index.html" class="flex items-center gap-2 text-sm font-semibold text-[#315C3B] dark:text-[#D6A85F]">
+            <span class="w-1.5 h-1.5 rounded-full bg-[#315C3B] dark:bg-[#D6A85F]"></span>
+            <span>Home 1 (Classic Store)</span>
+          </a>
+          <a href="home-2.html" class="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300 hover:text-[#315C3B]">
+            <span class="w-1.5 h-1.5 rounded-full bg-gray-300 dark:bg-gray-700"></span>
+            <span>Home 2 (Premium Editorial)</span>
+          </a>
+        </div>
+      </div>
+      <a href="about.html" class="text-gray-700 dark:text-gray-300 hover:text-[#315C3B]">About Us</a>
+      <a href="products.html" class="text-gray-700 dark:text-gray-300 hover:text-[#315C3B]">All Products</a>
+      <a href="why-organic.html" class="text-gray-700 dark:text-gray-300 hover:text-[#315C3B]">Why Organic</a>
+      <a href="delivery-info.html" class="text-gray-700 dark:text-gray-300 hover:text-[#315C3B]">Delivery Info</a>
+      <a href="pricing.html" class="text-gray-700 dark:text-gray-300 hover:text-[#315C3B]">Harvest Club Plans</a>
+      <a href="contact.html" class="text-gray-700 dark:text-gray-300 hover:text-[#315C3B]">Contact</a>
+    </nav>
+
+    <div class="mt-auto pt-6 border-t border-gray-100 dark:border-gray-800 space-y-3">
+      <a href="products.html" class="btn-primary w-full text-center">Shop Now</a>
+    </div>
+  </aside>
+
+  <!-- SEARCH MODAL OVERLAY -->
+  <div id="search-modal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden items-start justify-center pt-20 px-4">
+    <div class="bg-white dark:bg-[#1A211D] w-full max-w-2xl rounded-2xl shadow-2xl border border-gray-100 dark:border-gray-800 overflow-hidden">
+      <div class="p-4 border-b border-gray-100 dark:border-gray-800 flex items-center gap-3">
+        <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+        <input 
+          id="header-search-input" 
+          type="text" 
+          placeholder="Search apples, carrots, cold pressed coconut oil, raw honey..." 
+          class="w-full bg-transparent border-0 text-base text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none"
+        >
+        <button id="search-modal-close-btn" class="text-xs text-gray-400 hover:text-gray-600 dark:hover:text-white px-2 py-1 bg-gray-100 dark:bg-gray-800 rounded">ESC</button>
+      </div>
+      <div id="search-results-dropdown" class="max-h-96 overflow-y-auto p-2">
+        <div class="p-6 text-center text-xs text-gray-400">
+          Start typing to discover our seasonal organic harvest...
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. HERO SECTION (Classic Organic Store) -->
+  <section class="relative overflow-hidden py-12 md:py-20 lg:py-24 bg-gradient-to-b from-[#F4EFEA] to-[#FBF9F5] dark:from-[#1A211D] dark:to-[#121614]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Left Content -->
+        <div class="lg:col-span-7 space-y-6">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#315C3B]/10 dark:bg-[#315C3B]/20 text-[#315C3B] dark:text-[#8FD69E] text-xs font-semibold">
+            <span class="w-2 h-2 rounded-full bg-[#D6A85F]"></span>
+            Fresh From Nature • 100% Certified Organic
+          </div>
+
+          <h1 class="hero-heading font-heading font-bold text-4xl sm:text-5xl lg:text-6xl text-gray-900 dark:text-white tracking-tight leading-[1.15]">
+            Nourish Your Body With <span class="text-[#315C3B] dark:text-[#D6A85F] underline decoration-[#D6A85F]/50 underline-offset-8">Pure Farm</span> Harvest.
+          </h1>
+
+          <p class="text-base sm:text-lg text-gray-600 dark:text-gray-300 max-w-xl leading-relaxed">
+            Directly from regenerative family farms to your dining table. Crisp organic vegetables, sun-kissed fruits, wood-pressed oils, and pure forest honey with zero chemical pesticides.
+          </p>
+
+          <!-- CTAs -->
+          <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2">
+            <a href="products.html" class="btn-primary text-center">
+              <span>Shop Fresh Produce</span>
+              <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+            </a>
+            <a href="why-organic.html" class="btn-secondary text-center">
+              <span>Our Organic Promise</span>
+            </a>
+          </div>
+
+          <!-- Quick Stats / Proof Points -->
+          <div class="grid grid-cols-3 gap-4 pt-8 border-t border-gray-200/80 dark:border-gray-800">
+            <div>
+              <div class="text-2xl sm:text-3xl font-heading font-bold text-[#315C3B] dark:text-[#D6A85F]">100%</div>
+              <p class="text-xs text-gray-500 dark:text-gray-400 mt-0.5">Certified Organic</p>
+            </div>
+            <div>
+              <div class="text-2xl sm:text-3xl font-heading font-bold text-[#315C3B] dark:text-[#D6A85F]">24 Hrs</div>
+              <p class="text-xs text-gray-500 dark:text-gray-400 mt-0.5">Farm-to-Doorstep</p>
+            </div>
+            <div>
+              <div class="text-2xl sm:text-3xl font-heading font-bold text-[#315C3B] dark:text-[#D6A85F]">18,000+</div>
+              <p class="text-xs text-gray-500 dark:text-gray-400 mt-0.5">Happy Families</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Hero Imagery -->
+        <div class="lg:col-span-5 relative">
+          <div class="relative mx-auto max-w-md lg:max-w-none">
+            <!-- Decorative backdrop glow -->
+            <div class="absolute -inset-4 bg-gradient-to-tr from-[#315C3B]/20 to-[#D6A85F]/20 rounded-3xl filter blur-2xl opacity-70"></div>
+            
+            <div class="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white dark:border-[#222B25]">
+              <img 
+                src="https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=1000&q=80" 
+                alt="Fresh Organic Produce Basket" 
+                class="w-full h-[440px] sm:h-[500px] object-cover"
+              >
+            </div>
+
+            <!-- Floating Trust Card -->
+            <div class="absolute -bottom-6 -left-4 sm:-left-6 bg-white dark:bg-[#222B25] p-4 rounded-2xl shadow-xl border border-gray-100 dark:border-gray-800 flex items-center gap-3.5 max-w-xs">
+              <div class="w-12 h-12 rounded-xl bg-emerald-100 dark:bg-emerald-900/40 text-[#315C3B] dark:text-[#8FD69E] flex items-center justify-center flex-shrink-0">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+              </div>
+              <div>
+                <p class="text-xs font-bold text-gray-900 dark:text-white">Same-Day Morning Cut</p>
+                <p class="text-[11px] text-gray-500 dark:text-gray-400">Inspected by agronomists before packaging</p>
+              </div>
+            </div>
+
+            <!-- Floating Badge -->
+            <div class="absolute -top-4 -right-4 bg-[#D6A85F] text-[#1A3320] font-heading font-bold text-xs px-3.5 py-2 rounded-xl shadow-lg flex items-center gap-1.5">
+              <span>★ 4.98 / 5 Rating</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- INNOVATIVE FEATURE: LIVE HARVEST TELEMETRY BAR (Real-Time Farm Sourcing Data) -->
+  <section class="bg-[#121614] text-white py-3.5 px-4 border-y border-[#315C3B]/40 overflow-hidden shadow-inner">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row md:items-center justify-between gap-3 text-xs">
+      
+      <!-- Live Status & Co-op Sourcing -->
+      <div class="flex items-center gap-2.5 flex-wrap">
+        <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#315C3B]/30 text-[#8FD69E] font-semibold text-[11px] border border-[#315C3B]/50 shadow-sm">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+          LIVE HARVEST TELEMETRY
+        </span>
+        <span class="text-gray-600 dark:text-gray-600 hidden sm:inline">|</span>
+        <span class="text-gray-300 font-medium">
+          Batch <strong class="text-white">#842</strong>: Sonoma & Ojai Valley Co-ops (Cut 05:30 AM Today)
+        </span>
+      </div>
+
+      <!-- Real-time Metrics & Countdown -->
+      <div class="flex items-center gap-3 sm:gap-4 flex-wrap text-[11px] sm:text-xs">
+        <div class="flex items-center gap-1.5 text-emerald-300">
+          <svg class="w-4 h-4 text-emerald-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+          <span><strong>0.00 ppm</strong> Chemical Residue</span>
+        </div>
+        <div class="flex items-center gap-1.5 text-gray-300">
+          <span class="text-[#D6A85F]">❄ 3.8°C</span>
+          <span>Cold-Chain Insulated</span>
+        </div>
+        <div class="flex items-center gap-1.5 bg-black/50 px-2.5 py-1 rounded-lg border border-gray-800">
+          <span class="text-gray-400">Next Dispatch in:</span>
+          <span id="telemetry-dispatch-timer" class="font-mono font-bold text-[#D6A85F]">41m 18s</span>
+        </div>
+        <button type="button" onclick="openLabPurityModal()" class="text-[#D6A85F] hover:text-white underline font-medium text-[11px] transition-colors ml-auto md:ml-0">
+          View Lab Test &rarr;
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 4. TRUST STRIP (Mobile Optimized) -->
+  <section class="py-8 bg-white dark:bg-[#1A211D] border-b border-gray-100 dark:border-gray-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+        
+        <div class="flex items-center gap-3.5">
+          <div class="w-12 h-12 rounded-xl bg-[#F4EFEA] dark:bg-[#222B25] flex items-center justify-center text-[#315C3B] dark:text-[#D6A85F] flex-shrink-0">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+          </div>
+          <div>
+            <h4 class="font-heading font-semibold text-sm text-gray-900 dark:text-white">Fresh Produce</h4>
+            <p class="text-xs text-gray-500 dark:text-gray-400">Harvested within 24h</p>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-3.5">
+          <div class="w-12 h-12 rounded-xl bg-[#F4EFEA] dark:bg-[#222B25] flex items-center justify-center text-[#315C3B] dark:text-[#D6A85F] flex-shrink-0">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064"></path></svg>
+          </div>
+          <div>
+            <h4 class="font-heading font-semibold text-sm text-gray-900 dark:text-white">Naturally Sourced</h4>
+            <p class="text-xs text-gray-500 dark:text-gray-400">From certified local soil</p>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-3.5">
+          <div class="w-12 h-12 rounded-xl bg-[#F4EFEA] dark:bg-[#222B25] flex items-center justify-center text-[#315C3B] dark:text-[#D6A85F] flex-shrink-0">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path></svg>
+          </div>
+          <div>
+            <h4 class="font-heading font-semibold text-sm text-gray-900 dark:text-white">Quality Checked</h4>
+            <p class="text-xs text-gray-500 dark:text-gray-400">Triple-screened purity</p>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-3.5">
+          <div class="w-12 h-12 rounded-xl bg-[#F4EFEA] dark:bg-[#222B25] flex items-center justify-center text-[#315C3B] dark:text-[#D6A85F] flex-shrink-0">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h1m8-1a1 1 0 01-1 1H9m4-1V8a1 1 0 011-1h2.586a1 1 0 01.707.293l3.414 3.414a1 1 0 01.293.707V16a1 1 0 01-1 1h-1m-6-1a1 1 0 001 1h1M5 17a2 2 0 104 0m-4 0a2 2 0 114 0m6 0a2 2 0 104 0m-4 0a2 2 0 114 0"></path></svg>
+          </div>
+          <div>
+            <h4 class="font-heading font-semibold text-sm text-gray-900 dark:text-white">Doorstep Delivery</h4>
+            <p class="text-xs text-gray-500 dark:text-gray-400">Eco-cooled thermal boxes</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. SHOP BY CATEGORIES -->
+  <section class="py-16 md:py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-10">
+        <div>
+          <span class="text-xs font-semibold text-[#315C3B] dark:text-[#8FD69E] uppercase tracking-wider">Nature's Pantry</span>
+          <h2 class="font-heading font-bold text-3xl sm:text-4xl text-gray-900 dark:text-white mt-1">Shop by Categories</h2>
+        </div>
+        <a href="products.html" class="inline-flex items-center text-sm font-semibold text-[#315C3B] dark:text-[#D6A85F] hover:underline mt-3 md:mt-0">
+          Browse All Collections
+          <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+        </a>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-6">
+        
+        <!-- Fruits -->
+        <a href="products.html?category=Fresh+Fruits" class="card-clean p-4 flex flex-col items-center text-center group cursor-pointer">
+          <div class="w-20 h-20 rounded-full overflow-hidden mb-3 bg-[#F4EFEA] dark:bg-gray-800 p-1">
+            <img src="https://images.unsplash.com/photo-1619546813926-a78fa6372cd2?auto=format&fit=crop&w=300&q=80" alt="Fresh Fruits" class="w-full h-full object-cover rounded-full group-hover:scale-110 transition-transform">
+          </div>
+          <h3 class="font-heading font-semibold text-sm text-gray-900 dark:text-white">Fresh Fruits</h3>
+          <span class="text-[11px] text-gray-500 dark:text-gray-400 mt-0.5">Apples, Mangoes</span>
+        </a>
+
+        <!-- Vegetables -->
+        <a href="products.html?category=Vegetables" class="card-clean p-4 flex flex-col items-center text-center group cursor-pointer">
+          <div class="w-20 h-20 rounded-full overflow-hidden mb-3 bg-[#F4EFEA] dark:bg-gray-800 p-1">
+            <img src="https://images.unsplash.com/photo-1598170845058-32b9d6a5da37?auto=format&fit=crop&w=300&q=80" alt="Fresh Vegetables" class="w-full h-full object-cover rounded-full group-hover:scale-110 transition-transform">
+          </div>
+          <h3 class="font-heading font-semibold text-sm text-gray-900 dark:text-white">Vegetables</h3>
+          <span class="text-[11px] text-gray-500 dark:text-gray-400 mt-0.5">Carrots, Greens</span>
+        </a>
+
+        <!-- Grains & Pulses -->
+        <a href="products.html?category=Grains+%26+Pulses" class="card-clean p-4 flex flex-col items-center text-center group cursor-pointer">
+          <div class="w-20 h-20 rounded-full overflow-hidden mb-3 bg-[#F4EFEA] dark:bg-gray-800 p-1">
+            <img src="https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&w=300&q=80" alt="Grains and Pulses" class="w-full h-full object-cover rounded-full group-hover:scale-110 transition-transform">
+          </div>
+          <h3 class="font-heading font-semibold text-sm text-gray-900 dark:text-white">Grains & Pulses</h3>
+          <span class="text-[11px] text-gray-500 dark:text-gray-400 mt-0.5">Rice, Millets, Dal</span>
+        </a>
+
+        <!-- Natural Oils -->
+        <a href="products.html?category=Natural+Oils" class="card-clean p-4 flex flex-col items-center text-center group cursor-pointer">
+          <div class="w-20 h-20 rounded-full overflow-hidden mb-3 bg-[#F4EFEA] dark:bg-gray-800 p-1">
+            <img src="https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?auto=format&fit=crop&w=300&q=80" alt="Natural Oils" class="w-full h-full object-cover rounded-full group-hover:scale-110 transition-transform">
+          </div>
+          <h3 class="font-heading font-semibold text-sm text-gray-900 dark:text-white">Natural Oils</h3>
+          <span class="text-[11px] text-gray-500 dark:text-gray-400 mt-0.5">Coconut, Sesame</span>
+        </a>
+
+        <!-- Healthy Snacks -->
+        <a href="products.html?category=Healthy+Snacks" class="card-clean p-4 flex flex-col items-center text-center group cursor-pointer">
+          <div class="w-20 h-20 rounded-full overflow-hidden mb-3 bg-[#F4EFEA] dark:bg-gray-800 p-1">
+            <img src="https://images.unsplash.com/photo-1508061252445-5350f3ab0a55?auto=format&fit=crop&w=300&q=80" alt="Healthy Snacks" class="w-full h-full object-cover rounded-full group-hover:scale-110 transition-transform">
+          </div>
+          <h3 class="font-heading font-semibold text-sm text-gray-900 dark:text-white">Healthy Snacks</h3>
+          <span class="text-[11px] text-gray-500 dark:text-gray-400 mt-0.5">Nuts, Dry Fruits</span>
+        </a>
+
+        <!-- Natural Foods -->
+        <a href="products.html?category=Natural+Foods" class="card-clean p-4 flex flex-col items-center text-center group cursor-pointer">
+          <div class="w-20 h-20 rounded-full overflow-hidden mb-3 bg-[#F4EFEA] dark:bg-gray-800 p-1">
+            <img src="https://images.unsplash.com/photo-1587049352846-4a222e784d38?auto=format&fit=crop&w=300&q=80" alt="Natural Foods" class="w-full h-full object-cover rounded-full group-hover:scale-110 transition-transform">
+          </div>
+          <h3 class="font-heading font-semibold text-sm text-gray-900 dark:text-white">Natural Foods</h3>
+          <span class="text-[11px] text-gray-500 dark:text-gray-400 mt-0.5">Raw Honey, Spices</span>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. BEST SELLERS SECTION -->
+  <section class="py-16 bg-[#F4EFEA]/60 dark:bg-[#1A211D]/60 border-y border-gray-100 dark:border-gray-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-10">
+        <div>
+          <span class="text-xs font-semibold text-[#315C3B] dark:text-[#8FD69E] uppercase tracking-wider">Top Rated Staples</span>
+          <h2 class="font-heading font-bold text-3xl sm:text-4xl text-gray-900 dark:text-white mt-1">Our Best Sellers</h2>
+        </div>
+        <p class="text-sm text-gray-500 dark:text-gray-400 max-w-sm mt-2 md:mt-0">
+          The most ordered organic staples loved by over 18,000 conscious households.
+        </p>
+      </div>
+
+      <!-- Rendered dynamically by products.js -->
+      <div id="home-bestsellers-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Injected via script below -->
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. TODAY'S FRESH PICKS -->
+  <section class="py-16 md:py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between mb-10">
+        <div>
+          <span class="badge-gold">Morning Harvest</span>
+          <h2 class="font-heading font-bold text-3xl sm:text-4xl text-gray-900 dark:text-white mt-2">Today's Fresh Picks</h2>
+        </div>
+        <a href="products.html" class="btn-secondary !min-h-[40px] !py-2 !px-4 text-xs font-semibold">
+          View All Picks
+        </a>
+      </div>
+
+      <div id="home-fresh-picks-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Injected via script below -->
+      </div>
+    </div>
+  </section>
+
+  <!-- INNOVATIVE FEATURE: BUILD YOUR CUSTOM HARVEST BOX CONFIGURATOR (Mobile Optimized) -->
+  <section class="py-14 sm:py-20 bg-[#FBF9F5] dark:bg-[#121614] border-b border-gray-100 dark:border-gray-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="text-center max-w-2xl mx-auto mb-10 sm:mb-14">
+        <span class="inline-block px-3 py-1 rounded-full bg-[#315C3B]/10 dark:bg-[#315C3B]/20 text-[#315C3B] dark:text-[#8FD69E] text-xs font-bold uppercase tracking-wider mb-2">
+          Tailored Doorstep Delivery
+        </span>
+        <h2 class="font-heading font-bold text-3xl sm:text-4xl text-gray-900 dark:text-white">
+          Build Your Organic Harvest Box
+        </h2>
+        <p class="text-xs sm:text-sm text-gray-500 dark:text-gray-400 mt-2 max-w-lg mx-auto">
+          Hand-picked at dawn by agronomists. Select your ideal box volume, customize your organic mix, and enjoy farm-direct savings.
+        </p>
+
+        <!-- Delivery Cadence Switcher -->
+        <div class="inline-flex items-center p-1.5 rounded-2xl bg-gray-100 dark:bg-[#1A211D] border border-gray-200 dark:border-gray-800 mt-6 shadow-inner">
+          <button 
+            type="button" 
+            id="cadence-onetime" 
+            onclick="selectHarvestCadence('onetime')"
+            class="px-4 sm:px-6 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all text-gray-600 dark:text-gray-300"
+          >
+            One-Time Delivery
+          </button>
+          <button 
+            type="button" 
+            id="cadence-weekly" 
+            onclick="selectHarvestCadence('weekly')"
+            class="px-4 sm:px-6 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all bg-[#315C3B] text-white shadow-sm flex items-center gap-1.5"
+          >
+            <span>Weekly Club</span>
+            <span class="bg-[#D6A85F] text-[#121614] text-[10px] font-bold px-1.5 py-0.5 rounded-full">15% OFF</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- 3 Box Sizes Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 items-stretch">
+        
+        <!-- Solo Vitality (5kg) -->
+        <div 
+          id="box-card-solo" 
+          onclick="selectBoxSize('solo', 24.99, 'Solo Vitality Box (5kg)')" 
+          class="box-selection-card card-clean p-5 sm:p-6 flex flex-col justify-between cursor-pointer border-2 border-transparent hover:border-[#315C3B] transition-all relative"
+        >
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-xs font-bold text-gray-500 uppercase tracking-wider">Singles & Couples</span>
+              <span class="text-xs font-semibold px-2 py-0.5 rounded bg-emerald-100 dark:bg-emerald-950/40 text-emerald-800 dark:text-emerald-300">5 kg Weight</span>
+            </div>
+            <h3 class="font-heading font-bold text-xl text-gray-900 dark:text-white">Solo Vitality Box</h3>
+            <p class="text-xs text-gray-500 dark:text-gray-400 mt-1 mb-4 leading-relaxed">
+              Crisp orchard apples, crunchy root carrots, tender baby spinach, and seasonal citrus.
+            </p>
+            <div class="space-y-2 py-3 border-y border-gray-100 dark:border-gray-800 text-xs text-gray-600 dark:text-gray-300">
+              <div class="flex items-center gap-2 text-emerald-700 dark:text-emerald-400 font-medium">✓ 6–8 Seasonal farm-fresh items</div>
+              <div class="flex items-center gap-2">✓ Insulated cold-packaging included</div>
+              <div class="flex items-center gap-2">✓ Ideal for 1–2 individuals</div>
+            </div>
+          </div>
+          <div class="pt-5 mt-4 flex items-center justify-between">
+            <div>
+              <div class="text-[11px] text-gray-400 line-through box-orig-price">$28.99</div>
+              <div class="text-2xl font-heading font-bold text-[#315C3B] dark:text-[#D6A85F] box-display-price">$21.24</div>
+            </div>
+            <button type="button" class="box-btn btn-secondary !min-h-[38px] text-xs px-4">Select</button>
+          </div>
+        </div>
+
+        <!-- Family Pantry (10kg) - POPULAR -->
+        <div 
+          id="box-card-family" 
+          onclick="selectBoxSize('family', 44.99, 'Family Pantry Box (10kg)')" 
+          class="box-selection-card card-clean p-5 sm:p-6 flex flex-col justify-between cursor-pointer border-2 border-[#315C3B] dark:border-[#D6A85F] shadow-lg transition-all relative"
+        >
+          <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#D6A85F] text-[#121614] text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow">
+            ★ Most Popular Choice
+          </div>
+          <div>
+            <div class="flex items-center justify-between mb-3 mt-1">
+              <span class="text-xs font-bold text-gray-500 uppercase tracking-wider">3–5 Person Family</span>
+              <span class="text-xs font-semibold px-2 py-0.5 rounded bg-amber-100 dark:bg-amber-950/40 text-amber-800 dark:text-amber-300">10 kg Weight</span>
+            </div>
+            <h3 class="font-heading font-bold text-xl text-gray-900 dark:text-white">Family Pantry Box</h3>
+            <p class="text-xs text-gray-500 dark:text-gray-400 mt-1 mb-4 leading-relaxed">
+              Abundant daily veggies, orchard fruits, salad bowls, plus a 500ml cold-pressed coconut oil bottle.
+            </p>
+            <div class="space-y-2 py-3 border-y border-gray-100 dark:border-gray-800 text-xs text-gray-600 dark:text-gray-300">
+              <div class="flex items-center gap-2 text-emerald-700 dark:text-emerald-400 font-medium">✓ 12–14 Seasonal kitchen staples</div>
+              <div class="flex items-center gap-2">✓ Free 500ml wood-pressed oil bottle</div>
+              <div class="flex items-center gap-2">✓ Free guaranteed same-day delivery</div>
+            </div>
+          </div>
+          <div class="pt-5 mt-4 flex items-center justify-between">
+            <div>
+              <div class="text-[11px] text-gray-400 line-through box-orig-price">$52.99</div>
+              <div class="text-2xl font-heading font-bold text-[#315C3B] dark:text-[#D6A85F] box-display-price">$38.24</div>
+            </div>
+            <button type="button" class="box-btn btn-primary !min-h-[38px] text-xs px-4">Selected</button>
+          </div>
+        </div>
+
+        <!-- Bio-Dynamic Feast (16kg) -->
+        <div 
+          id="box-card-feast" 
+          onclick="selectBoxSize('feast', 74.99, 'Biodynamic Feast Box (16kg)')" 
+          class="box-selection-card card-clean p-5 sm:p-6 flex flex-col justify-between cursor-pointer border-2 border-transparent hover:border-[#315C3B] transition-all relative"
+        >
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-xs font-bold text-gray-500 uppercase tracking-wider">Connoisseur & Large Home</span>
+              <span class="text-xs font-semibold px-2 py-0.5 rounded bg-emerald-100 dark:bg-emerald-950/40 text-emerald-800 dark:text-emerald-300">16 kg Weight</span>
+            </div>
+            <h3 class="font-heading font-bold text-xl text-gray-900 dark:text-white">Biodynamic Feast Box</h3>
+            <p class="text-xs text-gray-500 dark:text-gray-400 mt-1 mb-4 leading-relaxed">
+              Rare heirloom heritage varieties, raw Himalayan forest honey, ancient millets, and micro-greens.
+            </p>
+            <div class="space-y-2 py-3 border-y border-gray-100 dark:border-gray-800 text-xs text-gray-600 dark:text-gray-300">
+              <div class="flex items-center gap-2 text-emerald-700 dark:text-emerald-400 font-medium">✓ 18+ Premium organic specialties</div>
+              <div class="flex items-center gap-2">✓ Raw wildflower honey jar included</div>
+              <div class="flex items-center gap-2">✓ Detailed agronomist harvest sheet</div>
+            </div>
+          </div>
+          <div class="pt-5 mt-4 flex items-center justify-between">
+            <div>
+              <div class="text-[11px] text-gray-400 line-through box-orig-price">$88.99</div>
+              <div class="text-2xl font-heading font-bold text-[#315C3B] dark:text-[#D6A85F] box-display-price">$63.74</div>
+            </div>
+            <button type="button" class="box-btn btn-secondary !min-h-[38px] text-xs px-4">Select</button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Selected Box Summary & Mobile Friendly 1-Click CTA Bar -->
+      <div class="mt-8 bg-white dark:bg-[#1A211D] p-5 sm:p-6 rounded-2xl border border-gray-100 dark:border-gray-800 shadow-sm flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div class="flex items-center gap-3.5 w-full sm:w-auto">
+          <div class="w-12 h-12 rounded-xl bg-emerald-50 dark:bg-emerald-950/50 text-[#315C3B] dark:text-[#8FD69E] flex items-center justify-center text-xl flex-shrink-0 shadow-sm">
+            📦
+          </div>
+          <div>
+            <div class="text-xs text-gray-400 font-medium">Selected Box Configuration:</div>
+            <div id="selected-box-label" class="font-heading font-bold text-sm sm:text-base text-gray-900 dark:text-white">
+              Family Pantry Box (10kg) — Weekly Club
+            </div>
+          </div>
+        </div>
+
+        <div class="flex items-center justify-between sm:justify-end gap-5 w-full sm:w-auto pt-3 sm:pt-0 border-t sm:border-t-0 border-gray-100 dark:border-gray-800">
+          <div class="text-left sm:text-right">
+            <div class="text-[11px] text-gray-400">Total Price</div>
+            <div id="selected-box-total" class="text-2xl font-heading font-bold text-[#315C3B] dark:text-[#D6A85F]">
+              $38.24
+            </div>
+          </div>
+          <button 
+            type="button" 
+            onclick="handleConfiguredBoxAddToCart(event)" 
+            class="btn-gold !min-h-[46px] !py-2.5 !px-6 text-xs sm:text-sm font-bold shadow-md flex-grow sm:flex-grow-0"
+          >
+            <svg class="w-4 h-4 mr-1.5 inline-block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg>
+            Add Box To Cart
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 8. SPECIAL OFFERS BANNER -->
+  <section class="py-12 bg-gradient-to-r from-[#315C3B] to-[#23442B] text-white relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <div class="lg:col-span-8 space-y-4">
+          <span class="inline-block bg-[#D6A85F] text-[#1A3320] text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+            Limited Weekly Deal
+          </span>
+          <h2 class="font-heading font-bold text-3xl sm:text-4xl lg:text-5xl tracking-tight">
+            Get 20% Off Your First Farm Harvest Box
+          </h2>
+          <p class="text-emerald-100 text-sm sm:text-base max-w-2xl leading-relaxed">
+            Experience hand-picked seasonal fruits and crispy greens harvested straight from partner soil. Use voucher code <strong class="text-[#D6A85F] underline">HARVEST20</strong> during checkout.
+          </p>
+          <div class="flex flex-wrap items-center gap-4 pt-2">
+            <a href="products.html" class="btn-gold !bg-[#D6A85F] !text-[#1A3320]">Claim Special Offer</a>
+            <span class="text-xs text-emerald-200">★ Free insulated cold packaging included</span>
+          </div>
+        </div>
+
+        <div class="lg:col-span-4 flex justify-center lg:justify-end">
+          <div class="w-64 h-64 rounded-full border-4 border-[#D6A85F]/30 p-2 overflow-hidden shadow-2xl">
+            <img src="https://images.unsplash.com/photo-1553279768-865429fa0078?auto=format&fit=crop&w=600&q=80" alt="Organic Mangoes" class="w-full h-full object-cover rounded-full">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. WHY CHOOSE ORGANIC HARVEST -->
+  <section class="py-16 md:py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <span class="text-xs font-semibold text-[#315C3B] dark:text-[#8FD69E] uppercase tracking-wider">Pokusa For Health</span>
+        <h2 class="font-heading font-bold text-3xl sm:text-4xl text-gray-900 dark:text-white mt-1">
+          Why Choose Organic Harvest?
+        </h2>
+        <p class="text-sm sm:text-base text-gray-500 dark:text-gray-400 mt-3">
+          We believe true vitality begins with untouched soil, transparent farming, and produce free from artificial interventions.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        
+        <div class="card-clean p-6 text-center space-y-3">
+          <div class="w-14 h-14 rounded-2xl bg-emerald-50 dark:bg-emerald-950/40 text-[#315C3B] dark:text-[#8FD69E] mx-auto flex items-center justify-center">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
+          </div>
+          <h3 class="font-heading font-semibold text-lg text-gray-900 dark:text-white">100% Certified Organic</h3>
+          <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">
+            Strictly tested and certified against synthetic pesticides, herbicides, wax treatments, and chemical ripening agents.
+          </p>
+        </div>
+
+        <div class="card-clean p-6 text-center space-y-3">
+          <div class="w-14 h-14 rounded-2xl bg-amber-50 dark:bg-amber-950/40 text-[#D6A85F] mx-auto flex items-center justify-center">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064"></path></svg>
+          </div>
+          <h3 class="font-heading font-semibold text-lg text-gray-900 dark:text-white">Direct Farm Sourcing</h3>
+          <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">
+            Eliminating unnecessary middlemen to guarantee fair prices to growers and unbeatable morning freshness to your kitchen.
+          </p>
+        </div>
+
+        <div class="card-clean p-6 text-center space-y-3">
+          <div class="w-14 h-14 rounded-2xl bg-emerald-50 dark:bg-emerald-950/40 text-[#315C3B] dark:text-[#8FD69E] mx-auto flex items-center justify-center">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+          </div>
+          <h3 class="font-heading font-semibold text-lg text-gray-900 dark:text-white">Triple Quality Checked</h3>
+          <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">
+            Every apple, bottle of cold-pressed oil, and batch of honey undergoes strict physical and sensory grade audits.
+          </p>
+        </div>
+
+        <div class="card-clean p-6 text-center space-y-3">
+          <div class="w-14 h-14 rounded-2xl bg-amber-50 dark:bg-amber-950/40 text-[#D6A85F] mx-auto flex items-center justify-center">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+          </div>
+          <h3 class="font-heading font-semibold text-lg text-gray-900 dark:text-white">Zero-Waste Packaging</h3>
+          <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">
+            Biodegradable paper bags, unbleached corrugated boxes, and returnable glass bottles for conscious living.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- INNOVATIVE FEATURE: LIVING SOIL & REGENERATIVE AGROECOLOGY IMPACT DASHBOARD (Mobile Optimized) -->
+  <section class="py-14 sm:py-20 bg-gradient-to-b from-white to-[#F4EFEA] dark:from-[#121614] dark:to-[#1A211D] border-b border-gray-100 dark:border-gray-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-2xl mx-auto mb-10 sm:mb-14">
+        <span class="inline-block px-3 py-1 rounded-full bg-emerald-100 dark:bg-emerald-950/40 text-[#315C3B] dark:text-[#8FD69E] text-xs font-bold uppercase tracking-wider mb-2">
+          Measurable Environmental Impact
+        </span>
+        <h2 class="font-heading font-bold text-3xl sm:text-4xl text-gray-900 dark:text-white">
+          Living Soil & Carbon Impact
+        </h2>
+        <p class="text-xs sm:text-sm text-gray-500 dark:text-gray-400 mt-2 max-w-lg mx-auto">
+          Every harvest box you enjoy directly revitalizes regenerative soil biology and purifies regional river ecosystems.
+        </p>
+      </div>
+
+      <!-- 4 Impact Counters (2 cols on mobile, 4 on desktop) -->
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6 mb-10 sm:mb-14">
+        
+        <div class="card-clean p-4 sm:p-6 text-center space-y-1.5 sm:space-y-2">
+          <div class="text-2xl sm:text-4xl font-heading font-bold text-[#315C3B] dark:text-[#8FD69E]">14,850 kg</div>
+          <p class="text-xs font-semibold text-gray-900 dark:text-white">Synthetic Pesticides Prevented</p>
+          <p class="text-[11px] text-gray-400 hidden sm:block">Kept out of groundwater and local river basins.</p>
+        </div>
+
+        <div class="card-clean p-4 sm:p-6 text-center space-y-1.5 sm:space-y-2">
+          <div class="text-2xl sm:text-4xl font-heading font-bold text-[#D6A85F]">4,820 kg</div>
+          <p class="text-xs font-semibold text-gray-900 dark:text-white">Plastic Replaced With Cassava</p>
+          <p class="text-[11px] text-gray-400 hidden sm:block">100% home-compostable cassava packaging within 90 days.</p>
+        </div>
+
+        <div class="card-clean p-4 sm:p-6 text-center space-y-1.5 sm:space-y-2">
+          <div class="text-2xl sm:text-4xl font-heading font-bold text-[#315C3B] dark:text-[#8FD69E]">320,000 L</div>
+          <p class="text-xs font-semibold text-gray-900 dark:text-white">Groundwater Conserved</p>
+          <p class="text-[11px] text-gray-400 hidden sm:block">Via micro-drip sub-surface bio-irrigation systems.</p>
+        </div>
+
+        <div class="card-clean p-4 sm:p-6 text-center space-y-1.5 sm:space-y-2">
+          <div class="text-2xl sm:text-4xl font-heading font-bold text-[#D6A85F]">1,240</div>
+          <p class="text-xs font-semibold text-gray-900 dark:text-white">Pollinator Corridors Planted</p>
+          <p class="text-[11px] text-gray-400 hidden sm:block">Wildflower native hedges protecting essential honeybees.</p>
+        </div>
+
+      </div>
+
+      <!-- Soil Microbiome Science Banner (Mobile Responsive) -->
+      <div class="bg-white dark:bg-[#222B25] p-5 sm:p-8 rounded-3xl border border-gray-100 dark:border-gray-800 shadow-sm grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 items-center">
+        <div class="space-y-3 sm:space-y-4">
+          <span class="text-xs font-bold text-[#315C3B] dark:text-[#D6A85F] uppercase tracking-wider">Agroecology Science</span>
+          <h3 class="font-heading font-bold text-xl sm:text-2xl text-gray-900 dark:text-white">
+            Why Living Soil Yields 40% More Antioxidants
+          </h3>
+          <p class="text-xs sm:text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
+            Chemical pesticides kill beneficial earthworms and mycorrhizal networks, forcing plants to grow bloated on water with diluted flavor. Our regenerative no-till soil nurtures natural minerals, delivering higher polyphenol and vitamin concentrations to your kitchen.
+          </p>
+          <div class="pt-2">
+            <a href="why-organic.html" class="inline-flex items-center text-xs font-bold text-[#315C3B] dark:text-[#D6A85F] hover:underline">
+              <span>Read Soil Purity Research</span>
+              <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-3 sm:gap-4 text-center">
+          <div class="p-4 rounded-2xl bg-red-50 dark:bg-red-950/20 border border-red-100 dark:border-red-900/30">
+            <div class="text-[11px] font-bold text-red-600 dark:text-red-400 uppercase mb-1">Conventional Dirt</div>
+            <div class="text-xl sm:text-2xl font-bold text-gray-800 dark:text-gray-200">12 ppm</div>
+            <p class="text-[10px] sm:text-[11px] text-gray-500 mt-1">Depleted biological mycorrhizae</p>
+          </div>
+          <div class="p-4 rounded-2xl bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-100 dark:border-emerald-800/40">
+            <div class="text-[11px] font-bold text-emerald-600 dark:text-emerald-400 uppercase mb-1">Our Living Loam</div>
+            <div class="text-xl sm:text-2xl font-bold text-[#315C3B] dark:text-[#8FD69E]">840 ppm</div>
+            <p class="text-[10px] sm:text-[11px] text-gray-500 mt-1">Active symbiotic microbial life</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 10. FARM TO HOME PROCESS (Three-step sourcing and delivery) -->
+  <section class="py-16 md:py-20 bg-[#F4EFEA] dark:bg-[#1A211D]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-xl mx-auto mb-14">
+        <span class="text-xs font-semibold text-[#315C3B] dark:text-[#8FD69E] uppercase tracking-wider">Traceable Journey</span>
+        <h2 class="font-heading font-bold text-3xl sm:text-4xl text-gray-900 dark:text-white mt-1">Farm to Home in 3 Steps</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+        
+        <!-- Step 1 -->
+        <div class="bg-white dark:bg-[#222B25] p-6 rounded-2xl border border-gray-100 dark:border-gray-800 relative shadow-sm">
+          <div class="w-10 h-10 rounded-full bg-[#315C3B] text-white font-heading font-bold text-sm flex items-center justify-center mb-4">
+            01
+          </div>
+          <h3 class="font-heading font-bold text-lg text-gray-900 dark:text-white mb-2">Grown with Care</h3>
+          <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">
+            Cultivated in certified chemical-free soil using natural compost, neem oils, and biodiversity-friendly crop rotations.
+          </p>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="bg-white dark:bg-[#222B25] p-6 rounded-2xl border border-gray-100 dark:border-gray-800 relative shadow-sm">
+          <div class="w-10 h-10 rounded-full bg-[#D6A85F] text-[#1A3320] font-heading font-bold text-sm flex items-center justify-center mb-4">
+            02
+          </div>
+          <h3 class="font-heading font-bold text-lg text-gray-900 dark:text-white mb-2">Morning Hand Harvest</h3>
+          <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">
+            Picked at dawn by skilled local farmers, naturally pre-cooled, and inspected item by item for optimum sweetness and crispness.
+          </p>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="bg-white dark:bg-[#222B25] p-6 rounded-2xl border border-gray-100 dark:border-gray-800 relative shadow-sm">
+          <div class="w-10 h-10 rounded-full bg-[#315C3B] text-white font-heading font-bold text-sm flex items-center justify-center mb-4">
+            03
+          </div>
+          <h3 class="font-heading font-bold text-lg text-gray-900 dark:text-white mb-2">Doorstep Eco Delivery</h3>
+          <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">
+            Delivered straight to your residence in temperature-managed insulated boxes, maintaining field freshness for your family.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- INNOVATIVE FEATURE: SEASONAL CROP VITALITY & HARVEST RADAR (Mobile Optimized) -->
+  <section class="py-14 sm:py-20 bg-white dark:bg-[#1A211D] border-b border-gray-100 dark:border-gray-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-10">
+        <div>
+          <span class="text-xs font-semibold text-[#315C3B] dark:text-[#8FD69E] uppercase tracking-wider">Agronomist Harvest Radar</span>
+          <h2 class="font-heading font-bold text-3xl sm:text-4xl text-gray-900 dark:text-white mt-1">
+            Seasonal Crop Vitality Index
+          </h2>
+          <p class="text-xs sm:text-sm text-gray-500 dark:text-gray-400 mt-1">
+            Real-time brix sugar sweetness, vitamin ratings, and peak picking windows across our partner valleys.
+          </p>
+        </div>
+
+        <!-- Radar Category Tabs (Swipeable on Mobile) -->
+        <div class="flex items-center gap-2 overflow-x-auto no-scrollbar py-2 mt-4 md:mt-0 max-w-full">
+          <button type="button" onclick="filterRadarSeason('peak')" id="radar-btn-peak" class="radar-tab-btn flex-shrink-0 px-4 py-2 rounded-xl text-xs font-bold transition-all bg-[#315C3B] text-white shadow-sm">
+            🌿 Peak In-Season
+          </button>
+          <button type="button" onclick="filterRadarSeason('early')" id="radar-btn-early" class="radar-tab-btn flex-shrink-0 px-4 py-2 rounded-xl text-xs font-bold transition-all bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-gray-200">
+            🌱 Winter Preview
+          </button>
+          <button type="button" onclick="filterRadarSeason('staples')" id="radar-btn-staples" class="radar-tab-btn flex-shrink-0 px-4 py-2 rounded-xl text-xs font-bold transition-all bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-gray-200">
+            🌾 Year-Round Staples
+          </button>
+        </div>
+      </div>
+
+      <!-- Radar Cards Grid -->
+      <div id="radar-cards-container" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <!-- Crop 1 -->
+        <div class="card-clean p-5 flex flex-col justify-between overflow-hidden group">
+          <div>
+            <div class="relative h-44 rounded-2xl overflow-hidden mb-4 bg-gray-100">
+              <img src="https://images.unsplash.com/photo-1560806887-1e4cd0b6cbd6?auto=format&fit=crop&w=600&q=80" alt="Honeycrisp Apples" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+              <span class="absolute top-3 left-3 bg-[#315C3B] text-white text-[10px] font-bold px-2 py-0.5 rounded-full shadow">
+                99% Brix Peak
+              </span>
+              <span class="absolute top-3 right-3 bg-white/90 dark:bg-gray-800/90 text-gray-800 dark:text-white text-[10px] font-bold px-2 py-0.5 rounded-full shadow">
+                Sonoma Orchard
+              </span>
+            </div>
+            <div class="flex items-center justify-between text-xs text-gray-400 mb-1">
+              <span>Fresh Fruit</span>
+              <span class="text-emerald-600 font-semibold">Picking Window: Now</span>
+            </div>
+            <h3 class="font-heading font-bold text-lg text-gray-900 dark:text-white">Organic Honeycrisp Apples</h3>
+            <p class="text-xs text-gray-500 dark:text-gray-400 mt-1 leading-relaxed">
+              Unrivaled crunch with balanced natural malic acidity. Ideal for fresh morning snacks and cold juices.
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-gray-100 dark:border-gray-800 flex items-center justify-between">
+            <span class="text-base font-bold text-[#315C3B] dark:text-[#D6A85F]">$3.49 / 500g</span>
+            <a href="products.html?category=Fresh+Fruits" class="btn-primary !min-h-[36px] !py-1.5 !px-3.5 text-xs">
+              Shop Crop &rarr;
+            </a>
+          </div>
+        </div>
+
+        <!-- Crop 2 -->
+        <div class="card-clean p-5 flex flex-col justify-between overflow-hidden group">
+          <div>
+            <div class="relative h-44 rounded-2xl overflow-hidden mb-4 bg-gray-100">
+              <img src="https://images.unsplash.com/photo-1598170845058-32b9d6a5da37?auto=format&fit=crop&w=600&q=80" alt="Root Carrots" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+              <span class="absolute top-3 left-3 bg-[#D6A85F] text-[#121614] text-[10px] font-bold px-2 py-0.5 rounded-full shadow">
+                96% Beta-Carotene
+              </span>
+              <span class="absolute top-3 right-3 bg-white/90 dark:bg-gray-800/90 text-gray-800 dark:text-white text-[10px] font-bold px-2 py-0.5 rounded-full shadow">
+                Green Soil Valley
+              </span>
+            </div>
+            <div class="flex items-center justify-between text-xs text-gray-400 mb-1">
+              <span>Root Vegetable</span>
+              <span class="text-emerald-600 font-semibold">Daily Dawn Cut</span>
+            </div>
+            <h3 class="font-heading font-bold text-lg text-gray-900 dark:text-white">Crisp Dutch Carrots</h3>
+            <p class="text-xs text-gray-500 dark:text-gray-400 mt-1 leading-relaxed">
+              Sweet tender roots with leafy tops. Rich in soil minerals with extraordinary raw sweetness.
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-gray-100 dark:border-gray-800 flex items-center justify-between">
+            <span class="text-base font-bold text-[#315C3B] dark:text-[#D6A85F]">$2.89 / 500g</span>
+            <a href="products.html?category=Vegetables" class="btn-primary !min-h-[36px] !py-1.5 !px-3.5 text-xs">
+              Shop Crop &rarr;
+            </a>
+          </div>
+        </div>
+
+        <!-- Crop 3 -->
+        <div class="card-clean p-5 flex flex-col justify-between overflow-hidden group">
+          <div>
+            <div class="relative h-44 rounded-2xl overflow-hidden mb-4 bg-gray-100">
+              <img src="https://images.unsplash.com/photo-1576045057995-568f588f82fb?auto=format&fit=crop&w=600&q=80" alt="Baby Spinach" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+              <span class="absolute top-3 left-3 bg-[#315C3B] text-white text-[10px] font-bold px-2 py-0.5 rounded-full shadow">
+                100% Iron & Folate
+              </span>
+              <span class="absolute top-3 right-3 bg-white/90 dark:bg-gray-800/90 text-gray-800 dark:text-white text-[10px] font-bold px-2 py-0.5 rounded-full shadow">
+                Spring Green Bio
+              </span>
+            </div>
+            <div class="flex items-center justify-between text-xs text-gray-400 mb-1">
+              <span>Salad Greens</span>
+              <span class="text-emerald-600 font-semibold">Triple Washed</span>
+            </div>
+            <h3 class="font-heading font-bold text-lg text-gray-900 dark:text-white">Tender Baby Spinach</h3>
+            <p class="text-xs text-gray-500 dark:text-gray-400 mt-1 leading-relaxed">
+              Air-dried delicate leaves, packed within hours of harvest for antioxidant integrity and vitality.
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-gray-100 dark:border-gray-800 flex items-center justify-between">
+            <span class="text-base font-bold text-[#315C3B] dark:text-[#D6A85F]">$2.49 / 250g</span>
+            <a href="products.html?category=Vegetables" class="btn-primary !min-h-[36px] !py-1.5 !px-3.5 text-xs">
+              Shop Crop &rarr;
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 11. CUSTOMER TESTIMONIALS -->
+  <section class="py-16 md:py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-xl mx-auto mb-14">
+        <span class="text-xs font-semibold text-[#315C3B] dark:text-[#8FD69E] uppercase tracking-wider">Customer Stories</span>
+        <h2 class="font-heading font-bold text-3xl sm:text-4xl text-gray-900 dark:text-white mt-1">What Our Community Says</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <div class="card-clean p-6 flex flex-col justify-between">
+          <div class="space-y-3">
+            <div class="text-amber-400 text-sm">★ ★ ★ ★ ★</div>
+            <p class="text-xs sm:text-sm text-gray-600 dark:text-gray-300 italic leading-relaxed">
+              "The crispness of the Honeycrisp apples and the aroma of the cold-pressed coconut oil took me right back to authentic farm childhood memories. Never going back to supermarket produce!"
+            </p>
+          </div>
+          <div class="flex items-center gap-3 mt-6 pt-4 border-t border-gray-100 dark:border-gray-800">
+            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=120&q=80" alt="Customer" class="w-10 h-10 rounded-full object-cover">
+            <div>
+              <h4 class="font-heading font-semibold text-xs text-gray-900 dark:text-white">Maya Thornton</h4>
+              <p class="text-[11px] text-gray-400">Holistic Nutritionist, CA</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-clean p-6 flex flex-col justify-between">
+          <div class="space-y-3">
+            <div class="text-amber-400 text-sm">★ ★ ★ ★ ★</div>
+            <p class="text-xs sm:text-sm text-gray-600 dark:text-gray-300 italic leading-relaxed">
+              "The wood-pressed groundnut oil and aged Basmati rice have transformed my family's everyday dinners. Timely delivery and zero plastic waste made me a lifetime subscriber."
+            </p>
+          </div>
+          <div class="flex items-center gap-3 mt-6 pt-4 border-t border-gray-100 dark:border-gray-800">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=120&q=80" alt="Customer" class="w-10 h-10 rounded-full object-cover">
+            <div>
+              <h4 class="font-heading font-semibold text-xs text-gray-900 dark:text-white">Julian Hayes</h4>
+              <p class="text-[11px] text-gray-400">Harvest Club Member</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-clean p-6 flex flex-col justify-between">
+          <div class="space-y-3">
+            <div class="text-amber-400 text-sm">★ ★ ★ ★ ★</div>
+            <p class="text-xs sm:text-sm text-gray-600 dark:text-gray-300 italic leading-relaxed">
+              "The Lakadong turmeric and forest wildflower honey cured my persistent winter fatigue. Real, pure organic groceries with verified certifications you can actually trust."
+            </p>
+          </div>
+          <div class="flex items-center gap-3 mt-6 pt-4 border-t border-gray-100 dark:border-gray-800">
+            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=120&q=80" alt="Customer" class="w-10 h-10 rounded-full object-cover">
+            <div>
+              <h4 class="font-heading font-semibold text-xs text-gray-900 dark:text-white">Elena Rostova</h4>
+              <p class="text-[11px] text-gray-400">Culinary Chef</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 12. NEWSLETTER SUBSCRIPTION -->
+  <section class="py-14 bg-[#315C3B] text-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center space-y-6">
+      <div class="w-12 h-12 rounded-2xl bg-white/10 mx-auto flex items-center justify-center text-[#D6A85F]">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+      </div>
+      <h2 class="font-heading font-bold text-3xl sm:text-4xl">Join The Organic Harvest Movement</h2>
+      <p class="text-emerald-100 text-sm max-w-lg mx-auto">
+        Receive weekly seasonal harvesting schedules, rare heritage product alerts, and secret healthy kitchen recipes straight to your inbox.
+      </p>
+
+      <form onsubmit="handleNewsletterSubmit(event)" class="flex flex-col sm:flex-row items-center justify-center gap-3 max-w-md mx-auto">
+        <input 
+          type="email" 
+          placeholder="Enter your email address" 
+          required 
+          class="w-full sm:w-auto flex-grow px-4 py-3 rounded-xl bg-white text-gray-900 placeholder-gray-400 focus:outline-none border-2 border-transparent focus:border-[#D6A85F] text-sm"
+        >
+        <button type="submit" class="btn-gold !min-h-[46px] w-full sm:w-auto">
+          Subscribe
+        </button>
+      </form>
+      <p class="text-[11px] text-emerald-200">We respect your inbox. Unsubscribe anytime with 1-click.</p>
+    </div>
+  </section>
+
+  <!-- 13. FOOTER (Dark Green / Charcoal with White Logo) -->
+  <footer class="bg-[#121614] text-gray-300 border-t border-[#2F3B33] pt-16 pb-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-gray-800">
+        
+        <!-- Brand Info -->
+        <div class="lg:col-span-2 space-y-4">
+          <a href="index.html" class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-[#315C3B] flex items-center justify-center text-white">
+              <svg class="w-6 h-6 text-[#D6A85F]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/></svg>
+            </div>
+            <div class="flex flex-col">
+              <span class="font-heading font-bold text-xl text-white">GreenHarvest</span>
+              <span class="text-[10px] font-medium text-[#D6A85F] uppercase tracking-widest">Fresh • Organic • Healthy</span>
+            </div>
+          </a>
+          <p class="text-xs text-gray-400 max-w-sm leading-relaxed">
+            Pokusa for Health brand initiative. Delivering verified 100% certified organic foods, fresh produce, and unrefined pantry goods from sustainable regenerative soils.
+          </p>
+          <div class="flex items-center gap-3 pt-2">
+            <span class="text-xs text-gray-400">Follow Our Soil:</span>
+            <a href="#" class="w-8 h-8 rounded-lg bg-gray-800 hover:bg-[#315C3B] text-gray-300 hover:text-white flex items-center justify-center transition-colors">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.163-2.723-.951.555-2.005.959-3.127 1.184-.896-.959-2.173-1.559-3.591-1.559-2.717 0-4.92 2.203-4.92 4.917 0 .39.045.765.127 1.124C7.691 8.094 4.066 6.13 1.64 3.161c-.427.722-.666 1.561-.666 2.475 0 1.71.87 3.213 2.188 4.096-.807-.026-1.566-.248-2.228-.616v.061c0 2.385 1.693 4.374 3.946 4.827-.413.111-.849.171-1.296.171-.314 0-.615-.03-.916-.086.631 1.953 2.445 3.377 4.604 3.417-1.68 1.319-3.809 2.105-6.102 2.105-.39 0-.779-.023-1.17-.067 2.18 1.394 4.768 2.209 7.557 2.209 9.054 0 13.999-7.496 13.999-13.986 0-.209 0-.42-.015-.63.961-.689 1.8-1.56 2.46-2.548l-.047-.02z"/></svg>
+            </a>
+            <a href="#" class="w-8 h-8 rounded-lg bg-gray-800 hover:bg-[#315C3B] text-gray-300 hover:text-white flex items-center justify-center transition-colors">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Shop Quick Links -->
+        <div>
+          <h4 class="font-heading font-semibold text-white text-sm mb-4">Organic Shop</h4>
+          <ul class="space-y-2 text-xs">
+            <li><a href="products.html?category=Fresh+Fruits" class="hover:text-[#D6A85F] transition-colors">Fresh Fruits</a></li>
+            <li><a href="products.html?category=Vegetables" class="hover:text-[#D6A85F] transition-colors">Vegetables</a></li>
+            <li><a href="products.html?category=Grains+%26+Pulses" class="hover:text-[#D6A85F] transition-colors">Grains & Pulses</a></li>
+            <li><a href="products.html?category=Natural+Oils" class="hover:text-[#D6A85F] transition-colors">Natural Oils</a></li>
+            <li><a href="products.html?category=Healthy+Snacks" class="hover:text-[#D6A85F] transition-colors">Healthy Snacks</a></li>
+            <li><a href="products.html?category=Natural+Foods" class="hover:text-[#D6A85F] transition-colors">Forest Honey & Spices</a></li>
+          </ul>
+        </div>
+
+        <!-- Navigation & Company -->
+        <div>
+          <h4 class="font-heading font-semibold text-white text-sm mb-4">Company</h4>
+          <ul class="space-y-2 text-xs">
+            <li><a href="about.html" class="hover:text-[#D6A85F] transition-colors">Our Story & Farms</a></li>
+            <li><a href="why-organic.html" class="hover:text-[#D6A85F] transition-colors">Why Organic</a></li>
+            <li><a href="pricing.html" class="hover:text-[#D6A85F] transition-colors">Harvest Club Plans</a></li>
+            <li><a href="delivery-info.html" class="hover:text-[#D6A85F] transition-colors">Delivery Information</a></li>
+            <li><a href="contact.html" class="hover:text-[#D6A85F] transition-colors">Contact Support</a></li>
+          </ul>
+        </div>
+
+        <!-- Direct Contact & Trust -->
+        <div>
+          <h4 class="font-heading font-semibold text-white text-sm mb-4">Farm Help Desk</h4>
+          <ul class="space-y-2 text-xs text-gray-400">
+            <li>742 Evergreen Orchard Way, Green Valley, CA</li>
+            <li>Call: <span class="text-white">+1 (800) 473-3642</span></li>
+            <li>Email: <span class="text-white">care@greenharvest.org</span></li>
+            <li>Hours: Mon–Sat 7:00 AM – 8:00 PM</li>
+          </ul>
+          <div class="mt-4 pt-3 border-t border-gray-800">
+            <span class="inline-flex items-center gap-1.5 text-[11px] text-[#D6A85F]">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+              100% Guaranteed Freshness
+            </span>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-500 gap-4">
+        <p>© 2026 GreenHarvest (Pokusa for Health). All rights reserved.</p>
+        <div class="flex items-center gap-4">
+          <a href="#" class="hover:text-gray-400">Privacy Policy</a>
+          <span>•</span>
+          <a href="#" class="hover:text-gray-400">Terms of Service</a>
+          <span>•</span>
+          <a href="delivery-info.html" class="hover:text-gray-400">Refund Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- TOAST CONTAINER -->
+  <div id="toast-container"></div>
+
+  <!-- INNOVATIVE LAB PURITY & SOIL ANALYSIS MODAL -->
+  <div id="lab-purity-modal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden items-center justify-center p-4">
+    <div class="bg-white dark:bg-[#1A211D] max-w-lg w-full rounded-3xl p-6 sm:p-8 shadow-2xl border border-gray-100 dark:border-gray-800 space-y-5 animate-fade-in">
+      <div class="flex items-center justify-between pb-3 border-b border-gray-100 dark:border-gray-800">
+        <div class="flex items-center gap-2.5">
+          <div class="w-9 h-9 rounded-xl bg-emerald-100 dark:bg-emerald-950/60 text-[#315C3B] dark:text-[#8FD69E] flex items-center justify-center">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+          </div>
+          <div>
+            <h3 class="font-heading font-bold text-base text-gray-900 dark:text-white">Daily Lab Purity Certificate</h3>
+            <p class="text-[11px] text-gray-400">Batch #842 • Issued 06:15 AM Today</p>
+          </div>
+        </div>
+        <button type="button" onclick="closeLabPurityModal()" class="p-1.5 text-gray-400 hover:text-red-500 rounded-lg">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+
+      <div class="space-y-3 text-xs">
+        <div class="p-3 rounded-xl bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-100 dark:border-emerald-800/40 flex items-center justify-between">
+          <span class="font-semibold text-gray-800 dark:text-gray-200">Synthetic Organophosphates</span>
+          <span class="font-bold text-emerald-600 dark:text-emerald-400">0.00 ppm [PASSED]</span>
+        </div>
+        <div class="p-3 rounded-xl bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-100 dark:border-emerald-800/40 flex items-center justify-between">
+          <span class="font-semibold text-gray-800 dark:text-gray-200">Glyphosate & Chemical Herbicides</span>
+          <span class="font-bold text-emerald-600 dark:text-emerald-400">0.00 ppm [PASSED]</span>
+        </div>
+        <div class="p-3 rounded-xl bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-100 dark:border-emerald-800/40 flex items-center justify-between">
+          <span class="font-semibold text-gray-800 dark:text-gray-200">Living Soil Microbiology & pH</span>
+          <span class="font-bold text-[#315C3B] dark:text-[#D6A85F]">pH 6.8 Loam [OPTIMAL]</span>
+        </div>
+        <div class="p-3 rounded-xl bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-100 dark:border-emerald-800/40 flex items-center justify-between">
+          <span class="font-semibold text-gray-800 dark:text-gray-200">Chilled Cold-Chain Storage</span>
+          <span class="font-bold text-[#315C3B] dark:text-[#D6A85F]">3.8°C [CONTINUOUS]</span>
+        </div>
+      </div>
+
+      <div class="p-4 rounded-2xl bg-gray-50 dark:bg-[#222B25] text-[11px] text-gray-500 dark:text-gray-400 space-y-1">
+        <div class="font-bold text-gray-800 dark:text-gray-200">Accredited Laboratory Verification:</div>
+        <div>Audited by Sonoma Agro-Ecological Sciences Lab. Certified in accordance with 7 CFR Part 205 (National Organic Program Standards).</div>
+      </div>
+
+      <div class="flex items-center justify-between pt-2">
+        <span class="text-[11px] text-emerald-600 font-semibold flex items-center gap-1">
+          ✓ Verified 100% Pesticide-Free
+        </span>
+        <button type="button" onclick="closeLabPurityModal()" class="btn-primary !min-h-[38px] text-xs px-5">
+          Close Report
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="assets/js/products.js"></script>
+  <script src="assets/js/cart.js"></script>
+  <script src="assets/js/wishlist.js"></script>
+  <script src="assets/js/auth.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script>
+    // State for Custom Harvest Box Configurator
+    let currentCadence = "weekly";
+    let currentBoxId = "family";
+    let currentBoxBasePrice = 44.99;
+    let currentBoxName = "Family Pantry Box (10kg)";
+
+    function selectHarvestCadence(cadence) {
+      currentCadence = cadence;
+      const btnOnetime = document.getElementById("cadence-onetime");
+      const btnWeekly = document.getElementById("cadence-weekly");
+
+      if (cadence === "weekly") {
+        btnWeekly.className = "px-4 sm:px-6 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all bg-[#315C3B] text-white shadow-sm flex items-center gap-1.5";
+        btnOnetime.className = "px-4 sm:px-6 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all text-gray-600 dark:text-gray-300";
+      } else {
+        btnOnetime.className = "px-4 sm:px-6 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all bg-[#315C3B] text-white shadow-sm";
+        btnWeekly.className = "px-4 sm:px-6 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all text-gray-600 dark:text-gray-300 flex items-center gap-1.5";
+      }
+
+      updateBoxPrices();
+    }
+
+    function selectBoxSize(size, basePrice, name) {
+      currentBoxId = size;
+      currentBoxBasePrice = basePrice;
+      currentBoxName = name;
+
+      const cards = ["solo", "family", "feast"];
+      cards.forEach(c => {
+        const cardEl = document.getElementById(`box-card-${c}`);
+        const btnEl = cardEl ? cardEl.querySelector(".box-btn") : null;
+        if (c === size) {
+          if (cardEl) {
+            cardEl.classList.remove("border-transparent");
+            cardEl.classList.add("border-[#315C3B]", "dark:border-[#D6A85F]", "shadow-lg");
+          }
+          if (btnEl) {
+            btnEl.textContent = "Selected";
+            btnEl.className = "box-btn btn-primary !min-h-[38px] text-xs px-4";
+          }
+        } else {
+          if (cardEl) {
+            cardEl.classList.remove("border-[#315C3B]", "dark:border-[#D6A85F]", "shadow-lg");
+            cardEl.classList.add("border-transparent");
+          }
+          if (btnEl) {
+            btnEl.textContent = "Select";
+            btnEl.className = "box-btn btn-secondary !min-h-[38px] text-xs px-4";
+          }
+        }
+      });
+
+      updateBoxPrices();
+    }
+
+    function updateBoxPrices() {
+      const discountMult = currentCadence === "weekly" ? 0.85 : 1.0;
+      
+      const soloPrice = (24.99 * discountMult).toFixed(2);
+      const familyPrice = (44.99 * discountMult).toFixed(2);
+      const feastPrice = (74.99 * discountMult).toFixed(2);
+
+      const cardSolo = document.getElementById("box-card-solo");
+      const cardFamily = document.getElementById("box-card-family");
+      const cardFeast = document.getElementById("box-card-feast");
+
+      if (cardSolo) cardSolo.querySelector(".box-display-price").textContent = `$${soloPrice}`;
+      if (cardFamily) cardFamily.querySelector(".box-display-price").textContent = `$${familyPrice}`;
+      if (cardFeast) cardFeast.querySelector(".box-display-price").textContent = `$${feastPrice}`;
+
+      const activeFinal = (currentBoxBasePrice * discountMult).toFixed(2);
+      const totalEl = document.getElementById("selected-box-total");
+      const labelEl = document.getElementById("selected-box-label");
+
+      if (totalEl) totalEl.textContent = `$${activeFinal}`;
+      if (labelEl) {
+        labelEl.textContent = `${currentBoxName} — ${currentCadence === 'weekly' ? 'Weekly Club (15% OFF)' : 'One-Time Delivery'}`;
+      }
+    }
+
+    function handleConfiguredBoxAddToCart(event) {
+      const discountMult = currentCadence === "weekly" ? 0.85 : 1.0;
+      const finalPrice = (currentBoxBasePrice * discountMult).toFixed(2);
+      addCustomHarvestBox(currentBoxName, finalPrice, currentCadence, [], event);
+    }
+
+    // Modal helpers
+    function openLabPurityModal() {
+      const modal = document.getElementById("lab-purity-modal");
+      if (modal) {
+        modal.classList.remove("hidden");
+        modal.classList.add("flex");
+      }
+    }
+
+    function closeLabPurityModal() {
+      const modal = document.getElementById("lab-purity-modal");
+      if (modal) {
+        modal.classList.add("hidden");
+        modal.classList.remove("flex");
+      }
+    }
+
+    // Telemetry countdown timer simulation
+    let secondsLeft = 41 * 60 + 18;
+    function runTelemetryTimer() {
+      const timerEl = document.getElementById("telemetry-dispatch-timer");
+      if (!timerEl) return;
+      setInterval(() => {
+        if (secondsLeft <= 0) secondsLeft = 45 * 60;
+        secondsLeft--;
+        const mins = Math.floor(secondsLeft / 60);
+        const secs = secondsLeft % 60;
+        timerEl.textContent = `${String(mins).padStart(2, '0')}m ${String(secs).padStart(2, '0')}s`;
+      }, 1000);
+    }
+
+    // Radar Filter Data
+    const RADAR_DATA = {
+      peak: [
+        {
+          name: "Organic Honeycrisp Apples",
+          cat: "Fresh Fruit",
+          window: "Picking Window: Now",
+          score: "99% Brix Peak",
+          origin: "Sonoma Orchard",
+          desc: "Unrivaled crunch with balanced natural malic acidity. Ideal for fresh morning snacks and cold juices.",
+          price: "$3.49 / 500g",
+          link: "products.html?category=Fresh+Fruits",
+          img: "https://images.unsplash.com/photo-1560806887-1e4cd0b6cbd6?auto=format&fit=crop&w=600&q=80"
+        },
+        {
+          name: "Crisp Dutch Carrots",
+          cat: "Root Vegetable",
+          window: "Daily Dawn Cut",
+          score: "96% Beta-Carotene",
+          origin: "Green Soil Valley",
+          desc: "Sweet tender roots with leafy tops. Rich in soil minerals with extraordinary raw sweetness.",
+          price: "$2.89 / 500g",
+          link: "products.html?category=Vegetables",
+          img: "https://images.unsplash.com/photo-1598170845058-32b9d6a5da37?auto=format&fit=crop&w=600&q=80"
+        },
+        {
+          name: "Tender Baby Spinach",
+          cat: "Salad Greens",
+          window: "Triple Washed",
+          score: "100% Iron & Folate",
+          origin: "Spring Green Bio",
+          desc: "Air-dried delicate leaves, packed within hours of harvest for antioxidant integrity and vitality.",
+          price: "$2.49 / 250g",
+          link: "products.html?category=Vegetables",
+          img: "https://images.unsplash.com/photo-1576045057995-568f588f82fb?auto=format&fit=crop&w=600&q=80"
+        }
+      ],
+      early: [
+        {
+          name: "Valencia Sweet Oranges",
+          cat: "Citrus Grove",
+          window: "Early Winter Crop",
+          score: "98% Vitamin C",
+          origin: "Ojai Citrus Grove",
+          desc: "Thin-skinned juicing oranges bathed in California winter sun. High juice yield and fragrant essential oils.",
+          price: "$3.79 / 1kg",
+          link: "products.html?category=Fresh+Fruits",
+          img: "https://images.unsplash.com/photo-1582979512210-99b6a53386f9?auto=format&fit=crop&w=600&q=80"
+        },
+        {
+          name: "Organic Tuscan Kale",
+          cat: "Winter Brassica",
+          window: "Cold-Hardy Harvest",
+          score: "95% Chlorophyll",
+          origin: "Green Soil Valley",
+          desc: "Lacinato dinosaur kale sweetened naturally by crisp morning frost. Perfect for slow winter braises.",
+          price: "$2.69 / bunch",
+          link: "products.html?category=Vegetables",
+          img: "https://images.unsplash.com/photo-1524179091875-bf99a9a6fa57?auto=format&fit=crop&w=600&q=80"
+        },
+        {
+          name: "Yukon Gold Potatoes",
+          cat: "Earthy Tubers",
+          window: "Cellar Cured",
+          score: "92% Potassium",
+          origin: "Willamette Valley",
+          desc: "Velvety yellow flesh with naturally buttery notes. Grown without synthetic sprout inhibitors.",
+          price: "$3.19 / 1kg",
+          link: "products.html?category=Vegetables",
+          img: "https://images.unsplash.com/photo-1518977676601-b53f82aba655?auto=format&fit=crop&w=600&q=80"
+        }
+      ],
+      staples: [
+        {
+          name: "Aged Organic Basmati Rice",
+          cat: "Grains & Pulses",
+          window: "2-Year Aged",
+          score: "Heritage Grain",
+          origin: "Himalayan Foothills",
+          desc: "Long slender grains naturally aged to enhance aromatic basmati fragrance and fluffy non-sticky texture.",
+          price: "$6.49 / 1kg",
+          link: "products.html?category=Grains+%26+Pulses",
+          img: "https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&w=600&q=80"
+        },
+        {
+          name: "Cold-Pressed Coconut Oil",
+          cat: "Natural Oils",
+          window: "Fresh Centrifuged",
+          score: "100% Raw Extra Virgin",
+          origin: "Kerala Coastal Co-op",
+          desc: "Wood-churned from fresh organic coconut meat with zero chemical solvents or high heat bleaching.",
+          price: "$8.99 / 500ml",
+          link: "products.html?category=Natural+Oils",
+          img: "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=600&q=80"
+        },
+        {
+          name: "Wildflower Forest Honey",
+          cat: "Natural Foods",
+          window: "Raw & Unfiltered",
+          score: "Live Bio-Enzymes",
+          origin: "Northern Forest Reserves",
+          desc: "Never heated above hive temperature (95°F) to preserve pollen, propolis, and live antioxidant enzymes.",
+          price: "$7.99 / 400g",
+          link: "products.html?category=Natural+Foods",
+          img: "https://images.unsplash.com/photo-1587049352846-4a222e784d38?auto=format&fit=crop&w=600&q=80"
+        }
+      ]
+    };
+
+    function filterRadarSeason(season) {
+      document.querySelectorAll(".radar-tab-btn").forEach(btn => {
+        btn.className = "radar-tab-btn flex-shrink-0 px-4 py-2 rounded-xl text-xs font-bold transition-all bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-gray-200";
+      });
+      const activeBtn = document.getElementById(`radar-btn-${season}`);
+      if (activeBtn) {
+        activeBtn.className = "radar-tab-btn flex-shrink-0 px-4 py-2 rounded-xl text-xs font-bold transition-all bg-[#315C3B] text-white shadow-sm";
+      }
+
+      const container = document.getElementById("radar-cards-container");
+      if (!container) return;
+
+      const crops = RADAR_DATA[season] || RADAR_DATA.peak;
+      container.innerHTML = crops.map(c => `
+        <div class="card-clean p-5 flex flex-col justify-between overflow-hidden group">
+          <div>
+            <div class="relative h-44 rounded-2xl overflow-hidden mb-4 bg-gray-100 dark:bg-gray-800">
+              <img src="${c.img}" alt="${c.name}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+              <span class="absolute top-3 left-3 bg-[#315C3B] text-white text-[10px] font-bold px-2 py-0.5 rounded-full shadow">
+                ${c.score}
+              </span>
+              <span class="absolute top-3 right-3 bg-white/90 dark:bg-gray-800/90 text-gray-800 dark:text-white text-[10px] font-bold px-2 py-0.5 rounded-full shadow">
+                ${c.origin}
+              </span>
+            </div>
+            <div class="flex items-center justify-between text-xs text-gray-400 mb-1">
+              <span>${c.cat}</span>
+              <span class="text-emerald-600 font-semibold">${c.window}</span>
+            </div>
+            <h3 class="font-heading font-bold text-lg text-gray-900 dark:text-white">${c.name}</h3>
+            <p class="text-xs text-gray-500 dark:text-gray-400 mt-1 leading-relaxed">
+              ${c.desc}
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-gray-100 dark:border-gray-800 flex items-center justify-between">
+            <span class="text-base font-bold text-[#315C3B] dark:text-[#D6A85F]">${c.price}</span>
+            <a href="${c.link}" class="btn-primary !min-h-[36px] !py-1.5 !px-3.5 text-xs">
+              Shop Crop &rarr;
+            </a>
+          </div>
+        </div>
+      `).join("");
+    }
+
+    // Hydrate Bestsellers and Fresh Picks grids
+    document.addEventListener("DOMContentLoaded", () => {
+      const bestsellersGrid = document.getElementById("home-bestsellers-grid");
+      const freshPicksGrid = document.getElementById("home-fresh-picks-grid");
+
+      if (bestsellersGrid && typeof getBestsellers === "function") {
+        const bestsellers = getBestsellers(4);
+        bestsellersGrid.innerHTML = bestsellers.map(p => createProductCardHTML(p)).join("");
+      }
+
+      if (freshPicksGrid && typeof getFreshPicks === "function") {
+        const freshPicks = getFreshPicks(4);
+        freshPicksGrid.innerHTML = freshPicks.map(p => createProductCardHTML(p)).join("");
+      }
+
+      runTelemetryTimer();
+      updateBoxPrices();
+    });
+  </script>
+</body>
+</html>

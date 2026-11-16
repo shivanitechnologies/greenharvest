@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <linearGradient id="leafGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3A6B46" />
+      <stop offset="100%" stop-color="#24442B" />
+    </linearGradient>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F3CB7A" />
+      <stop offset="100%" stop-color="#D6A85F" />
+    </linearGradient>
+  </defs>
+  <!-- Rounded container background -->
+  <rect width="64" height="64" rx="16" fill="#315C3B"/>
+  <!-- Leaf and Sprout Graphic -->
+  <path d="M32 54 C32 40, 36 28, 48 18 C36 19, 23 27, 21 38 C20 44, 23 50, 32 54 Z" fill="url(#goldGrad)" opacity="0.95"/>
+  <path d="M16 48 C16 38, 22 28, 32 20 C32 30, 28 42, 16 48 Z" fill="#FFFFFF" opacity="0.85"/>
+  <!-- Central stem vein -->
+  <path d="M32 54 C33 42, 38 30, 48 18" stroke="#24442B" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+</svg>

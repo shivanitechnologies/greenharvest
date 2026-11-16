@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Delivery Information & Serviceable Areas | GreenHarvest</title>
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+  <meta name="description" content="Check postal PIN code delivery serviceability, same-day eco-transit slots, insulated cold packaging, shipping fees, and our 100% fresh produce replacement policy.">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            forest: '#315C3B',
+            gold: '#D6A85F',
+            cream: { DEFAULT: '#FBF9F5', surface: '#F4EFEA', card: '#FFFFFF' },
+            charcoal: { DEFAULT: '#121614', surface: '#1A211D', card: '#222B25', border: '#2F3B33' }
+          },
+          fontFamily: {
+            heading: ['Poppins', 'sans-serif'],
+            body: ['Inter', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-[#FBF9F5] dark:bg-[#121614] text-[#1A3320] dark:text-[#F3F4F6] font-body transition-colors duration-300">
+
+  <!-- ANNOUNCEMENT BAR -->
+  <div class="announcement-bar bg-[#315C3B] text-white text-xs py-2 px-4 text-center font-medium relative z-50">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      <div class="hidden md:flex items-center gap-2">
+        <span class="inline-block w-2 h-2 rounded-full bg-[#D6A85F]"></span>
+        <span>Temperature-Controlled Cold Delivery Routes</span>
+      </div>
+      <div class="mx-auto md:mx-0">
+        <span>ðŸŒ¿ Free Delivery on all grocery orders over $35 • Same-Day slots available</span>
+      </div>
+      <div class="hidden md:flex items-center gap-4">
+        <a href="contact.html" class="hover:text-[#D6A85F]">Courier Support</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <header class="sticky top-0 z-40 bg-white/95 dark:bg-[#121614]/95 border-b border-gray-100 dark:border-gray-800 transition-all duration-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20 gap-4">
+
+        <button id="mobile-menu-open-btn" class="lg:hidden p-2 text-gray-700 dark:text-gray-200" aria-label="Open Menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+        </button>
+
+        <a href="index.html" class="flex items-center gap-3 flex-shrink-0">
+          <div class="w-10 h-10 rounded-xl bg-[#315C3B] flex items-center justify-center text-white shadow-sm">
+            <svg class="w-6 h-6 text-[#D6A85F]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
+          </div>
+          <div class="flex flex-col">
+            <span class="font-heading font-bold text-xl tracking-tight text-[#315C3B] dark:text-white leading-none">GreenHarvest</span>
+            <span class="text-[10px] font-medium text-[#D6A85F] tracking-widest uppercase mt-0.5 hidden sm:block">Fresh • Organic • Healthy</span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation with Hover Dropdown for Home -->
+        <nav class="hidden lg:flex items-center space-x-6 xl:space-x-8 text-sm font-medium">
+          <!-- Home Hover Dropdown -->
+          <div class="relative group py-2">
+            <button class="flex items-center gap-1.5 text-gray-700 dark:text-gray-200 hover:text-[#315C3B] dark:hover:text-[#D6A85F] font-medium transition-colors focus:outline-none">
+              <span>Home</span>
+              <svg class="w-4 h-4 text-gray-400 group-hover:text-[#315C3B] dark:group-hover:text-[#D6A85F] transition-transform duration-200 group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </button>
+            <div class="absolute top-full left-0 pt-2 w-72 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 transform translate-y-1 group-hover:translate-y-0">
+              <div class="bg-white dark:bg-[#1A211D] rounded-2xl shadow-xl border border-gray-100 dark:border-gray-800 p-2.5 space-y-1">
+                <a href="index.html" class="flex items-start gap-3 p-3 rounded-xl hover:bg-emerald-50/70 dark:hover:bg-gray-800/80 transition-colors group/item">
+                  <div class="w-8 h-8 rounded-lg bg-emerald-100 dark:bg-emerald-950/60 text-[#315C3B] dark:text-[#8FD69E] flex items-center justify-center font-bold text-xs flex-shrink-0 group-hover/item:scale-105 transition-transform">
+                    01
+                  </div>
+                  <div>
+                    <div class="text-xs font-bold text-gray-900 dark:text-white flex items-center gap-2">
+                      Home 1
+                      <span class="text-[9px] font-semibold px-1.5 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-900/40 text-emerald-800 dark:text-emerald-300">Classic</span>
+                    </div>
+                    <div class="text-[11px] text-gray-500 dark:text-gray-400 mt-0.5">Classic Organic Store & Daily Harvest</div>
+                  </div>
+                </a>
+                <a href="home-2.html" class="flex items-start gap-3 p-3 rounded-xl hover:bg-amber-50/70 dark:hover:bg-gray-800/80 transition-colors group/item">
+                  <div class="w-8 h-8 rounded-lg bg-amber-100 dark:bg-amber-950/60 text-[#D6A85F] flex items-center justify-center font-bold text-xs flex-shrink-0 group-hover/item:scale-105 transition-transform">
+                    02
+                  </div>
+                  <div>
+                    <div class="text-xs font-bold text-gray-900 dark:text-white flex items-center gap-2">
+                      Home 2
+                      <span class="text-[9px] font-semibold px-1.5 py-0.5 rounded-full bg-amber-100 dark:bg-amber-900/40 text-amber-800 dark:text-amber-300">Editorial</span>
+                    </div>
+                    <div class="text-[11px] text-gray-500 dark:text-gray-400 mt-0.5">Premium Experience & Farm Story</div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <a href="about.html" class="text-gray-700 dark:text-gray-200 hover:text-[#315C3B] dark:hover:text-[#D6A85F] transition-colors">About</a>
+          <a href="products.html" class="text-gray-700 dark:text-gray-200 hover:text-[#315C3B] dark:hover:text-[#D6A85F] transition-colors">Products</a>
+          <a href="why-organic.html" class="text-gray-700 dark:text-gray-200 hover:text-[#315C3B] dark:hover:text-[#D6A85F] transition-colors">Why Organic</a>
+          <a href="delivery-info.html" class="text-[#315C3B] dark:text-[#D6A85F] font-semibold">Delivery Info</a>
+          <a href="contact.html" class="text-gray-700 dark:text-gray-200 hover:text-[#315C3B] dark:hover:text-[#D6A85F] transition-colors">Contact</a>
+        </nav>
+
+        <div class="flex items-center gap-2 sm:gap-3">
+          <a href="wishlist.html" class="relative p-2 text-gray-600 dark:text-gray-300 hover:text-[#315C3B] rounded-lg">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+            <span class="wishlist-count-badge hidden absolute top-0.5 right-0.5 w-4 h-4 bg-red-500 text-white text-[10px] font-bold rounded-full flex items-center justify-center">0</span>
+          </a>
+          <a href="cart.html" class="relative p-2 text-gray-600 dark:text-gray-300 hover:text-[#315C3B] rounded-lg">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg>
+            <span class="cart-count-badge hidden absolute top-0.5 right-0.5 w-4 h-4 bg-[#315C3B] text-white text-[10px] font-bold rounded-full flex items-center justify-center">0</span>
+          </a>
+          <button type="button" onclick="toggleTheme()" class="theme-toggle-btn p-2 text-gray-600 dark:text-gray-300 hover:text-[#315C3B] rounded-lg" aria-label="Toggle Theme">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+          </button>
+          <button type="button" onclick="toggleRTL()" class="rtl-toggle-btn px-2 py-1 text-gray-600 dark:text-gray-300 border border-gray-200 dark:border-gray-700 rounded-lg text-xs font-semibold">
+            <span>RTL</span>
+          </button>
+          <div id="header-auth-container"></div>
+          <div class="hidden sm:flex items-center">
+            <a href="products.html" class="btn-primary !min-h-[42px] !py-2 !px-5 text-xs font-semibold">Shop Now</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- MOBILE NAVIGATION DRAWER & SEARCH MODAL -->
+  <div id="mobile-menu-backdrop" class="fixed inset-0 bg-black/50 z-50 hidden transition-opacity"></div>
+  <aside id="mobile-menu-drawer" class="fixed top-0 left-0 w-80 max-w-[85vw] h-full bg-white dark:bg-[#121614] z-50 -translate-x-full transition-transform duration-300 shadow-2xl flex flex-col p-6">
+    <div class="flex items-center justify-between pb-4 border-b border-gray-100 dark:border-gray-800">
+      <div class="flex items-center gap-2">
+        <div class="w-8 h-8 rounded-lg bg-[#315C3B] flex items-center justify-center text-[#D6A85F]">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/></svg>
+        </div>
+        <span class="font-heading font-bold text-lg text-[#315C3B] dark:text-white">GreenHarvest</span>
+      </div>
+      <button id="mobile-menu-close-btn" class="p-1 text-gray-500 hover:text-red-500"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></button>
+    </div>
+    <nav class="flex flex-col space-y-3 py-6 text-base font-medium">
+      <div class="border-b border-gray-100 dark:border-gray-800 pb-3">
+        <span class="text-[10px] font-bold text-[#D6A85F] uppercase tracking-wider block mb-2">Home Layouts</span>
+        <div class="pl-2 space-y-2">
+          <a href="index.html" class="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300 hover:text-[#315C3B]">
+            <span class="w-1.5 h-1.5 rounded-full bg-gray-300 dark:bg-gray-700"></span>
+            <span>Home 1 (Classic Store)</span>
+          </a>
+          <a href="home-2.html" class="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300 hover:text-[#315C3B]">
+            <span class="w-1.5 h-1.5 rounded-full bg-gray-300 dark:bg-gray-700"></span>
+            <span>Home 2 (Premium Editorial)</span>
+          </a>
+        </div>
+      </div>
+      <a href="about.html" class="text-gray-700 dark:text-gray-300 hover:text-[#315C3B]">About Us</a>
+      <a href="products.html" class="text-gray-700 dark:text-gray-300 hover:text-[#315C3B]">Products</a>
+      <a href="why-organic.html" class="text-gray-700 dark:text-gray-300 hover:text-[#315C3B]">Why Organic</a>
+      <a href="delivery-info.html" class="text-[#315C3B] font-semibold">Delivery Info</a>
+      <a href="contact.html" class="text-gray-700 dark:text-gray-300 hover:text-[#315C3B]">Contact</a>
+    </nav>
+    <div class="mt-auto pt-6 border-t border-gray-100 dark:border-gray-800 space-y-3">
+      <a href="products.html" class="btn-primary w-full text-center">Shop Now</a>
+    </div>
+  </aside>
+
+  <!-- SEARCH MODAL -->
+  <div id="search-modal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden items-start justify-center pt-20 px-4">
+    <div class="bg-white dark:bg-[#1A211D] w-full max-w-2xl rounded-2xl shadow-2xl border border-gray-100 dark:border-gray-800 overflow-hidden">
+      <div class="p-4 border-b border-gray-100 dark:border-gray-800 flex items-center gap-3">
+        <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+        <input id="header-search-input" type="text" placeholder="Search organic grocery..." class="w-full bg-transparent border-0 text-base text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none">
+        <button id="search-modal-close-btn" class="text-xs text-gray-400 px-2 py-1 bg-gray-100 dark:bg-gray-800 rounded">ESC</button>
+      </div>
+      <div id="search-results-dropdown" class="max-h-96 overflow-y-auto p-2"></div>
+    </div>
+  </div>
+
+  <!-- HERO & PIN CHECKER TOOL -->
+  <section class="py-14 md:py-20 bg-gradient-to-b from-[#F4EFEA] to-[#FBF9F5] dark:from-[#1A211D] dark:to-[#121614] border-b border-gray-200/80 dark:border-gray-800">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center space-y-6">
+      <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#315C3B]/10 dark:bg-[#315C3B]/20 text-[#315C3B] dark:text-[#8FD69E] text-xs font-semibold">
+        Fresh Direct Eco Transit
+      </span>
+      <h1 class="font-heading font-bold text-3xl sm:text-5xl text-gray-900 dark:text-white">
+        Doorstep Organic Delivery Information
+      </h1>
+      <p class="text-sm sm:text-base text-gray-600 dark:text-gray-300 max-w-xl mx-auto">
+        Learn how our cold-chain preserves the live crispness of farm produce, explore delivery times, and verify your PIN code serviceability.
+      </p>
+
+      <!-- Interactive PIN Code Checker Tool -->
+      <div class="max-w-lg mx-auto bg-white dark:bg-[#222B25] p-5 rounded-2xl shadow-lg border border-gray-100 dark:border-gray-800 space-y-3">
+        <label for="delivery-pin-input" class="text-xs font-bold text-gray-700 dark:text-gray-300 block text-left">
+          Check Serviceability in Your Area:
+        </label>
+        <div class="flex items-center gap-2">
+          <input 
+            id="delivery-pin-input" 
+            type="text" 
+            placeholder="Enter Postal PIN Code (e.g. 10001, 90210, 560001)" 
+            class="px-4 py-2.5 rounded-xl border border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-[#1A211D] text-sm flex-grow focus:outline-none focus:border-[#315C3B]"
+          >
+          <button type="button" onclick="runDeliveryPinCheck()" class="btn-primary !min-h-[44px] text-xs font-semibold px-5">
+            Check PIN
+          </button>
+        </div>
+        <div id="delivery-pin-result" class="text-xs font-medium text-left min-h-[20px]"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 1. DELIVERY PROCESS (3-step) -->
+  <section class="py-16 bg-white dark:bg-[#1A211D]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-xl mx-auto mb-14">
+        <span class="badge-gold">Farm to Kitchen</span>
+        <h2 class="font-heading font-bold text-3xl text-gray-900 dark:text-white mt-2">Our Eco Delivery Process</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="card-clean p-6 space-y-3">
+          <div class="w-10 h-10 rounded-full bg-[#315C3B] text-white font-bold flex items-center justify-center font-heading">1</div>
+          <h3 class="font-heading font-bold text-lg text-gray-900 dark:text-white">Morning Pre-Cooling</h3>
+          <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">
+            Harvested fruits and greens are placed in cool humidified holding rooms within 90 minutes of cutting to arrest enzymatic nutrient degradation.
+          </p>
+        </div>
+
+        <div class="card-clean p-6 space-y-3">
+          <div class="w-10 h-10 rounded-full bg-[#D6A85F] text-[#1A3320] font-bold flex items-center justify-center font-heading">2</div>
+          <h3 class="font-heading font-bold text-lg text-gray-900 dark:text-white">Zero-Plastic Packing</h3>
+          <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">
+            Packed with plant-based moisture liners inside insulated recycled corrugated cartons with reusable non-toxic ice packs.
+          </p>
+        </div>
+
+        <div class="card-clean p-6 space-y-3">
+          <div class="w-10 h-10 rounded-full bg-[#315C3B] text-white font-bold flex items-center justify-center font-heading">3</div>
+          <h3 class="font-heading font-bold text-lg text-gray-900 dark:text-white">Direct Doorstep Handover</h3>
+          <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">
+            Delivered in our climate-regulated electric vans during your preferred morning or evening delivery slot with SMS tracking.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. CHARGES, SLOTS & THRESHOLDS -->
+  <section class="py-16 bg-[#F4EFEA] dark:bg-[#121614] border-y border-gray-100 dark:border-gray-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <div class="bg-white dark:bg-[#222B25] p-6 rounded-2xl border border-gray-100 dark:border-gray-800 space-y-2">
+          <h4 class="font-heading font-bold text-base text-gray-900 dark:text-white">Delivery Charges</h4>
+          <p class="text-2xl font-heading font-bold text-[#315C3B] dark:text-[#D6A85F]">FREE</p>
+          <p class="text-xs text-gray-500">On all orders above $35.00. Flat $3.99 for orders below $35.</p>
+        </div>
+
+        <div class="bg-white dark:bg-[#222B25] p-6 rounded-2xl border border-gray-100 dark:border-gray-800 space-y-2">
+          <h4 class="font-heading font-bold text-base text-gray-900 dark:text-white">Minimum Order</h4>
+          <p class="text-2xl font-heading font-bold text-[#315C3B] dark:text-[#D6A85F]">$15.00</p>
+          <p class="text-xs text-gray-500">To maintain sustainable logistics and minimize carbon footprint per drop.</p>
+        </div>
+
+        <div class="bg-white dark:bg-[#222B25] p-6 rounded-2xl border border-gray-100 dark:border-gray-800 space-y-2">
+          <h4 class="font-heading font-bold text-base text-gray-900 dark:text-white">Morning Slot</h4>
+          <p class="text-2xl font-heading font-bold text-[#315C3B] dark:text-[#D6A85F]">7AM – 11AM</p>
+          <p class="text-xs text-gray-500">Perfect for daily fresh juices and breakfast prep. Cutoff: 9:00 PM previous night.</p>
+        </div>
+
+        <div class="bg-white dark:bg-[#222B25] p-6 rounded-2xl border border-gray-100 dark:border-gray-800 space-y-2">
+          <h4 class="font-heading font-bold text-base text-gray-900 dark:text-white">Evening Slot</h4>
+          <p class="text-2xl font-heading font-bold text-[#315C3B] dark:text-[#D6A85F]">4PM – 8PM</p>
+          <p class="text-xs text-gray-500">Ideal for dinner prep and evening grocery stocking. Cutoff: 1:00 PM same day.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. RETURN, REFUND AND DAMAGE POLICY -->
+  <section class="py-16 bg-white dark:bg-[#1A211D]">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <div class="card-clean p-8 space-y-5 border-l-4 border-l-[#315C3B]">
+        <span class="text-xs font-bold text-[#315C3B] dark:text-[#D6A85F] uppercase tracking-wider">Our Produce Guarantee</span>
+        <h2 class="font-heading font-bold text-2xl sm:text-3xl text-gray-900 dark:text-white">
+          100% No-Hassle Fresh Produce Replacement Policy
+        </h2>
+        <p class="text-xs sm:text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
+          Because our harvest is 100% organic and free from artificial synthetic preservative waxes, living produce occasionally reacts to weather. If any fruit or vegetable in your order arrives damaged, bruised, or unsatisfactory, simply snap a picture and message our WhatsApp or email within 24 hours.
+        </p>
+        <p class="text-xs sm:text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
+          We will promptly issue a full refund to your original payment method or dispatch a replacement with your next morning basket. No return shipment required.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. DELIVERY FAQS -->
+  <section class="py-16 bg-[#F4EFEA] dark:bg-[#121614]">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <div class="text-center max-w-xl mx-auto mb-10">
+        <h2 class="font-heading font-bold text-3xl text-gray-900 dark:text-white">Delivery FAQs</h2>
+      </div>
+
+      <div class="space-y-4 text-xs sm:text-sm">
+        <details class="bg-white dark:bg-[#222B25] p-5 rounded-2xl border border-gray-100 dark:border-gray-800" open>
+          <summary class="font-heading font-semibold text-gray-900 dark:text-white cursor-pointer list-none flex items-center justify-between">
+            <span>What happens if I am not home when the delivery arrives?</span>
+            <span class="text-[#315C3B] dark:text-[#D6A85F] font-bold">▼</span>
+          </summary>
+          <p class="text-gray-500 dark:text-gray-400 mt-2">
+            Our insulated thermal boxes are designed to preserve safe produce temperature for up to 4 hours on your shaded porch. Our driver will also call you or follow your specified drop instructions.
+          </p>
+        </details>
+
+        <details class="bg-white dark:bg-[#222B25] p-5 rounded-2xl border border-gray-100 dark:border-gray-800">
+          <summary class="font-heading font-semibold text-gray-900 dark:text-white cursor-pointer list-none flex items-center justify-between">
+            <span>Do you recycle or take back the packing materials?</span>
+            <span class="text-[#315C3B] dark:text-[#D6A85F] font-bold">▼</span>
+          </summary>
+          <p class="text-gray-500 dark:text-gray-400 mt-2">
+            Yes! Just leave your previous box and ice packs outside on your next delivery day. Our driver collects them for sanitization and reuse.
+          </p>
+        </details>
+      </div>
+
+      <!-- Contact Support CTA -->
+      <div class="mt-12 text-center">
+        <p class="text-xs text-gray-500 mb-3">Have a special gate code or custom delivery request?</p>
+        <a href="contact.html" class="btn-primary text-xs">Contact Courier Support Team</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-[#121614] text-gray-300 border-t border-[#2F3B33] pt-14 pb-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 pb-10 border-b border-gray-800 text-xs">
+        <div class="space-y-3">
+          <div class="font-heading font-bold text-lg text-white">GreenHarvest</div>
+          <p class="text-gray-400">Pokusa for Health brand initiative. Delivering verified 100% certified organic foods.</p>
+        </div>
+        <div>
+          <h4 class="font-heading font-semibold text-white mb-3">Shop Curations</h4>
+          <ul class="space-y-1.5 text-gray-400">
+            <li><a href="products.html?category=Fresh+Fruits" class="hover:text-white">Fresh Fruits</a></li>
+            <li><a href="products.html?category=Vegetables" class="hover:text-white">Vegetables</a></li>
+            <li><a href="products.html?category=Natural+Oils" class="hover:text-white">Cold-Pressed Oils</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-heading font-semibold text-white mb-3">Integrity</h4>
+          <ul class="space-y-1.5 text-gray-400">
+            <li><a href="about.html" class="hover:text-white">Our Story</a></li>
+            <li><a href="why-organic.html" class="hover:text-white">Why Organic</a></li>
+            <li><a href="delivery-info.html" class="hover:text-white">Delivery Policy</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-heading font-semibold text-white mb-3">Customer Support</h4>
+          <p class="text-gray-400">742 Evergreen Orchard Way, Green Valley, CA</p>
+          <p class="text-white mt-1">+1 (800) 473-3642</p>
+        </div>
+      </div>
+      <div class="pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-500">
+        <p>© 2026 GreenHarvest (Pokusa for Health). All rights reserved.</p>
+        <div class="flex gap-4 mt-2 sm:mt-0">
+          <a href="index.html">Home</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div id="toast-container"></div>
+
+  <script src="assets/js/products.js"></script>
+  <script src="assets/js/cart.js"></script>
+  <script src="assets/js/wishlist.js"></script>
+  <script src="assets/js/auth.js"></script>
+  <script src="assets/js/checkout.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script>
+    function runDeliveryPinCheck() {
+      const input = document.getElementById("delivery-pin-input");
+      const res = document.getElementById("delivery-pin-result");
+      if (!input || !res) return;
+
+      const val = input.value.trim();
+      const check = checkPinServiceability(val);
+
+      if (!check) {
+        res.className = "text-xs text-amber-500 font-medium";
+        res.textContent = "Please enter a postal PIN code to test.";
+        return;
+      }
+
+      if (check.serviceable) {
+        res.className = "text-xs text-emerald-600 dark:text-emerald-400 font-semibold";
+        res.innerHTML = `✓ ${check.message} <br><span class="text-gray-500 text-[11px] font-normal">Next available delivery slot: Tomorrow 7:00 AM – 11:00 AM</span>`;
+      } else {
+        res.className = "text-xs text-red-500 font-semibold";
+        res.textContent = `✗ ${check.message}`;
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,397 @@
+/* GreenHarvest - Organic Harvest Grocery Store
+   Primary: Forest Green (#315C3B)
+   Secondary: Harvest Gold (#D6A85F)
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --color-primary: #315C3B;
+  --color-primary-dark: #23442B;
+  --color-primary-light: #447950;
+  --color-secondary: #D6A85F;
+  --color-secondary-hover: #C59648;
+  --color-bg-light: #FBF9F5;
+  --color-surface-light: #F4EFEA;
+  --color-card-light: #FFFFFF;
+  --color-text-light: #1A3320;
+  --color-muted-light: #5E6D62;
+  --color-border-light: #E5DFD7;
+
+  /* Dark theme colors */
+  --color-bg-dark: #121614;
+  --color-surface-dark: #1A211D;
+  --color-card-dark: #222B25;
+  --color-text-dark: #F3F4F6;
+  --color-muted-dark: #9CA3AF;
+  --color-border-dark: #2F3B33;
+
+  /* Status Colors (only for indicators) */
+  --status-in-stock: #10B981;
+  --status-low-stock: #F59E0B;
+  --status-out-stock: #EF4444;
+  --status-info: #3B82F6;
+  
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+}
+
+/* Global resets & typography */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--color-bg-light);
+  color: var(--color-text-light);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6, .font-heading {
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Dark Mode Overrides */
+html.dark body {
+  background-color: var(--color-bg-dark);
+  color: var(--color-text-dark);
+}
+
+html.dark .bg-white {
+  background-color: var(--color-card-dark) !important;
+}
+
+html.dark .bg-cream {
+  background-color: var(--color-surface-dark) !important;
+}
+
+html.dark .border-cream,
+html.dark .border-gray-200,
+html.dark .border-gray-100 {
+  border-color: var(--color-border-dark) !important;
+}
+
+html.dark .text-forest {
+  color: #E2ECE5 !important;
+}
+
+html.dark .text-gray-600,
+html.dark .text-gray-500 {
+  color: var(--color-muted-dark) !important;
+}
+
+/* Button rules per specification:
+   - Primary: Forest green background (#315C3B), white text.
+   - Secondary: Outlined forest green (border 2px #315C3B, text #315C3B).
+   - Both CTAs must have consistent dimensions (e.g. min-height 46px, px-6 py-2.5, font-medium).
+   - No dramatic hover color changes on buttons.
+*/
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: #315C3B;
+  color: #FFFFFF !important;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 0.95rem;
+  padding: 0.65rem 1.5rem;
+  min-height: 46px;
+  border-radius: var(--radius-md);
+  border: 2px solid #315C3B;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(49, 92, 59, 0.25);
+  background-color: #315C3B;
+  color: #FFFFFF;
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: transparent;
+  color: #315C3B !important;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 0.95rem;
+  padding: 0.65rem 1.5rem;
+  min-height: 46px;
+  border-radius: var(--radius-md);
+  border: 2px solid #315C3B;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+  cursor: pointer;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+html.dark .btn-secondary {
+  color: #D6A85F !important;
+  border-color: #D6A85F;
+}
+
+.btn-secondary:hover {
+  transform: translateY(-1px);
+  background-color: rgba(49, 92, 59, 0.08);
+}
+
+html.dark .btn-secondary:hover {
+  background-color: rgba(214, 168, 95, 0.12);
+}
+
+.btn-gold {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: #D6A85F;
+  color: #1A3320 !important;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 0.65rem 1.5rem;
+  min-height: 46px;
+  border-radius: var(--radius-md);
+  border: 2px solid #D6A85F;
+  transition: transform 0.2s ease;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn-gold:hover {
+  transform: translateY(-1px);
+  background-color: #D6A85F;
+}
+
+/* Badges */
+.badge-gold {
+  background-color: rgba(214, 168, 95, 0.15);
+  color: #9A6F24;
+  border: 1px solid rgba(214, 168, 95, 0.4);
+  font-weight: 600;
+  font-size: 0.75rem;
+  padding: 0.25rem 0.6rem;
+  border-radius: 9999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+html.dark .badge-gold {
+  background-color: rgba(214, 168, 95, 0.2);
+  color: #E3BB77;
+  border-color: rgba(214, 168, 95, 0.4);
+}
+
+.badge-green {
+  background-color: rgba(49, 92, 59, 0.12);
+  color: #315C3B;
+  border: 1px solid rgba(49, 92, 59, 0.25);
+  font-weight: 600;
+  font-size: 0.75rem;
+  padding: 0.25rem 0.6rem;
+  border-radius: 9999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+html.dark .badge-green {
+  background-color: rgba(49, 92, 59, 0.3);
+  color: #8FD69E;
+  border-color: rgba(49, 92, 59, 0.5);
+}
+
+/* Cards & Surfaces */
+.card-clean {
+  background-color: #FFFFFF;
+  border: 1px solid #ECE7E1;
+  border-radius: var(--radius-lg);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+html.dark .card-clean {
+  background-color: var(--color-card-dark);
+  border-color: var(--color-border-dark);
+}
+
+.card-clean:hover {
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.03);
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #F4EFEA;
+}
+html.dark ::-webkit-scrollbar-track {
+  background: #181E1A;
+}
+::-webkit-scrollbar-thumb {
+  background: #C2B7A8;
+  border-radius: 4px;
+}
+html.dark ::-webkit-scrollbar-thumb {
+  background: #3B473E;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #315C3B;
+}
+
+/* RTL Support Rules */
+html[dir="rtl"] {
+  direction: rtl;
+  text-align: right;
+}
+
+html[dir="rtl"] .space-x-2 > :not([hidden]) ~ :not([hidden]),
+html[dir="rtl"] .space-x-3 > :not([hidden]) ~ :not([hidden]),
+html[dir="rtl"] .space-x-4 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-x-reverse: 1;
+}
+
+html[dir="rtl"] .translate-x-1 {
+  transform: translateX(-0.25rem);
+}
+
+html[dir="rtl"] .mr-auto {
+  margin-right: 0;
+  margin-left: auto;
+}
+
+html[dir="rtl"] .ml-auto {
+  margin-left: 0;
+  margin-right: auto;
+}
+
+html[dir="rtl"] .text-left {
+  text-align: right;
+}
+
+html[dir="rtl"] .text-right {
+  text-align: left;
+}
+
+/* Lucide icons retain consistent sizing */
+.lucide {
+  width: 1.25rem;
+  height: 1.25rem;
+  display: inline-block;
+  vertical-align: middle;
+  flex-shrink: 0;
+}
+
+/* Toast Notification Styles */
+#toast-container {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  pointer-events: none;
+}
+
+html[dir="rtl"] #toast-container {
+  right: auto;
+  left: 1.5rem;
+}
+
+.toast {
+  pointer-events: auto;
+  min-width: 280px;
+  max-width: 380px;
+  background-color: #FFFFFF;
+  color: #1A3320;
+  padding: 0.85rem 1.15rem;
+  border-radius: var(--radius-md);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+  border-left: 4px solid #315C3B;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transform: translateY(20px);
+  opacity: 0;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+html.dark .toast {
+  background-color: #222B25;
+  color: #F3F4F6;
+  border-left-color: #D6A85F;
+}
+
+html[dir="rtl"] .toast {
+  border-left: none;
+  border-right: 4px solid #315C3B;
+}
+
+html[dir="rtl"].dark .toast {
+  border-right-color: #D6A85F;
+}
+
+.toast.show {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.toast.toast-error {
+  border-color: #EF4444;
+}
+
+.toast.toast-warning {
+  border-color: #F59E0B;
+}
+
+/* Image aspect ratio container & shimmer */
+.aspect-product {
+  aspect-ratio: 4 / 3.5;
+  overflow: hidden;
+  position: relative;
+  background-color: #F4EFEA;
+}
+
+html.dark .aspect-product {
+  background-color: #1A211D;
+}
+
+.aspect-product img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.card-clean:hover .aspect-product img {
+  transform: scale(1.05);
+}
+
+/* Header Sticky shadow */
+header.is-sticky {
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.08);
+}

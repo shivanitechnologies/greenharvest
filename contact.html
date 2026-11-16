@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us & Farm Location | GreenHarvest</title>
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+  <meta name="description" content="Get in touch with GreenHarvest farm coordinators. Send inquiries, request bulk organic orders, or visit our farm harvest desk.">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            forest: '#315C3B',
+            gold: '#D6A85F',
+            cream: { DEFAULT: '#FBF9F5', surface: '#F4EFEA', card: '#FFFFFF' },
+            charcoal: { DEFAULT: '#121614', surface: '#1A211D', card: '#222B25', border: '#2F3B33' }
+          },
+          fontFamily: {
+            heading: ['Poppins', 'sans-serif'],
+            body: ['Inter', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-[#FBF9F5] dark:bg-[#121614] text-[#1A3320] dark:text-[#F3F4F6] font-body transition-colors duration-300">
+
+  <!-- ANNOUNCEMENT BAR -->
+  <div class="announcement-bar bg-[#315C3B] text-white text-xs py-2 px-4 text-center font-medium relative z-50">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      <div class="hidden md:flex items-center gap-2">
+        <span class="inline-block w-2 h-2 rounded-full bg-[#D6A85F]"></span>
+        <span>GreenHarvest Support Desk</span>
+      </div>
+      <div class="mx-auto md:mx-0">
+        <span>ðŸŒ¿ We're here to assist with harvest questions, custom boxes & delivery routing</span>
+      </div>
+      <div class="hidden md:flex items-center gap-4">
+        <a href="delivery-info.html" class="hover:text-[#D6A85F]">Delivery Info</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <header class="sticky top-0 z-40 bg-white/95 dark:bg-[#121614]/95 border-b border-gray-100 dark:border-gray-800 transition-all duration-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20 gap-4">
+
+        <button id="mobile-menu-open-btn" class="lg:hidden p-2 text-gray-700 dark:text-gray-200" aria-label="Open Menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+        </button>
+
+        <a href="index.html" class="flex items-center gap-3 flex-shrink-0">
+          <div class="w-10 h-10 rounded-xl bg-[#315C3B] flex items-center justify-center text-white shadow-sm">
+            <svg class="w-6 h-6 text-[#D6A85F]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
+          </div>
+          <div class="flex flex-col">
+            <span class="font-heading font-bold text-xl tracking-tight text-[#315C3B] dark:text-white leading-none">GreenHarvest</span>
+            <span class="text-[10px] font-medium text-[#D6A85F] tracking-widest uppercase mt-0.5 hidden sm:block">Fresh • Organic • Healthy</span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation with Hover Dropdown for Home -->
+        <nav class="hidden lg:flex items-center space-x-6 xl:space-x-8 text-sm font-medium">
+          <!-- Home Hover Dropdown -->
+          <div class="relative group py-2">
+            <button class="flex items-center gap-1.5 text-gray-700 dark:text-gray-200 hover:text-[#315C3B] dark:hover:text-[#D6A85F] font-medium transition-colors focus:outline-none">
+              <span>Home</span>
+              <svg class="w-4 h-4 text-gray-400 group-hover:text-[#315C3B] dark:group-hover:text-[#D6A85F] transition-transform duration-200 group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </button>
+            <div class="absolute top-full left-0 pt-2 w-72 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 transform translate-y-1 group-hover:translate-y-0">
+              <div class="bg-white dark:bg-[#1A211D] rounded-2xl shadow-xl border border-gray-100 dark:border-gray-800 p-2.5 space-y-1">
+                <a href="index.html" class="flex items-start gap-3 p-3 rounded-xl hover:bg-emerald-50/70 dark:hover:bg-gray-800/80 transition-colors group/item">
+                  <div class="w-8 h-8 rounded-lg bg-emerald-100 dark:bg-emerald-950/60 text-[#315C3B] dark:text-[#8FD69E] flex items-center justify-center font-bold text-xs flex-shrink-0 group-hover/item:scale-105 transition-transform">
+                    01
+                  </div>
+                  <div>
+                    <div class="text-xs font-bold text-gray-900 dark:text-white flex items-center gap-2">
+                      Home 1
+                      <span class="text-[9px] font-semibold px-1.5 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-900/40 text-emerald-800 dark:text-emerald-300">Classic</span>
+                    </div>
+                    <div class="text-[11px] text-gray-500 dark:text-gray-400 mt-0.5">Classic Organic Store & Daily Harvest</div>
+                  </div>
+                </a>
+                <a href="home-2.html" class="flex items-start gap-3 p-3 rounded-xl hover:bg-amber-50/70 dark:hover:bg-gray-800/80 transition-colors group/item">
+                  <div class="w-8 h-8 rounded-lg bg-amber-100 dark:bg-amber-950/60 text-[#D6A85F] flex items-center justify-center font-bold text-xs flex-shrink-0 group-hover/item:scale-105 transition-transform">
+                    02
+                  </div>
+                  <div>
+                    <div class="text-xs font-bold text-gray-900 dark:text-white flex items-center gap-2">
+                      Home 2
+                      <span class="text-[9px] font-semibold px-1.5 py-0.5 rounded-full bg-amber-100 dark:bg-amber-900/40 text-amber-800 dark:text-amber-300">Editorial</span>
+                    </div>
+                    <div class="text-[11px] text-gray-500 dark:text-gray-400 mt-0.5">Premium Experience & Farm Story</div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <a href="about.html" class="text-gray-700 dark:text-gray-200 hover:text-[#315C3B] dark:hover:text-[#D6A85F] transition-colors">About</a>
+          <a href="products.html" class="text-gray-700 dark:text-gray-200 hover:text-[#315C3B] dark:hover:text-[#D6A85F] transition-colors">Products</a>
+          <a href="why-organic.html" class="text-gray-700 dark:text-gray-200 hover:text-[#315C3B] dark:hover:text-[#D6A85F] transition-colors">Why Organic</a>
+          <a href="delivery-info.html" class="text-gray-700 dark:text-gray-200 hover:text-[#315C3B] dark:hover:text-[#D6A85F] transition-colors">Delivery Info</a>
+          <a href="contact.html" class="text-[#315C3B] dark:text-[#D6A85F] font-semibold">Contact</a>
+        </nav>
+
+        <div class="flex items-center gap-2 sm:gap-3">
+          <a href="wishlist.html" class="relative p-2 text-gray-600 dark:text-gray-300 hover:text-[#315C3B] rounded-lg">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+            <span class="wishlist-count-badge hidden absolute top-0.5 right-0.5 w-4 h-4 bg-red-500 text-white text-[10px] font-bold rounded-full flex items-center justify-center">0</span>
+          </a>
+          <a href="cart.html" class="relative p-2 text-gray-600 dark:text-gray-300 hover:text-[#315C3B] rounded-lg">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg>
+            <span class="cart-count-badge hidden absolute top-0.5 right-0.5 w-4 h-4 bg-[#315C3B] text-white text-[10px] font-bold rounded-full flex items-center justify-center">0</span>
+          </a>
+          <button type="button" onclick="toggleTheme()" class="theme-toggle-btn p-2 text-gray-600 dark:text-gray-300 hover:text-[#315C3B] rounded-lg" aria-label="Toggle Theme">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+          </button>
+          <button type="button" onclick="toggleRTL()" class="rtl-toggle-btn px-2 py-1 text-gray-600 dark:text-gray-300 border border-gray-200 dark:border-gray-700 rounded-lg text-xs font-semibold">
+            <span>RTL</span>
+          </button>
+          <div id="header-auth-container"></div>
+          <div class="hidden sm:flex items-center">
+            <a href="products.html" class="btn-primary !min-h-[42px] !py-2 !px-5 text-xs font-semibold">Shop Now</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- MOBILE NAVIGATION DRAWER & SEARCH MODAL -->
+  <div id="mobile-menu-backdrop" class="fixed inset-0 bg-black/50 z-50 hidden transition-opacity"></div>
+  <aside id="mobile-menu-drawer" class="fixed top-0 left-0 w-80 max-w-[85vw] h-full bg-white dark:bg-[#121614] z-50 -translate-x-full transition-transform duration-300 shadow-2xl flex flex-col p-6">
+    <div class="flex items-center justify-between pb-4 border-b border-gray-100 dark:border-gray-800">
+      <div class="flex items-center gap-2">
+        <div class="w-8 h-8 rounded-lg bg-[#315C3B] flex items-center justify-center text-[#D6A85F]">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/></svg>
+        </div>
+        <span class="font-heading font-bold text-lg text-[#315C3B] dark:text-white">GreenHarvest</span>
+      </div>
+      <button id="mobile-menu-close-btn" class="p-1 text-gray-500 hover:text-red-500"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></button>
+    </div>
+    <nav class="flex flex-col space-y-3 py-6 text-base font-medium">
+      <div class="border-b border-gray-100 dark:border-gray-800 pb-3">
+        <span class="text-[10px] font-bold text-[#D6A85F] uppercase tracking-wider block mb-2">Home Layouts</span>
+        <div class="pl-2 space-y-2">
+          <a href="index.html" class="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300 hover:text-[#315C3B]">
+            <span class="w-1.5 h-1.5 rounded-full bg-gray-300 dark:bg-gray-700"></span>
+            <span>Home 1 (Classic Store)</span>
+          </a>
+          <a href="home-2.html" class="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300 hover:text-[#315C3B]">
+            <span class="w-1.5 h-1.5 rounded-full bg-gray-300 dark:bg-gray-700"></span>
+            <span>Home 2 (Premium Editorial)</span>
+          </a>
+        </div>
+      </div>
+      <a href="about.html" class="text-gray-700 dark:text-gray-300 hover:text-[#315C3B]">About Us</a>
+      <a href="products.html" class="text-gray-700 dark:text-gray-300 hover:text-[#315C3B]">Products</a>
+      <a href="why-organic.html" class="text-gray-700 dark:text-gray-300 hover:text-[#315C3B]">Why Organic</a>
+      <a href="delivery-info.html" class="text-gray-700 dark:text-gray-300 hover:text-[#315C3B]">Delivery Info</a>
+      <a href="contact.html" class="text-[#315C3B] font-semibold">Contact</a>
+    </nav>
+    <div class="mt-auto pt-6 border-t border-gray-100 dark:border-gray-800 space-y-3">
+      <a href="products.html" class="btn-primary w-full text-center">Shop Now</a>
+    </div>
+  </aside>
+
+  <!-- SEARCH MODAL -->
+  <div id="search-modal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden items-start justify-center pt-20 px-4">
+    <div class="bg-white dark:bg-[#1A211D] w-full max-w-2xl rounded-2xl shadow-2xl border border-gray-100 dark:border-gray-800 overflow-hidden">
+      <div class="p-4 border-b border-gray-100 dark:border-gray-800 flex items-center gap-3">
+        <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+        <input id="header-search-input" type="text" placeholder="Search organic grocery..." class="w-full bg-transparent border-0 text-base text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none">
+        <button id="search-modal-close-btn" class="text-xs text-gray-400 px-2 py-1 bg-gray-100 dark:bg-gray-800 rounded">ESC</button>
+      </div>
+      <div id="search-results-dropdown" class="max-h-96 overflow-y-auto p-2"></div>
+    </div>
+  </div>
+
+  <!-- CONTACT HERO -->
+  <section class="py-14 bg-gradient-to-b from-[#F4EFEA] to-[#FBF9F5] dark:from-[#1A211D] dark:to-[#121614] border-b border-gray-200/80 dark:border-gray-800">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center space-y-4">
+      <span class="badge-gold">We'd Love To Hear From You</span>
+      <h1 class="font-heading font-bold text-3xl sm:text-5xl text-gray-900 dark:text-white">
+        Contact Our Farm Team
+      </h1>
+      <p class="text-sm sm:text-base text-gray-600 dark:text-gray-300 max-w-lg mx-auto">
+        Have questions about pesticide-free farming, seasonal bulk supplies, or your neighborhood delivery schedule? Reach out anytime.
+      </p>
+    </div>
+  </section>
+
+  <!-- CONTACT FORM & INFO SECTION -->
+  <section class="py-16 md:py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+        
+        <!-- ENQUIRY FORM (7 cols) -->
+        <div class="lg:col-span-7 bg-white dark:bg-[#222B25] p-8 sm:p-10 rounded-3xl border border-gray-100 dark:border-gray-800 shadow-sm space-y-6">
+          <div>
+            <h2 class="font-heading font-bold text-2xl text-gray-900 dark:text-white">Send Us An Enquiry</h2>
+            <p class="text-xs sm:text-sm text-gray-500 mt-1">Our customer agronomists reply within 24 hours.</p>
+          </div>
+
+          <form id="contact-enquiry-form" onsubmit="handleContactSubmit(event)" class="space-y-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label for="contact-name" class="block text-xs font-semibold text-gray-700 dark:text-gray-300 mb-1">Full Name *</label>
+                <input id="contact-name" type="text" required placeholder="e.g. Rachel Adams" class="w-full px-4 py-2.5 rounded-xl border border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-[#1A211D] text-sm text-gray-900 dark:text-white focus:outline-none focus:border-[#315C3B]">
+              </div>
+              <div>
+                <label for="contact-email" class="block text-xs font-semibold text-gray-700 dark:text-gray-300 mb-1">Email Address *</label>
+                <input id="contact-email" type="email" required placeholder="rachel@example.com" class="w-full px-4 py-2.5 rounded-xl border border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-[#1A211D] text-sm text-gray-900 dark:text-white focus:outline-none focus:border-[#315C3B]">
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label for="contact-phone" class="block text-xs font-semibold text-gray-700 dark:text-gray-300 mb-1">Phone Number</label>
+                <input id="contact-phone" type="tel" placeholder="+1 (555) 000-0000" class="w-full px-4 py-2.5 rounded-xl border border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-[#1A211D] text-sm text-gray-900 dark:text-white focus:outline-none focus:border-[#315C3B]">
+              </div>
+              <div>
+                <label for="contact-subject" class="block text-xs font-semibold text-gray-700 dark:text-gray-300 mb-1">Subject *</label>
+                <select id="contact-subject" class="w-full px-4 py-2.5 rounded-xl border border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-[#1A211D] text-sm text-gray-900 dark:text-white focus:outline-none focus:border-[#315C3B]">
+                  <option value="General Question">General Inquiry</option>
+                  <option value="Delivery & PIN Service">Delivery or PIN Inquiry</option>
+                  <option value="Commercial / Bulk Orders">Commercial / Restaurant Supply</option>
+                  <option value="Organic Certification Inquiry">Organic Farming Certification</option>
+                  <option value="Order Issue & Replacement">Order Replacement Request</option>
+                </select>
+              </div>
+            </div>
+
+            <div>
+              <label for="contact-message" class="block text-xs font-semibold text-gray-700 dark:text-gray-300 mb-1">Your Message *</label>
+              <textarea id="contact-message" rows="5" required placeholder="Tell us how we can help you with your organic grocery needs..." class="w-full px-4 py-2.5 rounded-xl border border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-[#1A211D] text-sm text-gray-900 dark:text-white focus:outline-none focus:border-[#315C3B]"></textarea>
+            </div>
+
+            <button type="submit" class="btn-primary w-full sm:w-auto text-sm">
+              <span>Submit Message</span>
+              <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+            </button>
+          </form>
+        </div>
+
+        <!-- CONTACT INFO & MAP CARD (5 cols) -->
+        <div class="lg:col-span-5 space-y-6">
+          
+          <div class="card-clean p-8 space-y-5">
+            <h3 class="font-heading font-bold text-xl text-gray-900 dark:text-white">Store & Farm Details</h3>
+
+            <div class="space-y-4 text-xs sm:text-sm">
+              <div class="flex items-start gap-3">
+                <div class="w-8 h-8 rounded-lg bg-emerald-100 dark:bg-emerald-900/30 text-[#315C3B] dark:text-[#8FD69E] flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                </div>
+                <div>
+                  <h4 class="font-semibold text-gray-900 dark:text-white">Farm Store Location:</h4>
+                  <p class="text-gray-500 mt-0.5">742 Evergreen Orchard Way, Green Valley, CA 94103</p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3">
+                <div class="w-8 h-8 rounded-lg bg-emerald-100 dark:bg-emerald-900/30 text-[#315C3B] dark:text-[#8FD69E] flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+                </div>
+                <div>
+                  <h4 class="font-semibold text-gray-900 dark:text-white">Direct Phone:</h4>
+                  <p class="text-gray-500 mt-0.5">+1 (800) 473-3642 (Toll Free)</p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3">
+                <div class="w-8 h-8 rounded-lg bg-emerald-100 dark:bg-emerald-900/30 text-[#315C3B] dark:text-[#8FD69E] flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                </div>
+                <div>
+                  <h4 class="font-semibold text-gray-900 dark:text-white">Support Email:</h4>
+                  <p class="text-gray-500 mt-0.5">care@greenharvest.org</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Business Hours -->
+            <div class="pt-4 border-t border-gray-100 dark:border-gray-800 space-y-2">
+              <h4 class="font-heading font-semibold text-xs text-gray-900 dark:text-white uppercase tracking-wider">Business & Despatch Hours</h4>
+              <ul class="text-xs text-gray-500 space-y-1">
+                <li class="flex justify-between"><span>Monday – Friday:</span> <span class="font-semibold text-gray-800 dark:text-white">7:00 AM – 8:00 PM</span></li>
+                <li class="flex justify-between"><span>Saturday:</span> <span class="font-semibold text-gray-800 dark:text-white">8:00 AM – 6:00 PM</span></li>
+                <li class="flex justify-between"><span>Sunday:</span> <span class="text-emerald-600 dark:text-emerald-400 font-semibold">Morning Deliveries Only</span></li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Visual Map Location Card -->
+          <div class="card-clean overflow-hidden">
+            <div class="h-48 bg-gray-100 dark:bg-gray-800 relative">
+              <img src="https://images.unsplash.com/photo-1524813686514-a57563d77d66?auto=format&fit=crop&w=800&q=80" alt="Map Location" class="w-full h-full object-cover">
+              <div class="absolute inset-0 bg-black/40 flex items-center justify-center p-4 text-center text-white">
+                <div>
+                  <span class="inline-block p-2 rounded-full bg-[#315C3B] text-[#D6A85F] mb-1">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path></svg>
+                  </span>
+                  <p class="font-heading font-bold text-sm">GreenHarvest Orchard Reserve</p>
+                  <p class="text-[11px] text-gray-200">Open for self-pickup & weekend farm tours</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-[#121614] text-gray-300 border-t border-[#2F3B33] pt-14 pb-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 pb-10 border-b border-gray-800 text-xs">
+        <div class="space-y-3">
+          <div class="font-heading font-bold text-lg text-white">GreenHarvest</div>
+          <p class="text-gray-400">Pokusa for Health brand initiative. Delivering verified 100% certified organic foods.</p>
+        </div>
+        <div>
+          <h4 class="font-heading font-semibold text-white mb-3">Shop Curations</h4>
+          <ul class="space-y-1.5 text-gray-400">
+            <li><a href="products.html?category=Fresh+Fruits" class="hover:text-white">Fresh Fruits</a></li>
+            <li><a href="products.html?category=Vegetables" class="hover:text-white">Vegetables</a></li>
+            <li><a href="products.html?category=Natural+Oils" class="hover:text-white">Cold-Pressed Oils</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-heading font-semibold text-white mb-3">Integrity</h4>
+          <ul class="space-y-1.5 text-gray-400">
+            <li><a href="about.html" class="hover:text-white">Our Story</a></li>
+            <li><a href="why-organic.html" class="hover:text-white">Why Organic</a></li>
+            <li><a href="delivery-info.html" class="hover:text-white">Delivery Policy</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-heading font-semibold text-white mb-3">Customer Support</h4>
+          <p class="text-gray-400">742 Evergreen Orchard Way, Green Valley, CA</p>
+          <p class="text-white mt-1">+1 (800) 473-3642</p>
+        </div>
+      </div>
+      <div class="pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-500">
+        <p>© 2026 GreenHarvest (Pokusa for Health). All rights reserved.</p>
+        <div class="flex gap-4 mt-2 sm:mt-0">
+          <a href="index.html">Home</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div id="toast-container"></div>
+
+  <script src="assets/js/products.js"></script>
+  <script src="assets/js/cart.js"></script>
+  <script src="assets/js/wishlist.js"></script>
+  <script src="assets/js/auth.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script>
+    function handleContactSubmit(event) {
+      event.preventDefault();
+      const form = event.target;
+      const name = document.getElementById("contact-name").value.trim();
+      const email = document.getElementById("contact-email").value.trim();
+      const phone = document.getElementById("contact-phone").value.trim();
+      const subject = document.getElementById("contact-subject").value;
+      const message = document.getElementById("contact-message").value.trim();
+
+      const newMsg = {
+        id: "msg-" + Date.now(),
+        date: new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }),
+        name,
+        email,
+        phone,
+        subject,
+        message,
+        status: "Unread"
+      };
+
+      // Store in messages for Admin Dashboard inspection
+      const msgs = JSON.parse(localStorage.getItem("greenharvest_messages") || "[]");
+      msgs.unshift(newMsg);
+      localStorage.setItem("greenharvest_messages", JSON.stringify(msgs));
+
+      showToast(`Thank you, ${name}! Your inquiry has been received. Our team will contact you soon.`, "success");
+      form.reset();
+    }
+  </script>
+</body>
+</html>

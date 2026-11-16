@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scheduled Farm Maintenance | GreenHarvest</title>
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            forest: '#315C3B',
+            gold: '#D6A85F',
+            cream: { DEFAULT: '#FBF9F5', surface: '#F4EFEA', card: '#FFFFFF' },
+            charcoal: { DEFAULT: '#121614', surface: '#1A211D', card: '#222B25', border: '#2F3B33' }
+          },
+          fontFamily: {
+            heading: ['Poppins', 'sans-serif'],
+            body: ['Inter', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+<body class="bg-[#FBF9F5] dark:bg-[#121614] text-[#1A3320] dark:text-[#F3F4F6] font-body min-h-screen flex items-center justify-center p-4 text-center">
+
+  <div class="max-w-md w-full space-y-6 bg-white dark:bg-[#222B25] p-8 rounded-3xl border border-gray-100 dark:border-gray-800 shadow-xl">
+    <div class="w-16 h-16 rounded-2xl bg-amber-100 dark:bg-amber-950/40 text-amber-600 dark:text-amber-400 mx-auto flex items-center justify-center text-2xl">
+      ⚙️
+    </div>
+
+    <div class="space-y-2">
+      <span class="badge-gold">Scheduled System Upgrades</span>
+      <h1 class="font-heading font-bold text-2xl sm:text-3xl text-gray-900 dark:text-white">
+        Nurturing Our Servers
+      </h1>
+      <p class="text-xs sm:text-sm text-gray-500 leading-relaxed">
+        We are currently updating our cold-chain routing algorithms to improve delivery precision. We expect to be fully back online within 45 minutes.
+      </p>
+    </div>
+
+    <div class="p-4 rounded-xl bg-gray-50 dark:bg-[#1A211D] text-xs text-gray-400 space-y-1">
+      <p>Need urgent delivery support?</p>
+      <p class="font-semibold text-gray-800 dark:text-white">Call: +1 (800) 473-3642</p>
+    </div>
+
+    <a href="index.html" class="btn-primary text-xs w-full justify-center">
+      Check System Status
+    </a>
+  </div>
+
+</body>
+</html>
