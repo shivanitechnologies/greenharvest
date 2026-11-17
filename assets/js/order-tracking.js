@@ -397,27 +397,6 @@ function renderOrderTracking(order) {
     `;
   }).join("");
 
-  // Simple, clean timeline logs
-  const timelineLogsHtml = order.timeline.map((item, idx) => {
-    let circleClass = "bg-gray-200 dark:bg-gray-700 text-gray-400";
-    if (item.done && !item.active) circleClass = "bg-[#315C3B] text-white";
-    if (item.active) circleClass = "bg-[#D6A85F] text-[#1A3320] ring-4 ring-[#D6A85F]/20 font-bold";
-
-    return `
-      <li class="relative pb-5 last:pb-0 pl-8">
-        ${idx < order.timeline.length - 1 ? '<span class="absolute top-4 left-3 -ml-[1px] h-full w-0.5 bg-gray-200 dark:bg-gray-800"></span>' : ''}
-        <div class="absolute left-0 top-0.5 w-6 h-6 rounded-full ${circleClass} flex items-center justify-center text-[10px] font-bold">
-          ${item.done && !item.active ? '✓' : item.step}
-        </div>
-        <div class="flex items-center justify-between gap-2">
-          <h6 class="font-heading font-semibold text-xs text-gray-900 dark:text-white ${item.active ? 'text-[#315C3B] dark:text-[#D6A85F]' : ''}">${item.title}</h6>
-          <span class="text-[11px] text-gray-400 font-medium">${item.time}</span>
-        </div>
-        <p class="text-xs text-gray-500 dark:text-gray-400 mt-0.5">${item.desc}</p>
-      </li>
-    `;
-  }).join("");
-
   container.innerHTML = `
     <!-- Order Card -->
     <div class="bg-white dark:bg-[#1A211D] rounded-2xl sm:rounded-3xl p-6 sm:p-8 border border-gray-200/80 dark:border-gray-800 shadow-sm space-y-6">
@@ -510,16 +489,6 @@ function renderOrderTracking(order) {
             <p class="text-gray-800 dark:text-gray-200 font-medium">${order.customer.address}, ${order.customer.city}</p>
             <p class="text-gray-400 text-[11px] mt-1">Note: "${order.customer.instructions}"</p>
           </div>
-        </div>
-
-        <!-- Progress Timeline Log -->
-        <div class="bg-white dark:bg-[#1A211D] rounded-2xl p-5 sm:p-6 border border-gray-200/80 dark:border-gray-800 shadow-sm">
-          <h4 class="font-heading font-bold text-xs uppercase tracking-wider text-gray-500 dark:text-gray-400 pb-3 border-b border-gray-100 dark:border-gray-800 mb-4">
-            Order Timeline
-          </h4>
-          <ul class="relative">
-            ${timelineLogsHtml}
-          </ul>
         </div>
 
       </div>
