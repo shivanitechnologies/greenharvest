@@ -29,6 +29,36 @@ canvas {
 }
 
 /* ========================================================
+   MOBILE NAVBAR & DRAWER
+   ======================================================== */
+#mobile-menu-backdrop {
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+#mobile-menu-drawer {
+  transform: translateX(-100%);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+
+#mobile-menu-drawer.open,
+#mobile-menu-drawer.translate-x-0 {
+  transform: translateX(0) !important;
+}
+
+[dir="rtl"] #mobile-menu-drawer {
+  left: auto !important;
+  right: 0 !important;
+  transform: translateX(100%);
+}
+
+[dir="rtl"] #mobile-menu-drawer.open,
+[dir="rtl"] #mobile-menu-drawer.translate-x-0 {
+  transform: translateX(0) !important;
+}
+
+/* ========================================================
    MOBILE VIEW (< 768px)
    ======================================================== */
 @media (max-width: 767px) {

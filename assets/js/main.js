@@ -123,22 +123,41 @@ function initMobileNav() {
 
   if (!drawer) return;
 
-  function openMenu() {
-    drawer.classList.remove("translate-x-full", "-translate-x-full");
+  function openMenu(e) {
+    if (e && e.preventDefault) e.preventDefault();
+    drawer.classList.remove("-translate-x-full", "translate-x-full");
+    drawer.classList.add("open", "translate-x-0");
     if (backdrop) backdrop.classList.remove("hidden");
     document.body.classList.add("overflow-hidden");
   }
 
-  function closeMenu() {
+  function closeMenu(e) {
+    if (e && e.preventDefault) e.preventDefault();
     const isRTL = document.documentElement.getAttribute("dir") === "rtl";
+    drawer.classList.remove("open", "translate-x-0");
     drawer.classList.add(isRTL ? "translate-x-full" : "-translate-x-full");
     if (backdrop) backdrop.classList.add("hidden");
     document.body.classList.remove("overflow-hidden");
   }
 
-  if (openBtn) openBtn.addEventListener("click", openMenu);
-  if (closeBtn) closeBtn.addEventListener("click", closeMenu);
-  if (backdrop) backdrop.addEventListener("click", closeMenu);
+  if (openBtn) openBtn.onclick = openMenu;
+  if (closeBtn) closeBtn.onclick = closeMenu;
+  if (backdrop) backdrop.onclick = closeMenu;
+
+  // Close when pressing Escape
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && (drawer.classList.contains("open") || drawer.classList.contains("translate-x-0"))) {
+      closeMenu();
+    }
+  });
+
+  // Close when clicking nav links inside drawer
+  const drawerLinks = drawer.querySelectorAll("nav a");
+  drawerLinks.forEach(link => {
+    link.addEventListener("click", () => {
+      closeMenu();
+    });
+  });
 }
 
 // 5. SEARCH MODAL / POPUP

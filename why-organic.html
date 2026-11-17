@@ -132,22 +132,28 @@
 
   <!-- HEADER -->
   <header class="sticky top-0 z-40 bg-white/95 dark:bg-[#121614]/95 border-b border-gray-100 dark:border-gray-800 transition-all duration-200">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between h-20 gap-4">
+    <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16 sm:h-20 gap-2 sm:gap-4">
 
-        <button id="mobile-menu-open-btn" class="lg:hidden p-2 text-gray-700 dark:text-gray-200" aria-label="Open Menu">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
-        </button>
+        <!-- Left: Mobile Menu Trigger + Brand Logo Lockup -->
+        <div class="flex items-center gap-2 sm:gap-3 min-w-0">
+          <button id="mobile-menu-open-btn" class="lg:hidden p-1.5 text-gray-700 dark:text-gray-200 hover:text-[#315C3B] focus:outline-none flex-shrink-0" aria-label="Open Navigation Menu">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+          </button>
 
-        <a href="index.html" class="flex items-center gap-3 flex-shrink-0">
-          <div class="w-10 h-10 rounded-xl bg-[#315C3B] flex items-center justify-center text-white shadow-sm">
-            <svg class="w-6 h-6 text-[#D6A85F]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
-          </div>
-          <div class="flex flex-col">
-            <span class="font-heading font-bold text-xl tracking-tight text-[#315C3B] dark:text-white leading-none">GreenHarvest</span>
-            <span class="text-[10px] font-medium text-[#D6A85F] tracking-widest uppercase mt-0.5 hidden sm:block">Fresh • Organic • Healthy</span>
-          </div>
-        </a>
+          <a href="index.html" class="flex items-center gap-2 sm:gap-3 flex-shrink-0 group">
+            <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-[#315C3B] flex items-center justify-center text-white shadow-sm flex-shrink-0">
+              <svg class="w-5 h-5 sm:w-6 sm:h-6 text-[#D6A85F]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/>
+                <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/>
+              </svg>
+            </div>
+            <div class="flex flex-col">
+              <span class="font-heading font-bold text-lg sm:text-xl tracking-tight text-[#315C3B] dark:text-white leading-none">GreenHarvest</span>
+              <span class="text-[10px] font-medium text-[#D6A85F] tracking-widest uppercase mt-0.5 hidden sm:block">Fresh • Organic • Healthy</span>
+            </div>
+          </a>
+        </div>
 
         <!-- Desktop Navigation with Hover Dropdown for Home -->
         <nav class="hidden lg:flex items-center space-x-6 xl:space-x-8 text-sm font-medium">
@@ -196,24 +202,30 @@
           <a href="contact.html" class="text-gray-700 dark:text-gray-200 hover:text-[#315C3B] dark:hover:text-[#D6A85F] transition-colors">Contact</a>
         </nav>
 
-        <div class="flex items-center gap-2 sm:gap-3">
-          <a href="wishlist.html" class="relative p-2 text-gray-600 dark:text-gray-300 hover:text-[#315C3B] rounded-lg">
+        <!-- Header Actions: Wishlist, Cart, Theme, RTL, Primary CTA -->
+        <div class="flex items-center gap-1 sm:gap-3 flex-shrink-0">
+          <a href="wishlist.html" class="relative p-1.5 sm:p-2 text-gray-600 dark:text-gray-300 hover:text-[#315C3B] dark:hover:text-[#D6A85F] transition-colors rounded-lg" aria-label="View Wishlist">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
             <span class="wishlist-count-badge hidden absolute top-0.5 right-0.5 w-4 h-4 bg-red-500 text-white text-[10px] font-bold rounded-full flex items-center justify-center">0</span>
           </a>
-          <a href="cart.html" class="relative p-2 text-gray-600 dark:text-gray-300 hover:text-[#315C3B] rounded-lg">
+
+          <a href="cart.html" class="relative p-1.5 sm:p-2 text-gray-600 dark:text-gray-300 hover:text-[#315C3B] dark:hover:text-[#D6A85F] transition-colors rounded-lg" aria-label="View Shopping Cart">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg>
             <span class="cart-count-badge hidden absolute top-0.5 right-0.5 w-4 h-4 bg-[#315C3B] text-white text-[10px] font-bold rounded-full flex items-center justify-center">0</span>
           </a>
-          <button type="button" onclick="toggleTheme()" class="theme-toggle-btn p-2 text-gray-600 dark:text-gray-300 hover:text-[#315C3B] rounded-lg" aria-label="Toggle Theme">
+
+          <button type="button" onclick="toggleTheme()" class="theme-toggle-btn p-1.5 sm:p-2 text-gray-600 dark:text-gray-300 hover:text-[#315C3B] rounded-lg transition-colors" aria-label="Toggle Theme">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
           </button>
-          <button type="button" onclick="toggleRTL()" class="rtl-toggle-btn px-2 py-1 text-gray-600 dark:text-gray-300 border border-gray-200 dark:border-gray-700 rounded-lg text-xs font-semibold">
+
+          <button type="button" onclick="toggleRTL()" class="rtl-toggle-btn hidden sm:inline-block px-2 py-1 text-gray-600 dark:text-gray-300 border border-gray-200 dark:border-gray-700 hover:border-[#315C3B] rounded-lg text-xs font-semibold" aria-label="Toggle RTL Direction">
             <span>RTL</span>
           </button>
+
           <div id="header-auth-container"></div>
+
           <div class="hidden sm:flex items-center">
-            <a href="products.html" class="btn-primary !min-h-[42px] !py-2 !px-5 text-xs font-semibold">Shop Now</a>
+            <a href="products.html" class="btn-primary !min-h-[42px] !py-2 !px-5 text-xs font-semibold shadow-sm">Shop Now</a>
           </div>
         </div>
 
@@ -223,15 +235,17 @@
 
   <!-- MOBILE NAVIGATION DRAWER & SEARCH MODAL -->
   <div id="mobile-menu-backdrop" class="fixed inset-0 bg-black/50 z-50 hidden transition-opacity"></div>
-  <aside id="mobile-menu-drawer" class="fixed top-0 left-0 w-80 max-w-[85vw] h-full bg-white dark:bg-[#121614] z-50 -translate-x-full transition-transform duration-300 shadow-2xl flex flex-col p-6">
+  <aside id="mobile-menu-drawer" class="fixed top-0 left-0 w-80 max-w-[85vw] h-full bg-white dark:bg-[#121614] z-50 -translate-x-full transition-transform duration-300 shadow-2xl flex flex-col p-6 overflow-y-auto">
     <div class="flex items-center justify-between pb-4 border-b border-gray-100 dark:border-gray-800">
       <div class="flex items-center gap-2">
         <div class="w-8 h-8 rounded-lg bg-[#315C3B] flex items-center justify-center text-[#D6A85F]">
-          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/></svg>
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
         </div>
         <span class="font-heading font-bold text-lg text-[#315C3B] dark:text-white">GreenHarvest</span>
       </div>
-      <button id="mobile-menu-close-btn" class="p-1 text-gray-500 hover:text-red-500"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></button>
+      <button id="mobile-menu-close-btn" class="p-2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-200" aria-label="Close Navigation Menu">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+      </button>
     </div>
     <nav class="flex flex-col space-y-3 py-6 text-base font-medium">
       <div class="border-b border-gray-100 dark:border-gray-800 pb-3">
@@ -249,11 +263,17 @@
       </div>
       <a href="about.html" class="text-gray-700 dark:text-gray-300 hover:text-[#315C3B]">About Us</a>
       <a href="products.html" class="text-gray-700 dark:text-gray-300 hover:text-[#315C3B]">Products</a>
-      <a href="why-organic.html" class="text-[#315C3B] font-semibold">Why Organic</a>
+      <a href="why-organic.html" class="text-[#315C3B] dark:text-[#D6A85F] font-semibold">Why Organic</a>
       <a href="delivery-info.html" class="text-gray-700 dark:text-gray-300 hover:text-[#315C3B]">Delivery Info</a>
       <a href="contact.html" class="text-gray-700 dark:text-gray-300 hover:text-[#315C3B]">Contact</a>
     </nav>
-    <div class="mt-auto pt-6 border-t border-gray-100 dark:border-gray-800 space-y-3">
+    <div class="mt-auto pt-4 border-t border-gray-100 dark:border-gray-800 space-y-3">
+      <div class="flex items-center justify-between text-xs text-gray-500 dark:text-gray-400 py-1">
+        <span>Layout Direction</span>
+        <button type="button" onclick="toggleRTL()" class="rtl-toggle-btn px-2.5 py-1 text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-gray-700 hover:border-[#315C3B] rounded-lg text-xs font-semibold">
+          <span>RTL</span>
+        </button>
+      </div>
       <a href="products.html" class="btn-primary w-full text-center">Shop Now</a>
     </div>
   </aside>
