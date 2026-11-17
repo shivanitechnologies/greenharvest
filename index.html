@@ -73,8 +73,8 @@
 </head>
 <body class="bg-[#FBF9F5] dark:bg-[#121614] text-[#1A3320] dark:text-[#F3F4F6] font-body transition-colors duration-300">
 
-  <!-- 1. ANNOUNCEMENT BAR -->
-  <div class="announcement-bar bg-[#315C3B] text-white text-xs py-2 px-4 text-center font-medium relative z-50">
+  <!-- 1. ANNOUNCEMENT BAR (Hidden on Mobile) -->
+  <div class="announcement-bar hidden md:block bg-[#315C3B] text-white text-xs py-2 px-4 text-center font-medium relative z-50">
     <div class="max-w-7xl mx-auto flex items-center justify-between">
       <div class="hidden md:flex items-center gap-2">
         <span class="inline-block w-2 h-2 rounded-full bg-[#D6A85F] animate-pulse"></span>
@@ -293,7 +293,7 @@
           </p>
 
           <!-- CTAs -->
-          <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2">
+          <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 pt-2 hero-cta-group">
             <a href="products.html" class="btn-primary text-center">
               <span>Shop Fresh Produce</span>
               <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
@@ -304,40 +304,40 @@
           </div>
 
           <!-- Quick Stats / Proof Points -->
-          <div class="grid grid-cols-3 gap-4 pt-8 border-t border-gray-200/80 dark:border-gray-800">
+          <div class="grid grid-cols-3 gap-2 sm:gap-4 pt-6 sm:pt-8 border-t border-gray-200/80 dark:border-gray-800 text-center sm:text-left">
             <div>
-              <div class="text-2xl sm:text-3xl font-heading font-bold text-[#315C3B] dark:text-[#D6A85F]">100%</div>
-              <p class="text-xs text-gray-500 dark:text-gray-400 mt-0.5">Certified Organic</p>
+              <div class="text-xl sm:text-3xl font-heading font-bold text-[#315C3B] dark:text-[#D6A85F]">100%</div>
+              <p class="text-[11px] sm:text-xs text-gray-500 dark:text-gray-400 mt-0.5">Certified Organic</p>
             </div>
             <div>
-              <div class="text-2xl sm:text-3xl font-heading font-bold text-[#315C3B] dark:text-[#D6A85F]">24 Hrs</div>
-              <p class="text-xs text-gray-500 dark:text-gray-400 mt-0.5">Farm-to-Doorstep</p>
+              <div class="text-xl sm:text-3xl font-heading font-bold text-[#315C3B] dark:text-[#D6A85F]">24 Hrs</div>
+              <p class="text-[11px] sm:text-xs text-gray-500 dark:text-gray-400 mt-0.5">Farm-to-Doorstep</p>
             </div>
             <div>
-              <div class="text-2xl sm:text-3xl font-heading font-bold text-[#315C3B] dark:text-[#D6A85F]">18,000+</div>
-              <p class="text-xs text-gray-500 dark:text-gray-400 mt-0.5">Happy Families</p>
+              <div class="text-xl sm:text-3xl font-heading font-bold text-[#315C3B] dark:text-[#D6A85F]">18,000+</div>
+              <p class="text-[11px] sm:text-xs text-gray-500 dark:text-gray-400 mt-0.5">Happy Families</p>
             </div>
           </div>
         </div>
 
         <!-- Right Hero Imagery -->
-        <div class="lg:col-span-5 relative">
+        <div class="lg:col-span-5 relative mt-6 lg:mt-0">
           <div class="relative mx-auto max-w-md lg:max-w-none">
             <!-- Decorative backdrop glow -->
-            <div class="absolute -inset-4 bg-gradient-to-tr from-[#315C3B]/20 to-[#D6A85F]/20 rounded-3xl filter blur-2xl opacity-70"></div>
+            <div class="hidden sm:block absolute -inset-4 bg-gradient-to-tr from-[#315C3B]/20 to-[#D6A85F]/20 rounded-3xl filter blur-2xl opacity-70 pointer-events-none"></div>
             
             <div class="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white dark:border-[#222B25]">
               <img 
                 src="https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=1000&q=80" 
                 alt="Fresh Organic Produce Basket" 
-                class="w-full h-[440px] sm:h-[500px] object-cover"
+                class="w-full h-[360px] sm:h-[500px] object-cover"
               >
             </div>
 
             <!-- Floating Trust Card -->
-            <div class="absolute -bottom-6 -left-4 sm:-left-6 bg-white dark:bg-[#222B25] p-4 rounded-2xl shadow-xl border border-gray-100 dark:border-gray-800 flex items-center gap-3.5 max-w-xs">
-              <div class="w-12 h-12 rounded-xl bg-emerald-100 dark:bg-emerald-900/40 text-[#315C3B] dark:text-[#8FD69E] flex items-center justify-center flex-shrink-0">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            <div class="floating-hero-card absolute -bottom-6 left-2 sm:-left-6 bg-white dark:bg-[#222B25] p-3.5 sm:p-4 rounded-2xl shadow-xl border border-gray-100 dark:border-gray-800 flex items-center gap-3 sm:gap-3.5 max-w-[calc(100%-1rem)] sm:max-w-xs z-10">
+              <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-emerald-100 dark:bg-emerald-900/40 text-[#315C3B] dark:text-[#8FD69E] flex items-center justify-center flex-shrink-0">
+                <svg class="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
               </div>
               <div>
                 <p class="text-xs font-bold text-gray-900 dark:text-white">Same-Day Morning Cut</p>
@@ -346,7 +346,7 @@
             </div>
 
             <!-- Floating Badge -->
-            <div class="absolute -top-4 -right-4 bg-[#D6A85F] text-[#1A3320] font-heading font-bold text-xs px-3.5 py-2 rounded-xl shadow-lg flex items-center gap-1.5">
+            <div class="floating-hero-badge absolute top-3 right-3 sm:-top-4 sm:-right-4 bg-[#D6A85F] text-[#1A3320] font-heading font-bold text-xs px-3.5 py-2 rounded-xl shadow-lg flex items-center gap-1.5 z-10">
               <span>★ 4.98 / 5 Rating</span>
             </div>
           </div>
@@ -397,45 +397,45 @@
   <!-- 4. TRUST STRIP (Mobile Optimized) -->
   <section class="py-8 bg-white dark:bg-[#1A211D] border-b border-gray-100 dark:border-gray-800">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6">
         
-        <div class="flex items-center gap-3.5">
-          <div class="w-12 h-12 rounded-xl bg-[#F4EFEA] dark:bg-[#222B25] flex items-center justify-center text-[#315C3B] dark:text-[#D6A85F] flex-shrink-0">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+        <div class="flex items-center gap-2.5 sm:gap-3.5 p-2 sm:p-0">
+          <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-[#F4EFEA] dark:bg-[#222B25] flex items-center justify-center text-[#315C3B] dark:text-[#D6A85F] flex-shrink-0">
+            <svg class="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
           </div>
           <div>
-            <h4 class="font-heading font-semibold text-sm text-gray-900 dark:text-white">Fresh Produce</h4>
-            <p class="text-xs text-gray-500 dark:text-gray-400">Harvested within 24h</p>
+            <h4 class="font-heading font-semibold text-xs sm:text-sm text-gray-900 dark:text-white leading-snug">Fresh Produce</h4>
+            <p class="text-[11px] sm:text-xs text-gray-500 dark:text-gray-400">Harvested &lt;24h</p>
           </div>
         </div>
 
-        <div class="flex items-center gap-3.5">
-          <div class="w-12 h-12 rounded-xl bg-[#F4EFEA] dark:bg-[#222B25] flex items-center justify-center text-[#315C3B] dark:text-[#D6A85F] flex-shrink-0">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064"></path></svg>
+        <div class="flex items-center gap-2.5 sm:gap-3.5 p-2 sm:p-0">
+          <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-[#F4EFEA] dark:bg-[#222B25] flex items-center justify-center text-[#315C3B] dark:text-[#D6A85F] flex-shrink-0">
+            <svg class="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064"></path></svg>
           </div>
           <div>
-            <h4 class="font-heading font-semibold text-sm text-gray-900 dark:text-white">Naturally Sourced</h4>
-            <p class="text-xs text-gray-500 dark:text-gray-400">From certified local soil</p>
+            <h4 class="font-heading font-semibold text-xs sm:text-sm text-gray-900 dark:text-white leading-snug">Living Soil</h4>
+            <p class="text-[11px] sm:text-xs text-gray-500 dark:text-gray-400">Certified local bio</p>
           </div>
         </div>
 
-        <div class="flex items-center gap-3.5">
-          <div class="w-12 h-12 rounded-xl bg-[#F4EFEA] dark:bg-[#222B25] flex items-center justify-center text-[#315C3B] dark:text-[#D6A85F] flex-shrink-0">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path></svg>
+        <div class="flex items-center gap-2.5 sm:gap-3.5 p-2 sm:p-0">
+          <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-[#F4EFEA] dark:bg-[#222B25] flex items-center justify-center text-[#315C3B] dark:text-[#D6A85F] flex-shrink-0">
+            <svg class="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path></svg>
           </div>
           <div>
-            <h4 class="font-heading font-semibold text-sm text-gray-900 dark:text-white">Quality Checked</h4>
-            <p class="text-xs text-gray-500 dark:text-gray-400">Triple-screened purity</p>
+            <h4 class="font-heading font-semibold text-xs sm:text-sm text-gray-900 dark:text-white leading-snug">0.00 ppm Tested</h4>
+            <p class="text-[11px] sm:text-xs text-gray-500 dark:text-gray-400">Lab screened</p>
           </div>
         </div>
 
-        <div class="flex items-center gap-3.5">
-          <div class="w-12 h-12 rounded-xl bg-[#F4EFEA] dark:bg-[#222B25] flex items-center justify-center text-[#315C3B] dark:text-[#D6A85F] flex-shrink-0">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h1m8-1a1 1 0 01-1 1H9m4-1V8a1 1 0 011-1h2.586a1 1 0 01.707.293l3.414 3.414a1 1 0 01.293.707V16a1 1 0 01-1 1h-1m-6-1a1 1 0 001 1h1M5 17a2 2 0 104 0m-4 0a2 2 0 114 0m6 0a2 2 0 104 0m-4 0a2 2 0 114 0"></path></svg>
+        <div class="flex items-center gap-2.5 sm:gap-3.5 p-2 sm:p-0">
+          <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-[#F4EFEA] dark:bg-[#222B25] flex items-center justify-center text-[#315C3B] dark:text-[#D6A85F] flex-shrink-0">
+            <svg class="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h1m8-1a1 1 0 01-1 1H9m4-1V8a1 1 0 011-1h2.586a1 1 0 01.707.293l3.414 3.414a1 1 0 01.293.707V16a1 1 0 01-1 1h-1m-6-1a1 1 0 001 1h1M5 17a2 2 0 104 0m-4 0a2 2 0 114 0m6 0a2 2 0 104 0m-4 0a2 2 0 114 0"></path></svg>
           </div>
           <div>
-            <h4 class="font-heading font-semibold text-sm text-gray-900 dark:text-white">Doorstep Delivery</h4>
-            <p class="text-xs text-gray-500 dark:text-gray-400">Eco-cooled thermal boxes</p>
+            <h4 class="font-heading font-semibold text-xs sm:text-sm text-gray-900 dark:text-white leading-snug">Cold-Chain</h4>
+            <p class="text-[11px] sm:text-xs text-gray-500 dark:text-gray-400">Insulated boxes</p>
           </div>
         </div>
 
@@ -573,12 +573,12 @@
         </p>
 
         <!-- Delivery Cadence Switcher -->
-        <div class="inline-flex items-center p-1.5 rounded-2xl bg-gray-100 dark:bg-[#1A211D] border border-gray-200 dark:border-gray-800 mt-6 shadow-inner">
+        <div class="inline-flex items-center p-1 sm:p-1.5 rounded-2xl bg-gray-100 dark:bg-[#1A211D] border border-gray-200 dark:border-gray-800 mt-6 shadow-inner max-w-full">
           <button 
             type="button" 
             id="cadence-onetime" 
             onclick="selectHarvestCadence('onetime')"
-            class="px-4 sm:px-6 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all text-gray-600 dark:text-gray-300"
+            class="px-3 sm:px-6 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all text-gray-600 dark:text-gray-300"
           >
             One-Time Delivery
           </button>
@@ -586,10 +586,10 @@
             type="button" 
             id="cadence-weekly" 
             onclick="selectHarvestCadence('weekly')"
-            class="px-4 sm:px-6 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all bg-[#315C3B] text-white shadow-sm flex items-center gap-1.5"
+            class="px-3 sm:px-6 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all bg-[#315C3B] text-white shadow-sm flex items-center gap-1 sm:gap-1.5"
           >
             <span>Weekly Club</span>
-            <span class="bg-[#D6A85F] text-[#121614] text-[10px] font-bold px-1.5 py-0.5 rounded-full">15% OFF</span>
+            <span class="bg-[#D6A85F] text-[#121614] text-[9px] sm:text-[10px] font-bold px-1.5 py-0.5 rounded-full">15% OFF</span>
           </button>
         </div>
       </div>
@@ -693,30 +693,30 @@
       </div>
 
       <!-- Selected Box Summary & Mobile Friendly 1-Click CTA Bar -->
-      <div class="mt-8 bg-white dark:bg-[#1A211D] p-5 sm:p-6 rounded-2xl border border-gray-100 dark:border-gray-800 shadow-sm flex flex-col sm:flex-row items-center justify-between gap-4">
-        <div class="flex items-center gap-3.5 w-full sm:w-auto">
-          <div class="w-12 h-12 rounded-xl bg-emerald-50 dark:bg-emerald-950/50 text-[#315C3B] dark:text-[#8FD69E] flex items-center justify-center text-xl flex-shrink-0 shadow-sm">
+      <div class="mt-8 bg-white dark:bg-[#1A211D] p-4 sm:p-6 rounded-2xl border border-gray-100 dark:border-gray-800 shadow-sm flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div class="flex items-center gap-3 sm:gap-3.5 w-full sm:w-auto">
+          <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-emerald-50 dark:bg-emerald-950/50 text-[#315C3B] dark:text-[#8FD69E] flex items-center justify-center text-lg sm:text-xl flex-shrink-0 shadow-sm">
             📦
           </div>
-          <div>
-            <div class="text-xs text-gray-400 font-medium">Selected Box Configuration:</div>
-            <div id="selected-box-label" class="font-heading font-bold text-sm sm:text-base text-gray-900 dark:text-white">
+          <div class="min-w-0 flex-1">
+            <div class="text-[11px] sm:text-xs text-gray-400 font-medium">Selected Box Configuration:</div>
+            <div id="selected-box-label" class="font-heading font-bold text-xs sm:text-base text-gray-900 dark:text-white truncate">
               Family Pantry Box (10kg) — Weekly Club
             </div>
           </div>
         </div>
 
-        <div class="flex items-center justify-between sm:justify-end gap-5 w-full sm:w-auto pt-3 sm:pt-0 border-t sm:border-t-0 border-gray-100 dark:border-gray-800">
+        <div class="flex items-center justify-between sm:justify-end gap-3 sm:gap-5 w-full sm:w-auto pt-3 sm:pt-0 border-t sm:border-t-0 border-gray-100 dark:border-gray-800">
           <div class="text-left sm:text-right">
-            <div class="text-[11px] text-gray-400">Total Price</div>
-            <div id="selected-box-total" class="text-2xl font-heading font-bold text-[#315C3B] dark:text-[#D6A85F]">
+            <div class="text-[10px] sm:text-[11px] text-gray-400">Total Price</div>
+            <div id="selected-box-total" class="text-xl sm:text-2xl font-heading font-bold text-[#315C3B] dark:text-[#D6A85F]">
               $38.24
             </div>
           </div>
           <button 
             type="button" 
             onclick="handleConfiguredBoxAddToCart(event)" 
-            class="btn-gold !min-h-[46px] !py-2.5 !px-6 text-xs sm:text-sm font-bold shadow-md flex-grow sm:flex-grow-0"
+            class="btn-gold !min-h-[42px] sm:!min-h-[46px] !py-2 sm:!py-2.5 !px-4 sm:!px-6 text-xs sm:text-sm font-bold shadow-md flex-shrink-0"
           >
             <svg class="w-4 h-4 mr-1.5 inline-block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg>
             Add Box To Cart
@@ -1228,9 +1228,9 @@
 
       </div>
 
-      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-500 gap-4">
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-500 gap-4 text-center sm:text-left">
         <p>© 2026 GreenHarvest (Pokusa for Health). All rights reserved.</p>
-        <div class="flex items-center gap-4">
+        <div class="flex items-center justify-center flex-wrap gap-3 sm:gap-4">
           <a href="#" class="hover:text-gray-400">Privacy Policy</a>
           <span>•</span>
           <a href="#" class="hover:text-gray-400">Terms of Service</a>
@@ -1316,11 +1316,11 @@
       const btnWeekly = document.getElementById("cadence-weekly");
 
       if (cadence === "weekly") {
-        btnWeekly.className = "px-4 sm:px-6 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all bg-[#315C3B] text-white shadow-sm flex items-center gap-1.5";
-        btnOnetime.className = "px-4 sm:px-6 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all text-gray-600 dark:text-gray-300";
+        btnWeekly.className = "px-3 sm:px-6 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all bg-[#315C3B] text-white shadow-sm flex items-center gap-1 sm:gap-1.5";
+        btnOnetime.className = "px-3 sm:px-6 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all text-gray-600 dark:text-gray-300";
       } else {
-        btnOnetime.className = "px-4 sm:px-6 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all bg-[#315C3B] text-white shadow-sm";
-        btnWeekly.className = "px-4 sm:px-6 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all text-gray-600 dark:text-gray-300 flex items-center gap-1.5";
+        btnOnetime.className = "px-3 sm:px-6 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all bg-[#315C3B] text-white shadow-sm";
+        btnWeekly.className = "px-3 sm:px-6 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all text-gray-600 dark:text-gray-300 flex items-center gap-1 sm:gap-1.5";
       }
 
       updateBoxPrices();
