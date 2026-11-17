@@ -49,14 +49,23 @@
       0%, 100% { transform: scale(0.92); opacity: 0.35; }
       50% { transform: scale(1.08); opacity: 0.65; }
     }
+    @keyframes produceGentleBob {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-14px) rotate(-1.5deg); }
+    }
+    @keyframes bounceDown {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(6px); }
+    }
 
     .hero-float-1 { animation: floatSlow 4.5s ease-in-out infinite; }
     .hero-float-2 { animation: floatReverse 5.5s ease-in-out infinite 0.8s; }
     .hero-float-3 { animation: floatSlow 6s ease-in-out infinite 1.5s; }
     .soft-pulse { animation: softPulse 4s ease-in-out infinite; }
     .halo-glow { animation: haloGlow 6s ease-in-out infinite; }
+    .bounce-down { animation: bounceDown 2s ease-in-out infinite; }
 
-    /* PRODUCE TRANSLATION WRAPPER SYSTEM (Silky Smooth Corner-to-Left Trajectory) */
+    /* HERO PRODUCE TRANSLATION WRAPPER (Top-Right Corner to Left Exit) */
     .produce-item-wrapper {
       position: absolute;
       inset: 0;
@@ -67,26 +76,25 @@
       will-change: transform, opacity;
       transition: transform 1.35s cubic-bezier(0.22, 1, 0.36, 1), opacity 1.1s cubic-bezier(0.4, 0, 0.2, 1);
     }
-    
-    /* State 1: Off-stage at Right-Side Top Corner */
     .produce-state-corner {
       transform: translate3d(360px, -240px, 0) scale(0.42) rotate(22deg) !important;
       opacity: 0 !important;
       visibility: hidden;
     }
-    
-    /* State 2: Active Center Showcase */
     .produce-state-active {
       transform: translate3d(0, 0, 0) scale(1) rotate(0deg) !important;
       opacity: 1 !important;
       visibility: visible;
     }
-    
-    /* State 3: Exits smoothly toward Left-Side Content Background */
     .produce-state-left {
       transform: translate3d(-640px, 80px, 0) scale(0.55) rotate(-18deg) !important;
       opacity: 0 !important;
       visibility: visible;
+    }
+    .produce-inner-float {
+      animation: produceGentleBob 4.8s ease-in-out infinite;
+      will-change: transform;
+      filter: drop-shadow(0 25px 35px rgba(35, 68, 43, 0.22));
     }
 
     @media (max-width: 1023px) {
@@ -98,19 +106,36 @@
       }
     }
 
-    /* Inner Image Hover Float Bob (Local space - never conflicts with outer wrapper transform) */
-    @keyframes produceGentleBob {
-      0%, 100% {
-        transform: translateY(0px) rotate(0deg);
-      }
-      50% {
-        transform: translateY(-14px) rotate(-1.5deg);
-      }
+    /* NEW SECTION: VERTICAL 3D TRANSLATION FOR SHOWCASE PRODUCE */
+    .showcase-produce-layer {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      pointer-events: none;
+      will-change: transform, opacity;
+      transition: transform 1.25s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.95s ease-in-out;
     }
-    .produce-inner-float {
-      animation: produceGentleBob 4.8s ease-in-out infinite;
+    .showcase-layer-enter {
+      transform: translate3d(40px, -110px, 0) scale(0.8) rotate(8deg) !important;
+      opacity: 0 !important;
+      visibility: hidden;
+    }
+    .showcase-layer-active {
+      transform: translate3d(0, 0, 0) scale(1) rotate(0deg) !important;
+      opacity: 1 !important;
+      visibility: visible;
+    }
+    .showcase-layer-exit {
+      transform: translate3d(-50px, 110px, 0) scale(0.82) rotate(-8deg) !important;
+      opacity: 0 !important;
+      visibility: visible;
+    }
+    .showcase-produce-img {
+      animation: produceGentleBob 5s ease-in-out infinite;
       will-change: transform;
-      filter: drop-shadow(0 25px 35px rgba(35, 68, 43, 0.22));
+      filter: drop-shadow(0 30px 45px rgba(35, 68, 43, 0.24));
     }
   </style>
 </head>
@@ -341,6 +366,14 @@
             </a>
           </div>
 
+
+          <!-- Scroll to Bottom Showcase Trigger -->
+          <div class="pt-4 flex items-center justify-center lg:justify-start">
+            <a href="#why-organic-interactive-showcase" class="group inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/90 dark:bg-[#1A211D]/90 border border-gray-200/80 dark:border-gray-700 text-xs font-semibold text-gray-700 dark:text-gray-300 hover:text-[#315C3B] dark:hover:text-[#D6A85F] shadow-sm hover:shadow transition-all">
+              <span>Scroll to Explore Why Organic</span>
+              <span class="w-5 h-5 rounded-full bg-emerald-100 dark:bg-emerald-950 text-[#315C3B] dark:text-[#8FD69E] flex items-center justify-center text-xs bounce-down">↓</span>
+            </a>
+          </div>
         </div>
 
         <!-- Right Column: PURE BORDERLESS TRANSPARENT PNG PRODUCE (NO BORDER, NO CARD, NO TEXT) -->
@@ -406,6 +439,181 @@
         </div>
 
       </div>
+    </div>
+  </section>
+
+  <!-- ==================== NEW SECTION: INTERACTIVE PRODUCE & BIG WHY ORGANIC STORY ==================== -->
+  <section id="why-organic-interactive-showcase" class="py-20 lg:py-28 bg-[#FBF9F5] dark:bg-[#121614] border-t border-b border-gray-100 dark:border-gray-800/80 relative overflow-hidden">
+    
+    <!-- Ambient Backdrop Lighting -->
+    <div class="absolute top-1/4 -left-20 w-96 h-96 rounded-full bg-[#315C3B]/5 dark:bg-[#315C3B]/10 blur-3xl pointer-events-none"></div>
+    <div class="absolute bottom-1/4 -right-20 w-96 h-96 rounded-full bg-[#D6A85F]/10 dark:bg-[#D6A85F]/5 blur-3xl pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        
+        <!-- LEFT SIDE: PURE TRANSPARENT PNG PRODUCE (Smooth Vertical 3D Translation) -->
+        <div class="lg:col-span-6 relative flex items-center justify-center min-h-[380px] sm:min-h-[460px] lg:min-h-[520px]">
+          
+          <!-- Soft Organic Ambient Halo -->
+          <div class="halo-glow absolute w-80 h-80 sm:w-96 sm:h-96 rounded-full bg-gradient-to-tr from-[#315C3B]/20 via-[#D6A85F]/20 to-transparent blur-3xl pointer-events-none"></div>
+
+          <!-- 5 Transparent PNG Cutouts with Vertical Translation Physics (Zero box, zero border) -->
+          <div class="relative w-full h-[360px] sm:h-[440px] flex items-center justify-center pointer-events-none">
+            
+            <!-- Layer 0: Organic Apple -->
+            <div id="showcase-layer-0" class="showcase-produce-layer showcase-layer-active">
+              <img 
+                src="assets/images/hero/organic_apple.png" 
+                alt="Organic Honeycrisp Apple cutout" 
+                class="showcase-produce-img max-h-[300px] sm:max-h-[390px] lg:max-h-[440px] w-auto object-contain select-none"
+              >
+            </div>
+
+            <!-- Layer 1: Organic Carrots -->
+            <div id="showcase-layer-1" class="showcase-produce-layer showcase-layer-enter">
+              <img 
+                src="assets/images/hero/organic_carrots.png" 
+                alt="Organic Heirloom Carrots cutout" 
+                class="showcase-produce-img max-h-[300px] sm:max-h-[390px] lg:max-h-[440px] w-auto object-contain select-none"
+                style="animation-delay: 0.8s;"
+              >
+            </div>
+
+            <!-- Layer 2: Organic Tomatoes -->
+            <div id="showcase-layer-2" class="showcase-produce-layer showcase-layer-enter">
+              <img 
+                src="assets/images/hero/organic_tomatoes.png" 
+                alt="Organic Vine Tomatoes cutout" 
+                class="showcase-produce-img max-h-[300px] sm:max-h-[390px] lg:max-h-[440px] w-auto object-contain select-none"
+                style="animation-delay: 1.6s;"
+              >
+            </div>
+
+            <!-- Layer 3: Organic Avocado -->
+            <div id="showcase-layer-3" class="showcase-produce-layer showcase-layer-enter">
+              <img 
+                src="assets/images/hero/organic_avocado.png" 
+                alt="Organic Hass Avocado cutout" 
+                class="showcase-produce-img max-h-[300px] sm:max-h-[390px] lg:max-h-[440px] w-auto object-contain select-none"
+                style="animation-delay: 2.4s;"
+              >
+            </div>
+
+            <!-- Layer 4: Organic Leafy Greens -->
+            <div id="showcase-layer-4" class="showcase-produce-layer showcase-layer-enter">
+              <img 
+                src="assets/images/hero/organic_greens.png" 
+                alt="Organic Leafy Greens cutout" 
+                class="showcase-produce-img max-h-[300px] sm:max-h-[390px] lg:max-h-[440px] w-auto object-contain select-none"
+                style="animation-delay: 3.2s;"
+              >
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- RIGHT SIDE: BIG SIZE SIMPLE "WHY ORGANIC" TEXT CONTENT -->
+        <div class="lg:col-span-6 space-y-6 text-center lg:text-left">
+          
+          <!-- Category & Counter Tag -->
+          <div class="flex items-center justify-center lg:justify-start gap-3">
+            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#315C3B]/10 dark:bg-[#315C3B]/25 text-[#315C3B] dark:text-[#8FD69E] text-xs font-bold uppercase tracking-wider">
+              🌿 Why Organic Hits Different
+            </span>
+            <span id="showcase-counter" class="text-xs font-bold text-[#D6A85F] tracking-widest font-heading">
+              01 / 05
+            </span>
+          </div>
+
+          <!-- BIG SIZE BOLD HEADLINE -->
+          <h2 id="showcase-headline" class="font-heading font-black text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-gray-900 dark:text-white tracking-tight leading-[1.15] transition-all duration-300">
+            Never Artificially Waxed. Real Sun-Ripened Skin.
+          </h2>
+
+          <!-- SIMPLE PUNCHY BODY TEXT -->
+          <p id="showcase-desc" class="text-sm sm:text-base text-gray-600 dark:text-gray-300 leading-relaxed max-w-xl mx-auto lg:mx-0 transition-all duration-300">
+            Commercial supermarket apples are drenched in synthetic petroleum paraffin wax so they can sit in cold dark warehouses for up to 10 months. Our organic apples breathe naturally under open orchard sunlight—synthesizing +40% more antioxidant polyphenols to protect your cells.
+          </p>
+
+          <!-- BIG SIZE STAT CALLOUTS -->
+          <div class="grid grid-cols-3 gap-3 sm:gap-4 pt-2 border-t border-b border-gray-200/70 dark:border-gray-800 py-4 max-w-xl mx-auto lg:mx-0">
+            
+            <div class="text-center lg:text-left">
+              <div id="showcase-stat-1" class="font-heading font-extrabold text-xl sm:text-2xl lg:text-3xl text-[#315C3B] dark:text-[#8FD69E]">
+                0.00 ppm
+              </div>
+              <div id="showcase-stat-label-1" class="text-[11px] text-gray-500 dark:text-gray-400 font-medium mt-0.5">
+                Petroleum Wax
+              </div>
+            </div>
+
+            <div class="text-center lg:text-left border-x border-gray-200/70 dark:border-gray-800 px-2 sm:px-3">
+              <div id="showcase-stat-2" class="font-heading font-extrabold text-xl sm:text-2xl lg:text-3xl text-[#D6A85F]">
+                +40%
+              </div>
+              <div id="showcase-stat-label-2" class="text-[11px] text-gray-500 dark:text-gray-400 font-medium mt-0.5">
+                Antioxidants
+              </div>
+            </div>
+
+            <div class="text-center lg:text-left">
+              <div id="showcase-stat-3" class="font-heading font-extrabold text-xl sm:text-2xl lg:text-3xl text-gray-900 dark:text-white">
+                100%
+              </div>
+              <div id="showcase-stat-label-3" class="text-[11px] text-gray-500 dark:text-gray-400 font-medium mt-0.5">
+                Sun-Ripened
+              </div>
+            </div>
+
+          </div>
+
+          <!-- INTERACTIVE STEPPER PILLS (01 Apple, 02 Carrot, 03 Tomato, 04 Avocado, 05 Greens) -->
+          <div class="flex flex-wrap items-center justify-center lg:justify-start gap-2 pt-2">
+            
+            <button type="button" data-showcase-index="0" class="showcase-nav-btn flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-semibold bg-[#315C3B] text-white shadow-sm transition-all duration-300 scale-105">
+              <span>🍎</span>
+              <span>01 Apple</span>
+            </button>
+
+            <button type="button" data-showcase-index="1" class="showcase-nav-btn flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-semibold bg-white dark:bg-[#1A211D] border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-300">
+              <span>🥕</span>
+              <span>02 Carrot</span>
+            </button>
+
+            <button type="button" data-showcase-index="2" class="showcase-nav-btn flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-semibold bg-white dark:bg-[#1A211D] border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-300">
+              <span>🍅</span>
+              <span>03 Tomato</span>
+            </button>
+
+            <button type="button" data-showcase-index="3" class="showcase-nav-btn flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-semibold bg-white dark:bg-[#1A211D] border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-300">
+              <span>🥑</span>
+              <span>04 Avocado</span>
+            </button>
+
+            <button type="button" data-showcase-index="4" class="showcase-nav-btn flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-semibold bg-white dark:bg-[#1A211D] border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-300">
+              <span>🥬</span>
+              <span>05 Greens</span>
+            </button>
+
+          </div>
+
+          <!-- CTAs -->
+          <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-3">
+            <a href="products.html" class="btn-primary !min-h-[46px] !px-7 text-sm font-semibold shadow-lg shadow-emerald-900/10">
+              Shop Pure Organic Produce
+            </a>
+            <a href="#comparison-table" class="btn-secondary !min-h-[46px] !px-6 text-sm font-semibold">
+              View Detailed Table
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+
     </div>
   </section>
 
@@ -521,7 +729,7 @@
             <!-- Visual Comparison Image -->
             <div class="h-44 rounded-2xl overflow-hidden relative">
               <img 
-                src="https://images.unsplash.com/photo-1579613832125-5d34a13ffe0a?auto=format&fit=crop&w=800&q=80" 
+                src="https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?auto=format&fit=crop&w=800&q=80" 
                 alt="Fresh organic red apples on tree branch in sunlight" 
                 class="w-full h-full object-cover"
               >
@@ -1433,15 +1641,16 @@
   <script src="assets/js/wishlist.js"></script>
   <script src="assets/js/auth.js"></script>
   <script src="assets/js/main.js"></script>
-  <!-- PRODUCE HERO CORNER-TO-LEFT SHOWCASE CONTROLLER -->
+  <!-- PRODUCE HERO CORNER-TO-LEFT SHOWCASE CONTROLLER & NEW INTERACTIVE SECTION CONTROLLER -->
   <script>
-    (function initSmoothProduceShowcase() {
+    // 1. HERO CORNER-TO-LEFT PRODUCE SHOWCASE CONTROLLER
+    (function initHeroProduce() {
       const TOTAL_PRODUCE = 5;
       let currentIndex = 0;
       let isTransitioning = false;
-      const INTERVAL = 3800; // 3.8s per produce item
+      const INTERVAL = 3800;
 
-      function transitionToNext() {
+      function transitionHero() {
         if (isTransitioning) return;
         isTransitioning = true;
 
@@ -1454,15 +1663,12 @@
           return;
         }
 
-        // 1. Current active wrapper glides smoothly toward the left side below/behind content
         currentWrap.classList.remove('produce-state-active');
         currentWrap.classList.add('produce-state-left');
 
-        // 2. Next wrapper starts positioned at the right-side top corner
         nextWrap.classList.remove('produce-state-active', 'produce-state-left');
         nextWrap.classList.add('produce-state-corner');
 
-        // 3. Trigger reflow with requestAnimationFrame so browser registers the corner before gliding
         requestAnimationFrame(() => {
           requestAnimationFrame(() => {
             nextWrap.classList.remove('produce-state-corner');
@@ -1470,7 +1676,6 @@
           });
         });
 
-        // 4. After transition finishes (1.35s), reset the outgoing wrapper silently back to corner
         setTimeout(() => {
           currentWrap.classList.remove('produce-state-left');
           currentWrap.classList.add('produce-state-corner');
@@ -1479,7 +1684,186 @@
         }, 1350);
       }
 
-      setInterval(transitionToNext, INTERVAL);
+      setInterval(transitionHero, INTERVAL);
+    })();
+
+    // 2. NEW SECTION: INTERACTIVE PRODUCE SHOWCASE (PNG LEFT, BIG TEXT RIGHT)
+    (function initInteractiveShowcase() {
+      const items = [
+        {
+          counter: "01 / 05",
+          headline: "Never Artificially Waxed. Real Sun-Ripened Skin.",
+          desc: "Supermarket apples are drenched in synthetic petroleum paraffin wax so they survive 10 months in warehouse storage. Our organic apples breathe under natural sun, synthesizing +40% more polyphenols to protect your cells.",
+          stat1: "0.00 ppm",
+          statLabel1: "Petroleum Wax",
+          stat2: "+40%",
+          statLabel2: "Antioxidants",
+          stat3: "100%",
+          statLabel3: "Sun-Ripened"
+        },
+        {
+          counter: "02 / 05",
+          headline: "Living Soil Compost, Not Petroleum Salts.",
+          desc: "Look at the feathery tops and vibrant taproots. Nurtured by billions of living earthworms and mycorrhizal fungi—never forced with synthetic NPK salt fertilizers that artificially bloat water weight.",
+          stat1: "1 Billion",
+          statLabel1: "Soil Microbes / tsp",
+          stat2: "100%",
+          statLabel2: "Non-GMO Heritage",
+          stat3: "Deep",
+          statLabel3: "Beta-Carotene"
+        },
+        {
+          counter: "03 / 05",
+          headline: "Sun-Ripened on the Vine. Zero Gas Chambers.",
+          desc: "Commercial tomatoes are picked hard and green, then forced into artificial redness inside dark ethylene gas chambers. GreenHarvest tomatoes stay on the living vine until sugars, fragrance, and lycopene reach peak maturity.",
+          stat1: "0.00 ppm",
+          statLabel1: "Ripening Gas",
+          stat2: "High",
+          statLabel2: "Lycopene Purity",
+          stat3: "Peak",
+          statLabel3: "Natural Sugars"
+        },
+        {
+          counter: "04 / 05",
+          headline: "Pure Cellular Lipids. What Goes In Enters The Fruit.",
+          desc: "Systemic chemical pesticides penetrate through tree roots into fruit pulp. Because our Hass avocados grow in certified organic groves, their buttery golden-green flesh delivers clean, pure cellular fatty acids.",
+          stat1: "Cold-Pressed",
+          statLabel1: "Nutrient Grade",
+          stat2: "Zero",
+          statLabel2: "Systemic Sprays",
+          stat3: "Clean",
+          statLabel3: "Good Fats"
+        },
+        {
+          counter: "05 / 05",
+          headline: "0.00 ppm Toxic Residue. Pure Nutrition for Kids.",
+          desc: "Tender baby spinach and ruffled curly kale leaves safe for morning smoothies, crisp salads, and baby food purées. No chemical cocktail drifting into your family's bloodstream.",
+          stat1: "0.00 ppm",
+          statLabel1: "Chemical Ceiling",
+          stat2: "200+",
+          statLabel2: "Lab Tested Batches",
+          stat3: "Safe",
+          statLabel3: "For Children"
+        }
+      ];
+
+      let activeIndex = 0;
+      let isSwitching = false;
+      let autoTimer = null;
+      const INTERVAL = 4200; // 4.2s
+
+      const counterEl = document.getElementById('showcase-counter');
+      const headlineEl = document.getElementById('showcase-headline');
+      const descEl = document.getElementById('showcase-desc');
+      const stat1El = document.getElementById('showcase-stat-1');
+      const statLabel1El = document.getElementById('showcase-stat-label-1');
+      const stat2El = document.getElementById('showcase-stat-2');
+      const statLabel2El = document.getElementById('showcase-stat-label-2');
+      const stat3El = document.getElementById('showcase-stat-3');
+      const statLabel3El = document.getElementById('showcase-stat-label-3');
+      const navButtons = document.querySelectorAll('.showcase-nav-btn');
+      const showcaseSection = document.getElementById('why-organic-interactive-showcase');
+
+      function updateNavStyles(idx) {
+        navButtons.forEach((btn, i) => {
+          if (i === idx) {
+            btn.className = "showcase-nav-btn flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-semibold bg-[#315C3B] text-white shadow-sm transition-all duration-300 scale-105";
+          } else {
+            btn.className = "showcase-nav-btn flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-semibold bg-white dark:bg-[#1A211D] border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-300";
+          }
+        });
+      }
+
+      function switchToShowcase(nextIdx) {
+        if (isSwitching || nextIdx === activeIndex) return;
+        isSwitching = true;
+
+        const currentLayer = document.getElementById('showcase-layer-' + activeIndex);
+        const nextLayer = document.getElementById('showcase-layer-' + nextIdx);
+
+        if (!currentLayer || !nextLayer) {
+          isSwitching = false;
+          return;
+        }
+
+        // Outgoing: glide downward
+        currentLayer.classList.remove('showcase-layer-active', 'showcase-layer-enter');
+        currentLayer.classList.add('showcase-layer-exit');
+
+        // Incoming: prepared at top, then glide in
+        nextLayer.classList.remove('showcase-layer-active', 'showcase-layer-exit');
+        nextLayer.classList.add('showcase-layer-enter');
+
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => {
+            nextLayer.classList.remove('showcase-layer-enter');
+            nextLayer.classList.add('showcase-layer-active');
+          });
+        });
+
+        // Update Right-Side Text with smooth fade
+        if (headlineEl) headlineEl.style.opacity = '0';
+        if (descEl) descEl.style.opacity = '0';
+
+        setTimeout(() => {
+          const d = items[nextIdx];
+          if (counterEl) counterEl.textContent = d.counter;
+          if (headlineEl) {
+            headlineEl.textContent = d.headline;
+            headlineEl.style.opacity = '1';
+          }
+          if (descEl) {
+            descEl.textContent = d.desc;
+            descEl.style.opacity = '1';
+          }
+          if (stat1El) stat1El.textContent = d.stat1;
+          if (statLabel1El) statLabel1El.textContent = d.statLabel1;
+          if (stat2El) stat2El.textContent = d.stat2;
+          if (statLabel2El) statLabel2El.textContent = d.statLabel2;
+          if (stat3El) stat3El.textContent = d.stat3;
+          if (statLabel3El) statLabel3El.textContent = d.statLabel3;
+        }, 200);
+
+        updateNavStyles(nextIdx);
+
+        setTimeout(() => {
+          currentLayer.classList.remove('showcase-layer-exit');
+          currentLayer.classList.add('showcase-layer-enter');
+          activeIndex = nextIdx;
+          isSwitching = false;
+        }, 1250);
+      }
+
+      function nextShowcase() {
+        const next = (activeIndex + 1) % items.length;
+        switchToShowcase(next);
+      }
+
+      function startTimer() {
+        stopTimer();
+        autoTimer = setInterval(nextShowcase, INTERVAL);
+      }
+
+      function stopTimer() {
+        if (autoTimer) clearInterval(autoTimer);
+        autoTimer = null;
+      }
+
+      navButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const idx = parseInt(btn.getAttribute('data-showcase-index'), 10);
+          switchToShowcase(idx);
+          startTimer();
+        });
+      });
+
+      if (showcaseSection) {
+        showcaseSection.addEventListener('mouseenter', stopTimer);
+        showcaseSection.addEventListener('mouseleave', startTimer);
+      }
+
+      updateNavStyles(0);
+      startTimer();
     })();
   </script>
 </body>
