@@ -191,241 +191,284 @@
     </div>
   </div>
 
-  <!-- HERO & PIN CHECKER TOOL -->
-  <section class="py-14 md:py-20 bg-gradient-to-b from-[#F4EFEA] to-[#FBF9F5] dark:from-[#1A211D] dark:to-[#121614] border-b border-gray-200/80 dark:border-gray-800">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center space-y-6">
-      <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#315C3B]/10 dark:bg-[#315C3B]/20 text-[#315C3B] dark:text-[#8FD69E] text-xs font-semibold">
-        Fresh Direct Eco Transit
+  <!-- HERO & PINCODE CHECKER -->
+  <section class="py-12 md:py-16 bg-gradient-to-b from-[#F4EFEA] to-[#FBF9F5] dark:from-[#1A211D] dark:to-[#121614] border-b border-gray-200/80 dark:border-gray-800">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center space-y-4">
+      <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#315C3B]/10 dark:bg-[#315C3B]/20 text-[#315C3B] dark:text-[#8FD69E] text-xs font-semibold">
+        🌱 Fresh From Local Farms
       </span>
-      <h1 class="font-heading font-bold text-3xl sm:text-5xl text-gray-900 dark:text-white">
-        Doorstep Organic Delivery Information
+      <h1 class="font-heading font-bold text-3xl sm:text-4xl text-gray-900 dark:text-white">
+        Delivery Information & Tracking
       </h1>
-      <p class="text-sm sm:text-base text-gray-600 dark:text-gray-300 max-w-xl mx-auto">
-        Learn how our cold-chain preserves the live crispness of farm produce, explore delivery times, and verify your PIN code serviceability.
+      <p class="text-sm sm:text-base text-gray-600 dark:text-gray-300 max-w-lg mx-auto">
+        We deliver organic produce harvested fresh daily straight to your doorstep in chilled, eco-friendly boxes.
       </p>
 
-      <!-- Interactive PIN Code Checker Tool -->
-      <div class="max-w-lg mx-auto bg-white dark:bg-[#222B25] p-5 rounded-2xl shadow-lg border border-gray-100 dark:border-gray-800 space-y-3">
-        <label for="delivery-pin-input" class="text-xs font-bold text-gray-700 dark:text-gray-300 block text-left">
-          Check Serviceability in Your Area:
+      <!-- Clean Pincode Checker Card -->
+      <div class="max-w-md mx-auto bg-white dark:bg-[#222B25] p-5 sm:p-6 rounded-2xl shadow-sm border border-gray-200/80 dark:border-gray-800 space-y-3 mt-4 text-left">
+        <label for="delivery-pin-input" class="text-xs font-bold text-gray-800 dark:text-gray-200 block">
+          Check delivery in your area:
         </label>
         <div class="flex items-center gap-2">
           <input 
             id="delivery-pin-input" 
             type="text" 
-            placeholder="Enter Postal PIN Code (e.g. 10001, 90210, 560001)" 
-            class="px-4 py-2.5 rounded-xl border border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-[#1A211D] text-sm flex-grow focus:outline-none focus:border-[#315C3B]"
+            placeholder="Enter your 5 or 6 digit pincode" 
+            class="px-4 py-2.5 rounded-xl border border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-[#1A211D] text-sm text-gray-900 dark:text-white flex-grow focus:outline-none focus:border-[#315C3B]"
           >
-          <button type="button" onclick="runDeliveryPinCheck()" class="btn-primary !min-h-[44px] text-xs font-semibold px-5">
-            Check PIN
+          <button type="button" onclick="runDeliveryPinCheck()" class="btn-primary !min-h-[42px] text-xs font-semibold px-5">
+            Check
           </button>
         </div>
-        <div id="delivery-pin-result" class="text-xs font-medium text-left min-h-[20px]"></div>
+        <div id="delivery-pin-result" class="text-xs font-medium min-h-[18px]"></div>
+        <div class="flex items-center gap-1.5 pt-1 text-[11px] text-gray-400">
+          <span>Try:</span>
+          <button type="button" onclick="testPin('10001')" class="underline hover:text-[#315C3B] dark:hover:text-[#D6A85F]">10001</button>,
+          <button type="button" onclick="testPin('90210')" class="underline hover:text-[#315C3B] dark:hover:text-[#D6A85F]">90210</button>,
+          <button type="button" onclick="testPin('560001')" class="underline hover:text-[#315C3B] dark:hover:text-[#D6A85F]">560001</button>
+        </div>
       </div>
 
-      <!-- Quick Anchor to Orders & Progress Section -->
+      <!-- Quick Anchor to Order Tracker -->
       <div class="pt-2">
-        <a href="#order-tracking" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-white/80 dark:bg-[#222B25]/80 hover:bg-white dark:hover:bg-[#222B25] text-xs font-semibold text-[#315C3B] dark:text-[#D6A85F] border border-gray-200/80 dark:border-gray-800 shadow-sm transition-all">
-          <svg class="w-4 h-4 text-[#D6A85F]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>
-          Have an active order? Track live harvest & delivery progress below ↓
+        <a href="#order-tracking" class="inline-flex items-center gap-1.5 text-xs font-semibold text-[#315C3B] dark:text-[#D6A85F] hover:underline">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          Already have an order? Track delivery below
         </a>
       </div>
     </div>
   </section>
 
-  <!-- LIVE ORDER TRACKING & PROGRESS SECTION -->
-  <section id="order-tracking" class="py-16 bg-white dark:bg-[#1A211D] border-b border-gray-200/80 dark:border-gray-800 scroll-mt-20">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <!-- TRACK YOUR ORDER SECTION -->
+  <section id="order-tracking" class="py-14 sm:py-16 bg-white dark:bg-[#1A211D] border-b border-gray-200/80 dark:border-gray-800 scroll-mt-20">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <!-- Section Header -->
-      <div class="text-center max-w-2xl mx-auto mb-10">
-        <span class="badge-gold">Live Telemetry & Sourcing Dispatch</span>
-        <h2 class="font-heading font-bold text-3xl sm:text-4xl text-gray-900 dark:text-white mt-2">
-          Track Your Order & Cold-Chain Progress
+      <div class="text-center max-w-xl mx-auto mb-8">
+        <span class="badge-gold">Live Tracking</span>
+        <h2 class="font-heading font-bold text-2xl sm:text-3xl text-gray-900 dark:text-white mt-1.5">
+          Track Your Order
         </h2>
-        <p class="text-xs sm:text-sm text-gray-600 dark:text-gray-300 mt-2">
-          Enter your GreenHarvest Order ID below to inspect your harvest timeline, cold-van temperature telemetry (3.8°C), delivery slot, and live driver dispatch.
+        <p class="text-xs sm:text-sm text-gray-500 dark:text-gray-400 mt-1">
+          Enter your order number to see where your groceries are and when they'll arrive.
         </p>
       </div>
 
-      <!-- Search & Demo Order Selector Card -->
-      <div class="bg-[#FBF9F5] dark:bg-[#222B25] p-6 sm:p-8 rounded-3xl border border-gray-200/80 dark:border-gray-800 shadow-md max-w-3xl mx-auto mb-10">
-        <label for="order-search-input" class="text-xs font-bold text-gray-700 dark:text-gray-300 block mb-2">
-          Enter GreenHarvest Order ID:
-        </label>
-        <div class="flex flex-col sm:flex-row items-center gap-3">
+      <!-- Search & Demo Chips Card -->
+      <div class="bg-[#FBF9F5] dark:bg-[#222B25] p-5 sm:p-6 rounded-2xl border border-gray-200/80 dark:border-gray-800 shadow-sm max-w-2xl mx-auto mb-8">
+        <div class="flex flex-col sm:flex-row items-center gap-2.5">
           <div class="relative w-full">
             <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-gray-400">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
             </div>
             <input 
               id="order-search-input" 
               type="text" 
-              placeholder="e.g. GH-84291 or paste your receipt ID" 
-              class="w-full pl-10 pr-4 py-3 rounded-xl border border-gray-300 dark:border-gray-700 bg-white dark:bg-[#1A211D] text-sm text-gray-900 dark:text-white focus:outline-none focus:border-[#315C3B] font-mono font-medium"
+              placeholder="Enter Order ID (e.g. GH-84291)" 
+              class="w-full pl-9 pr-3 py-2.5 rounded-xl border border-gray-300 dark:border-gray-700 bg-white dark:bg-[#1A211D] text-sm text-gray-900 dark:text-white focus:outline-none focus:border-[#315C3B] font-mono"
             >
           </div>
           <button 
             type="button" 
             onclick="handleTrackOrderSubmit()" 
-            class="btn-primary w-full sm:w-auto !min-h-[46px] px-6 text-xs font-semibold whitespace-nowrap"
+            class="btn-primary w-full sm:w-auto !min-h-[42px] px-5 text-xs font-semibold whitespace-nowrap"
           >
             Track Order
           </button>
         </div>
 
         <!-- Quick Demo Chips -->
-        <div class="mt-4 pt-4 border-t border-gray-200/60 dark:border-gray-800 flex flex-wrap items-center gap-2">
-          <span class="text-[11px] font-bold text-gray-500 dark:text-gray-400">Quick Test Demos:</span>
-          <button type="button" onclick="loadOrderById('GH-84291')" class="px-2.5 py-1 text-[11px] rounded-lg bg-emerald-50 dark:bg-emerald-950/40 text-[#315C3B] dark:text-[#8FD69E] border border-emerald-200 dark:border-emerald-800/60 hover:border-[#315C3B] transition-colors font-medium">
-            ⚡ #GH-84291 (Out for Delivery)
+        <div class="mt-3 pt-3 border-t border-gray-200/60 dark:border-gray-800 flex flex-wrap items-center gap-1.5 text-xs">
+          <span class="text-[11px] text-gray-400 font-medium">Try Demo:</span>
+          <button type="button" onclick="loadOrderById('GH-84291')" class="px-2.5 py-1 text-[11px] rounded-lg bg-emerald-50 dark:bg-emerald-950/40 text-[#315C3B] dark:text-[#8FD69E] border border-emerald-200 dark:border-emerald-800 hover:bg-emerald-100 font-medium transition-colors">
+            🚚 #GH-84291 (On the Way)
           </button>
-          <button type="button" onclick="loadOrderById('GH-90412')" class="px-2.5 py-1 text-[11px] rounded-lg bg-amber-50 dark:bg-amber-950/40 text-amber-800 dark:text-amber-300 border border-amber-200 dark:border-amber-800/60 hover:border-[#D6A85F] transition-colors font-medium">
-            🌱 #GH-90412 (Harvested & Packed)
+          <button type="button" onclick="loadOrderById('GH-90412')" class="px-2.5 py-1 text-[11px] rounded-lg bg-amber-50 dark:bg-amber-950/40 text-amber-800 dark:text-amber-300 border border-amber-200 dark:border-amber-800 hover:bg-amber-100 font-medium transition-colors">
+            📦 #GH-90412 (Packed)
           </button>
-          <button type="button" onclick="loadOrderById('GH-63018')" class="px-2.5 py-1 text-[11px] rounded-lg bg-blue-50 dark:bg-blue-950/40 text-blue-700 dark:text-blue-300 border border-blue-200 dark:border-blue-800/60 hover:border-blue-500 transition-colors font-medium">
-            📦 #GH-63018 (Placed & Scheduled)
-          </button>
-          <button type="button" onclick="loadOrderById('GH-45120')" class="px-2.5 py-1 text-[11px] rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-gray-700 hover:border-gray-400 transition-colors font-medium">
+          <button type="button" onclick="loadOrderById('GH-45120')" class="px-2.5 py-1 text-[11px] rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-gray-700 hover:bg-gray-200 font-medium transition-colors">
             ✓ #GH-45120 (Delivered)
           </button>
         </div>
 
-        <!-- Recent Stored Orders Chips (populated if localStorage has orders) -->
-        <div id="recent-user-orders-bar" class="mt-3 hidden pt-3 border-t border-gray-200/40 dark:border-gray-800/50 flex flex-wrap items-center gap-2">
-          <span class="text-[11px] font-bold text-[#315C3B] dark:text-[#D6A85F]">Your Placed Orders:</span>
+        <!-- Recent Placed Orders Bar -->
+        <div id="recent-user-orders-bar" class="mt-2.5 hidden pt-2.5 border-t border-gray-200/40 dark:border-gray-800/50 flex flex-wrap items-center gap-1.5 text-xs">
+          <span class="text-[11px] font-semibold text-[#315C3B] dark:text-[#D6A85F]">Your Orders:</span>
           <div id="recent-user-orders-chips" class="flex flex-wrap gap-1.5"></div>
         </div>
       </div>
 
-      <!-- TRACKING RESULTS CONTAINER -->
-      <div id="order-tracking-display" class="space-y-8">
-        <!-- Injected via order-tracking.js -->
+      <!-- Tracking Results Injected Here -->
+      <div id="order-tracking-display" class="space-y-6">
+        <!-- Rendered by order-tracking.js -->
       </div>
 
     </div>
   </section>
 
-  <!-- 1. DELIVERY PROCESS (3-step) -->
-  <section class="py-16 bg-white dark:bg-[#1A211D]">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center max-w-xl mx-auto mb-14">
-        <span class="badge-gold">Farm to Kitchen</span>
-        <h2 class="font-heading font-bold text-3xl text-gray-900 dark:text-white mt-2">Our Eco Delivery Process</h2>
+  <!-- HOW DELIVERY WORKS (3 SIMPLE STEPS) -->
+  <section class="py-14 sm:py-16 bg-[#FBF9F5] dark:bg-[#121614]">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-md mx-auto mb-10">
+        <span class="badge-gold">Simple & Fresh</span>
+        <h2 class="font-heading font-bold text-2xl sm:text-3xl text-gray-900 dark:text-white mt-1.5">
+          How Delivery Works
+        </h2>
+        <p class="text-xs sm:text-sm text-gray-500 mt-1">
+          From organic farm to your table in 3 simple steps.
+        </p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="card-clean p-6 space-y-3">
-          <div class="w-10 h-10 rounded-full bg-[#315C3B] text-white font-bold flex items-center justify-center font-heading">1</div>
-          <h3 class="font-heading font-bold text-lg text-gray-900 dark:text-white">Morning Pre-Cooling</h3>
-          <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">
-            Harvested fruits and greens are placed in cool humidified holding rooms within 90 minutes of cutting to arrest enzymatic nutrient degradation.
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="bg-white dark:bg-[#1A211D] p-6 rounded-2xl border border-gray-200/70 dark:border-gray-800 shadow-sm space-y-2.5">
+          <div class="w-10 h-10 rounded-xl bg-emerald-50 dark:bg-emerald-950/50 text-[#315C3B] dark:text-[#8FD69E] font-heading font-bold text-sm flex items-center justify-center">
+            01
+          </div>
+          <h3 class="font-heading font-bold text-base text-gray-900 dark:text-white">Harvested Fresh</h3>
+          <p class="text-xs text-gray-500 leading-relaxed">
+            Our farmer partners pick fruits and vegetables early in the morning so they arrive at their peak flavor and nutrition.
           </p>
         </div>
 
-        <div class="card-clean p-6 space-y-3">
-          <div class="w-10 h-10 rounded-full bg-[#D6A85F] text-[#1A3320] font-bold flex items-center justify-center font-heading">2</div>
-          <h3 class="font-heading font-bold text-lg text-gray-900 dark:text-white">Zero-Plastic Packing</h3>
-          <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">
-            Packed with plant-based moisture liners inside insulated recycled corrugated cartons with reusable non-toxic ice packs.
+        <div class="bg-white dark:bg-[#1A211D] p-6 rounded-2xl border border-gray-200/70 dark:border-gray-800 shadow-sm space-y-2.5">
+          <div class="w-10 h-10 rounded-xl bg-amber-50 dark:bg-amber-950/50 text-[#D6A85F] font-heading font-bold text-sm flex items-center justify-center">
+            02
+          </div>
+          <h3 class="font-heading font-bold text-base text-gray-900 dark:text-white">Carefully Packed</h3>
+          <p class="text-xs text-gray-500 leading-relaxed">
+            Items are gently packed in 100% recyclable boxes with reusable ice packs to keep delicate greens crisp and cold.
           </p>
         </div>
 
-        <div class="card-clean p-6 space-y-3">
-          <div class="w-10 h-10 rounded-full bg-[#315C3B] text-white font-bold flex items-center justify-center font-heading">3</div>
-          <h3 class="font-heading font-bold text-lg text-gray-900 dark:text-white">Direct Doorstep Handover</h3>
-          <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">
-            Delivered in our climate-regulated electric vans during your preferred morning or evening delivery slot with SMS tracking.
+        <div class="bg-white dark:bg-[#1A211D] p-6 rounded-2xl border border-gray-200/70 dark:border-gray-800 shadow-sm space-y-2.5">
+          <div class="w-10 h-10 rounded-xl bg-emerald-50 dark:bg-emerald-950/50 text-[#315C3B] dark:text-[#8FD69E] font-heading font-bold text-sm flex items-center justify-center">
+            03
+          </div>
+          <h3 class="font-heading font-bold text-base text-gray-900 dark:text-white">Delivered to Your Door</h3>
+          <p class="text-xs text-gray-500 leading-relaxed">
+            Delivered directly to your home in temperature-controlled vans during your chosen morning or evening time slot.
           </p>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 2. CHARGES, SLOTS & THRESHOLDS -->
-  <section class="py-16 bg-[#F4EFEA] dark:bg-[#121614] border-y border-gray-100 dark:border-gray-800">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        
-        <div class="bg-white dark:bg-[#222B25] p-6 rounded-2xl border border-gray-100 dark:border-gray-800 space-y-2">
-          <h4 class="font-heading font-bold text-base text-gray-900 dark:text-white">Delivery Charges</h4>
-          <p class="text-2xl font-heading font-bold text-[#315C3B] dark:text-[#D6A85F]">FREE</p>
-          <p class="text-xs text-gray-500">On all orders above $35.00. Flat $3.99 for orders below $35.</p>
-        </div>
-
-        <div class="bg-white dark:bg-[#222B25] p-6 rounded-2xl border border-gray-100 dark:border-gray-800 space-y-2">
-          <h4 class="font-heading font-bold text-base text-gray-900 dark:text-white">Minimum Order</h4>
-          <p class="text-2xl font-heading font-bold text-[#315C3B] dark:text-[#D6A85F]">$15.00</p>
-          <p class="text-xs text-gray-500">To maintain sustainable logistics and minimize carbon footprint per drop.</p>
-        </div>
-
-        <div class="bg-white dark:bg-[#222B25] p-6 rounded-2xl border border-gray-100 dark:border-gray-800 space-y-2">
-          <h4 class="font-heading font-bold text-base text-gray-900 dark:text-white">Morning Slot</h4>
-          <p class="text-2xl font-heading font-bold text-[#315C3B] dark:text-[#D6A85F]">7AM – 11AM</p>
-          <p class="text-xs text-gray-500">Perfect for daily fresh juices and breakfast prep. Cutoff: 9:00 PM previous night.</p>
-        </div>
-
-        <div class="bg-white dark:bg-[#222B25] p-6 rounded-2xl border border-gray-100 dark:border-gray-800 space-y-2">
-          <h4 class="font-heading font-bold text-base text-gray-900 dark:text-white">Evening Slot</h4>
-          <p class="text-2xl font-heading font-bold text-[#315C3B] dark:text-[#D6A85F]">4PM – 8PM</p>
-          <p class="text-xs text-gray-500">Ideal for dinner prep and evening grocery stocking. Cutoff: 1:00 PM same day.</p>
-        </div>
-
       </div>
     </div>
   </section>
 
-  <!-- 3. RETURN, REFUND AND DAMAGE POLICY -->
-  <section class="py-16 bg-white dark:bg-[#1A211D]">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6">
-      <div class="card-clean p-8 space-y-5 border-l-4 border-l-[#315C3B]">
-        <span class="text-xs font-bold text-[#315C3B] dark:text-[#D6A85F] uppercase tracking-wider">Our Produce Guarantee</span>
+  <!-- DELIVERY SLOTS & PRICING -->
+  <section class="py-14 sm:py-16 bg-white dark:bg-[#1A211D] border-y border-gray-200/80 dark:border-gray-800">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-md mx-auto mb-10">
         <h2 class="font-heading font-bold text-2xl sm:text-3xl text-gray-900 dark:text-white">
-          100% No-Hassle Fresh Produce Replacement Policy
+          Delivery Options & Slots
+        </h2>
+        <p class="text-xs sm:text-sm text-gray-500 mt-1">
+          Convenient delivery times designed around your daily schedule.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        
+        <div class="bg-[#FBF9F5] dark:bg-[#222B25] p-5 rounded-2xl border border-gray-200/70 dark:border-gray-800 space-y-1.5">
+          <span class="text-[11px] font-semibold text-gray-400 uppercase tracking-wider block">Delivery Fee</span>
+          <p class="text-2xl font-heading font-bold text-[#315C3B] dark:text-[#D6A85F]">FREE</p>
+          <p class="text-xs text-gray-500">Free delivery on orders over $35. Flat $3.99 for smaller orders.</p>
+        </div>
+
+        <div class="bg-[#FBF9F5] dark:bg-[#222B25] p-5 rounded-2xl border border-gray-200/70 dark:border-gray-800 space-y-1.5">
+          <span class="text-[11px] font-semibold text-gray-400 uppercase tracking-wider block">Morning Slot</span>
+          <p class="text-xl font-heading font-bold text-gray-900 dark:text-white">7 AM – 11 AM</p>
+          <p class="text-xs text-gray-500">Great for breakfast & daily meal prep. Order by 9 PM the night before.</p>
+        </div>
+
+        <div class="bg-[#FBF9F5] dark:bg-[#222B25] p-5 rounded-2xl border border-gray-200/70 dark:border-gray-800 space-y-1.5">
+          <span class="text-[11px] font-semibold text-gray-400 uppercase tracking-wider block">Evening Slot</span>
+          <p class="text-xl font-heading font-bold text-gray-900 dark:text-white">4 PM – 8 PM</p>
+          <p class="text-xs text-gray-500">Fresh for dinner after work. Order by 1 PM for same-day delivery.</p>
+        </div>
+
+        <div class="bg-[#FBF9F5] dark:bg-[#222B25] p-5 rounded-2xl border border-gray-200/70 dark:border-gray-800 space-y-1.5">
+          <span class="text-[11px] font-semibold text-gray-400 uppercase tracking-wider block">Eco Packaging</span>
+          <p class="text-xl font-heading font-bold text-gray-900 dark:text-white">Zero Waste</p>
+          <p class="text-xs text-gray-500">Leave your empty box at the door. Our driver collects it for reuse.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 100% FRESHNESS GUARANTEE -->
+  <section class="py-14 sm:py-16 bg-[#FBF9F5] dark:bg-[#121614]">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <div class="bg-white dark:bg-[#1A211D] p-6 sm:p-8 rounded-2xl border-l-4 border-l-[#315C3B] border border-gray-200/70 dark:border-gray-800 shadow-sm space-y-3">
+        <span class="text-xs font-bold text-[#315C3B] dark:text-[#D6A85F] uppercase tracking-wider">Our Promise</span>
+        <h2 class="font-heading font-bold text-xl sm:text-2xl text-gray-900 dark:text-white">
+          100% Freshness Guarantee
         </h2>
         <p class="text-xs sm:text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
-          Because our harvest is 100% organic and free from artificial synthetic preservative waxes, living produce occasionally reacts to weather. If any fruit or vegetable in your order arrives damaged, bruised, or unsatisfactory, simply snap a picture and message our WhatsApp or email within 24 hours.
+          Because our produce is 100% organic and free of artificial waxes, freshness matters most. If any item in your box arrives bruised, damaged, or not completely fresh, let us know within 24 hours.
         </p>
         <p class="text-xs sm:text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
-          We will promptly issue a full refund to your original payment method or dispatch a replacement with your next morning basket. No return shipment required.
+          We will promptly send a free replacement or refund your payment immediately — no return shipment needed.
         </p>
       </div>
     </div>
   </section>
 
-  <!-- 4. DELIVERY FAQS -->
-  <section class="py-16 bg-[#F4EFEA] dark:bg-[#121614]">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6">
-      <div class="text-center max-w-xl mx-auto mb-10">
-        <h2 class="font-heading font-bold text-3xl text-gray-900 dark:text-white">Delivery FAQs</h2>
+  <!-- HELPFUL FAQS -->
+  <section class="py-14 sm:py-16 bg-white dark:bg-[#1A211D] border-t border-gray-200/80 dark:border-gray-800">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <div class="text-center max-w-md mx-auto mb-8">
+        <h2 class="font-heading font-bold text-2xl sm:text-3xl text-gray-900 dark:text-white">
+          Frequently Asked Questions
+        </h2>
+        <p class="text-xs text-gray-500 mt-1">Quick answers to common questions about our delivery.</p>
       </div>
 
-      <div class="space-y-4 text-xs sm:text-sm">
-        <details class="bg-white dark:bg-[#222B25] p-5 rounded-2xl border border-gray-100 dark:border-gray-800" open>
+      <div class="space-y-3 text-xs sm:text-sm">
+        <details class="bg-[#FBF9F5] dark:bg-[#222B25] p-4 sm:p-5 rounded-xl border border-gray-200/70 dark:border-gray-800" open>
           <summary class="font-heading font-semibold text-gray-900 dark:text-white cursor-pointer list-none flex items-center justify-between">
-            <span>What happens if I am not home when the delivery arrives?</span>
-            <span class="text-[#315C3B] dark:text-[#D6A85F] font-bold">▼</span>
+            <span>What happens if I'm not home when delivery arrives?</span>
+            <span class="text-[#315C3B] dark:text-[#D6A85F] font-bold text-xs">▼</span>
           </summary>
-          <p class="text-gray-500 dark:text-gray-400 mt-2">
-            Our insulated thermal boxes are designed to preserve safe produce temperature for up to 4 hours on your shaded porch. Our driver will also call you or follow your specified drop instructions.
+          <p class="text-gray-500 dark:text-gray-400 mt-2 leading-relaxed">
+            Our insulated boxes keep produce cool and crisp for up to 4 hours on your porch. You can also leave delivery instructions (like a gate code or neighbor's house) during checkout.
           </p>
         </details>
 
-        <details class="bg-white dark:bg-[#222B25] p-5 rounded-2xl border border-gray-100 dark:border-gray-800">
+        <details class="bg-[#FBF9F5] dark:bg-[#222B25] p-4 sm:p-5 rounded-xl border border-gray-200/70 dark:border-gray-800">
           <summary class="font-heading font-semibold text-gray-900 dark:text-white cursor-pointer list-none flex items-center justify-between">
-            <span>Do you recycle or take back the packing materials?</span>
-            <span class="text-[#315C3B] dark:text-[#D6A85F] font-bold">▼</span>
+            <span>How do I return the delivery boxes and ice packs?</span>
+            <span class="text-[#315C3B] dark:text-[#D6A85F] font-bold text-xs">▼</span>
           </summary>
-          <p class="text-gray-500 dark:text-gray-400 mt-2">
-            Yes! Just leave your previous box and ice packs outside on your next delivery day. Our driver collects them for sanitization and reuse.
+          <p class="text-gray-500 dark:text-gray-400 mt-2 leading-relaxed">
+            Simply leave your empty box and ice packs outside on your next delivery day. Our driver collects them for sanitization and reuse, helping keep packaging zero-waste.
+          </p>
+        </details>
+
+        <details class="bg-[#FBF9F5] dark:bg-[#222B25] p-4 sm:p-5 rounded-xl border border-gray-200/70 dark:border-gray-800">
+          <summary class="font-heading font-semibold text-gray-900 dark:text-white cursor-pointer list-none flex items-center justify-between">
+            <span>Is there a minimum order amount?</span>
+            <span class="text-[#315C3B] dark:text-[#D6A85F] font-bold text-xs">▼</span>
+          </summary>
+          <p class="text-gray-500 dark:text-gray-400 mt-2 leading-relaxed">
+            Yes, our minimum order value is $15. This allows us to keep delivery routes sustainable and minimize emissions per drop.
+          </p>
+        </details>
+
+        <details class="bg-[#FBF9F5] dark:bg-[#222B25] p-4 sm:p-5 rounded-xl border border-gray-200/70 dark:border-gray-800">
+          <summary class="font-heading font-semibold text-gray-900 dark:text-white cursor-pointer list-none flex items-center justify-between">
+            <span>Can I change my delivery address or slot?</span>
+            <span class="text-[#315C3B] dark:text-[#D6A85F] font-bold text-xs">▼</span>
+          </summary>
+          <p class="text-gray-500 dark:text-gray-400 mt-2 leading-relaxed">
+            Yes, you can update your delivery window or address up to 2 hours before your slot starts by contacting our support team or replying to your order SMS.
           </p>
         </details>
       </div>
 
       <!-- Contact Support CTA -->
-      <div class="mt-12 text-center">
-        <p class="text-xs text-gray-500 mb-3">Have a special gate code or custom delivery request?</p>
-        <a href="contact.html" class="btn-primary text-xs">Contact Courier Support Team</a>
+      <div class="mt-8 text-center">
+        <p class="text-xs text-gray-500 mb-2">Have a question that isn't answered here?</p>
+        <a href="contact.html" class="btn-primary text-xs !min-h-[40px] px-5">Contact Our Support Team</a>
       </div>
     </div>
   </section>
@@ -480,6 +523,14 @@
   <script src="assets/js/order-tracking.js"></script>
   <script src="assets/js/main.js"></script>
   <script>
+    function testPin(pin) {
+      const input = document.getElementById("delivery-pin-input");
+      if (input) {
+        input.value = pin;
+        runDeliveryPinCheck();
+      }
+    }
+
     function runDeliveryPinCheck() {
       const input = document.getElementById("delivery-pin-input");
       const res = document.getElementById("delivery-pin-result");
