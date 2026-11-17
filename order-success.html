@@ -47,7 +47,7 @@
 
       <div class="flex items-center gap-3">
         <button onclick="window.print()" class="btn-secondary !min-h-[38px] !py-1.5 !px-3.5 text-xs font-semibold">
-          ðŸ–¨ï¸ Print Receipt
+          🖨️ Print Receipt
         </button>
         <a href="products.html" class="btn-primary !min-h-[38px] !py-1.5 !px-4 text-xs font-semibold">
           Continue Shopping
@@ -148,8 +148,9 @@
 
         <!-- FOOTER ACTIONS -->
         <div class="flex flex-col sm:flex-row items-center justify-between pt-6 border-t border-gray-100 dark:border-gray-800 gap-4 no-print">
-          <a href="delivery-info.html" class="text-xs text-[#315C3B] dark:text-[#D6A85F] hover:underline font-medium">
-            Learn About Our Temperature Cold-Chain →
+          <a id="track-order-link" href="delivery-info.html#order-tracking" class="text-xs text-[#315C3B] dark:text-[#D6A85F] hover:underline font-semibold flex items-center gap-1.5">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>
+            Track Live Delivery Progress & Cold-Chain Telemetry →
           </a>
           <a href="products.html" class="btn-primary !min-h-[42px] !py-2 !px-6 text-xs font-semibold">
             Back to Organic Store
@@ -179,6 +180,11 @@
         document.getElementById("order-customer-address").textContent = `${currentOrder.customer?.address || ''}, ${currentOrder.customer?.city || ''} (PIN: ${currentOrder.customer?.pin || ''})`;
         document.getElementById("order-customer-phone").textContent = currentOrder.customer?.phone || "";
         
+        const trackLink = document.getElementById("track-order-link");
+        if (trackLink && currentOrder.orderId) {
+          trackLink.href = `delivery-info.html?orderId=${encodeURIComponent(currentOrder.orderId)}#order-tracking`;
+        }
+
         if (currentOrder.deliverySlot) {
           document.getElementById("order-delivery-slot").textContent = currentOrder.deliverySlot;
         }
@@ -191,7 +197,7 @@
                 <img src="${item.image}" alt="${item.name}" class="w-10 h-10 object-cover rounded-lg flex-shrink-0">
                 <div>
                   <span class="font-semibold text-gray-900 dark:text-white block">${item.name}</span>
-                  <span class="text-gray-400 text-[11px]">${item.weight} Ã— ${item.quantity}</span>
+                  <span class="text-gray-400 text-[11px]">${item.weight} × ${item.quantity}</span>
                 </div>
               </div>
               <span class="font-bold text-gray-900 dark:text-white font-heading">$${(item.price * item.quantity).toFixed(2)}</span>
