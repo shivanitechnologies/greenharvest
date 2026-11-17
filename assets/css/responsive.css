@@ -5,10 +5,10 @@
    - Desktop: 1024px and above
 */
 
-/* Strict global overflow prevention across all devices */
+/* Strict global overflow prevention without breaking position: sticky */
 html,
 body {
-  overflow-x: hidden !important;
+  overflow-x: clip !important;
   width: 100% !important;
   max-width: 100vw !important;
   position: relative;
