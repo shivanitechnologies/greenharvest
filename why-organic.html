@@ -32,6 +32,24 @@
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="assets/css/responsive.css">
   <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    @keyframes floatSlow {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-8px); }
+    }
+    @keyframes floatReverse {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(8px); }
+    }
+    @keyframes softPulse {
+      0%, 100% { opacity: 0.6; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.04); }
+    }
+    .hero-float-1 { animation: floatSlow 4.5s ease-in-out infinite; }
+    .hero-float-2 { animation: floatReverse 5.5s ease-in-out infinite 0.8s; }
+    .hero-float-3 { animation: floatSlow 6s ease-in-out infinite 1.5s; }
+    .soft-pulse { animation: softPulse 4s ease-in-out infinite; }
+  </style>
 </head>
 <body class="bg-[#FBF9F5] dark:bg-[#121614] text-[#1A3320] dark:text-[#F3F4F6] font-body transition-colors duration-300">
 
@@ -191,41 +209,136 @@
     </div>
   </div>
 
-  <!-- HERO: COMPOSITION WITH FRESH RAW ORGANIC VEGETABLES -->
-  <section class="py-16 md:py-24 bg-gradient-to-b from-[#F4EFEA] to-[#FBF9F5] dark:from-[#1A211D] dark:to-[#121614]">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+  <!-- ==================== 1. HERO SECTION ==================== -->
+  <section class="relative py-16 md:py-24 bg-gradient-to-b from-[#F4EFEA] via-[#FBF9F5] to-white dark:from-[#1A211D] dark:via-[#151C18] dark:to-[#121614] overflow-hidden">
+    <!-- Subtle Background Ambient Blobs -->
+    <div class="absolute top-10 left-10 w-72 h-72 rounded-full bg-[#315C3B]/5 dark:bg-[#315C3B]/10 blur-3xl pointer-events-none"></div>
+    <div class="absolute bottom-10 right-10 w-80 h-80 rounded-full bg-[#D6A85F]/10 dark:bg-[#D6A85F]/5 blur-3xl pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
         
-        <div class="lg:col-span-6 space-y-6">
-          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#315C3B]/10 dark:bg-[#315C3B]/20 text-[#315C3B] dark:text-[#8FD69E] text-xs font-semibold">
-            Educational Guide • Conscious Nutrition
+        <!-- Hero Text & Imagination Hook -->
+        <div class="lg:col-span-6 space-y-6 text-center lg:text-left">
+          
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200/60 dark:border-emerald-800/50 text-[#315C3B] dark:text-[#8FD69E] text-xs font-semibold shadow-sm">
+            <span class="w-2 h-2 rounded-full bg-[#315C3B] dark:bg-[#8FD69E] animate-ping"></span>
+            <span>🌿 Living Nutrition • Regenerative Earth</span>
           </div>
 
-          <h1 class="font-heading font-bold text-4xl sm:text-5xl text-gray-900 dark:text-white tracking-tight leading-tight">
-            Understanding The True Value of Organic Food.
+          <h1 class="font-heading font-bold text-3xl sm:text-4xl md:text-5xl text-gray-900 dark:text-white tracking-tight leading-[1.15]">
+            Taste What Real Food Was <span class="text-[#315C3B] dark:text-[#8FD69E] relative inline-block">Meant to Taste Like<span class="absolute -bottom-1 left-0 right-0 h-2 bg-[#D6A85F]/40 -rotate-1 rounded-full"></span></span>.
           </h1>
 
-          <p class="text-base text-gray-600 dark:text-gray-300 leading-relaxed">
-            Organic is not merely a marketing badge; it is a holistic farming philosophy that honors soil microbiology, preserves natural seed diversity, and protects human biology from synthetic toxic loads.
+          <p class="text-sm sm:text-base text-gray-600 dark:text-gray-300 leading-relaxed max-w-xl mx-auto lg:mx-0">
+            Remember the intoxicating aroma of a sun-warmed tomato picked straight from the garden vine? The sweet, snap crunch of a carrot pulled from rich black soil? That isn't nostalgia—that is chemical-free living food, exactly as nature designed it for the human body.
           </p>
 
-          <div class="flex items-center gap-4 pt-2">
-            <a href="#comparison-table" class="btn-primary text-xs">
-              View Organic vs Conventional
+          <!-- 3 Instant Scannable Sensory Highlights -->
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
+            <div class="p-3 rounded-2xl bg-white/80 dark:bg-[#1A211D]/80 border border-gray-100 dark:border-gray-800 shadow-sm text-left flex items-center sm:flex-col sm:items-start gap-3">
+              <div class="w-8 h-8 rounded-xl bg-emerald-100 dark:bg-emerald-900/40 text-[#315C3B] dark:text-[#8FD69E] flex items-center justify-center font-bold text-sm flex-shrink-0">
+                ☀️
+              </div>
+              <div>
+                <div class="text-xs font-bold text-gray-900 dark:text-white">Sun-Ripened</div>
+                <div class="text-[11px] text-gray-500 dark:text-gray-400">Never gassed in storage</div>
+              </div>
+            </div>
+
+            <div class="p-3 rounded-2xl bg-white/80 dark:bg-[#1A211D]/80 border border-gray-100 dark:border-gray-800 shadow-sm text-left flex items-center sm:flex-col sm:items-start gap-3">
+              <div class="w-8 h-8 rounded-xl bg-amber-100 dark:bg-amber-900/40 text-[#D6A85F] flex items-center justify-center font-bold text-sm flex-shrink-0">
+                🛡️
+              </div>
+              <div>
+                <div class="text-xs font-bold text-gray-900 dark:text-white">0.00 ppm Toxic Residue</div>
+                <div class="text-[11px] text-gray-500 dark:text-gray-400">Zero synthetic sprays</div>
+              </div>
+            </div>
+
+            <div class="p-3 rounded-2xl bg-white/80 dark:bg-[#1A211D]/80 border border-gray-100 dark:border-gray-800 shadow-sm text-left flex items-center sm:flex-col sm:items-start gap-3">
+              <div class="w-8 h-8 rounded-xl bg-blue-100 dark:bg-blue-900/40 text-blue-600 dark:text-blue-400 flex items-center justify-center font-bold text-sm flex-shrink-0">
+                🪱
+              </div>
+              <div>
+                <div class="text-xs font-bold text-gray-900 dark:text-white">Living Humus Soil</div>
+                <div class="text-[11px] text-gray-500 dark:text-gray-400">Fed by worms & compost</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- CTAs -->
+          <div class="flex flex-wrap items-center justify-center lg:justify-start gap-3 pt-3">
+            <a href="products.html" class="btn-primary !min-h-[46px] !px-6 text-sm font-semibold shadow-lg shadow-emerald-900/10 hover:shadow-emerald-900/20">
+              Shop Pure Harvest
             </a>
-            <a href="products.html" class="btn-secondary text-xs">
-              Shop Certified Foods
+            <a href="#tale-of-two-apples" class="btn-secondary !min-h-[46px] !px-6 text-sm font-semibold">
+              Compare Organic vs Conventional
             </a>
           </div>
+
         </div>
 
-        <div class="lg:col-span-6">
-          <div class="rounded-3xl overflow-hidden shadow-2xl border-4 border-white dark:border-[#222B25]">
-            <img 
-              src="https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=1000&q=80" 
-              alt="Variety of fresh raw organic vegetables and greens" 
-              class="w-full h-[440px] object-cover"
-            >
+        <!-- Hero Visual Collage with Floating Badges -->
+        <div class="lg:col-span-6 relative">
+          <div class="relative mx-auto max-w-lg lg:max-w-none">
+            
+            <!-- Main Featured Image -->
+            <div class="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white dark:border-[#222B25] bg-gray-100 dark:bg-gray-800">
+              <img 
+                src="https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=1100&q=80" 
+                alt="Vibrant crate of fresh raw organic vegetables and greens" 
+                class="w-full h-[360px] sm:h-[430px] object-cover hover:scale-105 transition-transform duration-700"
+                loading="eager"
+              >
+              <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+              <div class="absolute bottom-4 left-4 right-4 text-white">
+                <span class="text-[10px] uppercase font-bold tracking-widest text-[#D6A85F] block">Daily Sunrise Harvest</span>
+                <span class="text-sm font-semibold">Hand-picked heirloom greens from local organic orchards</span>
+              </div>
+            </div>
+
+            <!-- Inset Farmer Soil Image -->
+            <div class="hidden sm:block absolute -bottom-8 -left-8 w-44 h-44 rounded-2xl overflow-hidden border-4 border-white dark:border-[#1A211D] shadow-xl z-20">
+              <img 
+                src="https://images.unsplash.com/photo-1592417817098-8f3d6ef23a07?auto=format&fit=crop&w=400&q=80" 
+                alt="Farmer hands cradling rich dark living organic compost" 
+                class="w-full h-full object-cover"
+              >
+              <div class="absolute inset-0 bg-black/20"></div>
+              <div class="absolute bottom-1.5 left-2 right-2 text-[10px] text-white font-medium bg-black/60 backdrop-blur-sm px-1.5 py-0.5 rounded text-center">
+                Living Soil Microbiome
+              </div>
+            </div>
+
+            <!-- Floating Badge 1: Top Right (Non-GMO) -->
+            <div class="hero-float-1 absolute -top-4 -right-4 sm:top-4 sm:-right-6 bg-white/95 dark:bg-[#1A211D]/95 backdrop-blur-md px-3.5 py-2.5 rounded-2xl shadow-xl border border-emerald-100 dark:border-gray-700 flex items-center gap-2.5 z-20">
+              <div class="w-8 h-8 rounded-xl bg-emerald-100 dark:bg-emerald-950 text-[#315C3B] dark:text-[#8FD69E] flex items-center justify-center text-sm font-bold flex-shrink-0">
+                🌱
+              </div>
+              <div>
+                <div class="text-xs font-bold text-gray-900 dark:text-white">100% Non-GMO</div>
+                <div class="text-[10px] text-gray-500 dark:text-gray-400">Heritage seed ancestry</div>
+              </div>
+            </div>
+
+            <!-- Floating Badge 2: Bottom Right (Antioxidants) -->
+            <div class="hero-float-2 absolute -bottom-4 right-2 sm:bottom-4 sm:-right-4 bg-white/95 dark:bg-[#1A211D]/95 backdrop-blur-md px-3.5 py-2.5 rounded-2xl shadow-xl border border-amber-100 dark:border-gray-700 flex items-center gap-2.5 z-20">
+              <div class="w-8 h-8 rounded-xl bg-amber-100 dark:bg-amber-950 text-[#D6A85F] flex items-center justify-center text-sm font-bold flex-shrink-0">
+                ✨
+              </div>
+              <div>
+                <div class="text-xs font-bold text-gray-900 dark:text-white">+40% Antioxidants</div>
+                <div class="text-[10px] text-gray-500 dark:text-gray-400">Natural plant defense</div>
+              </div>
+            </div>
+
+            <!-- Floating Badge 3: Center-Left for Mobile/Tablet -->
+            <div class="hero-float-3 hidden md:flex absolute top-1/2 -left-6 bg-white/95 dark:bg-[#1A211D]/95 backdrop-blur-md px-3 py-2 rounded-xl shadow-lg border border-gray-100 dark:border-gray-800 items-center gap-2 z-20">
+              <span class="text-base">🐝</span>
+              <span class="text-[11px] font-semibold text-gray-800 dark:text-gray-200">Zero Bee Neurotoxins</span>
+            </div>
+
           </div>
         </div>
 
@@ -233,229 +346,981 @@
     </div>
   </section>
 
-  <!-- 1. WHAT DOES ORGANIC MEAN? -->
-  <section class="py-16 bg-white dark:bg-[#1A211D]">
+
+  <!-- ==================== 2. A TALE OF TWO APPLES (VISUAL IMAGINATION) ==================== -->
+  <section id="tale-of-two-apples" class="py-20 bg-white dark:bg-[#1A211D]">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="max-w-3xl mx-auto space-y-6">
-        <span class="badge-gold">Core Definition</span>
-        <h2 class="font-heading font-bold text-3xl text-gray-900 dark:text-white">What Does Organic Actually Mean?</h2>
-        <p class="text-sm sm:text-base text-gray-600 dark:text-gray-300 leading-relaxed">
-          At its core, certified organic agriculture is a method of crop production that prohibits the use of synthetic chemical fertilizers, genetic modification (GMOs), chemical petroleum-based pesticides, and ionizing radiation.
-        </p>
-        <p class="text-sm sm:text-base text-gray-600 dark:text-gray-300 leading-relaxed">
-          Instead of treating the farm as an industrial factory requiring external chemical inputs, organic farmers view the farm as a living, closed-loop biological ecosystem. Nutrients are returned to the soil via composted plant residue, green manures, and rotational legume planting.
+      
+      <!-- Section Header -->
+      <div class="text-center max-w-2xl mx-auto mb-14">
+        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-100/70 dark:bg-amber-950/40 text-amber-900 dark:text-[#D6A85F] text-xs font-bold uppercase tracking-wider mb-2">
+          🍎 The Reality Check
+        </span>
+        <h2 class="font-heading font-bold text-3xl sm:text-4xl text-gray-900 dark:text-white">
+          A Tale of Two Apples
+        </h2>
+        <p class="text-sm sm:text-base text-gray-600 dark:text-gray-300 mt-2">
+          Under supermarket fluorescent lights, they might look identical. But beneath the skin, their journey, biology, and nutritional value belong to completely different worlds.
         </p>
       </div>
+
+      <!-- Comparative Side-by-Side Cards -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+        
+        <!-- CARD A: The Supermarket Conventional Apple -->
+        <div class="rounded-3xl p-6 sm:p-8 bg-[#FBF9F5] dark:bg-[#222B25] border-2 border-dashed border-red-200 dark:border-red-900/40 flex flex-col justify-between relative overflow-hidden">
+          
+          <div class="space-y-6">
+            <!-- Badge & Header -->
+            <div class="flex items-center justify-between">
+              <span class="px-3 py-1 rounded-full bg-red-100 dark:bg-red-950/60 text-red-700 dark:text-red-400 text-xs font-bold">
+                ⚠️ Commercial Conventional
+              </span>
+              <span class="text-xs text-gray-400 font-medium">Engineered for Warehouses</span>
+            </div>
+
+            <div>
+              <h3 class="font-heading font-bold text-xl sm:text-2xl text-gray-900 dark:text-white">
+                The Factory Produce Apple
+              </h3>
+              <p class="text-xs sm:text-sm text-gray-500 dark:text-gray-400 mt-1">
+                Optimized for shelf-life, long ocean shipping, and cosmetic clone uniformity.
+              </p>
+            </div>
+
+            <!-- Visual Comparison Image -->
+            <div class="h-44 rounded-2xl overflow-hidden relative">
+              <img 
+                src="https://images.unsplash.com/photo-1560806887-1e4cd0b6cbd6?auto=format&fit=crop&w=800&q=80" 
+                alt="Conventional apples displayed in supermarket bins" 
+                class="w-full h-full object-cover filter grayscale-[25%]"
+              >
+              <div class="absolute inset-0 bg-red-950/20"></div>
+              <div class="absolute bottom-3 left-3 bg-red-900/80 backdrop-blur-sm text-white text-[11px] font-semibold px-2.5 py-1 rounded-lg">
+                Chemical Wax Coating Applied
+              </div>
+            </div>
+
+            <!-- Bullet Points -->
+            <ul class="space-y-3.5 text-xs sm:text-sm text-gray-700 dark:text-gray-300">
+              <li class="flex items-start gap-3">
+                <span class="w-5 h-5 rounded-full bg-red-100 dark:bg-red-950 text-red-600 dark:text-red-400 flex items-center justify-center font-bold text-xs flex-shrink-0 mt-0.5">✕</span>
+                <div>
+                  <strong class="text-gray-900 dark:text-white">Sprayed 16 to 18 Times:</strong> Drenched with synthetic insecticides, anti-rot fungicides, and chemical weedkillers from bud to box.
+                </div>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="w-5 h-5 rounded-full bg-red-100 dark:bg-red-950 text-red-600 dark:text-red-400 flex items-center justify-center font-bold text-xs flex-shrink-0 mt-0.5">✕</span>
+                <div>
+                  <strong class="text-gray-900 dark:text-white">Petroleum Paraffin Wax:</strong> High-gloss wax seals the skin to prevent moisture loss so it can sit in warehouses for up to 10 months.
+                </div>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="w-5 h-5 rounded-full bg-red-100 dark:bg-red-950 text-red-600 dark:text-red-400 flex items-center justify-center font-bold text-xs flex-shrink-0 mt-0.5">✕</span>
+                <div>
+                  <strong class="text-gray-900 dark:text-white">Picked Rock-Hard & Chemically Gassed:</strong> Harvested unripe and held in oxygen-deprived cold chambers; artificially gassed with ethylene for color.
+                </div>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="w-5 h-5 rounded-full bg-red-100 dark:bg-red-950 text-red-600 dark:text-red-400 flex items-center justify-center font-bold text-xs flex-shrink-0 mt-0.5">✕</span>
+                <div>
+                  <strong class="text-gray-900 dark:text-white">Diluted Water Weight:</strong> Synthetic salt fertilizers (NPK) force quick water bloat, leaving minerals and taste flat and watery.
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <div class="mt-6 pt-4 border-t border-red-100 dark:border-red-950/80 text-[11px] text-red-600 dark:text-red-400 font-medium">
+            ⚠️ Requires deep peeling to remove chemical residues—discarding the most nutrient-rich part.
+          </div>
+        </div>
+
+        <!-- CARD B: The GreenHarvest Organic Apple -->
+        <div class="rounded-3xl p-6 sm:p-8 bg-gradient-to-b from-emerald-50/50 to-white dark:from-[#1A211D] dark:to-[#17201A] border-2 border-[#315C3B] shadow-xl flex flex-col justify-between relative overflow-hidden">
+          
+          <div class="space-y-6">
+            <!-- Badge & Header -->
+            <div class="flex items-center justify-between">
+              <span class="px-3 py-1 rounded-full bg-[#315C3B] text-white text-xs font-bold flex items-center gap-1.5">
+                <span>✓</span> GreenHarvest Organic
+              </span>
+              <span class="text-xs text-[#D6A85F] font-bold">Nourished by Living Soil</span>
+            </div>
+
+            <div>
+              <h3 class="font-heading font-bold text-xl sm:text-2xl text-gray-900 dark:text-white">
+                The Sun-Ripened Orchard Apple
+              </h3>
+              <p class="text-xs sm:text-sm text-gray-600 dark:text-gray-300 mt-1">
+                Grown with patience, rich compost, and natural pollinators.
+              </p>
+            </div>
+
+            <!-- Visual Comparison Image -->
+            <div class="h-44 rounded-2xl overflow-hidden relative">
+              <img 
+                src="https://images.unsplash.com/photo-1579613832125-5d34a13ffe0a?auto=format&fit=crop&w=800&q=80" 
+                alt="Fresh organic red apples on tree branch in sunlight" 
+                class="w-full h-full object-cover"
+              >
+              <div class="absolute inset-0 bg-emerald-950/20"></div>
+              <div class="absolute bottom-3 left-3 bg-[#315C3B]/90 backdrop-blur-sm text-white text-[11px] font-semibold px-2.5 py-1 rounded-lg">
+                100% Unwaxed • Breathe Real Orchard Aroma
+              </div>
+            </div>
+
+            <!-- Bullet Points -->
+            <ul class="space-y-3.5 text-xs sm:text-sm text-gray-700 dark:text-gray-300">
+              <li class="flex items-start gap-3">
+                <span class="w-5 h-5 rounded-full bg-emerald-100 dark:bg-emerald-950 text-[#315C3B] dark:text-[#8FD69E] flex items-center justify-center font-bold text-xs flex-shrink-0 mt-0.5">✓</span>
+                <div>
+                  <strong class="text-gray-900 dark:text-white">Slow Sun-Ripened on the Branch:</strong> Picked only when natural sugars, crisp pectin, and rich natural aromatics reach full seasonal maturity.
+                </div>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="w-5 h-5 rounded-full bg-emerald-100 dark:bg-emerald-950 text-[#315C3B] dark:text-[#8FD69E] flex items-center justify-center font-bold text-xs flex-shrink-0 mt-0.5">✓</span>
+                <div>
+                  <strong class="text-gray-900 dark:text-white">Fed by Living Fungal Networks:</strong> Deep roots absorb bioavailable zinc, iron, and magnesium from compost and friendly mycorrhizae.
+                </div>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="w-5 h-5 rounded-full bg-emerald-100 dark:bg-emerald-950 text-[#315C3B] dark:text-[#8FD69E] flex items-center justify-center font-bold text-xs flex-shrink-0 mt-0.5">✓</span>
+                <div>
+                  <strong class="text-gray-900 dark:text-white">Zero Artificial Wax or Shellac:</strong> Natural skin respiration remains completely intact. Simply rinse off garden dust and bite right in with total peace of mind.
+                </div>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="w-5 h-5 rounded-full bg-emerald-100 dark:bg-emerald-950 text-[#315C3B] dark:text-[#8FD69E] flex items-center justify-center font-bold text-xs flex-shrink-0 mt-0.5">✓</span>
+                <div>
+                  <strong class="text-gray-900 dark:text-white">+20% to 40% Higher Polyphenols:</strong> Because the tree defended itself naturally against elements, it synthesized potent protective antioxidants for your cells.
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <div class="mt-6 pt-4 border-t border-emerald-100 dark:border-emerald-950/80 text-[11px] text-[#315C3B] dark:text-[#8FD69E] font-semibold flex items-center gap-1.5">
+            <span>✨ Pure, safe, and nutritious skin-on eating for children and families.</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Closed Loop Philosophy Summary Banner -->
+      <div class="mt-12 p-6 sm:p-8 rounded-3xl bg-[#F4EFEA] dark:bg-[#222B25] border border-gray-100 dark:border-gray-800 flex flex-col md:flex-row items-center justify-between gap-6">
+        <div class="space-y-2 text-center md:text-left">
+          <h4 class="font-heading font-bold text-lg text-gray-900 dark:text-white">
+            What Does "Certified Organic" Actually Mean?
+          </h4>
+          <p class="text-xs sm:text-sm text-gray-600 dark:text-gray-300 max-w-2xl">
+            It is not a loose marketing buzzword. It is a legally protected standard prohibiting synthetic chemical sprays, petroleum fertilizers, GMO seeds, and sewage sludge. Instead of treating crops like factory units, organic farms operate as closed-loop, living biological sanctuaries.
+          </p>
+        </div>
+        <a href="products.html" class="btn-primary flex-shrink-0 text-xs font-semibold !min-h-[42px]">
+          Taste The Difference
+        </a>
+      </div>
+
     </div>
   </section>
 
-  <!-- 2. ORGANIC VS CONVENTIONAL COMPARISON TABLE -->
+
+  <!-- ==================== 3. WHAT HAPPENS IN 30 DAYS (BODY IMAGINATION) ==================== -->
+  <section id="body-timeline" class="py-20 bg-gradient-to-b from-[#F4EFEA] to-white dark:from-[#121614] dark:to-[#1A211D]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-100 dark:bg-emerald-950/60 text-[#315C3B] dark:text-[#8FD69E] text-xs font-bold uppercase tracking-wider mb-2">
+          🧬 Cellular Transformation
+        </span>
+        <h2 class="font-heading font-bold text-3xl sm:text-4xl text-gray-900 dark:text-white">
+          What Happens in 30 Days of Eating Clean?
+        </h2>
+        <p class="text-sm sm:text-base text-gray-600 dark:text-gray-300 mt-2">
+          When you cut off the daily toxic chemical drip and nourish your tissues with mineral-dense organic foods, your biology undergoes a measurable reset.
+        </p>
+      </div>
+
+      <!-- 4-Card Milestone Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <!-- Day 1-3 -->
+        <div class="card-clean p-6 flex flex-col justify-between hover:shadow-xl transition-all duration-300 relative group">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold px-2.5 py-1 rounded-lg bg-emerald-100 dark:bg-emerald-950/80 text-[#315C3B] dark:text-[#8FD69E]">
+                Days 1 – 3
+              </span>
+              <span class="text-2xl">💧</span>
+            </div>
+            
+            <h3 class="font-heading font-bold text-lg text-gray-900 dark:text-white group-hover:text-[#315C3B] dark:group-hover:text-[#D6A85F] transition-colors">
+              The Chemical Reset
+            </h3>
+
+            <p class="text-xs text-gray-600 dark:text-gray-300 leading-relaxed">
+              Clinical peer-reviewed trials show that within just 72 hours of shifting to 100% organic meals, urinary pesticide metabolite levels plummet by over <strong>80%</strong>.
+            </p>
+
+            <div class="p-3 rounded-xl bg-gray-50 dark:bg-gray-800/50 text-[11px] text-gray-500 dark:text-gray-400 space-y-1">
+              <div class="font-semibold text-gray-700 dark:text-gray-300">What you notice:</div>
+              <div>Lightness in digestion; liver & kidneys offload daily toxic filtration loads.</div>
+            </div>
+          </div>
+
+          <div class="mt-6 pt-3 border-t border-gray-100 dark:border-gray-800 flex items-center gap-1.5 text-[11px] font-semibold text-[#315C3B] dark:text-[#8FD69E]">
+            <span>✓ Zero chemical load</span>
+          </div>
+        </div>
+
+        <!-- Day 7-14 -->
+        <div class="card-clean p-6 flex flex-col justify-between hover:shadow-xl transition-all duration-300 relative group">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold px-2.5 py-1 rounded-lg bg-emerald-100 dark:bg-emerald-950/80 text-[#315C3B] dark:text-[#8FD69E]">
+                Days 7 – 14
+              </span>
+              <span class="text-2xl">🌿</span>
+            </div>
+            
+            <h3 class="font-heading font-bold text-lg text-gray-900 dark:text-white group-hover:text-[#315C3B] dark:group-hover:text-[#D6A85F] transition-colors">
+              Gut Flora Renewal
+            </h3>
+
+            <p class="text-xs text-gray-600 dark:text-gray-300 leading-relaxed">
+              Synthetic fungicides behave like low-dose antibiotics in the digestive tract. Removing them allows beneficial lactobacillus and bifidobacteria to repopulate your gut microbiome.
+            </p>
+
+            <div class="p-3 rounded-xl bg-gray-50 dark:bg-gray-800/50 text-[11px] text-gray-500 dark:text-gray-400 space-y-1">
+              <div class="font-semibold text-gray-700 dark:text-gray-300">What you notice:</div>
+              <div>Reduced post-meal bloating, smoother regularity, and a calm, quiet digestive tract.</div>
+            </div>
+          </div>
+
+          <div class="mt-6 pt-3 border-t border-gray-100 dark:border-gray-800 flex items-center gap-1.5 text-[11px] font-semibold text-[#315C3B] dark:text-[#8FD69E]">
+            <span>✓ Living gut microbiome</span>
+          </div>
+        </div>
+
+        <!-- Day 21 -->
+        <div class="card-clean p-6 flex flex-col justify-between hover:shadow-xl transition-all duration-300 relative group">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold px-2.5 py-1 rounded-lg bg-emerald-100 dark:bg-emerald-950/80 text-[#315C3B] dark:text-[#8FD69E]">
+                Day 21
+              </span>
+              <span class="text-2xl">⚡</span>
+            </div>
+            
+            <h3 class="font-heading font-bold text-lg text-gray-900 dark:text-white group-hover:text-[#315C3B] dark:group-hover:text-[#D6A85F] transition-colors">
+              Cellular Vitality
+            </h3>
+
+            <p class="text-xs text-gray-600 dark:text-gray-300 leading-relaxed">
+              Living soil delivers bioavailable iron, magnesium, and polyphenols. Your cellular mitochondria receive true raw material rather than empty water-bloated calories.
+            </p>
+
+            <div class="p-3 rounded-xl bg-gray-50 dark:bg-gray-800/50 text-[11px] text-gray-500 dark:text-gray-400 space-y-1">
+              <div class="font-semibold text-gray-700 dark:text-gray-300">What you notice:</div>
+              <div>Sustained morning clarity; afternoon energy crashes diminish; skin looks brighter.</div>
+            </div>
+          </div>
+
+          <div class="mt-6 pt-3 border-t border-gray-100 dark:border-gray-800 flex items-center gap-1.5 text-[11px] font-semibold text-[#315C3B] dark:text-[#8FD69E]">
+            <span>✓ Deep micronutrient uptake</span>
+          </div>
+        </div>
+
+        <!-- Day 30 -->
+        <div class="card-clean p-6 flex flex-col justify-between hover:shadow-xl transition-all duration-300 relative group">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold px-2.5 py-1 rounded-lg bg-emerald-100 dark:bg-emerald-950/80 text-[#315C3B] dark:text-[#8FD69E]">
+                Day 30
+              </span>
+              <span class="text-2xl">🍓</span>
+            </div>
+            
+            <h3 class="font-heading font-bold text-lg text-gray-900 dark:text-white group-hover:text-[#315C3B] dark:group-hover:text-[#D6A85F] transition-colors">
+              Tastebuds Awakened
+            </h3>
+
+            <p class="text-xs text-gray-600 dark:text-gray-300 leading-relaxed">
+              Your palate completely recalibrates. Free from synthetic waxes and artificial flavor shields, you taste subtle notes of sweetness in plain greens, crisp carrots, and heritage berries.
+            </p>
+
+            <div class="p-3 rounded-xl bg-gray-50 dark:bg-gray-800/50 text-[11px] text-gray-500 dark:text-gray-400 space-y-1">
+              <div class="font-semibold text-gray-700 dark:text-gray-300">What you notice:</div>
+              <div>Processed food tastes cloying and synthetic; fresh raw food brings genuine, daily joy.</div>
+            </div>
+          </div>
+
+          <div class="mt-6 pt-3 border-t border-gray-100 dark:border-gray-800 flex items-center gap-1.5 text-[11px] font-semibold text-[#315C3B] dark:text-[#8FD69E]">
+            <span>✓ Authentic sensory joy</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ==================== 4. LIVING SOIL, NOT DEAD DIRT (THE 4 PILLARS) ==================== -->
+  <section id="living-soil" class="py-20 bg-white dark:bg-[#1A211D]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <span class="badge-gold">Regenerative Agriculture</span>
+        <h2 class="font-heading font-bold text-3xl sm:text-4xl text-gray-900 dark:text-white mt-2">
+          Soil Is Living Biology, Not Sterile Dirt
+        </h2>
+        <p class="text-sm sm:text-base text-gray-600 dark:text-gray-300 mt-2">
+          Industrial farming treats soil as a dead sponge to prop up plants with chemical fertilizers. We treat soil as a living, breathing planetary organ that nurtures both food and climate.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        
+        <!-- Pillar 1: Mycorrhizal Networks -->
+        <div class="rounded-3xl overflow-hidden bg-[#FBF9F5] dark:bg-[#222B25] border border-gray-100 dark:border-gray-800 flex flex-col group hover:shadow-xl transition-all duration-300">
+          <div class="h-44 overflow-hidden relative">
+            <img 
+              src="https://images.unsplash.com/photo-1500651230702-0e2d8a49d4ad?auto=format&fit=crop&w=600&q=80" 
+              alt="Rich fertile organic cropland with dark nutrient soil" 
+              class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+            >
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+            <span class="absolute bottom-3 left-3 text-white text-xs font-bold">1. Underground Fungi</span>
+          </div>
+          <div class="p-6 flex-1 flex flex-col justify-between space-y-3">
+            <div>
+              <h3 class="font-heading font-bold text-base text-gray-900 dark:text-white">
+                The Mycorrhizal Web
+              </h3>
+              <p class="text-xs text-gray-600 dark:text-gray-400 mt-2 leading-relaxed">
+                Billions of microscopic fungal hyphae weave through root zones. They trade deep subsoil trace minerals for natural plant carbohydrates, creating drought-hardy, robust crops without chemicals.
+              </p>
+            </div>
+            <div class="text-[11px] font-semibold text-[#315C3B] dark:text-[#8FD69E]">
+              🪱 1 billion microbes per teaspoon
+            </div>
+          </div>
+        </div>
+
+        <!-- Pillar 2: Pollinator Sanctuaries -->
+        <div class="rounded-3xl overflow-hidden bg-[#FBF9F5] dark:bg-[#222B25] border border-gray-100 dark:border-gray-800 flex flex-col group hover:shadow-xl transition-all duration-300">
+          <div class="h-44 overflow-hidden relative">
+            <img 
+              src="https://images.unsplash.com/photo-1558642452-9d2a7deb7f62?auto=format&fit=crop&w=600&q=80" 
+              alt="Honeybee pollinating organic wildflowers in blossom" 
+              class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+            >
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+            <span class="absolute bottom-3 left-3 text-white text-xs font-bold">2. Pollinator Sanctuaries</span>
+          </div>
+          <div class="p-6 flex-1 flex flex-col justify-between space-y-3">
+            <div>
+              <h3 class="font-heading font-bold text-base text-gray-900 dark:text-white">
+                Wild Bees & Ladybugs
+              </h3>
+              <p class="text-xs text-gray-600 dark:text-gray-400 mt-2 leading-relaxed">
+                We mandate 15% flowering native perimeter strips on partner farms. Bees and predatory ladybugs flourish without neurotoxic neonicotinoids, naturally hunting pests and pollinating flowers.
+              </p>
+            </div>
+            <div class="text-[11px] font-semibold text-amber-600 dark:text-[#D6A85F]">
+              🐝 Zero neonicotinoid pesticides
+            </div>
+          </div>
+        </div>
+
+        <!-- Pillar 3: Clean Aquifers -->
+        <div class="rounded-3xl overflow-hidden bg-[#FBF9F5] dark:bg-[#222B25] border border-gray-100 dark:border-gray-800 flex flex-col group hover:shadow-xl transition-all duration-300">
+          <div class="h-44 overflow-hidden relative">
+            <img 
+              src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80" 
+              alt="Crystalline pure natural water stream" 
+              class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+            >
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+            <span class="absolute bottom-3 left-3 text-white text-xs font-bold">3. Pristine Aquifers</span>
+          </div>
+          <div class="p-6 flex-1 flex flex-col justify-between space-y-3">
+            <div>
+              <h3 class="font-heading font-bold text-base text-gray-900 dark:text-white">
+                Groundwater Protection
+              </h3>
+              <p class="text-xs text-gray-600 dark:text-gray-400 mt-2 leading-relaxed">
+                Conventional synthetic nitrogen washes into rivers and oceans, causing dead zones and toxic algae. Organic humus acts as a natural water filter, preserving pristine drinking aquifers.
+              </p>
+            </div>
+            <div class="text-[11px] font-semibold text-blue-600 dark:text-blue-400">
+              💧 Zero synthetic nitrogen leaching
+            </div>
+          </div>
+        </div>
+
+        <!-- Pillar 4: Carbon Sponge -->
+        <div class="rounded-3xl overflow-hidden bg-[#FBF9F5] dark:bg-[#222B25] border border-gray-100 dark:border-gray-800 flex flex-col group hover:shadow-xl transition-all duration-300">
+          <div class="h-44 overflow-hidden relative">
+            <img 
+              src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?auto=format&fit=crop&w=600&q=80" 
+              alt="Organic farm fields absorbing morning sunlight and capturing atmospheric carbon" 
+              class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+            >
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+            <span class="absolute bottom-3 left-3 text-white text-xs font-bold">4. Carbon Sequestration</span>
+          </div>
+          <div class="p-6 flex-1 flex flex-col justify-between space-y-3">
+            <div>
+              <h3 class="font-heading font-bold text-base text-gray-900 dark:text-white">
+                Atmospheric Carbon Sink
+              </h3>
+              <p class="text-xs text-gray-600 dark:text-gray-400 mt-2 leading-relaxed">
+                By maintaining continuous cover crops and never tilling living root networks, organic topsoil acts as a climate sponge, drawing tons of ambient carbon dioxide back into stable humus.
+              </p>
+            </div>
+            <div class="text-[11px] font-semibold text-[#315C3B] dark:text-[#8FD69E]">
+              🌍 3.5 tons CO₂ locked per hectare/yr
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ==================== 5. SIDE-BY-SIDE EVALUATION TABLE ==================== -->
   <section id="comparison-table" class="py-20 bg-[#F4EFEA] dark:bg-[#121614]">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center max-w-xl mx-auto mb-12">
-        <span class="text-xs font-semibold text-[#315C3B] dark:text-[#8FD69E] uppercase tracking-wider">Side-by-Side Analysis</span>
+      
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <span class="text-xs font-bold text-[#315C3B] dark:text-[#8FD69E] uppercase tracking-wider">
+          Transparent Comparison
+        </span>
         <h2 class="font-heading font-bold text-3xl sm:text-4xl text-gray-900 dark:text-white mt-1">
-          Organic vs Conventional Food
+          Organic vs Conventional: The Honest Breakdown
         </h2>
+        <p class="text-sm text-gray-600 dark:text-gray-300 mt-2">
+          Clear, verifiable differences across agriculture, biology, and nutritional integrity.
+        </p>
       </div>
 
-      <div class="overflow-x-auto bg-white dark:bg-[#222B25] rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800">
-        <table class="w-full text-left text-xs sm:text-sm">
-          <thead class="bg-gray-50 dark:bg-[#1A211D] border-b border-gray-100 dark:border-gray-800 text-gray-900 dark:text-white font-heading font-bold">
-            <tr>
-              <th class="py-4 px-6">Evaluation Feature</th>
-              <th class="py-4 px-6 text-[#315C3B] dark:text-[#8FD69E]">GreenHarvest Certified Organic</th>
-              <th class="py-4 px-6 text-gray-500">Commercial Conventional</th>
-            </tr>
-          </thead>
-          <tbody class="divide-y divide-gray-100 dark:divide-gray-800 text-gray-700 dark:text-gray-300">
-            <tr>
-              <td class="py-4 px-6 font-semibold">Pesticides & Herbicides</td>
-              <td class="py-4 px-6 text-emerald-700 dark:text-emerald-400 font-medium">Zero synthetic sprays. Natural biological pest controls only.</td>
-              <td class="py-4 px-6 text-gray-500">Synthetic chemical insecticides, fungicides & glyphosate.</td>
-            </tr>
-            <tr>
-              <td class="py-4 px-6 font-semibold">Soil Nutrition & Life</td>
-              <td class="py-4 px-6 text-emerald-700 dark:text-emerald-400 font-medium">Compost, earthworms, mycorrhizal fungi & green manures.</td>
-              <td class="py-4 px-6 text-gray-500">Synthetic petroleum-derived NPK chemical fertilizers.</td>
-            </tr>
-            <tr>
-              <td class="py-4 px-6 font-semibold">Seed Genetics</td>
-              <td class="py-4 px-6 text-emerald-700 dark:text-emerald-400 font-medium">100% Non-GMO native heirloom seed strains.</td>
-              <td class="py-4 px-6 text-gray-500">Often genetically modified or patent-treated seeds.</td>
-            </tr>
-            <tr>
-              <td class="py-4 px-6 font-semibold">Post-Harvest Ripening</td>
-              <td class="py-4 px-6 text-emerald-700 dark:text-emerald-400 font-medium">Naturally sun & tree-ripened at peak nutrient density.</td>
-              <td class="py-4 px-6 text-gray-500">Often picked green and forced with carbide / ethylene gases.</td>
-            </tr>
-            <tr>
-              <td class="py-4 px-6 font-semibold">Wax & Appearance Coating</td>
-              <td class="py-4 px-6 text-emerald-700 dark:text-emerald-400 font-medium">Never artificially waxed. Natural peel respiration intact.</td>
-              <td class="py-4 px-6 text-gray-500">Petroleum-based shellac or paraffin wax for glossy shelf life.</td>
-            </tr>
-            <tr>
-              <td class="py-4 px-6 font-semibold">Antioxidant Concentrations</td>
-              <td class="py-4 px-6 text-emerald-700 dark:text-emerald-400 font-medium">Up to 20–40% higher polyphenols and natural defense compounds.</td>
-              <td class="py-4 px-6 text-gray-500">Lower secondary phytochemical density due to artificial rapid growth.</td>
-            </tr>
-          </tbody>
-        </table>
+      <div class="overflow-hidden bg-white dark:bg-[#1A211D] rounded-3xl shadow-lg border border-gray-100 dark:border-gray-800">
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-xs sm:text-sm">
+            <thead>
+              <tr class="bg-gray-50/80 dark:bg-[#222B25] border-b border-gray-100 dark:border-gray-800 text-gray-900 dark:text-white font-heading font-bold">
+                <th class="py-4 px-6 min-w-[180px]">Evaluation Category</th>
+                <th class="py-4 px-6 min-w-[280px] text-[#315C3B] dark:text-[#8FD69E] bg-emerald-50/50 dark:bg-emerald-950/20">
+                  <div class="flex items-center gap-2">
+                    <span class="w-2.5 h-2.5 rounded-full bg-[#315C3B] dark:bg-[#8FD69E]"></span>
+                    <span>GreenHarvest Certified Organic</span>
+                  </div>
+                </th>
+                <th class="py-4 px-6 min-w-[260px] text-gray-500">Commercial Factory Produce</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100 dark:divide-gray-800 text-gray-700 dark:text-gray-300">
+              
+              <tr>
+                <td class="py-4 px-6 font-semibold text-gray-900 dark:text-white">Pesticides & Insecticides</td>
+                <td class="py-4 px-6 bg-emerald-50/30 dark:bg-emerald-950/10">
+                  <span class="inline-flex items-center gap-1.5 font-semibold text-emerald-800 dark:text-emerald-300">
+                    <span>✓</span> Zero synthetic chemical sprays (0.00 ppm guarantee)
+                  </span>
+                  <div class="text-[11px] text-gray-500 dark:text-gray-400 mt-0.5">Biological ladybugs, companion marigolds, and neem extracts only.</div>
+                </td>
+                <td class="py-4 px-6 text-gray-500">
+                  <span class="inline-flex items-center gap-1.5 text-red-600 dark:text-red-400 font-medium">
+                    <span>✕</span> Up to 30+ permitted synthetic chemicals
+                  </span>
+                  <div class="text-[11px] text-gray-400 mt-0.5">Organophosphates, neonicotinoids, systemic glyphosate weedkillers.</div>
+                </td>
+              </tr>
+
+              <tr>
+                <td class="py-4 px-6 font-semibold text-gray-900 dark:text-white">Soil Nourishment</td>
+                <td class="py-4 px-6 bg-emerald-50/30 dark:bg-emerald-950/10">
+                  <span class="inline-flex items-center gap-1.5 font-semibold text-emerald-800 dark:text-emerald-300">
+                    <span>✓</span> Composted humus, clover green manures & earthworms
+                  </span>
+                  <div class="text-[11px] text-gray-500 dark:text-gray-400 mt-0.5">Builds deep microbial biodiversity and long-term carbon sponge.</div>
+                </td>
+                <td class="py-4 px-6 text-gray-500">
+                  <span class="inline-flex items-center gap-1.5 text-red-600 dark:text-red-400 font-medium">
+                    <span>✕</span> Petroleum-derived synthetic NPK salt fertilizers
+                  </span>
+                  <div class="text-[11px] text-gray-400 mt-0.5">Salinizes soil microbiology; leaves dirt chemically dependent.</div>
+                </td>
+              </tr>
+
+              <tr>
+                <td class="py-4 px-6 font-semibold text-gray-900 dark:text-white">Seed Purity & Genetics</td>
+                <td class="py-4 px-6 bg-emerald-50/30 dark:bg-emerald-950/10">
+                  <span class="inline-flex items-center gap-1.5 font-semibold text-emerald-800 dark:text-emerald-300">
+                    <span>✓</span> 100% Non-GMO native heirloom seed strains
+                  </span>
+                  <div class="text-[11px] text-gray-500 dark:text-gray-400 mt-0.5">Preserves natural seed heritage and authentic botanical taste.</div>
+                </td>
+                <td class="py-4 px-6 text-gray-500">
+                  <span class="inline-flex items-center gap-1.5 text-red-600 dark:text-red-400 font-medium">
+                    <span>✕</span> Often chemically patented or GMO-modified seeds
+                  </span>
+                  <div class="text-[11px] text-gray-400 mt-0.5">Engineered for pesticide resistance rather than flavor or nutrition.</div>
+                </td>
+              </tr>
+
+              <tr>
+                <td class="py-4 px-6 font-semibold text-gray-900 dark:text-white">Ripening & Harvesting</td>
+                <td class="py-4 px-6 bg-emerald-50/30 dark:bg-emerald-950/10">
+                  <span class="inline-flex items-center gap-1.5 font-semibold text-emerald-800 dark:text-emerald-300">
+                    <span>✓</span> Slow tree-ripened under natural sunlight
+                  </span>
+                  <div class="text-[11px] text-gray-500 dark:text-gray-400 mt-0.5">Harvested at the exact hour when aromatics and sugars peak.</div>
+                </td>
+                <td class="py-4 px-6 text-gray-500">
+                  <span class="inline-flex items-center gap-1.5 text-red-600 dark:text-red-400 font-medium">
+                    <span>✕</span> Harvested hard-green; forced with ethylene gas
+                  </span>
+                  <div class="text-[11px] text-gray-400 mt-0.5">Ripened in dark warehouse tanks; visually red, inside immature.</div>
+                </td>
+              </tr>
+
+              <tr>
+                <td class="py-4 px-6 font-semibold text-gray-900 dark:text-white">Waxing & Preservatives</td>
+                <td class="py-4 px-6 bg-emerald-50/30 dark:bg-emerald-950/10">
+                  <span class="inline-flex items-center gap-1.5 font-semibold text-emerald-800 dark:text-emerald-300">
+                    <span>✓</span> 100% unwaxed; natural skin respiration intact
+                  </span>
+                  <div class="text-[11px] text-gray-500 dark:text-gray-400 mt-0.5">Rinse garden dust with tap water; peel is completely safe to eat.</div>
+                </td>
+                <td class="py-4 px-6 text-gray-500">
+                  <span class="inline-flex items-center gap-1.5 text-red-600 dark:text-red-400 font-medium">
+                    <span>✕</span> Petroleum paraffin or synthetic shellac coatings
+                  </span>
+                  <div class="text-[11px] text-gray-400 mt-0.5">Traps internal moisture so produce can sit for months before sale.</div>
+                </td>
+              </tr>
+
+              <tr>
+                <td class="py-4 px-6 font-semibold text-gray-900 dark:text-white">Antioxidants & Polyphenols</td>
+                <td class="py-4 px-6 bg-emerald-50/30 dark:bg-emerald-950/10">
+                  <span class="inline-flex items-center gap-1.5 font-semibold text-emerald-800 dark:text-emerald-300">
+                    <span>✓</span> +20% to 40% higher phenolic compounds
+                  </span>
+                  <div class="text-[11px] text-gray-500 dark:text-gray-400 mt-0.5">Plant synthesizes robust self-defense phyto-nutrients for human health.</div>
+                </td>
+                <td class="py-4 px-6 text-gray-500">
+                  <span class="inline-flex items-center gap-1.5 text-red-600 dark:text-red-400 font-medium">
+                    <span>✕</span> Lower secondary antioxidant concentration
+                  </span>
+                  <div class="text-[11px] text-gray-400 mt-0.5">Artificially rapid nitrogen growth inflates water content over nutrients.</div>
+                </td>
+              </tr>
+
+              <tr>
+                <td class="py-4 px-6 font-semibold text-gray-900 dark:text-white">Safety for Children & Pets</td>
+                <td class="py-4 px-6 bg-emerald-50/30 dark:bg-emerald-950/10">
+                  <span class="inline-flex items-center gap-1.5 font-semibold text-emerald-800 dark:text-emerald-300">
+                    <span>✓</span> Clean, peace-of-mind snacking straight from the bowl
+                  </span>
+                  <div class="text-[11px] text-gray-500 dark:text-gray-400 mt-0.5">No endocrine disruptors or synthetic neurotoxins for growing bodies.</div>
+                </td>
+                <td class="py-4 px-6 text-gray-500">
+                  <span class="inline-flex items-center gap-1.5 text-red-600 dark:text-red-400 font-medium">
+                    <span>✕</span> Cumulative chemical cocktail load exposure
+                  </span>
+                  <div class="text-[11px] text-gray-400 mt-0.5">Multiple low-dose exposures build up over time in human tissue.</div>
+                </td>
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
       </div>
+
     </div>
   </section>
 
-  <!-- 3. BENEFITS OF ORGANIC FARMING -->
-  <section class="py-20 bg-white dark:bg-[#1A211D]">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center max-w-xl mx-auto mb-16">
-        <span class="badge-gold">Holistic Regeneration</span>
-        <h2 class="font-heading font-bold text-3xl sm:text-4xl text-gray-900 dark:text-white mt-2">
-          Broader Environmental Benefits
-        </h2>
-      </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        
-        <div class="card-clean p-6 space-y-3">
-          <div class="w-12 h-12 rounded-xl bg-emerald-50 dark:bg-emerald-950/40 text-[#315C3B] dark:text-[#8FD69E] flex items-center justify-center">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
-          </div>
-          <h3 class="font-heading font-semibold text-lg text-gray-900 dark:text-white">Protects Pollinators & Bees</h3>
-          <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">
-            Neonicotinoid chemicals in industrial farming have decimated wild bee populations. Organic farms act as critical sanctuaries with blooming cover crops and zero neurotoxins.
-          </p>
-        </div>
-
-        <div class="card-clean p-6 space-y-3">
-          <div class="w-12 h-12 rounded-xl bg-blue-50 dark:bg-blue-950/40 text-blue-600 dark:text-blue-400 flex items-center justify-center">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
-          </div>
-          <h3 class="font-heading font-semibold text-lg text-gray-900 dark:text-white">Groundwater Preservation</h3>
-          <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">
-            Conventional nitrate fertilizers leach into local water tables and riverways causing toxic algae blooms. Organic humus holds water and keeps natural aquifers pristine.
-          </p>
-        </div>
-
-        <div class="card-clean p-6 space-y-3">
-          <div class="w-12 h-12 rounded-xl bg-amber-50 dark:bg-amber-950/40 text-[#D6A85F] flex items-center justify-center">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064"></path></svg>
-          </div>
-          <h3 class="font-heading font-semibold text-lg text-gray-900 dark:text-white">Carbon Sequestration</h3>
-          <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">
-            Healthy organic soil with rich microbial fungal networks pulls ambient carbon out of the atmosphere, functioning as a vital climate sink.
-          </p>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- 4. CAREFUL FACTUAL CHEMICAL/PESTICIDE INFORMATION -->
-  <section class="py-16 bg-[#F4EFEA] dark:bg-[#1A211D]">
+  <!-- ==================== 6. THE SCIENCE OF PESTICIDES: WHY ZERO MATTERS ==================== -->
+  <section id="pesticide-science" class="py-20 bg-white dark:bg-[#1A211D]">
     <div class="max-w-4xl mx-auto px-4 sm:px-6">
-      <div class="card-clean p-8 space-y-4">
-        <span class="text-xs font-bold text-[#315C3B] dark:text-[#D6A85F] uppercase tracking-wider">Factual Transparency</span>
-        <h3 class="font-heading font-bold text-2xl text-gray-900 dark:text-white">A Note on Chemical and Pesticide Usage</h3>
+      
+      <div class="card-clean p-8 sm:p-10 space-y-6 border border-emerald-100 dark:border-gray-800 shadow-xl">
+        
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-emerald-100 dark:bg-emerald-950 text-[#315C3B] dark:text-[#8FD69E] flex items-center justify-center font-bold">
+            🔬
+          </div>
+          <div>
+            <span class="text-xs font-bold text-[#315C3B] dark:text-[#D6A85F] uppercase tracking-wider block">
+              Factual Science & Human Health
+            </span>
+            <h3 class="font-heading font-bold text-2xl text-gray-900 dark:text-white">
+              Why "Zero Residue" Matters: Beyond the Single-Chemical Myth
+            </h3>
+          </div>
+        </div>
+
         <p class="text-xs sm:text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
-          Peer-reviewed studies by international agricultural panels consistently show that conventional produce frequently contains detectable traces of organophosphate and neonicotinoid pesticides. While government regulatory limits define single-chemical thresholds, they rarely account for the cumulative "cocktail effect" of multiple low-dose exposures in everyday diets.
+          Government food safety regulations evaluate synthetic agricultural chemicals one compound at a time in isolation to set "Maximum Residue Limits." However, in everyday grocery shopping, you never eat just one isolated chemical.
         </p>
-        <p class="text-xs sm:text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
-          Choosing verified organic foods drastically reduces dietary pesticide exposure within just 5 days of adoption, as documented in clinical metabolic trials.
-        </p>
+
+        <!-- 3 Scannable Insights -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2">
+          
+          <div class="p-4 rounded-2xl bg-[#FBF9F5] dark:bg-[#222B25] border border-gray-100 dark:border-gray-800 space-y-2">
+            <div class="text-lg">🧪</div>
+            <h4 class="font-heading font-bold text-sm text-gray-900 dark:text-white">The "Cocktail Effect"</h4>
+            <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">
+              A standard conventional salad bowl can carry traces of 6 to 12 different pesticide compounds acting simultaneously on your endocrine and digestive systems.
+            </p>
+          </div>
+
+          <div class="p-4 rounded-2xl bg-[#FBF9F5] dark:bg-[#222B25] border border-gray-100 dark:border-gray-800 space-y-2">
+            <div class="text-lg">🌱</div>
+            <h4 class="font-heading font-bold text-sm text-gray-900 dark:text-white">Systemic Chemicals</h4>
+            <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">
+              Modern systemic insecticides are absorbed through the plant's roots and circulate inside the sap, juice, and fruit pulp. They cannot be washed off with soap or water.
+            </p>
+          </div>
+
+          <div class="p-4 rounded-2xl bg-[#FBF9F5] dark:bg-[#222B25] border border-gray-100 dark:border-gray-800 space-y-2">
+            <div class="text-lg">👶</div>
+            <h4 class="font-heading font-bold text-sm text-gray-900 dark:text-white">Protecting Children</h4>
+            <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">
+              Pound for pound, developing infants and children consume 3x more food and water relative to body mass, making developing neurological pathways far more vulnerable.
+            </p>
+          </div>
+
+        </div>
+
+        <div class="p-4 rounded-2xl bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200/60 dark:border-emerald-800/40 text-xs text-emerald-900 dark:text-emerald-200 leading-relaxed">
+          <strong>The GreenHarvest Promise:</strong> Every single harvest batch that enters our cold-chain packing facility is subjected to rigorous random GC-MS multi-residue gas chromatography screening to verify a strict 0.00 ppm synthetic chemical ceiling.
+        </div>
+
       </div>
+
     </div>
   </section>
 
-  <!-- 5. QUALITY STANDARDS & CERTIFICATIONS -->
-  <section class="py-20 bg-white dark:bg-[#222B25]">
+
+  <!-- ==================== 7. HOW WE SOURCE OUR HARVEST ==================== -->
+  <section id="how-we-source" class="py-20 bg-gradient-to-b from-[#F4EFEA] to-white dark:from-[#121614] dark:to-[#1A211D]">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <span class="badge-gold">Transparent Supply Route</span>
+        <h2 class="font-heading font-bold text-3xl sm:text-4xl text-gray-900 dark:text-white mt-2">
+          From Morning Dew to Your Doorstep
+        </h2>
+        <p class="text-sm sm:text-base text-gray-600 dark:text-gray-300 mt-2">
+          No anonymous wholesale middleman brokers. No warehouse holding tanks. A direct, cold-chain connection between passionate organic farming families and your kitchen.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+        
+        <!-- Step 1 -->
+        <div class="card-clean p-6 space-y-4 hover:shadow-xl transition-all duration-300 relative">
+          <div class="w-10 h-10 rounded-xl bg-emerald-100 dark:bg-emerald-950 text-[#315C3B] dark:text-[#8FD69E] flex items-center justify-center font-heading font-bold text-base">
+            01
+          </div>
+          <h3 class="font-heading font-bold text-base text-gray-900 dark:text-white">
+            Direct Smallholder Farms
+          </h3>
+          <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">
+            We partner with certified multi-generational organic growers within 150 miles. We inspect their soil compost, crop rotations, and seed provenance ourselves.
+          </p>
+          <div class="text-[11px] font-semibold text-[#315C3B] dark:text-[#8FD69E]">
+            🤝 Fair, guaranteed grower wages
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="card-clean p-6 space-y-4 hover:shadow-xl transition-all duration-300 relative">
+          <div class="w-10 h-10 rounded-xl bg-amber-100 dark:bg-amber-950 text-[#D6A85F] flex items-center justify-center font-heading font-bold text-base">
+            02
+          </div>
+          <h3 class="font-heading font-bold text-base text-gray-900 dark:text-white">
+            5:00 AM Dawn Harvest
+          </h3>
+          <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">
+            Produce is harvested by hand in the early morning dew when natural sugars are most concentrated and leaves are at maximum cellular turgor.
+          </p>
+          <div class="text-[11px] font-semibold text-amber-600 dark:text-[#D6A85F]">
+            🌅 Crisp morning harvest only
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="card-clean p-6 space-y-4 hover:shadow-xl transition-all duration-300 relative">
+          <div class="w-10 h-10 rounded-xl bg-blue-100 dark:bg-blue-950 text-blue-600 dark:text-blue-400 flex items-center justify-center font-heading font-bold text-base">
+            03
+          </div>
+          <h3 class="font-heading font-bold text-base text-gray-900 dark:text-white">
+            Lab Residue Screening
+          </h3>
+          <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">
+            Random lot samples undergo multi-residue gas chromatography screening to verify that zero drifting chemical spray from neighboring conventional plots contaminated the crop.
+          </p>
+          <div class="text-[11px] font-semibold text-blue-600 dark:text-blue-400">
+            🔬 Independent purity testing
+          </div>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="card-clean p-6 space-y-4 hover:shadow-xl transition-all duration-300 relative">
+          <div class="w-10 h-10 rounded-xl bg-emerald-100 dark:bg-emerald-950 text-[#315C3B] dark:text-[#8FD69E] flex items-center justify-center font-heading font-bold text-base">
+            04
+          </div>
+          <h3 class="font-heading font-bold text-base text-gray-900 dark:text-white">
+            Chilled Delivery &lt;24h
+          </h3>
+          <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">
+            Pre-cooled within 90 minutes of cutting and packed in compostable thermal insulation boxes. Dispatched in climate-controlled vans straight to your doorstep.
+          </p>
+          <div class="text-[11px] font-semibold text-[#315C3B] dark:text-[#8FD69E]">
+            🚚 Constant 4°C to 8°C cold chain
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ==================== 8. QUALITY STANDARDS & CERTIFICATIONS ==================== -->
+  <section id="certifications" class="py-20 bg-white dark:bg-[#1A211D]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
       <div class="text-center max-w-xl mx-auto mb-14">
-        <span class="badge-gold">Verified Trust</span>
+        <span class="badge-gold">Verified Credentials</span>
         <h2 class="font-heading font-bold text-3xl sm:text-4xl text-gray-900 dark:text-white mt-2">
           Certifications You Can Inspect
         </h2>
+        <p class="text-xs sm:text-sm text-gray-500 dark:text-gray-400 mt-2">
+          Every standard is backed by third-party biological audits, soil chemistry inspections, and accredited certifications.
+        </p>
       </div>
 
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-        <div class="p-6 rounded-2xl border border-gray-100 dark:border-gray-800 space-y-2">
-          <div class="w-12 h-12 rounded-full bg-emerald-100 dark:bg-emerald-900/40 text-[#315C3B] dark:text-[#8FD69E] mx-auto flex items-center justify-center font-bold">✓</div>
-          <h4 class="font-heading font-bold text-sm text-gray-900 dark:text-white">USDA Organic</h4>
-          <p class="text-[11px] text-gray-400">Accredited biological compliance standards.</p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <div class="p-6 rounded-3xl bg-[#FBF9F5] dark:bg-[#222B25] border border-gray-100 dark:border-gray-800 text-center space-y-3 hover:border-emerald-300 dark:hover:border-emerald-700 transition-colors">
+          <div class="w-14 h-14 rounded-2xl bg-emerald-100 dark:bg-emerald-950 text-[#315C3B] dark:text-[#8FD69E] mx-auto flex items-center justify-center font-heading font-bold text-xl shadow-sm">
+            ✓
+          </div>
+          <h3 class="font-heading font-bold text-base text-gray-900 dark:text-white">USDA Organic</h3>
+          <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">
+            Accredited adherence to strict international organic husbandry and zero synthetic spray guidelines.
+          </p>
+          <span class="inline-block text-[10px] font-semibold text-emerald-700 dark:text-emerald-400 bg-emerald-100/70 dark:bg-emerald-950/60 px-2 py-0.5 rounded-full">
+            Annual Farm Audits
+          </span>
         </div>
-        <div class="p-6 rounded-2xl border border-gray-100 dark:border-gray-800 space-y-2">
-          <div class="w-12 h-12 rounded-full bg-emerald-100 dark:bg-emerald-900/40 text-[#315C3B] dark:text-[#8FD69E] mx-auto flex items-center justify-center font-bold">✓</div>
-          <h4 class="font-heading font-bold text-sm text-gray-900 dark:text-white">India Organic (NPOP)</h4>
-          <p class="text-[11px] text-gray-400">National Programme for Organic Production.</p>
+
+        <div class="p-6 rounded-3xl bg-[#FBF9F5] dark:bg-[#222B25] border border-gray-100 dark:border-gray-800 text-center space-y-3 hover:border-emerald-300 dark:hover:border-emerald-700 transition-colors">
+          <div class="w-14 h-14 rounded-2xl bg-emerald-100 dark:bg-emerald-950 text-[#315C3B] dark:text-[#8FD69E] mx-auto flex items-center justify-center font-heading font-bold text-xl shadow-sm">
+            ✓
+          </div>
+          <h3 class="font-heading font-bold text-base text-gray-900 dark:text-white">India Organic (NPOP)</h3>
+          <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">
+            National Programme for Organic Production compliance across all regional partner orchards.
+          </p>
+          <span class="inline-block text-[10px] font-semibold text-emerald-700 dark:text-emerald-400 bg-emerald-100/70 dark:bg-emerald-950/60 px-2 py-0.5 rounded-full">
+            Government Accredited
+          </span>
         </div>
-        <div class="p-6 rounded-2xl border border-gray-100 dark:border-gray-800 space-y-2">
-          <div class="w-12 h-12 rounded-full bg-emerald-100 dark:bg-emerald-900/40 text-[#315C3B] dark:text-[#8FD69E] mx-auto flex items-center justify-center font-bold">✓</div>
-          <h4 class="font-heading font-bold text-sm text-gray-900 dark:text-white">Non-GMO Project</h4>
-          <p class="text-[11px] text-gray-400">Heritage seed authenticity verification.</p>
+
+        <div class="p-6 rounded-3xl bg-[#FBF9F5] dark:bg-[#222B25] border border-gray-100 dark:border-gray-800 text-center space-y-3 hover:border-amber-300 dark:hover:border-amber-700 transition-colors">
+          <div class="w-14 h-14 rounded-2xl bg-amber-100 dark:bg-amber-950 text-[#D6A85F] mx-auto flex items-center justify-center font-heading font-bold text-xl shadow-sm">
+            🌱
+          </div>
+          <h3 class="font-heading font-bold text-base text-gray-900 dark:text-white">Non-GMO Project</h3>
+          <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">
+            Traceable heirloom seed strains untouched by gene splicing, radiation, or proprietary seed patents.
+          </p>
+          <span class="inline-block text-[10px] font-semibold text-amber-700 dark:text-[#D6A85F] bg-amber-100/70 dark:bg-amber-950/60 px-2 py-0.5 rounded-full">
+            100% Heritage Seeds
+          </span>
         </div>
-        <div class="p-6 rounded-2xl border border-gray-100 dark:border-gray-800 space-y-2">
-          <div class="w-12 h-12 rounded-full bg-emerald-100 dark:bg-emerald-900/40 text-[#315C3B] dark:text-[#8FD69E] mx-auto flex items-center justify-center font-bold">✓</div>
-          <h4 class="font-heading font-bold text-sm text-gray-900 dark:text-white">Fair Trade Certified</h4>
-          <p class="text-[11px] text-gray-400">Ethical grower compensation guarantee.</p>
+
+        <div class="p-6 rounded-3xl bg-[#FBF9F5] dark:bg-[#222B25] border border-gray-100 dark:border-gray-800 text-center space-y-3 hover:border-blue-300 dark:hover:border-blue-700 transition-colors">
+          <div class="w-14 h-14 rounded-2xl bg-blue-100 dark:bg-blue-950 text-blue-600 dark:text-blue-400 mx-auto flex items-center justify-center font-heading font-bold text-xl shadow-sm">
+            🤝
+          </div>
+          <h3 class="font-heading font-bold text-base text-gray-900 dark:text-white">Fair Trade Certified</h3>
+          <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">
+            Guaranteed living wages, clean water, and healthcare dignity for our smallholder grower families.
+          </p>
+          <span class="inline-block text-[10px] font-semibold text-blue-700 dark:text-blue-400 bg-blue-100/70 dark:bg-blue-950/60 px-2 py-0.5 rounded-full">
+            Ethical Compensation
+          </span>
         </div>
+
       </div>
+
+      <div class="mt-8 text-center text-xs text-gray-400 dark:text-gray-500">
+        Lab batch certificates and regional NPOP audit documents available upon request for every harvest delivery.
+      </div>
+
     </div>
   </section>
 
-  <!-- 6. FREQUENTLY ASKED QUESTIONS -->
-  <section class="py-20 bg-[#F4EFEA] dark:bg-[#121614]">
+
+  <!-- ==================== 9. FREQUENTLY ASKED QUESTIONS ==================== -->
+  <section id="faqs" class="py-20 bg-[#F4EFEA] dark:bg-[#121614]">
     <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      
       <div class="text-center max-w-xl mx-auto mb-12">
-        <span class="badge-gold">Common Queries</span>
-        <h2 class="font-heading font-bold text-3xl sm:text-4xl text-gray-900 dark:text-white mt-2">Frequently Asked Questions</h2>
+        <span class="badge-gold">Real Talk</span>
+        <h2 class="font-heading font-bold text-3xl sm:text-4xl text-gray-900 dark:text-white mt-2">
+          Frequently Asked Questions
+        </h2>
+        <p class="text-xs sm:text-sm text-gray-500 dark:text-gray-400 mt-2">
+          Straightforward answers to the most common questions about eating organic.
+        </p>
       </div>
 
       <div class="space-y-4">
         
-        <details class="group bg-white dark:bg-[#222B25] p-5 rounded-2xl border border-gray-100 dark:border-gray-800" open>
-          <summary class="font-heading font-semibold text-sm text-gray-900 dark:text-white cursor-pointer list-none flex items-center justify-between">
-            <span>Why does organic produce sometimes have slight cosmetic irregularities?</span>
-            <span class="text-[#315C3B] dark:text-[#D6A85F] font-bold group-open:rotate-180 transition-transform">▼</span>
+        <!-- FAQ 1 -->
+        <details class="group bg-white dark:bg-[#222B25] p-5 sm:p-6 rounded-2xl border border-gray-100 dark:border-gray-800 shadow-sm" open>
+          <summary class="font-heading font-semibold text-sm sm:text-base text-gray-900 dark:text-white cursor-pointer list-none flex items-center justify-between gap-4">
+            <span>Why does organic produce sometimes have slight cosmetic irregularities or unique shapes?</span>
+            <span class="text-[#315C3B] dark:text-[#D6A85F] font-bold group-open:rotate-180 transition-transform duration-200">▼</span>
           </summary>
-          <p class="text-xs text-gray-500 dark:text-gray-400 mt-3 leading-relaxed">
-            Nature does not produce clones. Conventional produce is drenched in chemical growth retardants and cosmetic bleaches to look identical on store shelves. Natural organic crops reflect authentic seasonal sun angles and biodiversity.
-          </p>
+          <div class="text-xs sm:text-sm text-gray-600 dark:text-gray-300 mt-3 pt-3 border-t border-gray-100 dark:border-gray-800 leading-relaxed space-y-2">
+            <p>
+              Nature does not manufacture clones. Conventional factory produce is drenched in synthetic growth inhibitors, chemical hormones, and cosmetic bleaches specifically to make every item look identical on grocery shelves.
+            </p>
+            <p>
+              Natural organic fruits and vegetables reflect authentic seasonal sunlight, gentle wind curves, and natural soil topography. Minor sun-freckles and natural curves are the authentic badge of chemical-free growth in open fields!
+            </p>
+          </div>
         </details>
 
-        <details class="group bg-white dark:bg-[#222B25] p-5 rounded-2xl border border-gray-100 dark:border-gray-800">
-          <summary class="font-heading font-semibold text-sm text-gray-900 dark:text-white cursor-pointer list-none flex items-center justify-between">
-            <span>Is organic food genuinely more nutrient dense?</span>
-            <span class="text-[#315C3B] dark:text-[#D6A85F] font-bold group-open:rotate-180 transition-transform">▼</span>
+        <!-- FAQ 2 -->
+        <details class="group bg-white dark:bg-[#222B25] p-5 sm:p-6 rounded-2xl border border-gray-100 dark:border-gray-800 shadow-sm">
+          <summary class="font-heading font-semibold text-sm sm:text-base text-gray-900 dark:text-white cursor-pointer list-none flex items-center justify-between gap-4">
+            <span>Do I still need to wash organic fruits and vegetables at home?</span>
+            <span class="text-[#315C3B] dark:text-[#D6A85F] font-bold group-open:rotate-180 transition-transform duration-200">▼</span>
           </summary>
-          <p class="text-xs text-gray-500 dark:text-gray-400 mt-3 leading-relaxed">
-            Yes. Because organic crops must defend themselves against natural weather and insects without chemical shields, they synthesize significantly higher levels of protective antioxidants, flavonoids, and vitamin complexes.
-          </p>
+          <div class="text-xs sm:text-sm text-gray-600 dark:text-gray-300 mt-3 pt-3 border-t border-gray-100 dark:border-gray-800 leading-relaxed space-y-2">
+            <p>
+              Yes, absolutely! While you never have to scrub away synthetic petroleum waxes, anti-fungal shellacs, or toxic neurotoxin sprays, you should still rinse off natural garden soil dust, morning dew minerals, and friendly outdoor remnants under clean tap water.
+            </p>
+            <p>
+              Unlike conventional produce where toxic pesticides enter the plant's vascular pulp, a simple cold water rinse is all an organic apple or carrot needs before you bite straight into it skin-on.
+            </p>
+          </div>
         </details>
 
-        <details class="group bg-white dark:bg-[#222B25] p-5 rounded-2xl border border-gray-100 dark:border-gray-800">
-          <summary class="font-heading font-semibold text-sm text-gray-900 dark:text-white cursor-pointer list-none flex items-center justify-between">
-            <span>How do you guarantee temperature and freshness in transit?</span>
-            <span class="text-[#315C3B] dark:text-[#D6A85F] font-bold group-open:rotate-180 transition-transform">▼</span>
+        <!-- FAQ 3 -->
+        <details class="group bg-white dark:bg-[#222B25] p-5 sm:p-6 rounded-2xl border border-gray-100 dark:border-gray-800 shadow-sm">
+          <summary class="font-heading font-semibold text-sm sm:text-base text-gray-900 dark:text-white cursor-pointer list-none flex items-center justify-between gap-4">
+            <span>Why does certified organic food cost slightly more than conventional factory food?</span>
+            <span class="text-[#315C3B] dark:text-[#D6A85F] font-bold group-open:rotate-180 transition-transform duration-200">▼</span>
           </summary>
-          <p class="text-xs text-gray-500 dark:text-gray-400 mt-3 leading-relaxed">
-            Our farm harvest is pre-cooled within 90 minutes of morning cutting and packed in temperature-retaining compostable insulation boxes. Our courier vehicles maintain a continuous 4°C to 8°C cold chain.
-          </p>
+          <div class="text-xs sm:text-sm text-gray-600 dark:text-gray-300 mt-3 pt-3 border-t border-gray-100 dark:border-gray-800 leading-relaxed space-y-2">
+            <p>
+              Commercial factory agriculture hides its true cost in government fossil-fuel subsidies, depleted topsoil, polluted waterways, and cheap toxic chemical sprays.
+            </p>
+            <p>
+              True organic farming relies on skilled human labor: hand-weeding, careful companion planting, composting, cover-crop rotation, and paying fair, dignified living wages to farm workers. When you buy GreenHarvest, you are investing directly in pure food, healthy living soil, and personal preventive healthcare.
+            </p>
+          </div>
+        </details>
+
+        <!-- FAQ 4 -->
+        <details class="group bg-white dark:bg-[#222B25] p-5 sm:p-6 rounded-2xl border border-gray-100 dark:border-gray-800 shadow-sm">
+          <summary class="font-heading font-semibold text-sm sm:text-base text-gray-900 dark:text-white cursor-pointer list-none flex items-center justify-between gap-4">
+            <span>How does GreenHarvest guarantee that partner farms don't sneak in chemicals?</span>
+            <span class="text-[#315C3B] dark:text-[#D6A85F] font-bold group-open:rotate-180 transition-transform duration-200">▼</span>
+          </summary>
+          <div class="text-xs sm:text-sm text-gray-600 dark:text-gray-300 mt-3 pt-3 border-t border-gray-100 dark:border-gray-800 leading-relaxed space-y-2">
+            <p>
+              We maintain direct contracts with every family grower—we never buy from opaque wholesale markets or speculative middlemen brokers.
+            </p>
+            <p>
+              Furthermore, our agronomists conduct scheduled and unannounced soil audits, and we run random GC-MS multi-residue gas chromatography tests at our packing station. If an audit detects even trace chemical contamination from neighboring conventional runoffs, the entire batch is rejected.
+            </p>
+          </div>
+        </details>
+
+        <!-- FAQ 5 -->
+        <details class="group bg-white dark:bg-[#222B25] p-5 sm:p-6 rounded-2xl border border-gray-100 dark:border-gray-800 shadow-sm">
+          <summary class="font-heading font-semibold text-sm sm:text-base text-gray-900 dark:text-white cursor-pointer list-none flex items-center justify-between gap-4">
+            <span>Will my family and children really notice a difference in taste?</span>
+            <span class="text-[#315C3B] dark:text-[#D6A85F] font-bold group-open:rotate-180 transition-transform duration-200">▼</span>
+          </summary>
+          <div class="text-xs sm:text-sm text-gray-600 dark:text-gray-300 mt-3 pt-3 border-t border-gray-100 dark:border-gray-800 leading-relaxed space-y-2">
+            <p>
+              From the very first bite, yes! Children are especially sensitive to natural flavor nuances. Because our produce is grown in mineral-rich soil and sun-ripened on the plant, it possesses natural sugars, essential organic acids, and mouthwatering aromatics that watery supermarket produce lost decades ago.
+            </p>
+            <p>
+              Our customers frequently report that even picky kids who refused ordinary grocery spinach or carrots suddenly love eating fresh GreenHarvest produce.
+            </p>
+          </div>
         </details>
 
       </div>
+
     </div>
   </section>
 
-  <!-- 7. CTA: EXPLORE ORGANIC PRODUCTS -->
-  <section class="py-20 text-center bg-[#315C3B] text-white">
-    <div class="max-w-2xl mx-auto px-4 space-y-6">
-      <h2 class="font-heading font-bold text-3xl sm:text-4xl">Make The Natural Shift Today</h2>
-      <p class="text-emerald-100 text-sm">
-        Discover real nutrition cultivated from chemical-free living soil. Delivered fresh to your home.
-      </p>
-      <div>
-        <a href="products.html" class="btn-gold !bg-[#D6A85F] !text-[#1A3320]">Explore All Products</a>
+
+  <!-- ==================== 10. INSPIRING BOTTOM CTA ==================== -->
+  <section class="relative py-20 bg-[#315C3B] text-white overflow-hidden">
+    <!-- Ambient gold glow -->
+    <div class="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-[#D6A85F]/20 blur-3xl pointer-events-none"></div>
+    <div class="absolute -bottom-24 -left-24 w-96 h-96 rounded-full bg-black/30 blur-3xl pointer-events-none"></div>
+
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 relative z-10 text-center space-y-8">
+      
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-[#D6A85F] text-xs font-semibold">
+        <span>🌱</span>
+        <span>The Clean Food Revolution Begins on Your Plate</span>
       </div>
+
+      <h2 class="font-heading font-bold text-3xl sm:text-4xl md:text-5xl leading-tight">
+        Ready to Feel The Clean Difference?
+      </h2>
+
+      <p class="text-sm sm:text-base text-emerald-100 max-w-2xl mx-auto leading-relaxed">
+        Fill your kitchen with produce grown with love, patience, and living soil. Delivered straight from local organic family farms to your doorstep in chilled, eco-friendly boxes.
+      </p>
+
+      <!-- Trust Badges Strip -->
+      <div class="flex flex-wrap items-center justify-center gap-4 sm:gap-8 pt-2 text-xs text-emerald-100 font-medium">
+        <span class="flex items-center gap-1.5">
+          <span class="text-[#D6A85F]">✓</span> 100% Certified Organic
+        </span>
+        <span class="flex items-center gap-1.5">
+          <span class="text-[#D6A85F]">✓</span> 0.00 ppm Toxic Residue
+        </span>
+        <span class="flex items-center gap-1.5">
+          <span class="text-[#D6A85F]">✓</span> 24-Hour Cold Chain
+        </span>
+        <span class="flex items-center gap-1.5">
+          <span class="text-[#D6A85F]">✓</span> Free Crispness Guarantee
+        </span>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="flex flex-wrap items-center justify-center gap-4 pt-4">
+        <a href="products.html" class="btn-gold !bg-[#D6A85F] !text-[#1A3320] font-bold text-sm px-8 py-3.5 shadow-xl hover:scale-105 transition-transform">
+          Shop Pure Organic Harvest
+        </a>
+        <a href="delivery-info.html" class="px-6 py-3.5 rounded-xl border border-white/30 text-white hover:bg-white/10 font-semibold text-sm transition-colors">
+          View Delivery Information
+        </a>
+      </div>
+
     </div>
   </section>
 
