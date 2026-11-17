@@ -886,6 +886,9 @@ function addCustomHarvestBox(boxName, boxPrice, cadence, itemsList, event) {
   if (typeof updateCartBadges === "function") {
     updateCartBadges();
   }
+  if (typeof animateFlyToCart === "function") {
+    animateFlyToCart(event, customBoxProduct);
+  }
   if (typeof showToast === "function") {
     showToast(`Added ${boxName} to your cart!`, "success");
   }

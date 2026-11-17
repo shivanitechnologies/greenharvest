@@ -340,7 +340,7 @@
                 <!-- Add to Cart (Primary CTA) -->
                 <button 
                   type="button" 
-                  onclick="handleDetailAddToCart()" 
+                  onclick="handleDetailAddToCart(event)" 
                   class="btn-primary flex-grow !min-h-[48px] text-sm"
                 >
                   <svg class="w-5 h-5 mr-1 inline-block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg>
@@ -544,7 +544,7 @@
     <div class="flex items-center gap-2">
       <button 
         type="button" 
-        onclick="handleDetailAddToCart()" 
+        onclick="handleDetailAddToCart(event)" 
         class="btn-primary !min-h-[42px] !py-2 !px-5 text-xs font-bold shadow-md"
       >
         <svg class="w-4 h-4 mr-1 inline-block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg>
@@ -704,11 +704,11 @@
       input.value = val;
     }
 
-    function handleDetailAddToCart() {
+    function handleDetailAddToCart(event = null) {
       if (!currentProduct) return;
       const qtyInput = document.getElementById("detail-qty-input");
       const qty = parseInt(qtyInput ? qtyInput.value : 1, 10);
-      addToCart(currentProduct.id, selectedWeight, qty);
+      addToCart(currentProduct.id, selectedWeight, qty, event);
     }
 
     function handleDetailBuyNow() {

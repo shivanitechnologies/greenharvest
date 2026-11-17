@@ -67,8 +67,8 @@ function toggleWishlist(productId, event = null) {
   }
 }
 
-function moveWishlistToCart(productId) {
-  addToCart(productId, "500g", 1);
+function moveWishlistToCart(productId, event = null) {
+  addToCart(productId, "500g", 1, event);
   toggleWishlist(productId); // Remove from wishlist once added to cart
 }
 
@@ -129,7 +129,7 @@ function renderWishlistPage() {
         <div class="mt-auto">
           <button 
             type="button" 
-            onclick="moveWishlistToCart('${p.id}')"
+            onclick="moveWishlistToCart('${p.id}', event)"
             class="btn-primary w-full text-xs !min-h-[38px] !py-2"
           >
             Move to Cart

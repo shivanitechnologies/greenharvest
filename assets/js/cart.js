@@ -91,9 +91,186 @@ function addToCart(productId, weight = "500g", quantity = 1, event = null) {
   saveCart(cart);
   showToast(`Added ${quantity}x ${product.name} (${weight}) to your cart!`);
 
+  // Trigger smooth fly-to-cart animation to header cart icon
+  animateFlyToCart(event, product);
+
   // If on cart page, re-render
   if (document.getElementById("cart-items-container")) {
     renderCartPage();
+  }
+}
+
+/**
+ * Smooth Fly-to-Cart Animation
+ * Animates a glowing product thumbnail flying from the clicked button/card up to the header cart icon
+ */
+function animateFlyToCart(event, product) {
+  try {
+    // 1. Find Destination: The cart icon in the header
+    const cartIcon = document.querySelector('header a[href="cart.html"]') ||
+                     document.querySelector('a[href="cart.html"]');
+    if (!cartIcon) return;
+
+    const destRect = cartIcon.getBoundingClientRect();
+    const destX = destRect.left + destRect.width / 2;
+    const destY = destRect.top + destRect.height / 2;
+
+    // 2. Find Launch Point: Clicked button, card image, or detail hero image
+    let startX = window.innerWidth / 2;
+    let startY = window.innerHeight / 2;
+    let imgSrc = (product && product.image) ? product.image : "";
+
+    const trigger = (event && (event.currentTarget || event.target)) ? (event.currentTarget || event.target) : null;
+    let sourceElement = null;
+
+    if (trigger && typeof trigger.getBoundingClientRect === "function") {
+      sourceElement = trigger;
+      const card = trigger.closest(".card-clean, [data-product-id], .group, section");
+      if (card) {
+        const foundImg = card.querySelector("img");
+        if (foundImg) {
+          sourceElement = foundImg;
+          if (!imgSrc) imgSrc = foundImg.src;
+        }
+      }
+    } else if (product && product.id) {
+      const card = document.querySelector(`[data-product-id="${product.id}"]`);
+      if (card) {
+        const foundImg = card.querySelector("img");
+        if (foundImg) {
+          sourceElement = foundImg;
+          if (!imgSrc) imgSrc = foundImg.src;
+        }
+      }
+    }
+
+    if (!sourceElement && document.getElementById("detail-main-img")) {
+      sourceElement = document.getElementById("detail-main-img");
+      if (!imgSrc && sourceElement.src) imgSrc = sourceElement.src;
+    }
+
+    if (sourceElement && typeof sourceElement.getBoundingClientRect === "function") {
+      const sRect = sourceElement.getBoundingClientRect();
+      if (sRect.width > 0 && sRect.height > 0) {
+        startX = sRect.left + sRect.width / 2;
+        startY = sRect.top + sRect.height / 2;
+      }
+    }
+
+    // 3. Create the Flying Clone / Thumbnail Element
+    const flyerSize = 54;
+    const flyer = document.createElement("div");
+    flyer.className = "fly-to-cart-item";
+    flyer.style.width = `${flyerSize}px`;
+    flyer.style.height = `${flyerSize}px`;
+    flyer.style.left = `${startX - flyerSize / 2}px`;
+    flyer.style.top = `${startY - flyerSize / 2}px`;
+
+    if (imgSrc) {
+      flyer.innerHTML = `<img src="${imgSrc}" alt="${(product && product.name) ? product.name : 'Harvest item'}" class="w-full h-full object-cover">`;
+    } else {
+      flyer.innerHTML = `
+        <div class="w-full h-full flex items-center justify-center bg-[#315C3B] text-white">
+          <svg class="w-6 h-6 text-[#D6A85F]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
+        </div>
+      `;
+    }
+
+    document.body.appendChild(flyer);
+
+    // 4. Parabolic Flight Curve
+    const deltaX = destX - startX;
+    const deltaY = destY - startY;
+    const arcHeight = Math.min(Math.abs(deltaX) * 0.35, 140) + 40;
+    const midX = deltaX * 0.45;
+    const midY = (deltaY * 0.45) - arcHeight;
+
+    const animation = flyer.animate([
+      {
+        transform: "translate(0px, 0px) scale(1) rotate(0deg)",
+        opacity: 1
+      },
+      {
+        transform: `translate(${midX}px, ${midY}px) scale(1.18) rotate(-14deg)`,
+        opacity: 0.95,
+        offset: 0.38
+      },
+      {
+        transform: `translate(${deltaX * 0.8}px, ${deltaY * 0.8}px) scale(0.65) rotate(8deg)`,
+        opacity: 0.85,
+        offset: 0.78
+      },
+      {
+        transform: `translate(${deltaX}px, ${deltaY}px) scale(0.2) rotate(0deg)`,
+        opacity: 0.05,
+        offset: 1
+      }
+    ], {
+      duration: 720,
+      easing: "cubic-bezier(0.22, 0.85, 0.35, 1)",
+      fill: "forwards"
+    });
+
+    let landed = false;
+    const onLand = () => {
+      if (landed) return;
+      landed = true;
+      if (document.body.contains(flyer)) {
+        flyer.remove();
+      }
+      triggerCartImpact(cartIcon, destX, destY);
+    };
+
+    animation.onfinish = onLand;
+    setTimeout(onLand, 740);
+
+  } catch (err) {
+    console.warn("Fly-to-cart animation notice:", err);
+  }
+}
+
+/**
+ * Trigger celebration bounce and sparkle effect on cart icon when item lands
+ */
+function triggerCartImpact(cartIcon, centerX, centerY) {
+  if (!cartIcon) return;
+
+  // 1. Cart Icon Bounce
+  cartIcon.classList.remove("cart-bounce");
+  void cartIcon.offsetWidth;
+  cartIcon.classList.add("cart-bounce");
+  setTimeout(() => cartIcon.classList.remove("cart-bounce"), 650);
+
+  // 2. Cart Count Badge Punch
+  const badge = cartIcon.querySelector(".cart-count-badge");
+  if (badge) {
+    badge.classList.remove("badge-punch");
+    void badge.offsetWidth;
+    badge.classList.add("badge-punch");
+    setTimeout(() => badge.classList.remove("badge-punch"), 500);
+  }
+
+  // 3. Golden & Emerald Sparkle Particles
+  const colors = ["#315C3B", "#D6A85F", "#10B981", "#F59E0B", "#8FD69E"];
+  for (let i = 0; i < 6; i++) {
+    const angle = (i / 6) * Math.PI * 2 + (Math.random() * 0.4 - 0.2);
+    const distance = 22 + Math.random() * 20;
+    const tx = Math.cos(angle) * distance;
+    const ty = Math.sin(angle) * distance;
+    const size = 5 + Math.random() * 4;
+
+    const sparkle = document.createElement("div");
+    sparkle.className = "cart-sparkle";
+    sparkle.style.width = `${size}px`;
+    sparkle.style.height = `${size}px`;
+    sparkle.style.backgroundColor = colors[i % colors.length];
+    sparkle.style.left = `${centerX - size / 2}px`;
+    sparkle.style.top = `${centerY - size / 2}px`;
+    sparkle.style.setProperty("--tx", `${tx}px`);
+    sparkle.style.setProperty("--ty", `${ty}px`);
+
+    document.body.appendChild(sparkle);
+    setTimeout(() => sparkle.remove(), 550);
   }
 }
 
