@@ -51,7 +51,7 @@
     }
     @keyframes produceGentleBob {
       0%, 100% { transform: translateY(0px) rotate(0deg); }
-      50% { transform: translateY(-14px) rotate(-1.5deg); }
+      50% { transform: translateY(-12px) rotate(-1.5deg); }
     }
     @keyframes bounceDown {
       0%, 100% { transform: translateY(0); }
@@ -65,77 +65,50 @@
     .halo-glow { animation: haloGlow 6s ease-in-out infinite; }
     .bounce-down { animation: bounceDown 2s ease-in-out infinite; }
 
-    /* HERO PRODUCE TRANSLATION WRAPPER (Top-Right Corner to Left Exit) */
-    .produce-item-wrapper {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    /* TRAVELING PRODUCE ACTOR (Scroll-Linked Hero to Showcase Transition) */
+    #traveling-produce-actor {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 420px;
+      height: 420px;
       pointer-events: none;
+      z-index: 30;
       will-change: transform, opacity;
-      transition: transform 1.35s cubic-bezier(0.22, 1, 0.36, 1), opacity 1.1s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: opacity 0.4s ease-out;
     }
-    .produce-state-corner {
-      transform: translate3d(360px, -240px, 0) scale(0.42) rotate(22deg) !important;
-      opacity: 0 !important;
-      visibility: hidden;
+    @media (max-width: 1023px) {
+      #traveling-produce-actor {
+        width: 340px;
+        height: 340px;
+      }
     }
-    .produce-state-active {
-      transform: translate3d(0, 0, 0) scale(1) rotate(0deg) !important;
-      opacity: 1 !important;
-      visibility: visible;
+    @media (max-width: 640px) {
+      #traveling-produce-actor {
+        width: 280px;
+        height: 280px;
+      }
     }
-    .produce-state-left {
-      transform: translate3d(-640px, 80px, 0) scale(0.55) rotate(-18deg) !important;
-      opacity: 0 !important;
-      visibility: visible;
-    }
-    .produce-inner-float {
-      animation: produceGentleBob 4.8s ease-in-out infinite;
+
+    .produce-bob-container {
+      animation: produceGentleBob 5s ease-in-out infinite;
       will-change: transform;
       filter: drop-shadow(0 25px 35px rgba(35, 68, 43, 0.22));
     }
 
-    @media (max-width: 1023px) {
-      .produce-state-corner {
-        transform: translate3d(180px, -170px, 0) scale(0.45) rotate(16deg) !important;
-      }
-      .produce-state-left {
-        transform: translate3d(-280px, 60px, 0) scale(0.5) rotate(-16deg) !important;
-      }
+    .actor-produce-img {
+      transition: opacity 0.65s ease-in-out, transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
     }
-
-    /* NEW SECTION: VERTICAL 3D TRANSLATION FOR SHOWCASE PRODUCE */
-    .showcase-produce-layer {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      pointer-events: none;
-      will-change: transform, opacity;
-      transition: transform 1.25s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.95s ease-in-out;
-    }
-    .showcase-layer-enter {
-      transform: translate3d(40px, -110px, 0) scale(0.8) rotate(8deg) !important;
-      opacity: 0 !important;
-      visibility: hidden;
-    }
-    .showcase-layer-active {
-      transform: translate3d(0, 0, 0) scale(1) rotate(0deg) !important;
+    .active-actor-img {
       opacity: 1 !important;
-      visibility: visible;
+      transform: scale(1) rotate(0deg) !important;
+      visibility: visible !important;
     }
-    .showcase-layer-exit {
-      transform: translate3d(-50px, 110px, 0) scale(0.82) rotate(-8deg) !important;
+    .hidden-actor-img {
       opacity: 0 !important;
-      visibility: visible;
-    }
-    .showcase-produce-img {
-      animation: produceGentleBob 5s ease-in-out infinite;
-      will-change: transform;
-      filter: drop-shadow(0 30px 45px rgba(35, 68, 43, 0.24));
+      transform: scale(0.9) rotate(8deg) !important;
+      visibility: hidden !important;
     }
   </style>
 </head>
@@ -307,7 +280,7 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
         
-        <!-- Hero Text & Imagination Hook (Left Column - relative z-20 so fruit glides smoothly below/behind) -->
+        <!-- Hero Text & Imagination Hook (Left Column) -->
         <div class="lg:col-span-6 space-y-6 text-center lg:text-left relative z-20">
           
           <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200/60 dark:border-emerald-800/50 text-[#315C3B] dark:text-[#8FD69E] text-xs font-semibold shadow-sm">
@@ -366,76 +339,20 @@
             </a>
           </div>
 
-
           <!-- Scroll to Bottom Showcase Trigger -->
           <div class="pt-4 flex items-center justify-center lg:justify-start">
-            <a href="#why-organic-interactive-showcase" class="group inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/90 dark:bg-[#1A211D]/90 border border-gray-200/80 dark:border-gray-700 text-xs font-semibold text-gray-700 dark:text-gray-300 hover:text-[#315C3B] dark:hover:text-[#D6A85F] shadow-sm hover:shadow transition-all">
+            <a href="#why-organic-interactive-showcase" id="scroll-to-showcase-btn" class="group inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/90 dark:bg-[#1A211D]/90 border border-gray-200/80 dark:border-gray-700 text-xs font-semibold text-gray-700 dark:text-gray-300 hover:text-[#315C3B] dark:hover:text-[#D6A85F] shadow-sm hover:shadow transition-all">
               <span>Scroll to Explore Why Organic</span>
               <span class="w-5 h-5 rounded-full bg-emerald-100 dark:bg-emerald-950 text-[#315C3B] dark:text-[#8FD69E] flex items-center justify-center text-xs bounce-down">↓</span>
             </a>
           </div>
+
         </div>
 
-        <!-- Right Column: PURE BORDERLESS TRANSPARENT PNG PRODUCE (NO BORDER, NO CARD, NO TEXT) -->
-        <div class="lg:col-span-6 relative flex items-center justify-center min-h-[360px] sm:min-h-[440px] lg:min-h-[500px]">
-          
-          <!-- Soft Organic Ambient Halo Glow Behind Fruit (Zero border, zero box) -->
+        <!-- Right Column: HERO PRODUCE DOCK (The Traveling Produce starts here!) -->
+        <div id="hero-produce-dock" class="lg:col-span-6 relative flex items-center justify-center min-h-[340px] sm:min-h-[420px] lg:min-h-[480px]">
+          <!-- Ambient Halo Glow in Hero Dock -->
           <div class="halo-glow absolute w-72 h-72 sm:w-96 sm:h-96 rounded-full bg-gradient-to-tr from-[#315C3B]/15 via-[#D6A85F]/15 to-transparent blur-3xl pointer-events-none"></div>
-
-          <!-- Main Produce Canvas: 2-Layer Nested Translating Wrappers -->
-          <div class="relative w-full h-[340px] sm:h-[420px] flex items-center justify-center pointer-events-none">
-            
-            <!-- 0: Organic Apple -->
-            <div id="produce-wrapper-0" class="produce-item-wrapper produce-state-active">
-              <img 
-                src="assets/images/hero/organic_apple.png" 
-                alt="Organic Honeycrisp Apple cutout"
-                class="produce-inner-float max-h-[290px] sm:max-h-[360px] lg:max-h-[400px] w-auto object-contain select-none"
-              >
-            </div>
-
-            <!-- 1: Organic Carrots -->
-            <div id="produce-wrapper-1" class="produce-item-wrapper produce-state-corner">
-              <img 
-                src="assets/images/hero/organic_carrots.png" 
-                alt="Organic Heirloom Carrots cutout"
-                class="produce-inner-float max-h-[290px] sm:max-h-[360px] lg:max-h-[400px] w-auto object-contain select-none"
-                style="animation-delay: 0.8s;"
-              >
-            </div>
-
-            <!-- 2: Organic Tomatoes -->
-            <div id="produce-wrapper-2" class="produce-item-wrapper produce-state-corner">
-              <img 
-                src="assets/images/hero/organic_tomatoes.png" 
-                alt="Organic Vine Tomatoes cutout"
-                class="produce-inner-float max-h-[290px] sm:max-h-[360px] lg:max-h-[400px] w-auto object-contain select-none"
-                style="animation-delay: 1.6s;"
-              >
-            </div>
-
-            <!-- 3: Organic Avocado -->
-            <div id="produce-wrapper-3" class="produce-item-wrapper produce-state-corner">
-              <img 
-                src="assets/images/hero/organic_avocado.png" 
-                alt="Organic Hass Avocado cutout"
-                class="produce-inner-float max-h-[290px] sm:max-h-[360px] lg:max-h-[400px] w-auto object-contain select-none"
-                style="animation-delay: 2.4s;"
-              >
-            </div>
-
-            <!-- 4: Organic Leafy Greens -->
-            <div id="produce-wrapper-4" class="produce-item-wrapper produce-state-corner">
-              <img 
-                src="assets/images/hero/organic_greens.png" 
-                alt="Organic Spinach and Kale Greens cutout"
-                class="produce-inner-float max-h-[290px] sm:max-h-[360px] lg:max-h-[400px] w-auto object-contain select-none"
-                style="animation-delay: 3.2s;"
-              >
-            </div>
-
-          </div>
-
         </div>
 
       </div>
@@ -453,70 +370,14 @@
       
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
         
-        <!-- LEFT SIDE: PURE TRANSPARENT PNG PRODUCE (Smooth Vertical 3D Translation) -->
-        <div class="lg:col-span-6 relative flex items-center justify-center min-h-[380px] sm:min-h-[460px] lg:min-h-[520px]">
-          
-          <!-- Soft Organic Ambient Halo -->
+        <!-- LEFT SIDE: SHOWCASE PRODUCE DOCK (The Traveling Produce lands here upon scroll!) -->
+        <div id="showcase-produce-dock" class="lg:col-span-6 relative flex items-center justify-center min-h-[360px] sm:min-h-[440px] lg:min-h-[500px]">
+          <!-- Ambient Halo Glow in Showcase Dock -->
           <div class="halo-glow absolute w-80 h-80 sm:w-96 sm:h-96 rounded-full bg-gradient-to-tr from-[#315C3B]/20 via-[#D6A85F]/20 to-transparent blur-3xl pointer-events-none"></div>
-
-          <!-- 5 Transparent PNG Cutouts with Vertical Translation Physics (Zero box, zero border) -->
-          <div class="relative w-full h-[360px] sm:h-[440px] flex items-center justify-center pointer-events-none">
-            
-            <!-- Layer 0: Organic Apple -->
-            <div id="showcase-layer-0" class="showcase-produce-layer showcase-layer-active">
-              <img 
-                src="assets/images/hero/organic_apple.png" 
-                alt="Organic Honeycrisp Apple cutout" 
-                class="showcase-produce-img max-h-[300px] sm:max-h-[390px] lg:max-h-[440px] w-auto object-contain select-none"
-              >
-            </div>
-
-            <!-- Layer 1: Organic Carrots -->
-            <div id="showcase-layer-1" class="showcase-produce-layer showcase-layer-enter">
-              <img 
-                src="assets/images/hero/organic_carrots.png" 
-                alt="Organic Heirloom Carrots cutout" 
-                class="showcase-produce-img max-h-[300px] sm:max-h-[390px] lg:max-h-[440px] w-auto object-contain select-none"
-                style="animation-delay: 0.8s;"
-              >
-            </div>
-
-            <!-- Layer 2: Organic Tomatoes -->
-            <div id="showcase-layer-2" class="showcase-produce-layer showcase-layer-enter">
-              <img 
-                src="assets/images/hero/organic_tomatoes.png" 
-                alt="Organic Vine Tomatoes cutout" 
-                class="showcase-produce-img max-h-[300px] sm:max-h-[390px] lg:max-h-[440px] w-auto object-contain select-none"
-                style="animation-delay: 1.6s;"
-              >
-            </div>
-
-            <!-- Layer 3: Organic Avocado -->
-            <div id="showcase-layer-3" class="showcase-produce-layer showcase-layer-enter">
-              <img 
-                src="assets/images/hero/organic_avocado.png" 
-                alt="Organic Hass Avocado cutout" 
-                class="showcase-produce-img max-h-[300px] sm:max-h-[390px] lg:max-h-[440px] w-auto object-contain select-none"
-                style="animation-delay: 2.4s;"
-              >
-            </div>
-
-            <!-- Layer 4: Organic Leafy Greens -->
-            <div id="showcase-layer-4" class="showcase-produce-layer showcase-layer-enter">
-              <img 
-                src="assets/images/hero/organic_greens.png" 
-                alt="Organic Leafy Greens cutout" 
-                class="showcase-produce-img max-h-[300px] sm:max-h-[390px] lg:max-h-[440px] w-auto object-contain select-none"
-                style="animation-delay: 3.2s;"
-              >
-            </div>
-
-          </div>
-
         </div>
 
         <!-- RIGHT SIDE: BIG SIZE SIMPLE "WHY ORGANIC" TEXT CONTENT -->
-        <div class="lg:col-span-6 space-y-6 text-center lg:text-left">
+        <div class="lg:col-span-6 space-y-6 text-center lg:text-left relative z-20">
           
           <!-- Category & Counter Tag -->
           <div class="flex items-center justify-center lg:justify-start gap-3">
@@ -616,6 +477,53 @@
 
     </div>
   </section>
+
+  <!-- ==================== THE SINGLE TRAVELING PRODUCE ACTOR (FLIES WITH SCROLL FROM HERO TO SHOWCASE) ==================== -->
+  <div id="traveling-produce-actor" aria-hidden="true">
+    <div class="relative w-full h-full flex items-center justify-center produce-bob-container">
+      
+      <!-- Produce 0: Apple -->
+      <img 
+        id="actor-img-0"
+        src="assets/images/hero/organic_apple.png" 
+        alt="Organic Honeycrisp Apple cutout" 
+        class="actor-produce-img active-actor-img absolute max-h-[85%] max-w-[85%] object-contain select-none"
+      >
+
+      <!-- Produce 1: Carrots -->
+      <img 
+        id="actor-img-1"
+        src="assets/images/hero/organic_carrots.png" 
+        alt="Organic Heirloom Carrots cutout" 
+        class="actor-produce-img hidden-actor-img absolute max-h-[85%] max-w-[85%] object-contain select-none"
+      >
+
+      <!-- Produce 2: Tomatoes -->
+      <img 
+        id="actor-img-2"
+        src="assets/images/hero/organic_tomatoes.png" 
+        alt="Organic Vine Tomatoes cutout" 
+        class="actor-produce-img hidden-actor-img absolute max-h-[85%] max-w-[85%] object-contain select-none"
+      >
+
+      <!-- Produce 3: Avocado -->
+      <img 
+        id="actor-img-3"
+        src="assets/images/hero/organic_avocado.png" 
+        alt="Organic Hass Avocado cutout" 
+        class="actor-produce-img hidden-actor-img absolute max-h-[85%] max-w-[85%] object-contain select-none"
+      >
+
+      <!-- Produce 4: Greens -->
+      <img 
+        id="actor-img-4"
+        src="assets/images/hero/organic_greens.png" 
+        alt="Organic Leafy Greens cutout" 
+        class="actor-produce-img hidden-actor-img absolute max-h-[85%] max-w-[85%] object-contain select-none"
+      >
+
+    </div>
+  </div>
 
   <!-- ==================== 2. A TALE OF TWO APPLES (VISUAL IMAGINATION) ==================== -->
   <section id="tale-of-two-apples" class="py-20 bg-white dark:bg-[#1A211D]">
@@ -1641,54 +1549,9 @@
   <script src="assets/js/wishlist.js"></script>
   <script src="assets/js/auth.js"></script>
   <script src="assets/js/main.js"></script>
-  <!-- PRODUCE HERO CORNER-TO-LEFT SHOWCASE CONTROLLER & NEW INTERACTIVE SECTION CONTROLLER -->
+  <!-- SCROLL-SYNCHRONIZED TRAVELING PRODUCE CONTROLLER -->
   <script>
-    // 1. HERO CORNER-TO-LEFT PRODUCE SHOWCASE CONTROLLER
-    (function initHeroProduce() {
-      const TOTAL_PRODUCE = 5;
-      let currentIndex = 0;
-      let isTransitioning = false;
-      const INTERVAL = 3800;
-
-      function transitionHero() {
-        if (isTransitioning) return;
-        isTransitioning = true;
-
-        const nextIndex = (currentIndex + 1) % TOTAL_PRODUCE;
-        const currentWrap = document.getElementById('produce-wrapper-' + currentIndex);
-        const nextWrap = document.getElementById('produce-wrapper-' + nextIndex);
-
-        if (!currentWrap || !nextWrap) {
-          isTransitioning = false;
-          return;
-        }
-
-        currentWrap.classList.remove('produce-state-active');
-        currentWrap.classList.add('produce-state-left');
-
-        nextWrap.classList.remove('produce-state-active', 'produce-state-left');
-        nextWrap.classList.add('produce-state-corner');
-
-        requestAnimationFrame(() => {
-          requestAnimationFrame(() => {
-            nextWrap.classList.remove('produce-state-corner');
-            nextWrap.classList.add('produce-state-active');
-          });
-        });
-
-        setTimeout(() => {
-          currentWrap.classList.remove('produce-state-left');
-          currentWrap.classList.add('produce-state-corner');
-          currentIndex = nextIndex;
-          isTransitioning = false;
-        }, 1350);
-      }
-
-      setInterval(transitionHero, INTERVAL);
-    })();
-
-    // 2. NEW SECTION: INTERACTIVE PRODUCE SHOWCASE (PNG LEFT, BIG TEXT RIGHT)
-    (function initInteractiveShowcase() {
+    (function initScrollLinkedTravelingProduce() {
       const items = [
         {
           counter: "01 / 05",
@@ -1747,11 +1610,10 @@
         }
       ];
 
-      let activeIndex = 0;
-      let isSwitching = false;
-      let autoTimer = null;
-      const INTERVAL = 4200; // 4.2s
-
+      const actor = document.getElementById('traveling-produce-actor');
+      const heroDock = document.getElementById('hero-produce-dock');
+      const showcaseDock = document.getElementById('showcase-produce-dock');
+      const showcaseSection = document.getElementById('why-organic-interactive-showcase');
       const counterEl = document.getElementById('showcase-counter');
       const headlineEl = document.getElementById('showcase-headline');
       const descEl = document.getElementById('showcase-desc');
@@ -1762,46 +1624,89 @@
       const stat3El = document.getElementById('showcase-stat-3');
       const statLabel3El = document.getElementById('showcase-stat-label-3');
       const navButtons = document.querySelectorAll('.showcase-nav-btn');
-      const showcaseSection = document.getElementById('why-organic-interactive-showcase');
+      const scrollBtn = document.getElementById('scroll-to-showcase-btn');
 
-      function updateNavStyles(idx) {
-        navButtons.forEach((btn, i) => {
-          if (i === idx) {
-            btn.className = "showcase-nav-btn flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-semibold bg-[#315C3B] text-white shadow-sm transition-all duration-300 scale-105";
-          } else {
-            btn.className = "showcase-nav-btn flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-semibold bg-white dark:bg-[#1A211D] border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-300";
-          }
-        });
+      let currentProduceIndex = 0;
+      let isSwitchingProduce = false;
+      let cycleTimer = null;
+      let isTicking = false;
+
+      // Cubic Ease-In-Out for natural physical flight
+      function easeInOutCubic(x) {
+        return x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2;
       }
 
-      function switchToShowcase(nextIdx) {
-        if (isSwitching || nextIdx === activeIndex) return;
-        isSwitching = true;
+      // Smooth Position Tracking (Maps scroll 1:1 to travel from Hero to Showcase)
+      function updateActorPosition() {
+        if (!actor || !heroDock || !showcaseDock || !showcaseSection) return;
 
-        const currentLayer = document.getElementById('showcase-layer-' + activeIndex);
-        const nextLayer = document.getElementById('showcase-layer-' + nextIdx);
+        const hRect = heroDock.getBoundingClientRect();
+        const sRect = showcaseDock.getBoundingClientRect();
+        const secRect = showcaseSection.getBoundingClientRect();
+        const vh = window.innerHeight;
 
-        if (!currentLayer || !nextLayer) {
-          isSwitching = false;
-          return;
+        // Viewport center coordinates for both docks
+        const heroX = hRect.left + hRect.width / 2;
+        const heroY = hRect.top + hRect.height / 2;
+        const showX = sRect.left + sRect.width / 2;
+        const showY = sRect.top + sRect.height / 2;
+
+        // Scroll Progress: 0 at top of hero, 1 when showcase dock reaches viewport center
+        const totalDistance = (sRect.top - hRect.top);
+        let progress = 0;
+        if (totalDistance > 0) {
+          progress = Math.min(1, Math.max(0, (vh / 2 - hRect.top) / totalDistance));
         }
 
-        // Outgoing: glide downward
-        currentLayer.classList.remove('showcase-layer-active', 'showcase-layer-enter');
-        currentLayer.classList.add('showcase-layer-exit');
+        const t = easeInOutCubic(progress);
 
-        // Incoming: prepared at top, then glide in
-        nextLayer.classList.remove('showcase-layer-active', 'showcase-layer-exit');
-        nextLayer.classList.add('showcase-layer-enter');
+        // Position interpolation
+        const currentX = heroX + (showX - heroX) * t;
+        const currentY = heroY + (showY - heroY) * t;
 
-        requestAnimationFrame(() => {
+        // Subtle flight aerodynamics: tilt into curve, gentle scale
+        const tilt = Math.sin(progress * Math.PI) * -12;
+        const scale = 1.0 + Math.sin(progress * Math.PI) * 0.08;
+
+        const actorW = actor.offsetWidth || 400;
+        const actorH = actor.offsetHeight || 400;
+
+        // Visibility handling: fade out only when scrolled past showcase section
+        if (secRect.bottom < 80) {
+          actor.style.opacity = '0';
+        } else {
+          actor.style.opacity = '1';
+        }
+
+        actor.style.transform = "translate3d(" + (currentX - actorW / 2) + "px, " + (currentY - actorH / 2) + "px, 0) scale(" + scale + ") rotate(" + tilt + "deg)";
+      }
+
+      function onScroll() {
+        if (!isTicking) {
           requestAnimationFrame(() => {
-            nextLayer.classList.remove('showcase-layer-enter');
-            nextLayer.classList.add('showcase-layer-active');
+            updateActorPosition();
+            isTicking = false;
           });
-        });
+          isTicking = true;
+        }
+      }
 
-        // Update Right-Side Text with smooth fade
+      // Smooth switch of the produce inside the actor
+      function switchProduce(nextIdx) {
+        if (isSwitchingProduce || nextIdx === currentProduceIndex) return;
+        isSwitchingProduce = true;
+
+        const currentImg = document.getElementById('actor-img-' + currentProduceIndex);
+        const nextImg = document.getElementById('actor-img-' + nextIdx);
+
+        if (currentImg) {
+          currentImg.className = "actor-produce-img hidden-actor-img absolute max-h-[85%] max-w-[85%] object-contain select-none";
+        }
+        if (nextImg) {
+          nextImg.className = "actor-produce-img active-actor-img absolute max-h-[85%] max-w-[85%] object-contain select-none";
+        }
+
+        // Update Right Side Text
         if (headlineEl) headlineEl.style.opacity = '0';
         if (descEl) descEl.style.opacity = '0';
 
@@ -1822,48 +1727,71 @@
           if (statLabel2El) statLabel2El.textContent = d.statLabel2;
           if (stat3El) stat3El.textContent = d.stat3;
           if (statLabel3El) statLabel3El.textContent = d.statLabel3;
-        }, 200);
+        }, 180);
 
-        updateNavStyles(nextIdx);
+        // Update Stepper Pill Styles
+        navButtons.forEach((btn, i) => {
+          if (i === nextIdx) {
+            btn.className = "showcase-nav-btn flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-semibold bg-[#315C3B] text-white shadow-sm transition-all duration-300 scale-105";
+          } else {
+            btn.className = "showcase-nav-btn flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-semibold bg-white dark:bg-[#1A211D] border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-300";
+          }
+        });
 
         setTimeout(() => {
-          currentLayer.classList.remove('showcase-layer-exit');
-          currentLayer.classList.add('showcase-layer-enter');
-          activeIndex = nextIdx;
-          isSwitching = false;
-        }, 1250);
+          currentProduceIndex = nextIdx;
+          isSwitchingProduce = false;
+        }, 650);
       }
 
-      function nextShowcase() {
-        const next = (activeIndex + 1) % items.length;
-        switchToShowcase(next);
+      function nextProduce() {
+        const next = (currentProduceIndex + 1) % items.length;
+        switchProduce(next);
       }
 
-      function startTimer() {
-        stopTimer();
-        autoTimer = setInterval(nextShowcase, INTERVAL);
+      function startCycleTimer() {
+        stopCycleTimer();
+        cycleTimer = setInterval(nextProduce, 4000);
       }
 
-      function stopTimer() {
-        if (autoTimer) clearInterval(autoTimer);
-        autoTimer = null;
+      function stopCycleTimer() {
+        if (cycleTimer) clearInterval(cycleTimer);
+        cycleTimer = null;
       }
 
+      // Wire Stepper Buttons
       navButtons.forEach(btn => {
         btn.addEventListener('click', () => {
           const idx = parseInt(btn.getAttribute('data-showcase-index'), 10);
-          switchToShowcase(idx);
-          startTimer();
+          switchProduce(idx);
+          startCycleTimer();
         });
       });
 
-      if (showcaseSection) {
-        showcaseSection.addEventListener('mouseenter', stopTimer);
-        showcaseSection.addEventListener('mouseleave', startTimer);
+      // Wire Scroll Button for smooth animated descent
+      if (scrollBtn) {
+        scrollBtn.addEventListener('click', (e) => {
+          e.preventDefault();
+          if (showcaseSection) {
+            const targetY = showcaseSection.getBoundingClientRect().top + window.pageYOffset - (window.innerHeight - 500) / 2;
+            window.scrollTo({ top: targetY, behavior: 'smooth' });
+          }
+        });
       }
 
-      updateNavStyles(0);
-      startTimer();
+      // Pause cycle timer on hover in showcase
+      if (showcaseSection) {
+        showcaseSection.addEventListener('mouseenter', stopCycleTimer);
+        showcaseSection.addEventListener('mouseleave', startCycleTimer);
+      }
+
+      // Event Listeners
+      window.addEventListener('scroll', onScroll, { passive: true });
+      window.addEventListener('resize', onScroll, { passive: true });
+
+      // Initial alignment
+      updateActorPosition();
+      startCycleTimer();
     })();
   </script>
 </body>
