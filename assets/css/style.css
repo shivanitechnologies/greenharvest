@@ -411,16 +411,16 @@ header.is-sticky {
 }
 
 /* ========================================================
-   FLY-TO-CART & CART BOUNCE ANIMATION
-   Smooth parabolic flight from Add-to-Cart button to Header Cart
+   FLY-TO-CART & ENHANCED SHOPPING BAG ANIMATIONS
+   Smooth parabolic flight, size expansion, and celebration effects
    ======================================================== */
 .fly-to-cart-item {
   position: fixed;
   z-index: 99999;
   pointer-events: none;
   border-radius: 9999px;
-  box-shadow: 0 12px 30px -4px rgba(49, 92, 59, 0.45), 0 4px 12px rgba(0, 0, 0, 0.15);
-  border: 2px solid #315C3B;
+  box-shadow: 0 16px 40px -4px rgba(49, 92, 59, 0.55), 0 0 25px rgba(214, 168, 95, 0.5);
+  border: 3px solid #D6A85F;
   background-color: #ffffff;
   overflow: hidden;
   will-change: transform, opacity, left, top;
@@ -428,39 +428,114 @@ header.is-sticky {
 
 html.dark .fly-to-cart-item {
   border-color: #D6A85F;
-  box-shadow: 0 12px 30px -4px rgba(214, 168, 95, 0.35), 0 4px 12px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 16px 40px -4px rgba(214, 168, 95, 0.45), 0 0 30px rgba(49, 92, 59, 0.6);
   background-color: #1A211D;
 }
 
-@keyframes cartBounce {
-  0% { transform: scale(1); }
-  25% { transform: scale(1.35) rotate(-10deg); }
-  50% { transform: scale(1.12) rotate(6deg); }
-  75% { transform: scale(1.2) rotate(-3deg); }
-  100% { transform: scale(1) rotate(0deg); }
+/* Bag Icon Expansion on Item Landing */
+@keyframes bagExpandBounce {
+  0% {
+    transform: scale(1);
+  }
+  22% {
+    transform: scale(1.55) rotate(-14deg);
+    filter: drop-shadow(0 8px 18px rgba(49, 92, 59, 0.5));
+  }
+  48% {
+    transform: scale(1.32) rotate(10deg);
+  }
+  72% {
+    transform: scale(1.15) rotate(-4deg);
+  }
+  88% {
+    transform: scale(1.05) rotate(2deg);
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+    filter: none;
+  }
 }
 
 .cart-bounce {
-  animation: cartBounce 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  animation: bagExpandBounce 0.7s cubic-bezier(0.22, 1.25, 0.36, 1) forwards;
 }
 
+/* Badge Counter Size Punch & Glow */
 @keyframes badgePunch {
-  0% { transform: scale(0.5); opacity: 0.6; }
-  50% { transform: scale(1.5); opacity: 1; }
-  100% { transform: scale(1); opacity: 1; }
+  0% {
+    transform: scale(0.6);
+    background-color: #D6A85F;
+  }
+  35% {
+    transform: scale(1.85);
+    background-color: #10B981;
+    box-shadow: 0 0 18px rgba(16, 185, 129, 0.85);
+  }
+  65% {
+    transform: scale(1.25);
+  }
+  100% {
+    transform: scale(1);
+    background-color: #315C3B;
+    box-shadow: none;
+  }
 }
 
 .badge-punch {
-  animation: badgePunch 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  animation: badgePunch 0.55s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
 }
 
+/* Floating +1 Pill over Bag */
+@keyframes plusOneFloat {
+  0% {
+    transform: translate(0, 0) scale(0.6);
+    opacity: 0;
+  }
+  25% {
+    transform: translate(0, -10px) scale(1.3);
+    opacity: 1;
+  }
+  70% {
+    transform: translate(0, -24px) scale(1.05);
+    opacity: 0.95;
+  }
+  100% {
+    transform: translate(0, -36px) scale(0.8);
+    opacity: 0;
+  }
+}
+
+.cart-plus-one {
+  position: fixed;
+  pointer-events: none;
+  z-index: 100001;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800;
+  font-size: 13px;
+  color: #ffffff;
+  background: linear-gradient(135deg, #315C3B, #10B981);
+  border: 1.5px solid #D6A85F;
+  padding: 2px 8px;
+  border-radius: 9999px;
+  box-shadow: 0 4px 14px rgba(16, 185, 129, 0.45);
+  animation: plusOneFloat 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+html.dark .cart-plus-one {
+  color: #121614;
+  background: linear-gradient(135deg, #D6A85F, #E5C385);
+  border-color: #ffffff;
+  box-shadow: 0 4px 14px rgba(214, 168, 95, 0.5);
+}
+
+/* Sparkle Particles Burst */
 @keyframes sparklePop {
   0% {
     transform: translate(0, 0) scale(0.3);
     opacity: 1;
   }
   100% {
-    transform: translate(var(--tx, 15px), var(--ty, -15px)) scale(1.1);
+    transform: translate(var(--tx, 18px), var(--ty, -18px)) scale(1.2);
     opacity: 0;
   }
 }
@@ -470,5 +545,12 @@ html.dark .fly-to-cart-item {
   pointer-events: none;
   z-index: 100000;
   border-radius: 50%;
-  animation: sparklePop 0.55s ease-out forwards;
+  box-shadow: 0 0 10px currentColor;
+  animation: sparklePop 0.6s ease-out forwards;
+}
+
+/* Button Active Press / Pulse Feedback */
+.btn-add-clicked {
+  transform: scale(0.92) !important;
+  transition: transform 0.12s ease !important;
 }

@@ -91,8 +91,8 @@ function addToCart(productId, weight = "500g", quantity = 1, event = null) {
   saveCart(cart);
   showToast(`Added ${quantity}x ${product.name} (${weight}) to your cart!`);
 
-  // Trigger smooth fly-to-cart animation to header cart icon
-  animateFlyToCart(event, product);
+  // Trigger smooth fly-to-cart animation with size expansion and impact
+  animateFlyToCart(event, product, parseInt(quantity, 10));
 
   // If on cart page, re-render
   if (document.getElementById("cart-items-container")) {
@@ -103,8 +103,9 @@ function addToCart(productId, weight = "500g", quantity = 1, event = null) {
 /**
  * Smooth Fly-to-Cart Animation
  * Animates a glowing product thumbnail flying from the clicked button/card up to the header cart icon
+ * Increases in size during flight and triggers bag expansion & counter punch on arrival
  */
-function animateFlyToCart(event, product) {
+function animateFlyToCart(event, product, quantity = 1) {
   try {
     // 1. Find Destination: The cart icon in the header
     const cartIcon = document.querySelector('header a[href="cart.html"]') ||
@@ -115,12 +116,17 @@ function animateFlyToCart(event, product) {
     const destX = destRect.left + destRect.width / 2;
     const destY = destRect.top + destRect.height / 2;
 
-    // 2. Find Launch Point: Clicked button, card image, or detail hero image
+    // 2. Button tactile feedback
+    const trigger = (event && (event.currentTarget || event.target)) ? (event.currentTarget || event.target) : null;
+    if (trigger && trigger.classList) {
+      trigger.classList.add("btn-add-clicked");
+      setTimeout(() => trigger.classList.remove("btn-add-clicked"), 160);
+    }
+
+    // 3. Find Launch Point: Clicked button, card image, or detail hero image
     let startX = window.innerWidth / 2;
     let startY = window.innerHeight / 2;
     let imgSrc = (product && product.image) ? product.image : "";
-
-    const trigger = (event && (event.currentTarget || event.target)) ? (event.currentTarget || event.target) : null;
     let sourceElement = null;
 
     if (trigger && typeof trigger.getBoundingClientRect === "function") {
@@ -157,8 +163,8 @@ function animateFlyToCart(event, product) {
       }
     }
 
-    // 3. Create the Flying Clone / Thumbnail Element
-    const flyerSize = 54;
+    // 4. Create the Flying Element with Larger Size (76px desktop / 64px mobile)
+    const flyerSize = window.innerWidth >= 640 ? 76 : 64;
     const flyer = document.createElement("div");
     flyer.className = "fly-to-cart-item";
     flyer.style.width = `${flyerSize}px`;
@@ -166,48 +172,66 @@ function animateFlyToCart(event, product) {
     flyer.style.left = `${startX - flyerSize / 2}px`;
     flyer.style.top = `${startY - flyerSize / 2}px`;
 
+    const itemName = (product && product.name) ? product.name : 'Fresh Harvest';
     if (imgSrc) {
-      flyer.innerHTML = `<img src="${imgSrc}" alt="${(product && product.name) ? product.name : 'Harvest item'}" class="w-full h-full object-cover">`;
+      flyer.innerHTML = `
+        <div class="relative w-full h-full">
+          <img src="${imgSrc}" alt="${itemName}" class="w-full h-full object-cover">
+          <div class="absolute bottom-1 right-1 w-5 h-5 rounded-full bg-[#315C3B] border border-white dark:border-[#D6A85F] text-[#D6A85F] flex items-center justify-center shadow-md">
+            <svg class="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/></svg>
+          </div>
+        </div>
+      `;
     } else {
       flyer.innerHTML = `
         <div class="w-full h-full flex items-center justify-center bg-[#315C3B] text-white">
-          <svg class="w-6 h-6 text-[#D6A85F]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
+          <svg class="w-7 h-7 text-[#D6A85F]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
         </div>
       `;
     }
 
     document.body.appendChild(flyer);
 
-    // 4. Parabolic Flight Curve
+    // 5. Parabolic Arc Flight with Size Expansion (Blooms up to 1.4x scale at flight peak)
     const deltaX = destX - startX;
     const deltaY = destY - startY;
-    const arcHeight = Math.min(Math.abs(deltaX) * 0.35, 140) + 40;
+    const arcHeight = Math.min(Math.abs(deltaX) * 0.4, 180) + 55;
     const midX = deltaX * 0.45;
     const midY = (deltaY * 0.45) - arcHeight;
 
     const animation = flyer.animate([
       {
-        transform: "translate(0px, 0px) scale(1) rotate(0deg)",
-        opacity: 1
+        transform: "translate(0px, 0px) scale(0.9) rotate(0deg)",
+        opacity: 0.95
       },
       {
-        transform: `translate(${midX}px, ${midY}px) scale(1.18) rotate(-14deg)`,
+        transform: `translate(${midX * 0.35}px, ${midY * 0.65}px) scale(1.35) rotate(-10deg)`,
+        opacity: 1,
+        offset: 0.22
+      },
+      {
+        transform: `translate(${midX}px, ${midY}px) scale(1.4) rotate(-16deg)`,
+        opacity: 1,
+        offset: 0.48
+      },
+      {
+        transform: `translate(${deltaX * 0.78}px, ${deltaY * 0.78}px) scale(0.85) rotate(8deg)`,
         opacity: 0.95,
-        offset: 0.38
+        offset: 0.76
       },
       {
-        transform: `translate(${deltaX * 0.8}px, ${deltaY * 0.8}px) scale(0.65) rotate(8deg)`,
-        opacity: 0.85,
-        offset: 0.78
+        transform: `translate(${deltaX * 0.95}px, ${deltaY * 0.95}px) scale(0.35) rotate(2deg)`,
+        opacity: 0.75,
+        offset: 0.94
       },
       {
-        transform: `translate(${deltaX}px, ${deltaY}px) scale(0.2) rotate(0deg)`,
-        opacity: 0.05,
+        transform: `translate(${deltaX}px, ${deltaY}px) scale(0.08) rotate(0deg)`,
+        opacity: 0,
         offset: 1
       }
     ], {
-      duration: 720,
-      easing: "cubic-bezier(0.22, 0.85, 0.35, 1)",
+      duration: 820,
+      easing: "cubic-bezier(0.18, 0.89, 0.32, 1.05)",
       fill: "forwards"
     });
 
@@ -218,11 +242,11 @@ function animateFlyToCart(event, product) {
       if (document.body.contains(flyer)) {
         flyer.remove();
       }
-      triggerCartImpact(cartIcon, destX, destY);
+      triggerCartImpact(cartIcon, destX, destY, quantity);
     };
 
     animation.onfinish = onLand;
-    setTimeout(onLand, 740);
+    setTimeout(onLand, 840);
 
   } catch (err) {
     console.warn("Fly-to-cart animation notice:", err);
@@ -232,32 +256,41 @@ function animateFlyToCart(event, product) {
 /**
  * Trigger celebration bounce and sparkle effect on cart icon when item lands
  */
-function triggerCartImpact(cartIcon, centerX, centerY) {
+function triggerCartImpact(cartIcon, centerX, centerY, quantity = 1) {
   if (!cartIcon) return;
 
-  // 1. Cart Icon Bounce
+  // 1. Cart Icon Bounce & Expansion (scale to 1.55x)
   cartIcon.classList.remove("cart-bounce");
   void cartIcon.offsetWidth;
   cartIcon.classList.add("cart-bounce");
-  setTimeout(() => cartIcon.classList.remove("cart-bounce"), 650);
+  setTimeout(() => cartIcon.classList.remove("cart-bounce"), 720);
 
-  // 2. Cart Count Badge Punch
+  // 2. Cart Count Badge Punch & Size Expansion (scale to 1.85x)
   const badge = cartIcon.querySelector(".cart-count-badge");
   if (badge) {
     badge.classList.remove("badge-punch");
     void badge.offsetWidth;
     badge.classList.add("badge-punch");
-    setTimeout(() => badge.classList.remove("badge-punch"), 500);
+    setTimeout(() => badge.classList.remove("badge-punch"), 580);
   }
 
-  // 3. Golden & Emerald Sparkle Particles
-  const colors = ["#315C3B", "#D6A85F", "#10B981", "#F59E0B", "#8FD69E"];
-  for (let i = 0; i < 6; i++) {
-    const angle = (i / 6) * Math.PI * 2 + (Math.random() * 0.4 - 0.2);
-    const distance = 22 + Math.random() * 20;
+  // 3. Floating +1 Notification Pill
+  const plusOne = document.createElement("div");
+  plusOne.className = "cart-plus-one";
+  plusOne.textContent = `+${quantity}`;
+  plusOne.style.left = `${centerX - 14}px`;
+  plusOne.style.top = `${centerY - 22}px`;
+  document.body.appendChild(plusOne);
+  setTimeout(() => plusOne.remove(), 800);
+
+  // 4. Golden, Mint & Emerald Sparkle Burst
+  const colors = ["#315C3B", "#D6A85F", "#10B981", "#F59E0B", "#8FD69E", "#34D399"];
+  for (let i = 0; i < 8; i++) {
+    const angle = (i / 8) * Math.PI * 2 + (Math.random() * 0.3 - 0.15);
+    const distance = 26 + Math.random() * 22;
     const tx = Math.cos(angle) * distance;
     const ty = Math.sin(angle) * distance;
-    const size = 5 + Math.random() * 4;
+    const size = 6 + Math.random() * 4;
 
     const sparkle = document.createElement("div");
     sparkle.className = "cart-sparkle";
@@ -270,7 +303,7 @@ function triggerCartImpact(cartIcon, centerX, centerY) {
     sparkle.style.setProperty("--ty", `${ty}px`);
 
     document.body.appendChild(sparkle);
-    setTimeout(() => sparkle.remove(), 550);
+    setTimeout(() => sparkle.remove(), 600);
   }
 }
 
