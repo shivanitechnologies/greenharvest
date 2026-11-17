@@ -47,53 +47,50 @@
     }
     @keyframes activeProduceBob {
       0%, 100% { transform: translateY(0px) rotate(0deg); }
-      50% { transform: translateY(-10px) rotate(-1.5deg); }
+      50% { transform: translateY(-12px) rotate(-1.5deg); }
     }
     @keyframes haloGlow {
-      0%, 100% { transform: scale(0.92); opacity: 0.45; }
-      50% { transform: scale(1.08); opacity: 0.85; }
+      0%, 100% { transform: scale(0.92); opacity: 0.35; }
+      50% { transform: scale(1.08); opacity: 0.65; }
     }
-    @keyframes driftTopRightToLeft {
-      0% { transform: translate(160px, -60px) rotate(20deg); opacity: 0; }
-      20% { opacity: 0.28; }
-      80% { opacity: 0.28; }
-      100% { transform: translate(-320px, 90px) rotate(-20deg); opacity: 0; }
-    }
+
     .hero-float-1 { animation: floatSlow 4.5s ease-in-out infinite; }
     .hero-float-2 { animation: floatReverse 5.5s ease-in-out infinite 0.8s; }
     .hero-float-3 { animation: floatSlow 6s ease-in-out infinite 1.5s; }
     .soft-pulse { animation: softPulse 4s ease-in-out infinite; }
-    .produce-bob { animation: activeProduceBob 4.5s ease-in-out infinite; }
-    .halo-glow { animation: haloGlow 5s ease-in-out infinite; }
-    .ambient-drift-1 { animation: driftTopRightToLeft 14s linear infinite; }
-    .ambient-drift-2 { animation: driftTopRightToLeft 18s linear infinite 5s; }
-    .ambient-drift-3 { animation: driftTopRightToLeft 16s linear infinite 9s; }
+    .produce-bob { animation: activeProduceBob 5s ease-in-out infinite; }
+    .halo-glow { animation: haloGlow 6s ease-in-out infinite; }
 
-    /* Produce Stage Animation Classes */
+    /* Pure Transparent PNG Produce Stage Animation */
     .produce-stage-img {
-      transition: transform 0.95s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.85s ease-in-out, filter 0.85s ease-in-out;
-      will-change: transform, opacity, filter;
+      transition: transform 1.25s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.95s ease-in-out;
+      will-change: transform, opacity;
+      filter: drop-shadow(0 25px 35px rgba(35, 68, 43, 0.22));
+      pointer-events: none;
     }
     /* Starting state: Enters from Right-Side Top Corner */
     .produce-from-corner {
-      transform: translate3d(240px, -200px, 0) scale(0.4) rotate(25deg) !important;
+      transform: translate3d(360px, -260px, 0) scale(0.4) rotate(24deg) !important;
       opacity: 0 !important;
-      filter: blur(8px) !important;
-      pointer-events: none !important;
     }
     /* Active state: Floating at Center */
     .produce-active {
       transform: translate3d(0, 0, 0) scale(1) rotate(0deg) !important;
       opacity: 1 !important;
-      filter: blur(0px) !important;
-      pointer-events: auto !important;
     }
-    /* Exit state: Glides toward Left-Side Content Background */
+    /* Exit state: Glides toward Left Side across below/behind content */
     .produce-to-left {
-      transform: translate3d(-320px, 60px, 0) scale(0.5) rotate(-22deg) !important;
+      transform: translate3d(-640px, 90px, 0) scale(0.55) rotate(-20deg) !important;
       opacity: 0 !important;
-      filter: blur(10px) !important;
-      pointer-events: none !important;
+    }
+
+    @media (max-width: 1023px) {
+      .produce-from-corner {
+        transform: translate3d(180px, -180px, 0) scale(0.4) rotate(20deg) !important;
+      }
+      .produce-to-left {
+        transform: translate3d(-340px, 70px, 0) scale(0.5) rotate(-18deg) !important;
+      }
     }
   </style>
 </head>
@@ -256,24 +253,17 @@
   </div>
 
   <!-- ==================== 1. HERO SECTION ==================== -->
-  <section id="hero-section" class="relative py-14 sm:py-20 lg:py-24 bg-gradient-to-b from-[#F4EFEA] via-[#FBF9F5] to-white dark:from-[#1A211D] dark:via-[#151C18] dark:to-[#121614] overflow-hidden">
+  <section id="hero-section" class="relative py-16 sm:py-20 lg:py-28 bg-gradient-to-b from-[#F4EFEA] via-[#FBF9F5] to-white dark:from-[#1A211D] dark:via-[#151C18] dark:to-[#121614] overflow-hidden">
     
     <!-- Ambient Background Radial Glows -->
     <div class="absolute top-10 left-10 w-80 h-80 rounded-full bg-[#315C3B]/5 dark:bg-[#315C3B]/10 blur-3xl pointer-events-none"></div>
     <div class="absolute bottom-10 right-10 w-96 h-96 rounded-full bg-[#D6A85F]/10 dark:bg-[#D6A85F]/5 blur-3xl pointer-events-none"></div>
 
-    <!-- Soft Ambient Drifting Produce Silhouettes in Content Background -->
-    <div class="absolute inset-0 pointer-events-none overflow-hidden z-0 select-none">
-      <img src="assets/images/hero/organic_apple.png" alt="" class="ambient-drift-1 absolute top-12 right-24 w-16 h-16 object-contain opacity-20 dark:opacity-15 blur-[1px]">
-      <img src="assets/images/hero/organic_carrots.png" alt="" class="ambient-drift-2 absolute top-1/3 right-1/4 w-20 h-20 object-contain opacity-20 dark:opacity-15 blur-[1px]">
-      <img src="assets/images/hero/organic_tomatoes.png" alt="" class="ambient-drift-3 absolute top-2/3 right-12 w-16 h-16 object-contain opacity-20 dark:opacity-15 blur-[1px]">
-    </div>
-
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
         
-        <!-- Hero Text & Imagination Hook (Left Column) -->
-        <div class="lg:col-span-6 space-y-6 text-center lg:text-left relative z-10">
+        <!-- Hero Text & Imagination Hook (Left Column - positioned with z-20 so fruit glides smoothly below/behind) -->
+        <div class="lg:col-span-6 space-y-6 text-center lg:text-left relative z-20">
           
           <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200/60 dark:border-emerald-800/50 text-[#315C3B] dark:text-[#8FD69E] text-xs font-semibold shadow-sm">
             <span class="w-2 h-2 rounded-full bg-[#315C3B] dark:bg-[#8FD69E] animate-ping"></span>
@@ -333,140 +323,54 @@
 
         </div>
 
-        <!-- 5-Produce Dynamic Showcase (Right Column) -->
-        <div class="lg:col-span-6 relative" id="produce-showcase-container">
+        <!-- Right Column: PURE BORDERLESS TRANSPARENT PNG PRODUCE (NO BORDER, NO CARD, NO TEXT) -->
+        <div class="lg:col-span-6 relative flex items-center justify-center min-h-[360px] sm:min-h-[440px] lg:min-h-[500px]">
           
-          <div class="relative mx-auto max-w-lg lg:max-w-none p-4 sm:p-6 rounded-3xl bg-white/70 dark:bg-[#1A211D]/70 backdrop-blur-xl border border-gray-100/80 dark:border-gray-800/80 shadow-2xl overflow-hidden group">
+          <!-- Soft Organic Ambient Halo Glow Behind Fruit (Zero border, zero box) -->
+          <div class="halo-glow absolute w-72 h-72 sm:w-96 sm:h-96 rounded-full bg-gradient-to-tr from-[#315C3B]/15 via-[#D6A85F]/15 to-transparent blur-3xl pointer-events-none"></div>
+
+          <!-- Main Produce Canvas: Only Pure PNG Images Floating Freely -->
+          <div class="relative w-full h-[340px] sm:h-[420px] flex items-center justify-center">
             
-            <!-- Soft Organic Halo Glow Behind Fruit -->
-            <div id="produce-halo" class="halo-glow absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 sm:w-80 sm:h-80 rounded-full bg-gradient-to-tr from-[#315C3B]/20 via-[#D6A85F]/20 to-transparent blur-3xl pointer-events-none transition-colors duration-700"></div>
+            <!-- 0: Organic Apple -->
+            <img 
+              id="produce-img-0"
+              src="assets/images/hero/organic_apple.png" 
+              alt="Organic Honeycrisp Apple cutout"
+              class="produce-stage-img produce-bob produce-active absolute max-h-[290px] sm:max-h-[360px] lg:max-h-[400px] w-auto object-contain select-none"
+            >
 
-            <!-- Floating Badge 1: Top Right (Dynamically Updated) -->
-            <div id="produce-badge-top" class="hero-float-1 absolute top-4 right-4 bg-white/95 dark:bg-[#222B25]/95 backdrop-blur-md px-3.5 py-2 rounded-2xl shadow-lg border border-emerald-100 dark:border-gray-700 flex items-center gap-2 z-20 transition-all duration-500">
-              <span id="badge-top-icon" class="text-base">🍎</span>
-              <div>
-                <div id="badge-top-title" class="text-xs font-bold text-gray-900 dark:text-white">100% Unwaxed Peel</div>
-                <div id="badge-top-sub" class="text-[10px] text-gray-500 dark:text-gray-400">Breathe natural orchard aroma</div>
-              </div>
-            </div>
+            <!-- 1: Organic Carrots -->
+            <img 
+              id="produce-img-1"
+              src="assets/images/hero/organic_carrots.png" 
+              alt="Organic Heirloom Carrots cutout"
+              class="produce-stage-img produce-bob produce-from-corner absolute max-h-[290px] sm:max-h-[360px] lg:max-h-[400px] w-auto object-contain select-none"
+            >
 
-            <!-- Floating Badge 2: Bottom Left (Nutritional Stat) -->
-            <div id="produce-badge-bottom" class="hero-float-2 absolute bottom-20 left-4 bg-white/95 dark:bg-[#222B25]/95 backdrop-blur-md px-3.5 py-2 rounded-2xl shadow-lg border border-amber-100 dark:border-gray-700 flex items-center gap-2 z-20 transition-all duration-500">
-              <span class="text-sm">✨</span>
-              <div>
-                <div id="badge-bottom-stat" class="text-xs font-bold text-gray-900 dark:text-white">+40% Natural Polyphenols</div>
-                <div id="badge-bottom-sub" class="text-[10px] text-gray-500 dark:text-gray-400">Direct botanical self-defense</div>
-              </div>
-            </div>
+            <!-- 2: Organic Tomatoes -->
+            <img 
+              id="produce-img-2"
+              src="assets/images/hero/organic_tomatoes.png" 
+              alt="Organic Vine Tomatoes cutout"
+              class="produce-stage-img produce-bob produce-from-corner absolute max-h-[290px] sm:max-h-[360px] lg:max-h-[400px] w-auto object-contain select-none"
+            >
 
-            <!-- Main Stage Canvas: Displays the 5 Cutout PNGs with Corner-to-Left Gliding Physics -->
-            <div class="relative w-full h-[320px] sm:h-[390px] flex items-center justify-center overflow-hidden">
-              
-              <!-- Active Produce Image 0 (Apple) -->
-              <img 
-                id="produce-img-0"
-                src="assets/images/hero/organic_apple.png" 
-                alt="Organic Honeycrisp Apple cutout"
-                class="produce-stage-img produce-bob produce-active absolute max-h-[260px] sm:max-h-[310px] w-auto object-contain drop-shadow-[0_20px_30px_rgba(49,92,59,0.25)] select-none"
-              >
+            <!-- 3: Organic Avocado -->
+            <img 
+              id="produce-img-3"
+              src="assets/images/hero/organic_avocado.png" 
+              alt="Organic Hass Avocado cutout"
+              class="produce-stage-img produce-bob produce-from-corner absolute max-h-[290px] sm:max-h-[360px] lg:max-h-[400px] w-auto object-contain select-none"
+            >
 
-              <!-- Active Produce Image 1 (Carrots) -->
-              <img 
-                id="produce-img-1"
-                src="assets/images/hero/organic_carrots.png" 
-                alt="Organic Heirloom Carrots cutout"
-                class="produce-stage-img produce-bob produce-from-corner absolute max-h-[260px] sm:max-h-[310px] w-auto object-contain drop-shadow-[0_20px_30px_rgba(214,168,95,0.25)] select-none"
-              >
-
-              <!-- Active Produce Image 2 (Tomatoes) -->
-              <img 
-                id="produce-img-2"
-                src="assets/images/hero/organic_tomatoes.png" 
-                alt="Organic Vine Tomatoes cutout"
-                class="produce-stage-img produce-bob produce-from-corner absolute max-h-[260px] sm:max-h-[310px] w-auto object-contain drop-shadow-[0_20px_30px_rgba(224,83,56,0.25)] select-none"
-              >
-
-              <!-- Active Produce Image 3 (Avocado) -->
-              <img 
-                id="produce-img-3"
-                src="assets/images/hero/organic_avocado.png" 
-                alt="Organic Hass Avocado cutout"
-                class="produce-stage-img produce-bob produce-from-corner absolute max-h-[260px] sm:max-h-[310px] w-auto object-contain drop-shadow-[0_20px_30px_rgba(75,123,75,0.25)] select-none"
-              >
-
-              <!-- Active Produce Image 4 (Leafy Greens) -->
-              <img 
-                id="produce-img-4"
-                src="assets/images/hero/organic_greens.png" 
-                alt="Organic Spinach and Kale Greens cutout"
-                class="produce-stage-img produce-bob produce-from-corner absolute max-h-[260px] sm:max-h-[310px] w-auto object-contain drop-shadow-[0_20px_30px_rgba(38,99,54,0.25)] select-none"
-              >
-
-            </div>
-
-            <!-- Active Produce Details Card -->
-            <div class="relative z-20 mt-2 p-3 sm:p-4 rounded-2xl bg-gray-50/90 dark:bg-[#121614]/90 border border-gray-100 dark:border-gray-800 flex items-center justify-between gap-3">
-              <div class="space-y-0.5 text-left">
-                <div class="flex items-center gap-2">
-                  <span id="produce-origin" class="text-[10px] uppercase font-bold tracking-wider text-[#D6A85F]">Sonoma Co-op • Batch #401</span>
-                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
-                  <span class="text-[10px] text-emerald-600 dark:text-emerald-400 font-semibold">Fresh Today</span>
-                </div>
-                <div id="produce-name" class="font-heading font-bold text-sm sm:text-base text-gray-900 dark:text-white">
-                  Organic Honeycrisp Apple
-                </div>
-                <p id="produce-desc" class="text-[11px] text-gray-500 dark:text-gray-400 line-clamp-1">
-                  Slow sun-ripened on the tree; bite right into skin with peace of mind.
-                </p>
-              </div>
-
-              <!-- Manual Navigation Arrows -->
-              <div class="flex items-center gap-1.5 flex-shrink-0">
-                <button type="button" id="produce-prev-btn" class="w-8 h-8 rounded-xl bg-white dark:bg-[#1A211D] border border-gray-200 dark:border-gray-700 flex items-center justify-center text-gray-700 dark:text-gray-200 hover:text-[#315C3B] dark:hover:text-[#D6A85F] transition-colors" aria-label="Previous produce">
-                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
-                </button>
-                <button type="button" id="produce-next-btn" class="w-8 h-8 rounded-xl bg-white dark:bg-[#1A211D] border border-gray-200 dark:border-gray-700 flex items-center justify-center text-gray-700 dark:text-gray-200 hover:text-[#315C3B] dark:hover:text-[#D6A85F] transition-colors" aria-label="Next produce">
-                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-                </button>
-              </div>
-            </div>
-
-            <!-- 5 Clickable Produce Selector Pills & Progress Indicator -->
-            <div class="mt-4 pt-3 border-t border-gray-100 dark:border-gray-800 flex items-center justify-between gap-2">
-              <div class="flex items-center gap-1.5 sm:gap-2 overflow-x-auto pb-1 sm:pb-0 w-full justify-between">
-                
-                <button type="button" data-produce-index="0" class="produce-nav-pill flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl text-xs font-semibold bg-[#315C3B] text-white shadow-sm transition-all duration-300">
-                  <span>🍎</span>
-                  <span class="hidden sm:inline">Apple</span>
-                </button>
-
-                <button type="button" data-produce-index="1" class="produce-nav-pill flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl text-xs font-semibold bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition-all duration-300">
-                  <span>🥕</span>
-                  <span class="hidden sm:inline">Carrot</span>
-                </button>
-
-                <button type="button" data-produce-index="2" class="produce-nav-pill flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl text-xs font-semibold bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition-all duration-300">
-                  <span>🍅</span>
-                  <span class="hidden sm:inline">Tomato</span>
-                </button>
-
-                <button type="button" data-produce-index="3" class="produce-nav-pill flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl text-xs font-semibold bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition-all duration-300">
-                  <span>🥑</span>
-                  <span class="hidden sm:inline">Avocado</span>
-                </button>
-
-                <button type="button" data-produce-index="4" class="produce-nav-pill flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl text-xs font-semibold bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition-all duration-300">
-                  <span>🥬</span>
-                  <span class="hidden sm:inline">Greens</span>
-                </button>
-
-              </div>
-            </div>
-
-            <!-- Auto-Play Progress Bar Strip -->
-            <div class="w-full bg-gray-100 dark:bg-gray-800 h-1 rounded-full mt-3 overflow-hidden">
-              <div id="produce-progress-bar" class="h-full bg-gradient-to-r from-[#315C3B] to-[#D6A85F] w-0 transition-all duration-100 ease-linear"></div>
-            </div>
+            <!-- 4: Organic Leafy Greens -->
+            <img 
+              id="produce-img-4"
+              src="assets/images/hero/organic_greens.png" 
+              alt="Organic Spinach and Kale Greens cutout"
+              class="produce-stage-img produce-bob produce-from-corner absolute max-h-[290px] sm:max-h-[360px] lg:max-h-[400px] w-auto object-contain select-none"
+            >
 
           </div>
 
@@ -1503,98 +1407,16 @@
   <!-- PRODUCE HERO CORNER-TO-LEFT SHOWCASE CONTROLLER -->
   <script>
     (function initProduceShowcase() {
-      const produceData = [
-        {
-          name: "Organic Honeycrisp Apple",
-          badgeTopIcon: "🍎",
-          badgeTopTitle: "100% Unwaxed Peel",
-          badgeTopSub: "Breathe natural orchard aroma",
-          badgeBottomStat: "+40% Natural Polyphenols",
-          badgeBottomSub: "Direct botanical self-defense",
-          desc: "Slow sun-ripened on the tree; bite right into skin with peace of mind.",
-          origin: "Sonoma Co-op • Batch #401",
-          halo: "from-[#315C3B]/25 via-[#D6A85F]/20 to-transparent"
-        },
-        {
-          name: "Heirloom Garden Carrots",
-          badgeTopIcon: "🥕",
-          badgeTopTitle: "Living Soil Compost",
-          badgeTopSub: "Fed by earthworms & mycorrhizae",
-          badgeBottomStat: "Deep Trace Minerals",
-          badgeBottomSub: "Bioavailable beta-carotene",
-          desc: "Pulled fresh from damp living soil with leafy green tops; naturally sweet.",
-          origin: "Salinas Valley • Batch #118",
-          halo: "from-[#D6A85F]/30 via-orange-500/15 to-transparent"
-        },
-        {
-          name: "Vine-Ripened Cluster Tomatoes",
-          badgeTopIcon: "🍅",
-          badgeTopTitle: "0.00 ppm Ripening Gas",
-          badgeTopSub: "Sun-ripened on living vines",
-          badgeBottomStat: "High Lycopene Density",
-          badgeBottomSub: "Rich natural sweetness",
-          desc: "Plump, sweet, and juicy; never artificially forced with ethylene gas.",
-          origin: "Ojai Co-op • Batch #289",
-          halo: "from-red-600/20 via-[#D6A85F]/20 to-transparent"
-        },
-        {
-          name: "Creamy Hass Avocado",
-          badgeTopIcon: "🥑",
-          badgeTopTitle: "Clean Healthy Fats",
-          badgeTopSub: "Zero petroleum fertilizers",
-          badgeBottomStat: "Nutrient-Dense Purity",
-          badgeBottomSub: "Cold-pressed grade",
-          desc: "Buttery golden-green flesh nurtured without synthetic systemic sprays.",
-          origin: "Carpinteria Grove • Batch #502",
-          halo: "from-emerald-700/25 via-amber-400/20 to-transparent"
-        },
-        {
-          name: "Crisp Spinach & Curly Kale",
-          badgeTopIcon: "🥬",
-          badgeTopTitle: "Cellular Greens & Iron",
-          badgeTopSub: "0.00 ppm Toxic Residue",
-          badgeBottomStat: "Zero Neurotoxin Sprays",
-          badgeBottomSub: "Safe for smoothies & salads",
-          desc: "Vibrant, tender leaves safe for raw juicing and baby purées.",
-          origin: "Santa Cruz Organics • Batch #334",
-          halo: "from-emerald-600/30 via-[#315C3B]/20 to-transparent"
-        }
-      ];
-
+      const TOTAL_PRODUCE = 5;
       let currentIndex = 0;
       let isTransitioning = false;
-      let timer = null;
-      let progressTimer = null;
-      const INTERVAL = 3800; // 3.8s per produce item
-      let startTime = Date.now();
+      const INTERVAL = 3600; // 3.6s per produce item
 
-      const nameEl = document.getElementById('produce-name');
-      const descEl = document.getElementById('produce-desc');
-      const originEl = document.getElementById('produce-origin');
-      const badgeTopIcon = document.getElementById('badge-top-icon');
-      const badgeTopTitle = document.getElementById('badge-top-title');
-      const badgeTopSub = document.getElementById('badge-top-sub');
-      const badgeBottomStat = document.getElementById('badge-bottom-stat');
-      const badgeBottomSub = document.getElementById('badge-bottom-sub');
-      const haloEl = document.getElementById('produce-halo');
-      const progressBar = document.getElementById('produce-progress-bar');
-      const navPills = document.querySelectorAll('.produce-nav-pill');
-      const container = document.getElementById('produce-showcase-container');
-
-      function updatePillStyles(activeIdx) {
-        navPills.forEach((pill, idx) => {
-          if (idx === activeIdx) {
-            pill.className = "produce-nav-pill flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl text-xs font-semibold bg-[#315C3B] text-white shadow-sm transition-all duration-300 scale-105";
-          } else {
-            pill.className = "produce-nav-pill flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl text-xs font-semibold bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition-all duration-300";
-          }
-        });
-      }
-
-      function transitionTo(nextIndex) {
-        if (isTransitioning || nextIndex === currentIndex) return;
+      function transitionToNext() {
+        if (isTransitioning) return;
         isTransitioning = true;
 
+        const nextIndex = (currentIndex + 1) % TOTAL_PRODUCE;
         const currentImg = document.getElementById('produce-img-' + currentIndex);
         const nextImg = document.getElementById('produce-img-' + nextIndex);
 
@@ -1603,15 +1425,15 @@
           return;
         }
 
-        // 1. OUTGOING: Exit smoothly toward Left-Side Content Background
+        // 1. Current active image glides smoothly toward the left side below/behind content
         currentImg.classList.remove('produce-active', 'produce-from-corner');
         currentImg.classList.add('produce-to-left');
 
-        // 2. INCOMING: Prepared at Right-Side Top Corner
+        // 2. Next image starts positioned at the right-side top corner
         nextImg.classList.remove('produce-active', 'produce-to-left');
         nextImg.classList.add('produce-from-corner');
 
-        // Trigger reflow then transition smoothly to active center
+        // 3. In the next frame, next image glides smoothly into the active center
         requestAnimationFrame(() => {
           requestAnimationFrame(() => {
             nextImg.classList.remove('produce-from-corner');
@@ -1619,98 +1441,16 @@
           });
         });
 
-        // 3. UPDATE METADATA & BADGES
-        const data = produceData[nextIndex];
-        if (nameEl) nameEl.textContent = data.name;
-        if (descEl) descEl.textContent = data.desc;
-        if (originEl) originEl.textContent = data.origin;
-        if (badgeTopIcon) badgeTopIcon.textContent = data.badgeTopIcon;
-        if (badgeTopTitle) badgeTopTitle.textContent = data.badgeTopTitle;
-        if (badgeTopSub) badgeTopSub.textContent = data.badgeTopSub;
-        if (badgeBottomStat) badgeBottomStat.textContent = data.badgeBottomStat;
-        if (badgeBottomSub) badgeBottomSub.textContent = data.badgeBottomSub;
-
-        updatePillStyles(nextIndex);
-
-        // Reset outgoing element after transition completes
+        // 4. After transition finishes (1.25s), reset the outgoing image silently back to corner
         setTimeout(() => {
           currentImg.classList.remove('produce-to-left');
           currentImg.classList.add('produce-from-corner');
           currentIndex = nextIndex;
           isTransitioning = false;
-        }, 950);
-
-        resetProgress();
+        }, 1250);
       }
 
-      function nextProduce() {
-        const next = (currentIndex + 1) % produceData.length;
-        transitionTo(next);
-      }
-
-      function prevProduce() {
-        const prev = (currentIndex - 1 + produceData.length) % produceData.length;
-        transitionTo(prev);
-      }
-
-      function resetProgress() {
-        startTime = Date.now();
-        if (progressBar) progressBar.style.width = '0%';
-      }
-
-      function startAutoPlay() {
-        stopAutoPlay();
-        resetProgress();
-        timer = setInterval(nextProduce, INTERVAL);
-        progressTimer = setInterval(() => {
-          if (!progressBar) return;
-          const elapsed = Date.now() - startTime;
-          const pct = Math.min(100, (elapsed / INTERVAL) * 100);
-          progressBar.style.width = pct + '%';
-        }, 50);
-      }
-
-      function stopAutoPlay() {
-        if (timer) clearInterval(timer);
-        if (progressTimer) clearInterval(progressTimer);
-        timer = null;
-        progressTimer = null;
-      }
-
-      // Wire Navigation Pills
-      navPills.forEach(pill => {
-        pill.addEventListener('click', (e) => {
-          const idx = parseInt(pill.getAttribute('data-produce-index'), 10);
-          transitionTo(idx);
-          startAutoPlay();
-        });
-      });
-
-      // Wire Prev/Next Buttons
-      const prevBtn = document.getElementById('produce-prev-btn');
-      const nextBtn = document.getElementById('produce-next-btn');
-      if (prevBtn) {
-        prevBtn.addEventListener('click', () => {
-          prevProduce();
-          startAutoPlay();
-        });
-      }
-      if (nextBtn) {
-        nextBtn.addEventListener('click', () => {
-          nextProduce();
-          startAutoPlay();
-        });
-      }
-
-      // Pause on Hover
-      if (container) {
-        container.addEventListener('mouseenter', stopAutoPlay);
-        container.addEventListener('mouseleave', startAutoPlay);
-      }
-
-      // Initialize
-      updatePillStyles(0);
-      startAutoPlay();
+      setInterval(transitionToNext, INTERVAL);
     })();
   </script>
 </body>
