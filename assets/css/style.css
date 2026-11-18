@@ -554,3 +554,210 @@ html.dark .cart-plus-one {
   transform: scale(0.92) !important;
   transition: transform 0.12s ease !important;
 }
+
+/* ==========================================================================
+   SMOOTH SCROLL ANIMATIONS SYSTEM (GREENHARVEST REVEAL ENGINE)
+   ========================================================================== */
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Base Reveal Defaults */
+.reveal,
+.reveal-up,
+.reveal-down,
+.reveal-left,
+.reveal-right,
+.reveal-zoom,
+.reveal-fade {
+  opacity: 0;
+  will-change: opacity, transform;
+  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Directional starting offsets */
+.reveal,
+.reveal-up {
+  transform: translateY(32px);
+}
+
+.reveal-down {
+  transform: translateY(-32px);
+}
+
+.reveal-left {
+  transform: translateX(-36px);
+}
+
+.reveal-right {
+  transform: translateX(36px);
+}
+
+.reveal-zoom {
+  transform: scale(0.92);
+}
+
+.reveal-fade {
+  transform: none;
+}
+
+/* Active / Revealed State */
+.reveal.is-revealed,
+.reveal-up.is-revealed,
+.reveal-down.is-revealed,
+.reveal-left.is-revealed,
+.reveal-right.is-revealed,
+.reveal-zoom.is-revealed,
+.reveal-fade.is-revealed,
+.is-revealed {
+  opacity: 1 !important;
+  transform: translate(0, 0) scale(1) !important;
+}
+
+/* Once transition finishes, release will-change for crisp subpixel text */
+.reveal-done {
+  will-change: auto !important;
+}
+
+/* Stagger container children */
+.reveal-stagger > * {
+  opacity: 0;
+  transform: translateY(28px);
+  will-change: opacity, transform;
+  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: calc(var(--stagger-i, 0) * 85ms);
+}
+
+.reveal-stagger.is-revealed > *,
+.reveal-stagger > *.is-revealed {
+  opacity: 1 !important;
+  transform: translateY(0) scale(1) !important;
+}
+
+.reveal-stagger.reveal-done > *,
+.reveal-stagger > *.reveal-done {
+  will-change: auto !important;
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 767px) {
+  .reveal,
+  .reveal-up {
+    transform: translateY(18px);
+  }
+  .reveal-down {
+    transform: translateY(-18px);
+  }
+  .reveal-left {
+    transform: translateX(-16px);
+  }
+  .reveal-right {
+    transform: translateX(16px);
+  }
+  .reveal-zoom {
+    transform: scale(0.95);
+  }
+  .reveal-stagger > * {
+    transform: translateY(16px);
+    transition-delay: calc(var(--stagger-i, 0) * 50ms);
+  }
+}
+
+/* Accessibility: Respect Reduced Motion Preference */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .reveal,
+  .reveal-up,
+  .reveal-down,
+  .reveal-left,
+  .reveal-right,
+  .reveal-zoom,
+  .reveal-fade,
+  .reveal-stagger > * {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+/* Top Scroll Reading Progress Bar */
+#scroll-progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 0%;
+  background: linear-gradient(90deg, #315C3B 0%, #D6A85F 55%, #8FD69E 100%);
+  z-index: 99999;
+  pointer-events: none;
+  transition: width 0.08s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 1px 8px rgba(49, 92, 59, 0.4);
+}
+
+/* Smooth Floating Back to Top Button */
+#back-to-top-btn {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 44px;
+  height: 44px;
+  border-radius: 9999px;
+  background-color: #315C3B;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 25px -5px rgba(49, 92, 59, 0.4), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  border: 1.5px solid rgba(214, 168, 95, 0.6);
+  cursor: pointer;
+  z-index: 45;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(16px) scale(0.85);
+  transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              background-color 0.2s ease,
+              visibility 0.3s;
+}
+
+#back-to-top-btn.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+}
+
+#back-to-top-btn:hover {
+  background-color: #23442B;
+  border-color: #D6A85F;
+  transform: translateY(-3px) scale(1.06);
+  box-shadow: 0 14px 28px -4px rgba(49, 92, 59, 0.5);
+}
+
+#back-to-top-btn:active {
+  transform: translateY(0) scale(0.95);
+}
+
+#back-to-top-btn svg {
+  width: 20px;
+  height: 20px;
+  transition: transform 0.2s ease;
+}
+
+#back-to-top-btn:hover svg {
+  transform: translateY(-2px);
+}
+
+@media (max-width: 640px) {
+  #back-to-top-btn {
+    bottom: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+  }
+}
+

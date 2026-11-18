@@ -266,6 +266,276 @@ function handleNewsletterSubmit(event) {
   }
 }
 
+// 8. SCROLL READING PROGRESS BAR
+function initScrollProgressBar() {
+  if (document.getElementById("scroll-progress-bar")) return;
+
+  const bar = document.createElement("div");
+  bar.id = "scroll-progress-bar";
+  bar.setAttribute("aria-hidden", "true");
+  document.body.appendChild(bar);
+
+  let ticking = false;
+  function updateProgress() {
+    const scrollY = window.scrollY || window.pageYOffset;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = docHeight > 0 ? (scrollY / docHeight) * 100 : 0;
+    bar.style.width = Math.min(100, Math.max(0, progress)) + "%";
+    ticking = false;
+  }
+
+  window.addEventListener("scroll", () => {
+    if (!ticking) {
+      window.requestAnimationFrame(updateProgress);
+      ticking = true;
+    }
+  }, { passive: true });
+
+  updateProgress();
+}
+
+// 9. FLOATING BACK TO TOP BUTTON
+function initBackToTopButton() {
+  if (document.getElementById("back-to-top-btn")) return;
+
+  const btn = document.createElement("button");
+  btn.id = "back-to-top-btn";
+  btn.setAttribute("aria-label", "Back to top");
+  btn.setAttribute("title", "Back to top");
+  btn.innerHTML = `
+    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 15l7-7 7 7"/>
+    </svg>
+  `;
+  document.body.appendChild(btn);
+
+  let ticking = false;
+  function toggleButton() {
+    const scrollY = window.scrollY || window.pageYOffset;
+    if (scrollY > 320) {
+      btn.classList.add("visible");
+    } else {
+      btn.classList.remove("visible");
+    }
+    ticking = false;
+  }
+
+  window.addEventListener("scroll", () => {
+    if (!ticking) {
+      window.requestAnimationFrame(toggleButton);
+      ticking = true;
+    }
+  }, { passive: true });
+
+  btn.addEventListener("click", () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  });
+
+  toggleButton();
+}
+
+// 10. DYNAMIC NUMBER COUNTERS ON SCROLL
+function animateCounter(el) {
+  if (el.dataset.counterAnimated === "true") return;
+  el.dataset.counterAnimated = "true";
+
+  const rawText = el.getAttribute("data-counter") || el.textContent.trim();
+  const match = rawText.match(/^([^\d]*)([\d,]+(?:\.\d+)?)(.*)$/);
+  if (!match) return;
+
+  const prefix = match[1] || "";
+  const numStr = match[2].replace(/,/g, "");
+  const suffix = match[3] || "";
+  const isFloat = numStr.includes(".");
+  const targetVal = parseFloat(numStr);
+  const hasComma = match[2].includes(",");
+  const decimals = isFloat ? numStr.split(".")[1].length : 0;
+
+  if (isNaN(targetVal) || targetVal === 0) return;
+
+  const duration = 1400; // ms
+  const startTime = performance.now();
+
+  function formatNum(val) {
+    let str = isFloat ? val.toFixed(decimals) : Math.round(val).toString();
+    if (hasComma) {
+      const parts = str.split(".");
+      parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+      str = parts.join(".");
+    }
+    return prefix + str + suffix;
+  }
+
+  function tick(now) {
+    const elapsed = now - startTime;
+    const progress = Math.min(1, elapsed / duration);
+    // Cubic ease-out: 1 - (1 - progress)^3
+    const ease = 1 - Math.pow(1 - progress, 3);
+    const current = targetVal * ease;
+
+    el.textContent = formatNum(current);
+
+    if (progress < 1) {
+      requestAnimationFrame(tick);
+    } else {
+      el.textContent = rawText; // restore exact original formatted string
+    }
+  }
+
+  requestAnimationFrame(tick);
+}
+
+function triggerCountersIn(container) {
+  const counterEls = container.querySelectorAll("[data-counter]");
+  counterEls.forEach(el => animateCounter(el));
+
+  if (container.hasAttribute("data-counter")) {
+    animateCounter(container);
+  }
+}
+
+// 11. GLOBAL SCROLL REVEAL ENGINE
+function initScrollReveal() {
+  const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  // Auto-discover and enrich sections & card grids across any page
+  const sections = Array.from(document.querySelectorAll("section, main > div, footer"));
+  sections.forEach((sec, idx) => {
+    // Skip exclusions
+    if (
+      sec.closest("header") ||
+      sec.closest("#mobile-menu-drawer") ||
+      sec.closest("#traveling-produce-actor") ||
+      sec.id === "traveling-produce-actor" ||
+      sec.classList.contains("no-reveal")
+    ) {
+      return;
+    }
+
+    // Skip the first hero section if at top of page, reveal it immediately
+    const rect = sec.getBoundingClientRect();
+    const isHero = idx === 0 || sec.id === "hero" || sec.id === "why-organic-hero" || rect.top < 150;
+
+    if (!sec.classList.contains("reveal") &&
+        !sec.classList.contains("reveal-up") &&
+        !sec.classList.contains("reveal-left") &&
+        !sec.classList.contains("reveal-right") &&
+        !sec.classList.contains("reveal-zoom") &&
+        !sec.classList.contains("reveal-fade")) {
+      if (!isHero) {
+        sec.classList.add("reveal-up");
+      }
+    }
+
+    // Stagger child grids if present
+    const grids = sec.querySelectorAll(".grid, .reveal-stagger");
+    grids.forEach(grid => {
+      if (grid.closest("header") || grid.closest("#mobile-menu-drawer")) return;
+      if (!grid.classList.contains("reveal-stagger") && grid.children.length >= 2) {
+        grid.classList.add("reveal-stagger");
+      }
+      Array.from(grid.children).forEach((child, i) => {
+        child.style.setProperty("--stagger-i", i);
+      });
+    });
+  });
+
+  // Query all reveal elements
+  const revealElements = Array.from(document.querySelectorAll(
+    ".reveal, .reveal-up, .reveal-down, .reveal-left, .reveal-right, .reveal-zoom, .reveal-fade, .reveal-stagger, [data-reveal]"
+  ));
+
+  if (revealElements.length === 0) return;
+
+  if (prefersReduced) {
+    revealElements.forEach(el => {
+      el.classList.add("is-revealed", "reveal-done");
+      triggerCountersIn(el);
+    });
+    return;
+  }
+
+  // Pre-reveal elements already visible in viewport on page load
+  const windowHeight = window.innerHeight;
+  const toObserve = [];
+
+  revealElements.forEach(el => {
+    // If element or an ancestor is excluded
+    if (el.closest("header") || el.closest("#traveling-produce-actor")) {
+      el.classList.add("is-revealed", "reveal-done");
+      return;
+    }
+
+    const rect = el.getBoundingClientRect();
+    if (rect.top < windowHeight * 0.95 && rect.bottom > 0) {
+      el.classList.add("is-revealed");
+      if (el.classList.contains("reveal-stagger")) {
+        Array.from(el.children).forEach((c, idx) => {
+          c.style.setProperty("--stagger-i", idx);
+          c.classList.add("is-revealed");
+        });
+      }
+      triggerCountersIn(el);
+      setTimeout(() => {
+        el.classList.add("reveal-done");
+        if (el.classList.contains("reveal-stagger")) {
+          Array.from(el.children).forEach(c => c.classList.add("reveal-done"));
+        }
+      }, 750);
+    } else {
+      toObserve.push(el);
+    }
+  });
+
+  if (!("IntersectionObserver" in window)) {
+    toObserve.forEach(el => el.classList.add("is-revealed", "reveal-done"));
+    return;
+  }
+
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const el = entry.target;
+        el.classList.add("is-revealed");
+
+        if (el.classList.contains("reveal-stagger")) {
+          Array.from(el.children).forEach((c, idx) => {
+            c.style.setProperty("--stagger-i", idx);
+            c.classList.add("is-revealed");
+          });
+        }
+
+        triggerCountersIn(el);
+
+        setTimeout(() => {
+          el.classList.add("reveal-done");
+          if (el.classList.contains("reveal-stagger")) {
+            Array.from(el.children).forEach(c => c.classList.add("reveal-done"));
+          }
+        }, 850);
+
+        obs.unobserve(el);
+      }
+    });
+  }, {
+    root: null,
+    rootMargin: "0px 0px -50px 0px",
+    threshold: 0.08
+  });
+
+  toObserve.forEach(el => observer.observe(el));
+}
+
+// 12. INITIALIZE ALL SCROLL ENHANCEMENTS
+function initAllScrollAnimations() {
+  initScrollProgressBar();
+  initBackToTopButton();
+  initScrollReveal();
+}
+
 // Initialize on DOM Ready
 document.addEventListener("DOMContentLoaded", () => {
   initTheme();
@@ -273,6 +543,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initMobileNav();
   initSearchModal();
   initStickyHeader();
+  initAllScrollAnimations();
 
   if (window.lucide) {
     try {
